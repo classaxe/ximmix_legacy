@@ -1,0 +1,15 @@
+  1.0.5 (2013-09-28)
+    1) Bug fix for Chasepaymentech_Gateway::notify() -
+       one of the log statements was missing an argument
+  1.0.4 (2012-04-02)
+    1) Tweak to Chasepaymentech_Gateway::payment() to prevent extra / in
+       x_receipt_link_url
+  1.0.3 (2012-01-31)
+    1) Removed hard-coded site name left in error in Chasepaymentech_Gateway::payment()
+  1.0.2 (2012-01-16)
+    1) Completed IPN checks to make order correct
+  1.0.1 (2012-01-14)
+    1) Now reads gateway settings for gateway URL
+    2) Worked on IPN
+  1.0.0 (2012-01-12)
+    1) Initial release

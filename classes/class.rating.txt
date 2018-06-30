@@ -1,0 +1,13 @@
+  1.0.4 (2012-10-07)
+    1) Tweak to anchor around each star to use onclick rather than malformed
+       href to prevent link activation
+  1.0.3 (2012-10-02)
+    1) Rating::submit() now uses $this->get_field('ratings_allow') safely -
+       Page::get_field() formerly had a different signature to other classes
+       but no longer does so.
+  1.0.2 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.1 (2010-09-14)
+    1) Rating::draw() no longer formats display of rated date on tooltip
+  1.0.0 (2009-07-02)
+    Initial release

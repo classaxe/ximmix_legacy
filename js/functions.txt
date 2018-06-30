@@ -1,0 +1,1109 @@
+  1.0.266 (2014-11-27)
+    1) Changes to video switcher code to prevent related videos showing afterwards
+  1.0.265 (2014-11-16)
+    1) Added customise_colours() function to provide dialog for choosing colours
+  1.0.264 (2014-07-20)
+    1) Function addEvent() now returns gracefully if called without a valid object
+       and writes origin of error to developer console in IE
+  1.0.263 (2014-03-26)
+    1) popup_map_general() now includes quality field, used to draw match quality
+       ring round selected point
+  1.0.262 (2014-02-11)
+    1) Bug fix for error message display in sajax object
+    2) Added sajax.lookup_toggle() to reduce code for expand / contract results
+  1.0.261 (2014-02-06)
+    1) Now includes js code to replace sajax system
+    2) ajax_lookup_display() now sajax.display_report() and handles hiding of
+       ajax 'wait' animation, allowing for a code reduction in the inline handlers
+    3) All legacy regferences to $J now simply $ since prototypejs is gone
+  1.0.260 (2014-01-29)
+    1) History now in functions.txt, not functions_changelog.txt as before
+  1.0.259 (2014-01-28)
+    1) New function setupSwatches()
+  1.0.258 (2014-01-24)
+    1) Renamed community_member_embed() to community_embed() and modified to
+       allow presetting of inputs on entry and to move inline CSS to css include
+  1.0.257 (2014-01-18)
+    1) ecc_map.point() now accepts additional parameters for HTML and showinfo
+       to reduce number of calls required to setup a map point
+  1.0.256 (2014-01-17)
+    1) ecc_map_point functions now arranged in a namespace:
+         ecc_map_point() -> ecc_map.point()
+         ecc_map_point_c() -> ecc_map.point.c() (click)
+    2) Added more ecc_map function for handling drag, reset and save:
+         ecc_map.point.d() (drag)
+         ecc_map.point.i() (info window)
+         ecc_map.point.m() (memorize)
+         ecc_map.point.r() (reset)
+         ecc_map.point.s() (save)
+  1.0.255 (2014-01-17)
+    1) Shortcut function ecc_map_point() to reduce html for google map points
+    2) Shortcut function ecc_map_point_c() to reduce html for google map points
+  1.0.254 (2013-12-05)
+    1) New function ajax_lookup_display() used with ajax lookup and fixed for
+       IE10 bug
+  1.0.253 (2013-11-28)
+    1) Implemented setting of radio groups by means of geid_set() and JQuery
+  1.0.252 (2013-11-02)
+    1) New function get_tallest_child() returns max height of immediate descendents
+       for a container element regardless of whether those children are hidden
+    2) New function show_section_tab() which is very like show_section() except
+       works with visible but absolutely positioned containers parked offstage
+    3) New function setOnStage() which acts like setDisplay() but with absolutely
+       positioned elements parked offstage;
+    4) show_section_onhashchange_setup() now uses show_section_tab() instead of
+       show_section()
+  1.0.251 (2013-09-25)
+    1) attach_field_behaviour() for type 'listdata_value' now allows override of
+       URL safe modifier if checkbox associated with field is disabled
+    2) keytest() now prevents brackets in types 'listdata_value' and 'posting_name'
+       unless 'Path Safe' is unchecked
+  1.0.250 (2013-08-07)
+    1) Tweak to div_toggle() to prevent errors if named div is not present
+  1.0.249 (2013-02-04)
+    1) Bug fix for filter dragging to use JQuery selectors to handle style change
+       to signify AJAX update process - much simpler!
+  1.0.248 (2013-01-28)
+    1) Video chooser code upgraded following move to JQuery over Prototype JS
+  1.0.247 (2013-01-14)
+    1) cal_goto() GREATLY simplified and now handles '0' for setting today's date
+    2) Removed calendar_large_set() - cal_goto() is used now
+    3) Removed calendar_large_setup_button()
+    4) Renamed calendar_large_click() to cal_list()
+    5) Renamed calendar_large_setup() to cal_setup()
+    6) Enhanced community_member_embed() and community_member_embed_code() to
+       include calendar support
+  1.0.246 (2013-01-04)
+    1) Bug fixes to popup_layer_submit() to allow for correct combining of
+       function supplied and form derived post variables
+  1.0.245 (2013-01-02)
+    1) Replaced remaining native AJAX code with JQuery code for better cross-platform
+       support
+    2) Now we're using JQuery, and since that already urlencodes strings, removed
+       manual encoding of posted data
+  1.0.244 (2012-12-24)
+    1) Changes to replace prototypeJS with JQuery for these functions and objects:
+         Ajax, Element, $(), $$()
+         .cumulativeOffset(), .cumulativeScrollOffset(), .getHeight(), .getWidth()
+       Changes to the following:
+         1) centerPopWin()
+         2) applets_hide()
+         3) cal_events.draw()
+         4) cal_events.display()
+         5) gallery_album_image_mouseover()
+         6) gallery_album_image_mouseout()
+         7) challenge_password.submit()
+         8) gallery_album_slideshow_loader()
+         9) initialise_constraints()
+        10) popup_layer()
+        11) popup_layer_submit()
+        12) cssAddJsonStyle()
+        13) flowplayer_video()
+        14) popup_map_general_maximize()
+    2) hhmm_format() now handles time lacking the colon without error - e.g.
+       '12:00' works the same way as '12'
+    3) Added function JQ_cumulativeScrollOffset() to perform task missing from lib
+  1.0.243 (2012-12-24)
+    1) gallery_album_image_mouseover() now uses h2 for hover image heading
+       and sets width of container to width of image
+    2) image_rotator.set_image() now uses h2 headings for image display
+  1.0.242 (2012-12-08)
+    1) Completed implementation of language_choser()
+    2) New function get_flag_sprite_x()
+  1.0.241 (2012-11-21)
+    1) attach_field_behaviour() for type 'posting_name' when field is 'itemCode'
+       no longer converts value to all lowercase
+  1.0.240 (2012-11-03)
+    1) image_rotator.setup_cm() now sets enabled flag
+    2) image_rotator
+  1.0.239 (2012-11-01)
+    1) gallery_album_image_mouseout() now uses jquery for element selection
+    2) Now gallery_album_image_mouseover() calls gallery_album_image_mouseout()
+       before attempting to show any image so we don't end up with a leftover
+       stack of images if a drag / sort operation prevents images removal
+  1.0.238 (2012-10-26)
+    1) Now adds reference to $J as external reference for jslint
+    2) Changes to nav_setup() and nav_setup_sortable() to use jquery and jqueryui
+    3) Changes to report_filter_setup_dragable() and report_filter_setup_ondrag()
+       to use jquery and jqueryui
+    4) showPopWin() dragable functionality now provided by jquery
+    5) status_message_show() effect animation now provided by jqueryui
+    6) list_folder_expander() now uses slideDown() and slideUp() from jquery
+  1.0.237 (2012-10-25)
+    1) show_section_onhashchange_setup() no longer passes a 'default' value
+       since if the changed hash is NOT in the list of valid values it shouldn't
+       make the change
+    2) show_section() no longer operates if default isn't given and the required
+       section doesn't exist
+  1.0.236 (2012-10-13)
+    1) Code produced by community_member_embed_code() now includes bible version
+  1.0.235 (2012-10-13)
+    1) Code produced by community_member_embed_code() now includes limits
+  1.0.234 (2012-10-11)
+    1) Code produced by community_member_embed_code() now includes JQuery library
+  1.0.233 (2012-10-10)
+    1) Code produced by community_member_embed_code() now includes css formatting
+  1.0.232 (2012-10-07)
+    1) Change to attach_field_behaviour() (aliased as afb()) for case 'posting_name'
+       to replace any full quotes in field source (normally title) with apostrophes
+       to prevent JS errors with context menu editing of posted items.
+  1.0.231 (2012-09-28)
+    1) Function externalLinks() ow also converts anchors with classname 'iframe'
+       into iframes to enable embedded HTML5 youtube players to pass XHTML strict
+    2) Function video_setup() no longer attaches '?wmode=transparent' to URL -
+       this is now handled in a modified URL generated by Block_Layout::BL_link()
+       which also implements 'autostart=1' when a new video is chosen
+  1.0.230 (2012-09-27)
+    1) Tweak to image_rotator to add in new method clear_width_and_height() that
+       removes width and height attrribute placed on initial image and image mask
+       for SEO compliance purposes,but which mexsses up images if their aspect
+       ratios differ
+  1.0.229 (2012-07-27)
+    1) show_section() now selects default value if given where it failed to match
+       selected section
+    2) New function show_section_onhashchange_setup() for setting up hash change
+       listener to change selected sections when hash change is detected
+  1.1.228 (2012-05-30)
+    1) Tweak to hhmm_format() for times between noon and 1pm to correct hour shown
+  1.1.227 (2012-05-06)
+    1) Added popup_map_general_maximize() to keep nav and map at maximum size when
+       window size is changed
+  1.1.226 (2012-05-03)
+    1) popup_map_general() change to NOT URL encode ampersands (was causing issue for FF)
+  1.1.225 (2012-04-21)
+    1) popup_map_general() now passes width and height parameters to display URL
+  1.1.224 (2012-04-16)
+    1) Added popup_map_general()
+  1.1.223 (2012-04-05)
+    1) Fix for version numbers in changelog - was showing 1.0.x instead of 1.1.x
+  1.1.222 (2012-04-02)
+    1) Tweak to customform_draw_fees_overview() to float container right for better
+       overall formatting presentation
+  1.1.221 (2012-03-28)
+    1) Fix to ajax_post() to prevent error 'c00c023f' and also (I think) the
+       occasional issue with filters not loading properly in reports for IE
+       Ref: http://stackoverflow.com/questions/7287706/ie-9-javascript-error-c00c023f
+  1.1.220 (2012-03-20)
+    1) Tweak to hidePopWin() to have this clear out popup body to prevent JS
+       errors when reopening the same popup where content is already present
+  1.1.219 (2012-03-15)
+    1) Added challenge_password() function
+  1.1.218 (2012-02-27)
+    1) Changed date headings in calendar to two letters instead of one
+  1.1.217 (2012-02-04)
+    1) Function video_setup() no longer dynamically modifies youtube path -
+       SQL build should have these all fixed now
+  1.1.216 (2012-02-03)
+    1) Changes to video_setup() to work with html5 embed mode
+  1.1.215 (2011-12-16)
+    1) Type 'percent' now allows negative values to let this work with discounts
+       as well as surcharges
+  1.1.214 (2011-12-15)
+    1) Tweak to behaviour for cart buttons in new skinned mode
+  1.1.213 (2011-12-14)
+    1) Added code for handling 'cart' in keytest() and attach_field_behaviour()
+  1.1.212 (2011-11-18)
+    1) Changes to video_setup() to work properly with IE8 and below where
+       innerHTML mangles retrieved object code
+  1.1.211 (2011-11-17)
+    1) Added video_setup() to switch source for youtube videos within a named div
+  1.1.210 (2011-11-17)
+    1) image_rotator() now accepts parameter to determine whether a cover image
+       was specified - if so that image doesn't have caption shown for it
+  1.1.209 (2011-11-07)
+    1) Tweak to attach_field_behaviour() for case effective_time_end to only set
+       end time to start time IF end time was given AND was less than start time
+       for a single-day event
+    2) Change to attach_field_behaviour() for case 'effective_time_start' to NOT
+       automatically set end time to start time -
+       we may not know end time and it will almost NEVER be same as end time,
+       unless it's a single point in time we are marking like new year midnight
+  1.1.208 (2011-11-04)
+    1) Fix for dropdown_range_field() to set correct value if given
+    2) Added optional 'onchange' parameter to dropdown_range_field()
+  1.1.207 (2011-10-30)
+    1) Added dropdown_range_field() to convert form fields to dropdown range fields
+  1.1.206 (2011-10-27)
+    1) Function cal_events.prototype.display() now sets both effective_date_start
+       and effective_date_end
+    2) Added onfocus and onblur handlers in attach_field_behaviour() to have
+       effective_date_end follow effective_date_start when effective_date_start
+       is changed either by typing, pasting or setting by tcal control
+    3) Tweak to tcal.prototype.f_hide() to have it focus and blur input field to
+       fire handlers described in previous point
+  1.1.205 (2011-10-21)
+    1) Added new function hhmm_format() which formats time using system settings
+    2) Added new function print_zone() which prints out content in ID of container
+       passed to it
+    3) Changes to calendar_large_set() to ensure that correct path is always set
+    4) cal_events() - removed unused second parameter
+    5) cal_events.prototype.display_times() now always shows '(All day) for
+       all-day events, regardless of default time format setting
+  1.1.204 (2011-10-20)
+    1) Changes to calendar_tooltip_fn() to have it show number of events on each
+       day, derived from an array of entries per day
+    2) calendar_status_fn() now returns 'cal_has_event' or 'cal_has_events' if
+       there are multiple events on a date
+    3) Changes to tcal class to cache-bust old calendar icon
+       (now replaced with a sweet dropdown indicator)
+  1.1.203 (2011-10-19)
+    1) Changes to cal_events.prototype.display() to reference `effective_date_start`
+  1.1.202 (2011-10-18)
+    1) Function gallery_album_image_mouseover() now keeps image at top of window
+  1.1.201 (2011-10-13)
+    1) Function image_rotator.prototype.setup_cm() now sets _CM.ID not _CM_ID[0]
+    2) Function report_filter_setup_onmouseover() now sets _CM.ID not _CM_ID[0]
+  1.1.200 (2011-09-27)
+    1) Function community_member_embed_code() now uses path relative to base path
+       of ecc source when requesting resources - makes embed code smaller
+  1.1.199 (2011-09-25)
+    1) Added autocomplete_off() - finds input with a classname of 'autocomplete_off'
+       and sets the non-xhtml-strict attribute for us.
+  1.1.198 (2011-09-24)
+    1) Changes to SDMenu to remove support for 'memorize' with cookies, and
+       to work with list-based tree, and to allow for configuration of speed and
+       'one only' submenu enforecement
+  1.1.197 (2011-09-21)
+    1) Removed all support for 'main image' in gallery system
+  1.1.196 (2011-09-19)
+    1) Tweak to new tcal calendar to provide for 'Clear' value
+  1.1.195 (2011-09-18)
+    1) attach_field_behaviour() for 'date' and 'datetime' now uses tigra calendar
+    2) show_section() now hides any active tcal calendars
+  1.1.194 (2011-09-15)
+    1) Changes to payment_method_change() to not cause error if card fields are
+       not shown (e.g. when there are no methods that could require them)
+  1.1.193 (2011-09-12)
+    1) Fix for image path for any server in tcal calendar support
+  1.1.192 (2011-09-12)
+    1) Added native support for tigra calendar but without background shadow
+  1.1.191 (2011-09-03)
+    1) Functions filterbar_go_onclick() and filterbar_clear_onclick() now take
+       ajax_mode parameter for mode preservation when used in Community Dashboard
+  1.1.190 (2011-08-30)
+    1) Function community_member_embed_code() now provides full URL
+  1.1.189 (2011-08-30)
+    1) Added functions community_member_embed() and community_member_embed_code()
+  1.1.188 (2011-08-11)
+    1) Removed references to eventID field in ajax_post(), popWin_post()
+  1.1.187 (2011-08-04)
+    1) Changes to view_event_registrants() to propagate selectID not eventID
+       and access report directly instead of an all-system page
+  1.1.186 (2011-08-02)
+    1) Tweak to attach_field_behaviour() for type 'posting_name' to use
+       title as source if available, but to try new_title if not -
+       used for cloning a page in an in-page editing mode
+  1.1.185 (2011-07-31)
+    1) Removed external reference declaration for fck_verson
+  1.1.184 (2011-07-06)
+    1) Removal of a js debug message
+  1.1.183 (2011-07-06)
+    1) Added gallery_album_image_mouseover() and gallery_album_image_mouseout()
+    2) Deleted getViewportHeight() and getViewportWidth() -
+       now uses prototypejs document.viewport.getHeight() and getWidth()
+    3) Deleted getScrollTop() and getScrollLeft() -
+       unused here but also available from document.viewport.getScrollOffsets()
+    4) Post-build patch to deal with safari having 'class' as a reserved word
+  1.1.182 (2011-07-05)
+    1) New functions added: applet_register(), applets_hide() and applets_show():
+       Java applets are now hidden when using showPopWin() or a dropdown menu -
+       uses iframe shim for all browsers EXCEPT for Safari 5
+       Opera 11.5 and Firefox 5.0 don't actually need this fix -
+       IE9 and Chrome 12 on the other hand do.
+       Note that Firefox doesn't fire applet hiding on dropdown menu display
+  1.1.181 (2011-07-04)
+    1) Changes to list_folder_expander.init() to have it trigger toogle on
+       all elements containing bolded (i.e. selected) links
+    2) Removed list_folder_expander.prototype.collapse_sibblings() - just annoying
+    3) Added option for chaning duration of effect in seconds
+  1.1.180 (2011-06-25)
+    1) Added 'try...catch' blocks around tricky code in cssAttributeGet() and
+       cssAttributeSet() to handle issue of Cross Domain Stylesheet errors
+       (http://stackoverflow.com/questions/3211536)
+    2) Removed setScreenSize() - unused now
+  1.1 179 (2011-06-16)
+    1) Moved functions column_select(), row_select_count() and row_select_list()
+       into here from member.js
+  1.1.178 (2011-06-14)
+    1) Changes to print_form() to handle reports whose names contain hyphens
+  1.1.177 (2011-06-09)
+    1) Function ajax_report() now propagates targetID if set - used in updated
+       'view email adresses' functionality that accepts selected item criteria
+  1.1.176 (2011-06-06)
+    1) Function combo_selector_set() now checks to see if the 'alt' text entered
+       matches one of the preset item values - if it does, this is shown instead
+  1.1.175 (2011-06-03)
+    1) popup_dialog() now has extra parameter for js to activate if cancel is pressed
+       (Used in 'Promo Code Confirmation' in HRTPPA membership custom form')
+  1.1.174 (2011-05-27)
+    1) image_rotator.prototype.set_image() now uses divs not spans inside h1
+       title caption to conform to XHTML strict
+  1.1.173 (2011-05-23)
+    1) Added initialise_constraints() to enable IE5.5, 6 and 7 to wrap elements
+       tagged with c.onstrain class in a table to prevent them from occupying
+       too much space
+  1.1.172 (2011-05-19)
+    1) Changes to selector_csv_add() to limit maximum number of characters to 255
+  1.1.171 (2011-05-12)
+    1) Implementation of outerHTML now enclosed in try ... catch block
+  1.1.170 (2011-05-12)
+    1) Added implementation of outerHTML for browsers that do not support it -
+       see http://www.quirksmode.org/dom/tests/innerhtml.html#outerHTML
+       Ref: http://webreflection.blogspot.com/2008/12/outerhtml-for-almost-every-browser-if.html
+       Andrea Giammarchi, Berlin, Germany
+  1.1.169 (2011-05-11)
+    1) Added tests for ieIE9() and ieIE_lt9()
+  1.1.168 (2011-05-05)
+    1) Now _CM exists as a global variable, not just when context menu is loaded
+  1.1.167 (2011-05-04)
+    1) References to _CM_type now all set to _CM.type
+    2) Added new global var quot for inserting quotes in strings
+  1.1.166 (2011-05-04)
+    1) image_rotator.prototype.setup_cm() now sets _CM.category to the image
+       category value for using in setting toggle
+  1.1.165 (2011-05-02)
+    1) keytest() and attach_field_behaviour() for posting_name now allows the
+       '_' character to prevent messing up existing product item codes and now
+       page names
+  1.1.164 (2011-04-30)
+    1) image_rotator.prototype.setup_cm() now sets _CM.source to the component's
+       safe_ID value to allow CM operations to be tied to a specific instance of
+       a component
+    2) status_message_show() now sets padding to 0.5em, not line-height to 2em
+  1.1.163 (2011-04-29)
+    1) Extended list_set_onclick_items() to propagate title, onmouseover and
+       onmouseout as well - used with context menus
+  1.1.162 (2011-04-28)
+    1) toggleTextSize() no longer tries to set style for .zoom_help - was
+       causeing js issues in Firefox
+  1.1.161 (2011-04-27)
+    1) Function image_rotator.prototype.setup_cm() now sets parentTitle
+  1.1.160 (2011-04-14)
+    1) Function image_rotator now sets CM type according to each image
+       to allow multiple subtypes to be handled independently
+  1.1.159 (2011-04-13)
+    1) Function image_rotator() now accepts optional parameter for CM type to
+       invoke when context menu button is pressed
+  1.1.158 (2011-03-31)
+    1) gallery_album_image_offset() no longer converts newid to string but leaves
+       it as a number - was breaking gallery_album_image_show() which was expecting
+       a number
+  1.1.157 (2011-03-29)
+    1) Now result from command=navsuite_seq contains checksums for all images
+       we can set source for the buttons so that any changes reflect immediately
+  1.1.156 (2011-03-29)
+    1) Since extending scriptaculous dragdrop library to add configurable listeners
+       for onDragStart and onDragEnd this build modifies nav_setup() to eliminate
+       convert_links_to_drag_friendly() altogether -
+       Changes to nav_setup_sortable_list():
+         a) Adds callback for onDragStart to save original drag start position
+            Also stores anchor.onclick() setting if given and then replaces that
+            with 'return false'
+         b) Adds callback for onDragEnd() to check to see how far item was
+            dragged:
+            If 2px or less the original 'onclick' is restored immediately
+            which causes it to fire and the link is followed.
+            If 3px or more then an timeout replaces the original 'onclick' after
+            0.2 seconds returning the link to normal operation
+  1.1.155 (2011-03-28)
+    1) Added tests for isSafari and isOpera
+    2) Disabled convert_links_to_drag_friendly() for navsuite drag and drop
+       for IE and Opera  -
+       still needed for Safari, chrome and Firefox which all fail to send
+       ajax messages before reloading page if there is any latency in connection
+  1.1.154 (2011-03-28)
+    1) Removed unused debug alert message
+  1.1.153 (2011-03-27)
+    1) nav_setup() now includes parameter for 'isadmin' which if set attaches
+       drag and drop sortable code for items
+    2) Nicetooltips now ONLY do their thing if classname of anchor is 'info'
+    3) nav_setup_for_IE6() renamed nav_setup_fix_mouseovers() and now always used
+  1.1.152 (2011-03-26)
+    1) Added _CM to global variables list for JSLint
+  1.1.151 (2011-03-20)
+    1) Removed reference to global_active_btns
+    2) Added ap_registerPlayers() and ap_stopAll() - were in inline code
+    3) Added in calendar_status_fn(), calendar_tooltip_fn(), calendar_changed_fn
+       and calendar_changed_admin_fn
+  1.1.150 (2011-03-19)
+    1) Bug fix in cal_events.prototype.display_times() to map times to
+       effective_time_start and effective_time_end not start_time and end_time
+       as previously
+    2) More changes for LINT - unused variables removed
+  1.1.149 (2011-03-18)
+    1) Moved external_links() to imporve alpha order of functions
+    2) Couple of tiny tweaks to improve JSLINT conformance
+  1.1.148 (2011-03-11)
+    1) Added twitter_profile()
+  1.1.147 (2011-03-10)
+    1) image_rotator.setup() now calls set_image() immediately - this fires
+       the onchange event and calls associated onchange code if set in cp
+    2) image_rotator.controls_setup() changed to not set player playing again
+       when mouse is moved off pause control
+  1.1.146 (2011-03-09)
+    1) Changes to gallery_album_image_offset() to use the prefixed 'sequence'
+       variable to determ,ine what order to display images in when going back
+       and forwards through the sequence
+    2) Big changes to gallery_album_image_show() to use IDs for divs that contain
+       thumbnail images to determine which image, caption and title to show, and
+       which thumbnails to highlight
+    3) Added in gallery_album_slideshow()
+    4) image_rotator() constructor now accepts optional sequence parameter which
+       if given will be used by image_rotator.do_setup() to alter sequence of images
+       it will use to match that of the latest sequence set by drag-and-drop,
+       even if page itself has not been reloaded since changes were made
+  1.1.145 (2011-03-04)
+    1) Tweak to list_set_onclick_items() to safely deal with li tags without
+       anchors inside - as used for section labels
+  1.1.144 (2011-03-03)
+    1) gallery_album_image_show() now sets caption from caption in array,
+       not content
+  1.1.143 (2011-03-03)
+    1) image_rotator.prototype.setup_cm() now sets parentID to allow new images
+       added using context-menu click on image_fader to set the folder
+  1.1.142 (2011-03-02)
+    1) Changes to keytest() to allow tab to be used to move through filtered
+       fields in Firefox and Opera (closes bug ECC-63)
+  1.1.141 (2011-02-27)
+    1) dropdownMenu() now replaced with nav_setup_for_IE6() called from within
+       nav_setup() for IE 6 and below
+    2) Removed show_popup_screensize() - unused now
+    3) Hundreds of changes to get code closer to passing all current JSLint tests
+       Now manages to make it right through tests but still reports some issues
+  1.1.140 (2011-02-25)
+    1) New function nav_setup() which sets up navigation more efficiently
+       with much less code
+    2) Removed add_btn() - not required
+  1.1.139 (2011-02-25)
+    1) image_rotator() now allows for 'controls_size' parameter, onchange actions
+       and supression of caption or title without disabling all content from
+       being displayed
+  1.1.138 (2011-02-23)
+    1) attach_field_behaviour() for 'listdata_value' no longer forces a value if
+       text label starts with an open bracket - e.g. (None) or (Please select...)
+    2) Added new function list_set_onclick_items() to set onclick action for li
+       elements to that of the href in the anchor it contains
+  1.1.137 (2011-01-17)
+    1) report_filter_setup_onclick() now send report.resource_url to ajax_report()
+    2) ajax_report() - internal references to page_url now resource_url
+  1.1.136 (2011-01-13)
+    1) image_rotator.prototype.setup_cm() now sets CM value for category
+  1.1.135 (2011-01-04)
+    1) Fix to cal_picker() -
+       popwin url contained URL escaped path, doesn't work in Firefox
+  1.1.134 (2010-12-30)
+    1) Added clause 'listdata_value' for keytest() and attach_field_behaviour()
+  1.1.133 (2010-12-29)
+    1) Changes to cal_picker() to use command not mode for URL
+  1.1.132 (2010-12-23)
+    1) Added language_chooser() and language_set()
+  1.1.131 (2010-12-18)
+    1) Added new function add_bookmark()
+  1.1.130 (2010-12-16)
+    1) Change to toggleTextSize() to have this set a classname of either
+       zoom_big or zoom_small to body element to allow other things to change if
+       font size changes (e.g. selection of heading or breadcrumb background images)
+    2) setTextSize() function was removed - no longer used
+  1.1.129 (2010-10-28)
+    1) Changes to image_rotator() to support CM editing for administrators
+    2) setFocus() now issues focus command twice for IE7 and IE8
+    3) filterbar_save_onclick() now takes 'enter' as 'save' and creates filter
+  1.1.128 (2010-09-24)
+    1) Changes to report_filter_setup() to prevent errors when called on
+       reports without filter presets
+  1.1.127 (2010-09-21)
+    1) Fix for flowplayer_video() -
+       broke when 'new Ajax.Request' was changed for simply 'Ajax.Request'
+  1.1.126 (2010-09-16)
+    1) Changes to gallery_album_image_show() to include caption if given
+  1.1.125 (2010-09-15)
+    1) Changes to report_filter_setup_onmouseover() to handle global filters
+    2) Changes to report_filter_ondrag() to post command to handle resequencing
+    3) Added report_filter_ondrag_setup() to provide closure for multiple reports
+       on page at once
+  1.1.124 (2010-09-14)
+    1) Changes to report_filter_setup() to handle setting of drag and drop
+       This is NOT yet implemented since no ajax update occurs
+  1.1.123 (2010-09-11)
+    1) Added report_filter_setup() to set up report filters -
+       title, onclick, onmouseover and onmouseout all set dynamically now
+    2) Added call to report_filter_setup() to callback function for ajax_report()
+  1.1.122 (2010-09-08)
+    1) Tweak to gallery_album_image_show() to use image2 as property for source
+  1.1.121 (2010-09-05)
+    1) list_folder_expander operation changed:
+         Now allows an album containing other albums to be clicked while retaining
+         expand / contract activated by clicking on [+] / [-] and folder icons
+       Also:
+         Now collapses only siblings of the clicked branch, not all (e.g. parent!)
+    2) Changers to
+  1.1.120 (2010-08-30)
+    1) Added class for list_folder_expander -
+       based on http://willworkforart.net/demos/unobtrusive-navigation
+    2) Added function gallery_album_image_show()
+    3) Added function gallery_album_image_offset()
+  1.1.119 (2010-08-22)
+    1) Bug fix affecting Audio Plugin for FCKEditor in IE:
+       Function centerPopWin now uses geid not $ to identify popwin container -
+       was causing issues for IE audio tag plugin for FCKFinder because prototype
+       library was not included there.
+  1.1.118 (2010-08-11)
+    1) Change to function popWin():
+       Now detects if popup blockers are enabled and gives explanation
+  1.1.117 (2010-08-05)
+    1) Change to image_rotator.do_fade_step() to prevent fade_step going out
+       of range if back / forward controls are repeatedly clicked. Was causing
+       control to sall under these circumstances.
+  1.1.116 (2010-08-04)
+    1) Changes to image_rotator.set_image() to NOT place paragraph tags on caption
+  1.1.115 (2010-08-04)
+    1) Changes to conform to JSLint rules on semicolons (attempting to resolve
+       IE6 issues for Interlynx when js is compressed)
+    2) Removed 3 code blocks reliant on conditional includes for IE6 or 5.5
+       which were being stripped out by js compressor (a very nasty bug!)
+  1.1.114 (2010-07-29)
+    1) Change to version() to use friendly URLs and to draw from correct site
+    2) Changes to image_rotator() to support captions and variable links
+  1.1.113 (2010-07-28)
+    1) Added case for comment() to handle 'mark_hidden'
+  1.1.112 (2010-07-09)
+    1) Changes to calendar_large_set() to preserve URL and hash when changing
+  1.1.111 (2010-07-03)
+    1) Changes to cal_events.display() to fix date preselection now that
+       effective_date is used for date
+  1.1.110 (2010-06-17)
+    1) Removed all support for aggregate filters
+  1.1.109 (2010-06-16)
+    1) Changes to ajax_report() to include optional page_url to maintain
+       path for report when clicking - fixes issues with sorting columns in
+       groups then clicking 'view members' which broke previously
+    2) filterbar_go_onclick() and filterbar_clear_onclick()
+       now all include page_url to maintain path when using
+    3) Changes to filterbar_go_onclick() to specifically get filterField,
+       filterExact, offset and limit from the correct control bank
+  1.0.108 (2010-06-07)
+    1) Tweak to show_popup_please_wait() - h and w arguments transposed
+  1.1.107 (2010-05-26)
+    1) Tweak to cal_events.display() to keep 'Add...' toolbar visible
+  1.1.106 (2010-05-24)
+    1) Added 'shared' icon to cal_events() class and 'Add New...' for admins
+  1.1.105 (2010-05-21)
+    1) Tweak to image_rotator_step() to not attempt to work with img2 if ID is undefined
+    2) Added cal_events() to show events for a day in a layer via ajax
+    3) Replaced code for LTrim, RTrim and Trim for flexible code based on rexp,
+       allows chars to be specified and presumably works faster
+    4) Bug fix for centerPopWin() now that test for null is more specific
+  1.1.104 (2010-05-05)
+    1) Removed register_copy_my_details() - believed unused
+    2) Bug fix for setTextSize() - possibly unused but now works at least
+    3) Moved ajax_config_display() from here to member.js
+    4) Changes to ToolTips.show() to get correct box size -
+       was counting spaces as 5 chars due to conversion to &nbsp;
+       Now calculates based on array of relative font sizes (although done
+       for Verdana, not Tahoma as now used)
+    5) JSLINT now gets through with only warnings concerning making functions
+       within a loop. Perhaps someday I'll get that fixed.
+  1.1.103 (2010-03-19)
+    1) Rearranged functions in largely alphabetical order (was getting a bit disorganised)
+    2) Added customform_get_tax_costs()
+    3) Added customform_draw_fees_overview()
+    4) Performed JSLINT but only got 25% through.
+  1.1.102 (2010-03-13)
+    1) Tweak to get_taxes_applied() to simplify logic very slightly.
+       Also changed variables to reflect that this uses BILLING addresses
+  1.1.101 (2010-03-12)
+    1) Added get_taxes_applied() - formerly produced by Tax_Regime
+       This routine now handles unlimited tax types, wildcard matches and even inversions:
+          e.g. 'CAN.*', '*.*', '!CAN.*'
+  1.1.100 (2010-02-13)
+    1) Change to popup_layer() to accept community_member_dashboard NOT community_dashboard
+  1.1.99 (2010-02-03)
+    1) Added inline_signin_hide_msg()
+  1.1.98 (2010-01-06)
+    1) Change in validate_payment_details() to prevent year detection range fault in FF when this year > 2009
+       Was due to non-y2k safe use of getYear() instead of getUTCFullYear()
+  1.1.97 (2010-01-04)
+    1) Change to Calendar.prototype.hideShowCovered() to prevent operation if IE8+ is in use
+       (Fixes bug XIM 35)
+  1.1.96 (2009-12-23)
+    1) Added popWin_post() to overcome 20 selected items limit
+    2) selected_operation() removed 200 item limit
+    3) Moved selected_operation to member.js
+    4) Eliminated last of suppor for non-friendly URLs
+  1.1.95 (2009-12-19)
+    1) Added flowplayer support - flowplayer_popup() and flowplayer_video()
+  1.1.94 (2009-11-25)
+    1) Change to ajax_report() to propagate DD, MM and YYYY -
+       used in visitor stats reports, closes bug XIM-54
+  1.1.93 (2009-11-11)
+    1) Change to geid_val() for type 'select-one' to return '' if there is no option selected (i.e. -1)
+  1.1.92 (2009-10-20)
+    1) Added bug_form()
+  1.1.91 (2009-10-17)
+    1) Change to ajax_config_display() to handle library_csstatus
+  1.1.90 (2009-10-14)
+    1) Change to keytest_enter_transfer() to focus on the target button before activating the click
+    2) Change to filterbar_value_onkeypress() to focus on the target button before activating the click
+    3) Change to filterbar_save_onclick() to apply filter value before saving new filter
+  1.1.89 (2009-10-01)
+    1) Added ajax_post_streamed() to work with three-stand streamed content for CSS, JS and HTML
+    2) Added afb() as short-form alias for attach_field_behaviour()
+  1.1.88 (2009-09-14)
+    1) Tweak to document_reader() to have it land on cover when opened
+  1.1.87 (2009-09-10)
+    1) Fix to selected_operation() to correct 'set_as_attended' operation column ID
+    2) Added popup_calendar_large() and used this in mini-calendar for popup mode
+  1.1.86 (2009-09-08)
+    1) Added filterbar_value_onblur(), filterbar_value_onclick() and filterbar_value_onkeypress()
+    1) copy_clip() now always returns a value - prevents FF warnings
+    2) Correction to filterbar_go_onclick() to ensure that latest value is copied over if pressing go button
+       instead of returning directly from value field.
+  1.1.85 (2009-08-13)
+    1) Added isIE_lt8
+    2) Added functions for dealing with cursor selection testing and setting:
+       cursorGetSelectionEnd(), cursorGetSelectionStart(), cursorIsAtEnd(), cursorIsAtStart(), cursorSetPosition()
+  1.1.84 (2009-08-11)
+    1) Tweak to document_reader() to read location hash and show cover for #1 instead of #0
+  1.1.83 (2009-07-16)
+    1) showPopWin() now implements dragable to allow it to be moved
+  1.1.82 (2009-07-10) 
+    1) Added copy_clip()
+    2) Changes to ajax_config_display() for highlighting akismet key status and classes_checksum_status
+  1.1.81 (2009-07-01)
+    1) Change to attach_field_behaviour() for 'posting_name' to prevent '(' or ')' in URLs
+  1.1.80 (2009-06-22)
+    1) Change to attach_field_behaviour() for 'posting_name' to prevent '%' in URLs
+    2) Change to externallinks() by James to add try / catch blocks to prevent hrefs with '%' crashing code in IE7
+1.1.79 (2009-06-04)
+  1) Change to poll functions to reference divs and IDs called poll_choice not poll_answer
+1.1.78 (2009-05-30)
+  1) Added status_message_hide() and status_message_show()
+1.1.77 (2009-05-29)
+  1) Minor tweak to popup_layer() to include some padding on 'loading' message
+  2) Added toggle_attachment_delete_flag()
+1.1.76 (2009-05-21)
+  1) Changes to filterbar_save_onclick(), show_popup_screensize(), selector_csv_edit()
+     to include padding for popup content
+1.1.75 (2009-05-07)
+  1) Changes to function search_results_go() to include search)_name if set
+1.1.74 (2009-04-06)
+  1) popup_email_to_friend() enalarged to include captcha
+1.1.73 (2009-04-01)
+  1) Calendar now has setLinkHelp() for determining whether or not to show help icon and
+     setEnlargePopup() to determine whether enlarged view (if url give) opens in popup or same window
+  2) Added calendar_large_setup()
+1.1.72 (2009-03-16)
+  1) Fix to geid_set() alert message when encountering invalid id or type
+1.1.71 (2009-03-04)
+  1) ajax_report() now has fourth optional parameter - ajax_popup_url - this is to preseve on-report
+     operations after a column sort has been performed
+  2) filterbar_disable_controls() now works properly even if 'save' button not shown - as when working in layer mode
+1.1.70 (2009-02-27)
+  1) Added image_rotator() and image_rotator_step() for image rotator component support
+1.1.69 (2009-02-19)
+  1) Fix to csv_item_set() to better deal with empty strings
+  2) Extended poll() to display confirmation if someone votes with less options than they were permitted to choose
+1.1.68 (2009-02-16)
+  1) Greatly extended browser detection variables
+  2) Added cssAddJsonStyle() - now popup_layer() and popup_layer_submit() both process JSON css if they see it
+1.1.67 (2009-02-12)
+  1) show_popup_please_wait() now includes 4px padding
+  2) popup_dialog() now only includes button div with its own top padding IF buttons are called for
+  3) Added img_state_v() for use with vertically arranged tabs in left to right a,d,n,o configuration
+  4) Now sets variables for isIE7 and isIE_lt7
+  5) Added csv_item_set()
+1.1.66 (2009-02-08)
+  1) Added popup_layer() and popup_layer_submit() - both rely on prototype library being available
+  2) Added selected_operation() was previously per-use functions on page
+1.1.65 (2009-01-11)
+  1) Tweak to Calendar.prototype._init() to always include at least one day from last month on calendar to bring
+     it into sync with the large calendar
+1.1.64 (2009-01-03)
+  1) Added back cal_goto() for large frmat calendar switching
+1.1.63 (2008-12-31)
+  1) Added support for dynarch calendar panel
+1.1.62 (2008-11-29)
+  1) Added div_toggle() to replace divswap2() used in old SA pages
+  2) New function keytest_enter_execute() to trap 'enter' key in a form field and execute a supplied function instead
+  3) New function keytest_enter_transfer() to trap 'enter' key in a form field and press a named button instead
+1.1.61 (2008-11-19)
+  1) Various tweaks to reduce warning messages in firefox error console
+1.1.60 (2008-11-12)
+  1) Bug fix for ajax_report to also set eventID where needed - e.g. sorting event registrations
+  2) Tweak to document_reader() to allow page number to be specified as a hash on startup
+  3) Fix for SDmenu to not try and expand a menu to show current item if the last group has now items in it
+1.1.59 (2008-11-04)
+  1) Added SDMenu functions
+  2) Change to validate_payment_details to avoid most tests if method is 'Pay Pal'
+  3) Added support to SDMenu for expandByPage() method
+1.1.58 (2008-10-07)
+  1) Change to selector_csv_add() to include a default weight of 1 when item has weight
+1.1.57 (2008-09-11)
+  1) Change to selector_csv_show - shouldn't show value in div list but name (or customise dashboard shows widget IDs not names)
+1.1.56 (2008-09-04)
+  1) Added rate
+  2) Changes rating_blocks_init() - now blurs THIS on click, not whole window - less glitchy
+  3) Now calls rate function to perform Ajax update
+1.1.55 (2008-09-02)
+  selector_csv_show() now has additonal optional parameter 'hasWeight' - multiple changes throughout to handle this.
+1.1.54 (2008-08-29)
+  1) Bug fix for Comments when posting or saving text containing an ampersand - e.g. 'F&F'
+  2) Added function char_counter
+1.1.53 (2008-08-24)
+  1) Added support for rating blocks
+  2) Changed for...in loops to regular for...i++ loops in 
+  3) Bug fix for ajax_report() to properly include callback function for setting nice tooltips
+1.1.52 (2008-08-13)
+  1) show_section() now sets selected div to have tab_selected rather than setting colours
+1.1.51 (2008-08-09)
+  1) Removed nice tooltips from entries in selector_list - was taking too long to redraw page
+  2) ToggleTextSize now also sets .zoom_help class size dynamically
+  3) Added widget_toggle()
+1.1.50 (2008-08-02)
+  1) Added popup_email_to_friend()
+1.1.49 (2008-07-31)
+  1) Tiny change to document_reader() to deal with IE's double-margin bug
+  2) Added print_form_data()
+  3) Change to geid_val() for checkbox - now returns value of field only if checked
+1.1.48 (2008-07-24)
+  1) Various changes for people with MUCH older browsers - added four array method prototypes
+  2) Bug fix for ajax report updates for sites whose basepath is NOT /
+  3) Bug fix for NS 6.2 which doesn't know about conditional compilation in ajax_post() and include() -
+     had fault in comment delimiters for this section
+  4) Added document_reader(), document_reader_get_page_name() and document_reader_goto_page()
+1.1.47 (2008-07-09)
+  1) Fine tuning ajax_config_display()
+1.1.46 (2008-07-08)
+  1) Added global array ajax_controls to hold xHTTP object pointers to allow for ajax abort controls that are pending
+  2) Implemented automatic pending request abort for ajax_post() and include() functions -
+     if connection is active for the destination div and a new request comes in, old one is aborted
+  3) Added ajax_config_display() to allow for much simplified remote config display without sajax library
+1.1.45 (2008-07-05)
+  1) More support added for ajax_report - can now show / hide email addresses in div-based refresh
+  2) In order to retain functionality with views OTHER than ajax-based reports, e.g. Version History
+     report on Ecclesiact site, all handlers for paging and filters now default back to form submit mode
+     if report_name wasn't passed as a parameter - this allows fallback compatability mode for such pages
+  3) Better layout of loading mask for ajax_div_loading()
+  4) Context Menus fixed if enabled after ajax report refresh
+1.1.44 (2008-07-02)
+  1) New function ajax_report(reportID,report_name,toolbar) for doing ajax report updates
+1.1.43 (2008-07-01)
+  1) Extended externalLinks() to also add target='_blank' for rss-item links
+1.1.42 (2008-06-26)
+  1) More changes to comments() to support status changes
+  2) Changes to Tooltips code to allow it to be initialised once page has loaded
+1.1.41 (2008-06-25)
+  1) Added ajax_post() - very similar to include() but with additional xParams
+  2) Modified comments() to take additional parameters pertaining to item being commented on
+     and to use ajax_post() function to post data to server
+1.1.40 (2008-06-20)
+  1) Big changes to attach_field_behaviour) for type 'seq' - now uses icons for +/- and no document.write
+     and removed support for qty - now handled in codebase 
+1.1.39 (2008-06-17)
+  1) Added search_setup_date_range()
+  2) Added lead_zero()
+  3) Added date_selector_draw() and date_selector_onchange()
+  4) Tweak to search_results_go() to set non-available fields to "" instead of "false"
+1.1.38 (2008-06-11)
+  1) Tweak to externalLinks() to have it also set anchor disabled flag to true if rel='disabled'
+1.1.37 (2008-06-10)
+  1) Added match_picture() function to simplify input validation
+  2) Changes to attach_field_behaviour() for date to remove automatic insertion of '-' which made backspace a real pain
+  3) Extended attach_field_behaviour() to include support for datetime
+1.1.36 (2008-06-06 - replaced in same build with 1.1.37)
+  1) print_friendly() now includes support for search_categories and search_keywords
+  2) search_results_go() now includes support for search_categories
+1.1.35 (2008-06-02)
+  1) Changes to selector_csv_show() to perform selection based on case-insensitive text matching 
+1.1.34 (2008-05-29)
+  1) Added function comment()
+1.1.33 (2008-05-28)
+  1) Changed progress indicator in poll() for one that looks more 'ajaxy'
+1.1.32 (2008-05-27)
+  1) Bug fix for print_friendly() to correctly handle postings when nice URLs are used rather than IDs (weas broken)
+  2) Improved URL for print_form() for friendly URLs
+  3) Support added for polling
+1.1.31 (2008-05-20)
+  1) New function open_item(type,ID,page) -
+     opens a posting OR page and uses friendly paths if enabled to do so
+1.1.30 (2008-05-14)
+  1) No longer reports geid_val error for other field types
+  2) Improvements to geid() for firefox
+  3) Tweak to attach_field_behaviour() for posting_name to replace ' - ' with single '-'
+1.1.29 (2008-05-12)
+  1) Added new function externalLinks() for XHTML strict method to replace target=_blank with rel='external' on links
+  2) var popup_msg now set here not in codebase
+  3) Function version() now assumes friendly URLs for build version
+  4) Change to geid() to also test for radio button collections in firefox - thanks James!
+1.1.28 (2008-05-01)
+  1) Added new behaviour for posting_name in attach_field_behaviour()
+1.1.27 (2008-04-14)
+  1) Bug fix for view_credit_memo() path
+  2) Several functions now respect use_friendly_urls flag:
+       print_form()
+       view_event_registrants()
+       view_credit_memo()
+       view_order_details()
+1.1.26 (2008-04-04)
+  1) Changed references to ./ to use base_url variable instead
+  2) Removed read_more() function (not used)
+1.1.25 (2008-03-22)
+  1) Added search_go() - topbar_search_go() now calls this instead.
+  2) search_text now used internally, topbar_search feeds into this instead
+  3) Changes to selector_csv_show() to reference text on tooltip, not value - now sets colours also
+1.1.24 (2008-03-16)
+  1) Changes to topbar_search_go() to also reset search_offset value when called
+  2) Added search_offset() to simplify search results paging
+  3) Changes to print_friendly() to include params for search_offset if given
+  4) Added search_results_go()
+1.1.23 (2008-03-01)
+  1) Bug fix for YYYY-MM-DD date mask to prevent misreading as octal values - changed parseInt to parseFloat
+  2) further bg fix for YYYY-MM-DD date mask to allow yyyy to equal 0000 for repeating events
+  3) show_popup_screensize() now takes valid sizes as an array passed by reference
+1.1.22 (2008-02-25)
+  1) Added print_form()
+1.1.21 (2008-02-23)
+  1) Changes to selector_csv_show() selector_csv_delete() and selector_csv_add() to reset
+     selector after adding new options and to re-apply nice tooltips after updates
+1.1.20 (2008-02-21)
+  1) Added input mask testing for valid dates in attach_field_behaviour()
+  2) Added input mask testing for valid hh:mm values in attach_field_behaviour()
+  3) Bug fix by James to prevent unwanted keypresses working in Mozilla
+  4) Change to add_btns() to allow multiple buttons to be active and remember their settings - used for global navs
+1.1.19 (2008-02-18)
+  1) Removed sort() from selector_csv_show() function - already sorted, don't repeat or reverses order
+1.1.18 (2008-02-01)
+  1) Added geid_set - works with most types
+1.1.17 (2008-01-26)
+  1) Changes to popup_dialog() for better XHTML and to hide Cancel button if label is ''
+1.1.16 (2008-01-17)
+  1) Extended support for 1600x1200 pixels in show_popup_screensize()
+1.1.15 (2008-01-07)
+  1) Added view_credit_memo()
+1.1.14 (2008-01-02)
+  1) Fix for report_filter_set() to deal with filter criteria that span multiple lines
+1.1.13 (2007-12-28)
+  1) Added support for fields of type server_file using ckfinder system
+1.1.12 (2007-12-21)
+  1) Minor changes to popup_dialog() - ie6 has problems when you float a div next to another
+     one which is hidden. This was causing content not to show.
+  2) Added handling for textarea to geid_val()
+  3) attach_field_behavior() now accepts additional parameters for currency and currency_s
+     to set range between min and max
+1.1.11 (2007-12-18)
+  1) Added support for currency_s in attach_field_behaviour() and made currencies set value
+     to two decimal places on loss of focus
+  2) Also added support for readonly in attach_field_behaviour()
+1.1.10 (2007-12-17)
+  1) Added selector_csv_add(), selector_csv_delete() and selector_csv_show()
+1.1.9  (2007-12-13)
+  1) Added int_s for keytest(), and therefore also for attach_field_behaviour()
+  2) Added popup_dialog() to simplify dialog screens
+  3) Added setFocus() to simplify focus setting - needs to call focus() twice for IE7, mystery
+1.1.8  (2007-12-08)
+  1) Added version() function - shows popup window with changes for any given version
+1.1.7  (2007-11-29)
+  1) Reinstated include() function - used for daily_bible_verse to prevent pages breaking if
+     christnotes.org is down
+1.1.6  (2007-11-28)
+  1) Change to attach_field_behaviour() for seq to disable controls after click
+1.1.5  (2007-11-19)
+  1) Implemented currency for attach_field_behaviour()
+1.1.4  (2007-11-14)
+  1) Added setScreenSize() and show_popup_screensize()
+  2) Moved popup layer code into here - needed for screen size picker
+1.1.3  (2007-10-29)
+  1) New behavior added for attach_field_behaviour() for 'qty' fields
+  2) Tweaks to payment_method_change() to use better JS / DOM access for
+     bgcolor changes when offline payment method is selected
+1.1.2  (2007-10-15)
+  1) Added attach_field_behaviour() to make fields behave a certain way -
+     implemented for percent, u_int, s_int and hex (swatch)
+  2) Added keytest()
+1.1.1  (2007-10-10)
+  1) Moved the following functions to member.js:
+     colour picker functions:
+       color_picker(), cp_callback(), cp_draw_lum(), cp_set_lum(),
+       cp_set_hue_sat(), cp_show_lum(), cp_show_hue_sat()
+     group maintenance functions:
+       add_to_group(), group_add_people_group_select(), group_selector_basic_click(),
+       group_selector_advanced_click(),  popup_group_assign()
+     With selected functions:
+       column_select(), row_select_count(), row_select_list()
+     Matt Kruse Option Transfer functions
+       (Many of them)
+    Popup 'loading' dialog code with mask
+     Other functions:
+       export_sql()
+       popup_table_structure()
+       set_action_operation_options()
+       validate_at_w3c()
+  2) Moved to admin.js and remmed out the following believed to be unused functions:
+     include()
+     admin_tab()
+     cal_picker_date()
+     decToHex()
+     get_yyyymmdd()
+     rowOver()
+1.1.0  (2007-10-08)
+  1) Changes to img_state() to move background pos instead of image source
+  2) add_btn() no longer takes cs
+  3) CM_ContextShow() now uses new pixy-styled nav menu buttons
+1.0.60 (2007-10-02)
+  1) Changes to set_action_operation_options() to set background colour from array
+1.0.59 (2007-10-02)
+  1) Changes to CM_ContextShow() to handle correct image display where state is
+     not final attribute in URL
+1.0.58 (2007-10-01)
+  1) Changes to img_state() to have it take CS from actual button not button as it
+     looked when the array was loaded - prevents 'ghost submenu indicator' bug.
+1.0.57 (2007-09-28)
+  1) Added makeReadOnly()
+1.0.56 (2007-09-25)
+  1) CM_ContextShow() now handles 'add submenu' and uses span for disabled options
+1.0.55 (2007-09-21) 
+  1) Removed loadTotalCost() and get_tax_CAN() from here
+1.0.54 (2007-09-15)
+  1) geid() returns false if element not found
+1.0.53 (2007-09-13)
+  1) geid_val now handles type 'password'
+  2) Added popup_table_structure()
+1.0.52 (2007-09-08)
+  1) tiny tweak to combo_selector_set() to extend selector width by 4 pixels
+1.0.51 (2007-09-07)
+  1) Added validate_at_w3c()
+1.0.50 (2007-09-04)
+  1) img_over(img,type,state) now called as img_over(obj,baseimg,state)
+     obj is equiv to img previously, but type is now baseimg to open it up for any image requiring mouseover
+1.0.49 (2007-08-31)
+  1) Moved CM code back in - now all prefixed CM_
+1.0.48 (2007-08-27)
+  1) For some reason geid_val() cannot read values in hidden fields - cannot recognise type
+     Changed code so that error doesn't occur
+1.0.47 (2007-08-25)
+  1) add_btn() now exects cs parameter for checksum cache-busting
+1.0.46 (2007-08-20)
+  1) report_filter_set() now applies filterAggregate and uses geid
+  2) print_friendly() now keeps filterAggregate
+1.0.45 (2007-08-16)
+  1) radio_group_get() bug fix for mozilla
+1.0.44 (2007-08-15)
+  1) geid_val() now also handles checkboxes
+1.0 43 (2007-08-08)
+  1) geid_val() now also handles radio buttons
+1.0.42 (2007-08-02)
+  1) Fix for validate_payment_details() for card cek parameters
+1.0.41 (2007-07-30)
+  1) Resized popup form for cal_popup
+1.0.40 (2007-07-28)
+  1) Deleted report_matchmode_change() - now simpler and inline code
+  2) Changed last references to document.form to correct geid() values
+1.0.39 (2007-07-27)
+  1) Changes to radio_group_get() and radio_group_set() to work exclusively with arrays of field elements
+  2) group_selector_basic_click() and group_selector_advanced_click() no longer pass form as a parameter
+  3) Bug fix on group_selector_advanced_click() to ensure basics set correctly on change
+1.0.38 (2007-07-25)
+  1) The following functions now use element IDs not document.form:
+     add_note(), add_to_group(), donate(), goto_page() (may be deprecated now),
+     row_select_count(), row_select_list(), print_friendly()
+  2) add_to_group() now doesn't pass form to row_select_list()
+  3) All references to document.getElementById() now aliased through function geid()
+  4) Added geid_val() to get values for form elements regardless of their type (selector, text etc)
+  5) print_friendly() no longer breaks with hashes and respect filters, limits and offsets
+1.0.37 (2007-07-25)
+  1) The following functions now use element IDs not document.form:
+     cal_goto(), cal_picker(), cal_picker_date(), combo_selector_set(),
+     color_picker(), cp_calc()
+1.0.36 (2007-07-24)
+  1) Various fixes for JS Strict conformance:
+     Variables now all prefixed var when operating on their own scope (including in Horde UI section)
+     Functions are consistent in whether they return a value or not
+  2) group_selector_basic_click() now passes span_arr so that advanced shows correct section panel
+1.0.35 (2007-07-23)
+  1) Added cp_callback() to communicate back to calling window with colour picker result
+1.0.34 (2007-07-20)
+  1) setTextSize() and toggleTextSize now only apply to zoom_text - other styles relatively sized now.
+  2) Added validate_payment_details()
+  3) Added payment_method_change()
+1.0.33 (2007-07-19)
+  1) Added cssAttributeGet() and cssAttributeSet() for dynamically changing attributes
+     for defined classes in any stylesheet
+  2) Brought in toggleTextSize() for dynamic real-time resizing of text
+  3) setTextSize() now uses realtime changes to style to resize without page reload
+1.0.32 (2007-07-17)
+  1) Changes to color_picker to allow popup to write new value back to opening form
+1.0.31 (2007-07-09)
+  1) Moved set_action_operation_options() from codebase into here
+  2) Moved group_add_people_group_select() from codebase into here
+  3) Added report_filter_set()
+  4) Setting of JS events for navbuttons now done in add_btn() (less inline code)
+1.0.30 (2007-07-03)
+  1) Added add_note() to insert various kinds of note in a note field
+  2) show_panel() renamed to show_section() and has internal prefix section_
+     and settings to determine colours
+1.0.29 (2007-06-23)
+  1) removed lat, lon and print from popup_map() - not needed
+1.0.28 (2007-06-22)
+  1) Added more capabilities for img_over to handle other icons and text
+1.0.27 (2007-06-21)
+  1) Added img_over() to handle changes to read more, link and map without extra JS
+1.0.26 (2007-06-13)
+  1) Added report_matchmode_change(), setBlock() now sets or clears based on setting (was hard-coded!)
+1.0.25 (2007-06-08)
+  1) ajax_keytest() now takes event e but falls back to window.event for IE only
+1.0.24 (2007-06-05)
+  1) Added ajax_keytest()
+1.0.23 (2007-05-24)
+  1) Additional systemURL parameter for popup_map()
+1.0.22 (2007-05-24)
+  1) Added popup_map()
+1.0.21 (2007-05-03)
+  1) Added export_sql to replace opentextdoc for exports so that XHTML validators don't complain
+     about embedded '&' in javascript URLs
+1.0.20 (2007-04-20)
+  1) Added get_valid_name() to allow names that start with numbers to be prefixed with
+     valid_prefix (used in custom forms and now initialised in codebase.php draw_html_head())
+  2) Added loadTotalCost() to be used with custom forms for providing real-time updates
+     on total and tax values
+1.0.19 (2007-04-11)
+  Added radio_groups_group_set() to handle selection of one YES from a set of radio groups
+1.0.18 (2007-03-23)
+  CM Code moved back into kernel - I'm just changing this too many times
+1.0.17 (2007-03-23)
+  CM code now supports context menus for navbuttons and report columns
+1.0.16 (2007-03-21)
+  Obtained rplacement context-sensitive menu code from http://luke.breuer.com/tutorial/js_contextmenu.htm to
+  work better with navbuttons (I hope) - see line 1567 for changes to context sensitivity
+1.0.15 (2007-03-15)
+  Obtained new context menu code from webtoolkit.info to correct issue with scrollbar offsets
+1.0.14 (2007-02-18)
+  Added new code to make title tooltips in links persist to allow longer time to read them.
+1.0.13 (2007-01-26)
+  Added new function report() similar to details but opening report in report mode
+1.0.12 (2007-01-15)
+  Changes to column_select() to use eval() to call correct 'with selected' control based on ID
+1.0.11 (2007-01-05)
+  Removed default_country_state() function - was usually wrong value anyway.
+1.0.10 (2007-01-04)
+  Changes to details() to use checks for number or string rather than undefined
+  Previous change was for 'with selected' which had failed for failed for bulk update of multiple group members,
+  problem was this now failed for editing of a report column - record forgets reportID
+  Now works correctly for both situations.
+1.0.9 (2007-01-02)
+  Changes to details() to use checks for undefined rather than number
+1.0.8 (2006-12-29)
+  Added donate() function
+1.0.7 (2006-12-18)
+  Moved inline JS code for handling combo alt selection into here - combo_selector_set()
+  Added group_selector_advanced_click() and changes to group_selector_basic_click()
+  add_to_group now also sets selectID and eventID from parent form
+1.0.6 (2006-12-15)
+  Added radio_group_get(), radio_group_set() and group_selector_basic_click()
+1.0.5 (2006-12-14)
+  Changes to add_to_group() and general tidy up of function order
+1.0.4 (2006-12-13)
+  Removed function create_mail_list() and added function add_to_group()
+1.0.3 (2006-12-08)
+  Added functions LTrim(), RTrim(), Trim(), round(), textCounter() and get_tax_CAN()
+1.0.2 (2006-11-24) Added code for SimpleContextMenu
+

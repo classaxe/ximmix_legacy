@@ -1,0 +1,27 @@
+  1.0.9 (2011-12-08)
+    1) Changes to Search::draw() combine functions of 'name' and 'text' fields
+       into one when searching to simplify interface
+  1.0.8 (2011-11-10)
+    1) Changes to Search::_draw_controls() and Search::_draw_results() to
+       handle changes to posting types for Job Postings and News Items
+  1.0.7 (2011-06-13)
+    1) Changes to Search::draw() and Search::_draw_results() to use addslashes
+       and then strip them in results when showing criteria - corrects bug when
+       searching for '\'
+  1.0.6 (2011-05-09)
+    1) Search::_draw_results() now handles (to an extent) Gallery Images
+  1.0.5 (2011-05-09)
+    1) Search::_draw_controls() now uses long-form search types for article,
+       news and jobs
+  1.0.4 (2011-05-09)
+    1) Search::_draw_controls() replaces search type of 'p' for 'podcast'
+  1.0.3 (2011-04-25)
+    1) Search::draw() now includes cp for 'search_gallery_images' if enabled
+  1.0.2 (2011-01-27)
+    1) Made Search::_draw_results() public - used by Community_Member::_draw_member_resource()
+    2) Added getter and setter functions Search::_get_cp() and Search::_set_cp()
+  1.0.1 (2010-07-15)
+    1) Now references Component_Base:: where needed not Component::
+  1.0.0 (2010-06-29)
+    1) Moved all System search functions into here and extended to use cps to
+       customise what gets searched for

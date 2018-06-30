@@ -1,0 +1,11 @@
+  1.0.3 (2014-02-18)
+    1) Now accesses System::tables constant instead of static for
+       Person::_merge_set_history_created_by() and
+       Person::_merge_set_history_modified_by()
+  1.0.2 (2013-12-13)
+    1) Now records used as source for merge have their groups list cleared after
+       the merge and the new destination account has their groups list regenerated
+  1.0.1 (2013-12-13)
+    1) Added preview columns for cases, case tasks, logins and date last logged in
+  1.0.0 (2013-12-11)
+    1) Initial release - code loosely based on System::draw_admin_tools

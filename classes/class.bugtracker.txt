@@ -1,0 +1,17 @@
+  1.0.5 (2010-11-10)
+    1) Bug Tracker links now more clearly indicated
+  1.0.4 (2010-11-09)
+    1) Bugtracker now checks credentials before displaying and gives a link
+       back to Bug Tracker that provides for auto login
+  1.0.3 (2009-11-11)
+    1) Bugtracker now captures system URL, browser and user permissions and
+       shows simple 'thanks' message on success to reduce confusion
+  1.0.2 (2009-11-01)
+    1) Form validation for bugtracker submissions
+       (Closes bug ECC-7)
+  1.0.1 (2009-10-26)
+    1) Change to code to get system build version - was not setting correct value
+  1.0.0 (2009-10-20)
+    1) Initial release with the following methods:
+       __construct(), connect(), disconnect(), get_project_id(), post_bug_report()
+       and draw_form()

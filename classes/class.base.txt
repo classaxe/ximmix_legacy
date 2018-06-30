@@ -1,0 +1,32 @@
+  1.0.11 (2012-11-31)
+    1) Base::use_module() now declared to be static
+  1.0.10 (2012-07-24)
+    1) Base::__call() now includes localhost in its list of sites to show full
+       error details for
+  1.0.9 (2012-07-16)
+    1) Base::_get_args() now raises DEPRECATED warning in log if called with
+       numerical array AND where the deprecated argument is given
+  1.0.8 (2012-07-13)
+    1) Base is now the base class (Bizarely perhaps, Portal used to be base class...)
+    2) New method Base::_get_args() simplifies making functions polymorphic
+  1.0.7 (2011-09-14)
+    1) Added Base::_get_object_name(), Base::_get_object_type() and
+       Base::_set_object_name()
+  1.0.6 (2011-05-17)
+    1) Added Base::module_test() to simplify tests for presence of a named module
+  1.0.5 (2011-04-21)
+    1) Added new method registerModules() to invoke all installed modules
+       once to allow them to set path prefixes and so on
+  1.0.4 (2011-04-07)
+    1) Better worded error messages for missing or non-installed modules
+  1.0.3 (2011-01-27)
+    1) Base::__call() has clearer error logging if non-existent method is called
+  1.0.2 (2010-04-16)
+    1) Change to Base::__call() on invalid method call to display actual fault
+       if hostname starts with laptop, desktop or dev for faster debug
+  1.0.1 (2010-03-25)
+    1) Implemented friendly error message to be displayed if code ever calls a
+       non-existent method.
+       In addition, a critical error message is written to the day's log file.
+  1.0.0 (2009-07-02)
+    Initial release

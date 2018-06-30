@@ -1,0 +1,103 @@
+  1.0.32 (2014-02-13)
+    1) Portal::portal_upgrade() updated to handle geocode_cache decoding
+  1.0.31 (2014-01-21)
+    1) Portal::parse_request() now has extra helper functions to simplify code
+    2) Portal::_parse_request_date_prefix() now renamed _parse_request_posting()
+       and doesn't handle product matching (which it never should have done anyway),
+       nor does it perform sanity checks on posting prefixes
+  1.0.30 (2012-11-28)
+    1) Portal::portal_upgrade() now uses System::get_item_version() not
+       System::get_version() as before
+  1.0.29 (2012-11-26)
+    1) Now streams qwc file when path of 'quickbooks.qwc' is detected
+  1.0.28 (2012-10-05)
+    1) Portal::_parse_request_mode_prefix() for rss now simplified -
+       RSS class itself now parses URL to determine submode and other parameters
+  1.0.27 (2012-07-16)
+    1) Portal::get_request_path() now returns blank if path is found to contain a
+       quote or backslash character
+  1.0.26 (2012-07-13)
+    1) Portal now extends Base class (much more sensible)
+  1.0.25 (2012-03-15)
+    1) Portal::parse_request() no longer issues calls to History::track()
+  1.0.24 (2012-03-14)
+    1) Portal::parse_request() now quits early when items handled by streamer
+       are encountered, but calls History::track() if valid resources are found
+  1.0.23 (2012-02-03)
+    1) Portal::parse_request() now intercepts 'xhtml1-strict-with-iframe.dtd' and
+       first class to serve this content bypassing rest of system
+  1.0.22 (2011-12-24)
+    1) Tweak to Portal::parse_request() to abort early if operation was cron heartbeat
+  1.0.21 (2011-07-19)
+    1) Renamed attribute _path_custom_prefixed_types to _path_date_prefixed_types
+       and removed products from that list
+    2) Renamed _parse_request_custom_prefix() to _parse_request_date_prefix()
+    3) Added Gallery_Album and Podcast_Album to list of standard path_type_prefixed_types
+  1.0.20 (2011-04-26)
+    1) Portal::_parse_request_type_prefix() now checks to see if a name or path
+       was given, so now these all work:
+         http://laptop.ecclesiact.com/article/1527472954 (old way)
+         http://laptop.ecclesiact.com/article/thornhill-united-church (new way)
+       In addition, for objects of type Posting_Contained a full search path
+       is also checked, so these all work:
+         http://laptop.lhlindrealty.com/treb-listing/1830985784
+         http://laptop.lhlindrealty.com/treb-listing/n2034570
+         http://laptop.lhlindrealty.com/treb-listing/listings/n2034570
+  1.0.19 (2011-04-21)
+    1) Added Gallery_Image to list of type_prefixed_types
+  1.0.18 (2011-03-26)
+    1) Portal::upgrade() changed for db build 1601 to set childID_csv for all
+       navsuite containers and then delete all unused buttonsuites
+  1.0.17 (2011-01-24)
+    1) Portal::upgrade() now removed deprecated calls to set_ID()
+  1.0.16 (2011-01-03)
+    1) Changes to Portal::upgrade() for build 1523 - converts report column labels
+  1.0.15 (2010-12-29)
+    1) Changes to Portal::_parse_request_mode_prefix() to remove support for
+       img_button and img_button_sample
+  1.0.14 (2010-10-25)
+    1) Changes to Portal::parse_request() to handle request for sitemap.xml
+  1.0.13 (2010-10-19)
+    1) For the sake of completeness (even though not used), Portal::portal_upgrade()
+       now calls insert() method where needed
+  1.0.12 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.11 (2010-10-01)
+    1) Tweak to Portal::parse_request() to abandon parse if $mode=='cron'
+       This cuts down loaded classes from 13 to just 4:
+         Laptop:   from 6.8MB to 3.5MB
+         ECC live: from 2.3MB to 1.2MB
+  1.0.10 (2010-09-24)
+    1) Updated Portal::portal_upgrade() to handle sql build 1475:
+       re-populates new `report_settings` table
+  1.0.9 (2010-09-15)
+    1) Updated Portal::portal_upgrade() to handle sql build 1470:
+       populates new `report_settings` table
+  1.0.8 (2010-07-27)
+    1) Updated Portal::portal_upgrade() to force regeneration of button suites
+       now that .png is used
+  1.0.7 (2010-07-20)
+    1) Portal::get_request_path() critical change to prevent embedded tags in URL
+       showing up via 404 error page:
+       http://www.ecclesiact.com/%3Cscript%3Ealert%28%27hey%27%29;%3C/script%3E
+       Now if the request even contains tags the whole request is dropped
+  1.0.6 (2010-06-07)
+    1) Change to Portal::_parse_request_mode_prefix() to add in clause for email-view
+  1.0.5 (2010-03-31)
+    1) Changed all four helper functions used by Portal::parse_request() to include
+       request string in their arguments list to allow these to be used elsewhere
+       (e.g. with Community_Member paths)
+  1.0.4 (2010-03-11)
+    1) Portal::_parse_request_type_prefix() now screens for /ajax/ before trying
+       to find a product with the same name - eliminates a meaningless query
+  1.0.3 (2009-11-06)
+    1) Includes handler for DB upgrade to version 1345 (deletes an old class file)
+  1.0.2 (2009-09-30)
+    1) Added Product to Portal::_path_type_prefixed_types
+    2) Portal::_parse_request_type_prefix() now case-insensitive
+    3) Portal::_parse_request_mode_prefix() now case-insensitive
+  1.0.1 (2009-09-04)
+    1) Change to Portal::_parse_request_search_range() to abort early if root path
+       element isn't a 4 digit number - means that pages named '2009-test' now work
+  1.0.0 (2009-07-02)
+    Initial release

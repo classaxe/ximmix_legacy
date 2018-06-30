@@ -1,0 +1,16 @@
+  1.0.6 (2012-10-28)
+    1) Multiple changes to frameset and sub-documents to conform to basic HTML rules
+  1.0.5 (2012-09-21)
+    1) Help::menu_js() now uses Posting_Contained::get_ID_by_path() not
+     Posting::get_ID_by_name() to more reliably match each node
+  1.0.4 (2012-07-11)
+    1) Help::menu_js() now calls Link::draw_treeview_js() instead of
+       Treenode::draw_treeview_js()
+  1.0.3 (2012-03-03)
+    1) Added version control for treeview js code
+  1.0.2 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.1 (2009-12-14)
+    1) Moved do_help() into here from codebase.php
+  1.0.0 (2009-07-02)
+    Initial release

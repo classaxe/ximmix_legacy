@@ -1,0 +1,35 @@
+
+#wowslider-container$GallerySuffix$  .ws_bullets { 
+	padding: 5px; 
+}
+#wowslider-container$GallerySuffix$ .ws_bullets a { 
+	width:22px;
+	height:20px;
+	background: url(./bullet.png) left top;
+	float: left; 
+	text-indent: -9999px; 
+	position:relative;
+	color:transparent;
+}
+#wowslider-container$GallerySuffix$ .ws_bullets a.ws_selbull, #wowslider-container$GallerySuffix$ .ws_bullets a:hover{
+	background-position: 0 100%; 
+}
+
+#wowslider-container$GallerySuffix$ a.ws_next, #wowslider-container$GallerySuffix$ a.ws_prev {
+	position:absolute;
+	display:block;
+	top:50%;
+	margin-top:-16px;
+	z-index:60;
+	height: 50px;
+	width: 39px;
+	background-image: url(./arrows.png);
+}
+#wowslider-container$GallerySuffix$ a.ws_next{
+	background-position: 100% 0; 
+	right:0px;
+}
+#wowslider-container$GallerySuffix$ a.ws_prev {
+	left:0px;
+	background-position: 0 0;  
+}

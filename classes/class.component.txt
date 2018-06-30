@@ -1,0 +1,469 @@
+  1.0.106 (2012-01-01)
+    1) Moved the following into new dedicated child classes:
+       a) Component::google_map() now Component_Google_Map::draw()
+       b) Component::group_member_redirector() now
+          Component_Group_Member_Redirector::draw()
+       c) Component::image_fader() now Component_Image_Fader::draw()
+       d) Component::image_gallery() now Component_Image_Gallery::draw()
+       e) Component::member_search() now Component_Member_Search::draw()
+       f) Componen::poll_archive() now Component_Poll_Archive::draw()
+       g) Component::random_news() now Component_Random_News::draw()
+       h) Component::remote_page_content() now Component_Remote_Page_Content::draw()
+       i) Component::rss_headlines() now Component_RSS_Headlines::draw()
+       j) Component:search_date_picker() now Component_Search_Date_Picker::draw()
+       k) Component::search_tag_cloud() now Component_Search_Tag_Cloud::draw()
+       l) Component::search_word_cloud() now Component_Search_Word_Cloud::draw()
+       m) Component::secure_email() now Component_Secure_Email::draw()
+       n) Component::component_password_protect() now Component_Password_Protect::draw()
+       o) Component::signin() now Component_Signin::draw()
+       p) Component::splash_page() now Component_Splash_Page::draw()
+    2) Moved Component_Base::get_selector_sql() into Component class
+  1.0.105 (2011-12-30)
+    1) Moved the following into new dedicated child classes:
+       a) Component::activity_tabber() now Component_Activity_Tabber::draw()
+       b) Component::category_stacker() now Component_Category_Stacker::draw()
+       c) Component::content_group_member_mirror() now
+          Component_Content_Group_Member_Mirror::draw()
+       d) Component::content_signin_mirror() now Component_Signin_Mirror::draw()
+          (had fault in tag - labeled as nameable but wasn't - now it is)
+       e) Component::custom_form() now Component_Custom_Form::draw()
+       f) Component::document_covers() now Component_Document_Covers::draw()
+       g) Component::document_reader() now Component_Document_Reader::draw()
+       h) Component::donate() now Component_Donate::draw()
+       i) Component::email_form() now Component_Email_Form::draw()
+       j) Component::email_newsletter_signup() now
+          Component_Email_Newsletter_Signup::draw()
+       k) Component::forgotten_password() now Component_Forgotten_Password::draw()
+       l) Component::folder_viewer() now Component_Folder_Viewer::draw()
+       m) Component::flickr() now Component_Flickr::draw()
+  1.0.104 (2011-12-28)
+    1) Moved the following into new dedicated child classes:
+       a) Component::calendar() now Component_Calendar_Small::draw()
+       b) Component::category_tabber() now Component_Category_Tabber::draw()
+       c) Component::email_to_friend() now Component_Email_To_Friend::draw()
+       d) Component::inline_signin() now Component_Inline_Signin::draw()
+       e) Component::poll() now Component_Poll::draw()
+       f) Component::prev_next() now Component_prev_next::prev_next() (not draw)
+       g) Component::sitemap() now Component_Sitemap::get_sitemap() (not draw)
+       h) Component::share_this() now Component_Share_This::draw()
+       i) Component::video_player() now Component_Video_Player:draw()
+    2) Moved the following code in from Component_Base:
+       a) Component_Base::export() now Component::export()
+       b) Component_Base::execute() now Component::execute()
+       c) Component_Base::execute_code_isolated() now Component::execute_code_isolated()
+       d) Component_Base::handle_report_copy() now Component::handle_report_copy()
+  1.0.103 (2011-12-24)
+    1) Tweak to Component::flickr() to handle fact that flickr images now come
+       from staticflickr.com not static.flickr.com
+    2) Component::category_stacker() removed option to show keywords
+    3) Component::category_tabber() removed option to show keywords
+  1.0.102 (2011-12-15)
+    1) Component::donate() changed JS calls from attach_field_behaviour() to
+       shorter alias afb()
+  1.0.101 (2011-11-24)
+    1) Moved Component::combo_tabber() to its own class
+  1.0.100 (2011-11-23)
+    1) Component::folder_viewer() now a lot more error tollerant
+  1.0.99 (2011-10-20)
+    1) Component::calendar() changes to remove 'picker' mode (unused now)
+  1.0.98 (2011-10-19)
+    1) Moved Component::event_registration() to its own child class
+  1.0.97 (2011-10-19)
+    1) Tweak to Component::image_gallery() to use /img/width/image-path mode
+      (used at http://www.standrewseast.com/photo-album-visitor
+    2) Tweak for Component::document_covers() to use /img/width/image-path mode
+      (used at http://www.evangelicalchristian.ca/online-editions)
+  1.0.96 (2011-10-13)
+    1) Moved Component::articles_rotator() into its own class -
+       saves about 50K on footprint if not actually used (ADDS 50k if it is!)
+  1.0.95 (2011-09-25)
+    1) Change to Component::inline_signin() to allow for 'autocomplete_off' without
+       failing XHTML strict -
+       classname of 'autocomplete_off' is used as trigger for replacement by JS
+  1.0.94 (2011-09-24)
+    1) Moved Component::sd_menu to its own class
+  1.0.93 (2011-09-23)
+    1) Component::component_sitemap() now ensures that any un-encoded html
+       entities are encoded prior to creation of links
+  1.0.92 (2011-09-21)
+    1) Component::custom_form() only shows Fedex CPs if 'Fedex' feature is enabled
+  1.0.91 (2011-08-19)
+    1) Removed method Component::calendar_large() - unused
+    2) Moved Component::catalog() to its own class
+  1.0.90 (2011-08-04)
+    1) Changes to Component::event_registration() to eliminate EVENT_ID constant
+    2) Component::component_password_protect() now uses new method for shadow box
+  1.0.89 (2011-07-18)
+    1) Moved out Component::breadcrumbs() into Component_Breadcrumbs::draw()
+    2) Moved out Component::image_text() into Component_Image_Text::draw()
+  1.0.88 (2011-07-16)
+    1) Component::activity_tabber() now calls HTML class for section tabs
+    2) Component::category_tabber() now calls HTML class for section tabs
+    3) Component::combo_tabber() now calls HTML class for section tabs
+  1.0.87 (2011-07-06)
+    1) Component::breadcrumbs() now shows path prefixed with 'gallery-image' if
+       that's the correct type
+  1.0.86 (2011-06-23)
+    1) Changes in css for breadcrumbs mean this now work s correctly in IE6 and 7
+       so changed the include for css to always rather than conditional
+  1.0.85 (2011-06-22)
+    1) Component::breadcrumbs now has parameters for skin and colouring to provide
+       configurable mac-style breadcrumbs without having to set up custom graphics
+       and stylesheet per site.
+  1.0.84 (2011-06-07)
+    1) Component::breadcrumbs now recognise YYYY-MM-DD datestamps and don't convert
+       those hyphens to spaces
+  1.0.83 (2011-06-05)
+    1) Component::component_sitemap() now looks to page_vars['navsuite1ID'] for
+       navsuite to use, not page_vars['navbar1_suiteID'] as before
+  1.0.82 (2011-06-01)
+    1) Component::email_newsletter_signup() now uses combo_listdata for sp field
+       Also a few repairs inside on this.
+  1.0.81 (2011-05-29)
+    1) Component::calendar() bug fix for missing component control panel
+  1.0.80 (2011-05-28)
+    1) Component::calendar() now uses the new css-3 shadow effect
+    2) Component::combo_tabber() now uses the new css-3 shadow effect
+  1.0.79 (2011-05-23)
+    1) Changes to Component::signin() to use html clickable labels
+  1.0.78 (2011-05-04)
+    1) Replaced all references of _CM_type to _CM.type
+  1.0.77 (2011-04-25)
+    1) Component::articles_rotator() - removed old reference to event_id
+    2) Component::email_to_friend() now only tracks activity if enabled for site
+    3) Component::activity_tabber() now returns error if system doesn't have
+       Activity-Tracking feature enabled
+  1.0.76 (2011-04-25)
+    1) Component::_activity_tabber_item() now references Page::get_URL()
+       not $this->get_URL() as before
+  1.0.75 (2011-04-20)
+    1) Component::signin() now sets fixed width for labels using em units not px
+  1.0.74 (2011-04-16)
+    1) Component::combo_tabber() changed all sub panel cps from old format
+       events_panel.*, news_panel.* and podcasts_panel.* to new format of
+       list_events.*, list_news.* and list_podcasts.* -
+       this is to counter an unintended side effect of build 2.22.22.1622 which
+       altered these while remapping standalone listing cps.
+  1.0.73 (2011-03-20)
+    1) Component::calendar() - simplified and rationalised JS code, moved some
+       callback functions to functions.js
+  1.0.72 (2011-02-23)
+    1) Component::video_player() had one remaining reference to ?command=jwplayer
+       in data for embed - fixed this
+  1.0.71 (2011-02-18)
+    1) PCI fix to Component::email_to_friend() form - sanitized inputs
+  1.0.70 (2011-01-28)
+    1) Component::event_registration() now returns cleanly if no eventID is given
+  1.0.69 (2011-01-18)
+    1) Calls for command=jwplayer now via streamer as URL-friendly resource
+  1.0.68 (2010-12-28)
+    1) Tweak to Component::inline_signin() to sanitize inputs for PCI compliance
+    2) Tweak to Component::signin() to sanitize inputs for PCI compliance
+  1.0.67 (2010-12-11)
+    1) Tweak to Component::category_stacker() to URI encode category clause in URL
+  1.0.66 (2010-12-09)
+    1) Fix to Component::video_player() for safari and chrome -
+       URL in inner object 'data' attribute was wrong for jwplayer
+  1.0.65 (2010-11-02)
+    1) Component::custom_form() no longer has auto_signin parameter -
+       always does this now
+  1.0.64 (2010-11-01)
+    1) Changes to Component::content_signin_mirror() to operate on page path,
+       not page name (some bad logic in there)
+  1.0.63 (2010-10-22)
+    1) Component::email_form() no longer has CP to allow HTML content but has
+       new CP to allow manual override of automatically generated subject line
+  1.0.62 (2010-10-19)
+    1) Component::donate() now calls insert() methods
+    2) Component::event_registration() now calls insert() methods
+  1.0.61 (2010-10-14)
+    1) Replaced Component::component_custom_form() with Component::custom_form()
+       This applies CPs correctly and allows instance names
+  1.0.60 (2010-10-12)
+    1) Component::signin() now uses HTML::draw_form_box() for layout
+    2) Component::forgotten_password() now invokes person object directly
+  1.0.59 (2010-10-06)
+    1) Tweak to Component::event_registration() to set Person object ID via setter
+  1.0.58 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.57 (2010-09-14)
+    1) Component::_activity_tabber_item() now uses system date format for display
+    2) Component::articles_rotator() now uses system date format for display
+  1.0.56 (2010-08-19)
+    1) Bug fix for share_this and email_to_friend components for when path
+       extender is NOT set (e.g for postings)
+  1.0.55 (2010-08-19)
+    1) Component::share_this() updated to include full extended path when used
+       with pages that are URL extenders - e.g. community member or gallery album
+    2) Component::email_to_friend() updated to include full extended path
+  1.0.54 (2010-08-14)
+    1) Component::_activity_tabber_item() now uses renamd Page::hasDynamicTags()
+       to test to see if preview content is available
+  1.0.53 (2010-08-12)
+    1) Changes to Component::search_tag_cloud() to limit results to given site(s)
+    2) Added Component::search_word_cloud()
+  1.0.52 (2010-08-10)
+    1) Changes to Component::event_registration() to reference new fields
+       `effective_time_start` and `effective_time_end` and to operate
+       using new static event method Event::format_times()
+  1.0.51 (2010-08-03)
+    1) Tidy up for Component::image_fader() to work alongside
+       Component_Gallery::draw() - now has 'URL_popup'
+  1.0.50 (2010-07-28)
+    1) Added CP for Component::articles_rotator() for 'links_point_to_URL'
+    2) Added CP for Component::category_stacker() for 'links_point_to_URL'
+    3) Added CP for Component::category_tabber() for 'links_point_to_URL'
+  1.0.49 (2010-07-22)
+    1) Changes to Component::component_sitemap() now that navbuttons have
+       two text fields
+  1.0.48 (2010-07-15)
+    1) This class now inherrits from Component_Base to keep framework code
+       away from implementation
+    2) Fix to Component::activity_tabber() to not show dates where not set
+       (corrects last of issues reported in bug XIM-58)
+  1.0.47 (2010-07-14)
+    1) CPs changed for the following components:
+         Component::activity_tabber()
+         Component::articles_rotator()
+         Component::catalog()
+         Component::category_stacker()
+         Component::category_tabber()
+       The following CPs were changed:
+         body_char_limit  ->  content_char_limit
+         body_plaintext   ->  content_plaintext
+         body_show        ->  content_show
+    2) Added CP 'content_use_summary' for the following components:
+         Component::activity_tabber()
+         Component::articles_rotator()
+         Component::catalog()
+         Component::category_stacker()
+         Component::category_tabber()
+    3) Bug fix for Component::activity_tabber() which wasn't properly applying
+       character limits when showing content
+  1.0.46 (2010-07-07)
+    1) Moved Component::calendar_large() into its own sub-class
+  1.0.45 (2010-07-02)
+    1) Changes to Component::calendar_large() now that effective_date is used
+    2) Changes to Component::event_registration() now that effective_date is used
+    3) Bug fix and enhancements to Component::breadcrumbs() to provide clear path for
+       event regbistration to prevent someone clicking 'Register' by itself and
+       getting an error
+  1.0.44 (2010-06-30)
+    1) Bug fix for Component::search_date_picker() to NOT try to reference
+       uninitialised $instance variable
+    2) Bug fix for Component::search_tag_cloud() to NOT try to reference
+       uninitialised $instance variable
+  1.0.43 (2010-06-01)
+    1) Tweak to Component::document_covers() to use short-form image resize syntax
+    2) Tweak to Component::calendar_large() to use short-form image resize syntax
+  1.0.42 (2010-05-31)
+    1) Moved Person::draw_signin() into here as Component::signin() with a full
+       range of customisation options.
+  1.0.41 (2010-05-26)
+    1) Prevented setting or saving of cps for page if not viewing a page:
+       a) Component::set_parameters() now only attempts to set for page when
+          the object being viewed IS a page (not event or some such)
+       b) Component::help() sets cp for page to false when not viewing a page
+    2) Bug fix for Component::event_registration() to get componentID_post from
+       signin page if found to allow users to signin - was missing '_post' suffix
+  1.0.40 (2010-05-24)
+    1) Tweak to Component::calendar() to pass 'canEdit' to cal_event::draw()
+    2) Moved setup Register_Event::draw_registration() into here as
+       Component::event_registration() -
+       bulk of code will remain at Register_Event::draw_registration()
+  1.0.39 (2010-05-21)
+    1) Added hooks for calendar events to Component::calendar()
+  1.0.38 (2010-05-18)
+    1) Added Component::image_gallery(), based on funky_gallery by James Fraser
+    2) Added Component::video_player() to play FLV files and replace custom
+       implementations of this at various locations
+    3) Added static Component::get_safe_ID() and added $safe_ID to every updated
+       component as a precursor to avoiding JS errors when instance names contain
+       a dash '-' e.g. 'MR-womens-ministry'
+       (not yet implemented except for image_gallery())
+  1.0.37 (2010-05-10)
+    1) Change to Component::inline_signin() to allow CPs to prevent CSS updates
+       on focus, to allow 'autocomplete' to function, and to provide for custom
+       labels besides each form field
+  1.0.36 (2010-04-29)
+    1) Tweak to Component::inline_signin() on JS attached to not submit on enter
+       from username field but just transfer control to password field instead.
+  1.0.35 (2010-04-23)
+    1) New CP for Component::category_stacker() - filter_type - and changes to
+       allow component to operate with Products
+  1.0.34 (2010-04-16)
+    1) New CP for Component::category_tabber() - filter_type - and changes to
+       allow component to operate with Products
+  1.0.33 (2010-03-22)
+    1) Tweak to Component::catalog() to invoke Product_Catalogue::draw()
+       directly (formerly went via function draw_product_catalogue() in codebase)
+  1.0.32 (2010-03-15)
+    1) Big changes to Component::rss_headlines() -
+       now replaced the old feed2js architecture with a much faster and truely
+       ajax delivered method based on an integrated RSS proxy
+       based on example at http://momche.net/publish/article.php?page=rssload
+  1.0.31 (2010-03-10)
+    1) Change to Component::help() to add alt='' for spacer image
+    2) Change to Component::category_tabber() to URL encode '&' used in 'Add New'
+       link and to convert these links to moved JS from href into onclick
+  1.0.30 (2010-03-01)
+    1) Tweak to Component::inline_signin() to specify an input of type image for
+       actual signin button - works much better now
+    2) Component::email_to_friend() now sets replyto address as given sender
+    3) Component::secure_email() now sets replyto address as given sender
+  1.0.29 (2010-02-09)
+    1) Tweaks to Component::email_form() to include page name in sent email and
+       to avoid writing 'poll_max_votes_for_nnn' values in message body
+    2) Added component secure_email() to implement James email transformer functions
+    3) Fix to Component::member_search() for searching on city field alone
+  1.0.28 (2010-02-05)
+    1) Extended Component::inline_signin to handle case of 'missing' credentials
+  1.0.27 (2010-02-03)
+    1) Added inline_signin()
+  1.0.26 (2010-01-29)
+    1) Change to Component::_member_search_get_selector_sp_SQL() to eliminate
+       extra '(None)' entry in State / Province dropdown UNLESS there are
+       members who have no SP
+  1.0.25 (2010-01-25)
+    1) Corrected component parameter matches for articles rotator.
+    2) Added 'Add new article in this category' icon for category_tabber
+    3) Added 'Add new article in this category' icon for category_stacker
+  1.0.24 (2010-01-11)
+    1) Begun to extend parameters for components to include type and sanitize
+       for each option.
+  1.0.23 (2010-01-06)
+    1) Change to Component::calendar_large() to prevent php warning regarding
+       the setting of $_REQUEST['show_icons']
+    2) Change to Component::category_tabber() to allow setting of
+       filter_category_master (for The Auroran)
+    3) Change to _member_search_get_selector_city() to use correct choice for
+       listing address selection
+  1.0.22 (2010-01-02)
+    1) Change to Component::calendar_large() since popWin() now returns
+       a window handle - JS link now voids return in this case
+  1.0.21 (2009-12-27)
+    1) Changed reference to parent constructor
+  1.0.20 (2009-12-14)
+    1) Component::component_member_search() now Component::member_search() and
+       extensively modified
+    2) Added Component::execute_code_isolated() to allow execution of code without
+       exposing all inner variables
+  1.0.19 (2009-12-02)
+    1) Bug fix for Component::donate() to use cp['field_width'] not ['width']
+    2) Tweak to Component::email_form() to add extra break after component
+       control handle so it doesn't get covered up by anything following.
+  1.0.18 (2009-11-30)
+    1) Moved code for component_signin_switcher() into here from codebase.php as
+       Component::content_signin_mirror() (more accurate) and rationalised CPs
+    2) Component::content_mirror() renamed to Component::content_group_mirror()
+    3) Moved code for component_group_member_switcher() into here as
+       Component::group_member_redirector()
+  1.0.17 (2009-11-23)
+    1) No changes - build 1.0.16 and 1.0.17 were combined
+  1.0.16 (2009-11-23)
+    1) Added functions Component::set_parameters() and Component::_set_parameters_merge()
+    2) Massive changes to Component::help() to provide mini control panel handle
+    3) Component::component_search_date_picker() rationalised and renamed to
+       search_date_picker()
+    4) Component::component_search_tag_cloud() rationalised and renamed to
+       search_tag_cloud()
+    5) Component::component_forgotten_password() renamed Component::forgotten_password()
+       and has rationalised CPs
+    6) Component::component_rss_headlines() renamed Component::rss_headlines()
+       and has rationalised CPs
+    7) Component::component_email_to_friend() now Component::email_to_friend()
+    8) Two method believed unused now renamed prior to removal:
+       Component::component_form_person_lookup() and
+       Component::unused_component_form_person_lookup()
+    9) Component::component_get_remote_page() renamed to get_remote_page_content
+  1.0.15 (2009-11-17)
+    1) Component::get_parameter_defaults_and_values() last parameter now optional
+  1.0.14 (2009-11-14)
+    1) Removed reference to inline version of get_calendar_dates() function -
+       now accesses Event class version of that function instead
+    2) Tweaked all remaining direct calls to component:help to remove any
+       terminating ';' in paamter string - this indicates an additonal unspecified
+       paramter which is wrong.
+    3) Replace ereg() with preg_match() in Component::flickr() for php 5.3+
+  1.0.13 (2009-11-12)
+    1) Renamed component_email_form() to email_form(), updated CP code and
+       changed prefix from 'email_form_' to 'email_form.'
+  1.0.12 (2009-10-05)
+    1) Added in Component::content_mirror(), revised and extended from version originally
+       in codebase - now accepts list of pages with optional groups to match
+    2) Added in Component::catalog() - formerly in codebase as component_catalog()
+       Renamed CPs including catalog_category_list to catalog.product_grouping_list to
+       better differentiate this from filtering by regular category now that products have
+       regular categories too.
+  1.0.11 (2009-09-23)
+    1) Changes to Component::articles_rotator(), combo_stacker() and combo_tabber()
+       to reference renamed Article::draw_from_recordset() - formerly draw_listing()
+  1.0.10 (2009-09-19)
+    1) Added Component::articles_rotator() to allow split of functionality
+       for standard listings panel which is now simplified and rotated
+       collection views.
+       Unlike previous articles_panel() which had to serve both functions,
+       Component::articles_rotator() does NOT support box parameters or paging.
+  1.0.9 (2009-09-17)
+    1) Component::component_flickr() now uses parameter_spec
+       - renamed flickr_thumbs()
+    2) Component::component_email_newsletter_signup() has improved params
+       and uses parameter_spec - renamed email_newsletter_signup()
+    3) Component::component_google_map() is greatly improved and multi-instance capable
+       and uses parameter_spec - renamed google_map()
+    4) Component::component_share_this() now uses parameter_spec
+       - renamed share_this()
+    5) Component::component_sd_nav() now uses parameter_spec
+       - renamed sd_menu(), ident also changed from sdnav to sd_manu
+  1.0.8 (2009-09-14)
+    1) Added static method Component::get_parameter_defaults_and_values()
+    2) Added static method Component::get_help()
+    3) Component:combo_tabber() now has clearer parameters and parameter_spec
+    4) Component:component_category_stacker() now has clearer parameters and parameter_spec
+       - renamed category_stacker()
+    5) Component:component_category_tabber() now has clearer parameters and parameter_spec
+       - renamed category_tabber()
+    6) Component::calendar() now uses parameter_spec
+    7) Component::calendar_large() now uses parameter_spec
+    8) Component:component_activity_tabber() now uses parameter spec and properly
+       implements body display for the first time (uses new private method for display)
+       - renamed activity_tabber()
+    9) Component::component_document_covers() now uses parameter_spec
+       - renamed document_covers()
+   10) Component::component_document_reader() now uses parameter_spec
+       - renamed document_reader()
+   11) Component::donate() now uses parameter_spec
+   12) Component::folder_viewer() now uses parameter_spec
+   13) Component::image_text() now uses parameter_spec
+   14) Component::poll() now uses parameter_spec
+   15) Component::poll_archive() now uses parameter_spec
+   16) Component::random_news() now uses parameter_spec
+   17) Component::splash_page() now uses parameter_spec
+  1.0.7 (2009-09-08)
+    1) Component::component_folderviewer() renamed to Component::folder_viewer()
+       and made instance-nameable
+  1.0.6 (2009-09-04)
+    1) Component::component_custom_form now invokes context toolbar by instance
+       not statically which means HTML::draw_toolbar() is okay to use internal
+       references to 'this' without getting confused as to what we are are talking about
+  1.0.5 (2009-09-02)
+    1) Component::component_email_form() now accepts a csv list of recipients
+    2) Component::calendar_large() now accepts CPs for setting title and
+       no longer fixes heading width to 60% (for when there was a mini-calendar next to it)
+  1.0.4 (2009-08-28)
+    1) Component::combo_tabber() now alows setting of height / width for podcast
+       audio player
+  1.0.3 (2009-08-24)
+    1) Tweak to component_breadcrumbs() to deal with wierd bug when site base_path
+       starts in a sub-folder
+  1.0.2 (2009-08-10)
+    1) Changes to Component::component_flickr() to use 'flickr.' ident and
+       to allow choice of 's' or 'm' sized images
+    2) Changes to Component::calendar_large() to include Block Layout edit
+       support in context-menu
+  1.0.1 (2009-08-04)
+    1) Changes to Component::combo_tabber() to use component parameters in form of
+       'events_panel.category' instead of 'events_category' and so on
+    2) Changes to Component::component_flickr() to be instance nameable
+  1.0.0 (2009-07-02)
+    Initial release

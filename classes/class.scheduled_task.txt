@@ -1,0 +1,9 @@
+  1.0.3 (2013-09-27)
+    1) Changes to Scheduled_Task::all_tasks_run() to only run enabled tasks
+  1.0.2 (2012-10-03)
+    1) No longer uses Local_Date class -
+       all dates are now local according to site timezone setting
+  1.0.1 (2010-10-08)
+    1) Class now fully populated and operational
+  1.0.0 (2010-10-06)
+    Initial release

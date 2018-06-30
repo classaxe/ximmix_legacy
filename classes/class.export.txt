@@ -1,0 +1,67 @@
+  1.0.23 (2012-12-03)
+    1) Export::excel() now uses time() not mktime() as per strict standards
+  1.0.22 (2012-11-28)
+    1) Export::excel() now uses System::get_item_version() not
+       System::get_version() as before
+  1.0.21 (2012-08-18)
+    1) Added Export::draw() to alow this code to be moved out of codebase
+       and modified -
+       now doesn't always send text/plain header for system as before
+  1.0.20 (2011-12-08)
+    1) Export::excel() now replaces html line breaks with spaces and html
+       representations of dashes with actual dashes.
+  1.0.19 (2011-06-08)
+    1) Excel::export() changes to limit access to fields to only those which have
+       access==1 - was showing columns for which features were not enabled
+    2) Now supports embedded links to downloadable files, PDF renderings and orders
+  1.0.18 (2011-05-27)
+    1) Excel::export() - when exporting list of members within a group this now
+       includes name of group in title string
+    2) Excel::export() - when exporting list of email recipients within an
+       Email Job now includes name of group in title string
+  1.0.17 (2011-05-20)
+    1) Changes to Export::excel() to apply targetID filtering to allow correct
+       operation when 'select' boxes are checked
+  1.0.16 (2011-05-11)
+    1) Major rewrite to use PHPExcel native excel export system
+  1.0.15 (2011-05-06)
+    1) Fixed column sorting by including call to Report::get_and_set_sortOrder()
+       Closes bug XIM:134
+    2) Export::excel() now handles its own headers and utf8 decoding to keep
+       related code together
+  1.0.14 (2011-02-09)
+    1) Removed support for export_pages
+  1.0.13 (2011-01-13)
+    1) Report to excel now correctly sets filter field if used
+  1.0.12 (2011-01-06)
+    1) Changed Export::excel() to use record select query from Report class -
+       old customised version was missing groupby clause, but now future-proof
+  1.0.11 (2010-12-16)
+    1) Minor tweek to export::excel() to eliminate '&nbsp;' showing up in results
+  1.0.10 (2010-12-13)
+    1) Changes to Export::excel() to handle other languages - now strips tags
+       (such as embedded links) and converts non-ascii characters to html entities
+  1.0.9 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.8 (2010-08-11)
+    1) Export::excel() now respects sort order of report to which it is tied
+  1.0.7 (2010-09-11)
+    1) Export::excel() now ignores fields of type 'link_programmable_form'
+  1.0.6 (2010-08-11)
+    1) Export::excel() now allows limiting of results to selected records
+       Partially mitigates bug XIM99 -
+       'Export to Excel runs out of memory on large result sets'
+  1.0.5 (2010-06-17)
+    1) Removed support for aggregate filters
+  1.0.4 (2010-01-13)
+    1) Export::excel() now provides correct number of paramters to Report::convert_xml_field_for_filter()
+  1.0.3 (2010-01-01)
+    1) Export::excel() now fully supports XML field filtering
+  1.0.2 (2009-12-13)
+    1) Another major rewrite this time to allow filtering, xml field data and to
+       keep headings in one cell to allow sorting to take place
+  1.0.1 (2009-11-14)
+    1) Major rewrite of Export::excel() to simplify and take full advantage of
+       Report class functionality
+  1.0.0 (2009-07-02)
+    Initial release

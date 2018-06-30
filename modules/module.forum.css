@@ -1,0 +1,270 @@
+/* 1.0.2
+
+Recent version history:
+1.0.2 (2008-12-14)
+  1) Various layout tweaks - looking good now in everything!
+1.0.1 (2008-12-12)
+  1) add_topic now has changed margin
+  2) Added cascade for forum_status
+  3) Added 'forbidden' icon
+1.0.0 (2008-12-05)
+  1) Initial release of this separate forum.css file
+
+*/
+
+/* column widths */
+div.forums div.forum table.category th.created,
+div.forums div.forum table.category td.created {
+  width: 18%;
+}
+div.forums div.forum table.category th.qty,
+div.forums div.forum table.category td.qty {
+  width: 8%;
+}
+div.forums div.forum table td.info {
+  width: 16%;
+}
+
+
+
+div.forums .forum_status {
+  padding: 5px;
+  margin: 5px 0;
+  border: solid 1px #c0c0c0;
+}
+
+div.forums .forum_status ul {
+  margin: 0 2em;
+  padding: 0;
+}
+
+div.forums div.forum {
+  margin-bottom: 1em;
+}
+div.forums div.forum table tr.current td{
+  font-weight: bold;
+}
+div.forums h1 {
+  margin: 0;
+  padding: 0;
+}
+div.forums a {
+  text-decoration: none;
+}
+div.forums a:hover {
+  text-decoration: underline;
+}
+
+/* Images for icons */
+div.forums img.category {
+  width: 18px;
+  height: 16px;
+  display: inline;
+  background-position:-3233px;
+  margin: 4px 2px 0 2px;
+  border: 0;
+}
+div.forums img.forum {
+  width: 18px;
+  height: 16px;
+  display: block;
+  background-position:-3251px;
+  margin: 2px;
+  border: 0;
+}
+div.forums tr.current img.forum {
+  width: 20px;
+  height: 16px;
+  display: block;
+  background-position:-3269px;
+  margin: 2px;
+  border: 0;
+}
+div.forums img.topic {
+  width: 14px;
+  height: 16px;
+  display: block;
+  background-position:-3289px;
+  margin: 0px 4px 0px 2px;
+  border: 0;
+}
+div.forums tr.current img.topic {
+  width: 16px;
+  height: 16px;
+  display: block;
+  background-position:-3303px;
+  margin: 0px 2px;
+  border: 0;
+}
+div.forums img.post {
+  width: 16px;
+  height: 16px;
+  display: block;
+  background-position:-3319px;
+  margin: 0px 2px;
+  border: 0;
+}
+div.forums img.forbidden {
+  width: 12px;
+  height: 16px;
+  display: block;
+  background-position:-3414px;
+  margin: 0px 2px;
+  border: 0;
+}
+div.forums img.reply {
+  width: 19px;
+  height: 16px;
+  display: block;
+  background-position:-3335px;
+  margin: 0px 2px;
+  border: 0;
+}
+div.forums img.edit {
+  width: 8px;
+  height: 16px;
+  background-position:-3462px;
+  margin: 0px 2px;
+  border: 0;
+}
+div.forums img.add_topic {
+  width: 14px;
+  height: 16px;
+  background-position:-3470px;
+  margin: 0px 4px;
+  border: 0;
+}
+div.forums img.delete {
+  width: 10px;
+  height: 10px;
+  background-position: -3484px -6px;
+  margin: 2px 2px;
+  border: 0;
+}
+
+div.forums table td.icon{
+  text-align: right;
+  vertical-align: top;
+}
+div.forums table td.icon img{
+  float: right;
+}
+div.forums div.forum table.post tr.header td{
+  border-bottom: 1px solid #e0e0e0;
+  padding: 5px;
+}
+div.forums div.forum table.post tr.reply td{
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #f0f0ff
+}
+div.forums div.forum table.post td{
+  padding-top: 2px;
+}
+
+div.forums div.forum th.title {
+  text-align: left;
+}
+
+div.forums div.forum th.title a {
+  white-space: nowrap;
+}
+
+div.forums div.forum table.post tr.header{
+  background: url(/img/?mode=sysimg&img=gradient_e0e0ff-ffffff.gif) repeat-x;
+}
+div.forums div.forum table.post tr.forbidden{
+  background: url(/img/?mode=sysimg&img=gradient_ffdfdf-ffffff.gif) repeat-x;
+}
+div.forums div.forum table.post tr.forbidden td{
+  color: #ff4040;
+  border-bottom: 1px solid #ffdfdf;
+  padding: 5px;
+}
+
+div.forums div.forum table.category th.created {
+  text-align: center;
+}
+div.forums div.forum table td.created {
+  font-size: 80%;
+  text-align: center;
+}
+div.forums div.forum div.posting_date {
+  font-weight: bold;
+  float: right;
+  font-size: 80%;
+}
+div.forums div.forum table td.info {
+  padding: 0.25em; 
+  border-right: 1px solid #e0e0ff; 
+}
+div.forums div.forum table td.body {
+  padding: 0.25em; 
+}
+
+div.forums table.category {
+  border-collapse: collapse;
+  background-color: #ffffff;
+  background-image: none;
+  padding: 0;
+  width: 100%;
+}
+
+div.forums div.forum table.category table {
+  border-collapse: collapse;
+  padding: 0;
+  width: 100%;
+}
+
+div.forums div.forum table.category tr td{
+  vertical-align: top;
+  border: 0;
+  padding: 0;
+}
+
+div.forums div.forum table.category {
+  border: 1px solid #404080;
+  border-collapse: collapse;
+  margin: auto;
+}
+div.forums div.forum table.category th {
+  background-color: #e0e0e8;
+  border: 1px solid #808080;
+}
+div.forums div.forum table.category th.qty,
+div.forums div.forum table.category td.qty {
+  text-align: right;
+  padding: 5px;
+}
+
+/* Edit and Add forms */
+div.forums div.add {
+  border: 1px solid #008000;
+  background-color: #e0ffe0;
+}
+div.forums div.edit {
+  border: 1px solid #808000;
+  background-color: #ffffe0;
+}
+div.forums #div_add_post table td, {
+  background-color: transparent;
+  border: 0;
+}
+
+div.forums div.add, div.forums div.edit {
+  margin: 5px;
+  padding: 5px;
+  width: auto;
+}
+div.forums div.add h2, div.forums div.edit h2 {
+  text-align: center;
+  margin: 5px 0;
+}
+div.forums div.add input.btn, div.forums div.edit input.btn {
+  width: 70px;
+}
+div.forums div.add table th, div.forums div.edit table th {
+  font-weight: normal;
+  padding-right: 5px;
+  text-align: right;
+  width: 8em;
+}

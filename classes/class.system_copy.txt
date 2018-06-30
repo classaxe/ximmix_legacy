@@ -1,0 +1,21 @@
+  1.0.5 (2012-07-06)
+    1) Changes to System_Copy::_copy_system() to clear out notification options,
+       Bug Tracker, Piwik, Google Analytics and other customer-specific fields -
+       Thanks Tracy at AOJ for bug report
+  1.0.4 (2012-02-10)
+    1) Bug fix for remapping group assignments in copied Payment Methods
+  1.0.3 (2011-07-13)
+    1) Now clears last_user_access field when copying
+  1.0.2 (2011-06-27)
+    1) Very much more complete model now -
+       all operations performed at record level rather than object to prevent
+       unexpected results from object-level copy overriden implementation.
+  1.0.1 (2011-06-24)
+    1) Now includes block_layouts
+  1.0.0 (2011-06-23)
+    1) Initial Release - code brought in from System and completely modularized
+    2) Now copies ECL tags
+    3) Now removes invalid buttons from childID_csv lists in navsuite instead of
+       trying (and failing) to remap references
+    4) Now remaps components in componentID_pre for pages
+    5) Now remaps navsuites and layouts for themes

@@ -1,0 +1,15 @@
+  1.0.4 (2014-01-23)
+    1) Refactored code to reduce code complexity and shorten function names
+    2) Community_Member_Resource::draw_search_results() now includes gallery-images
+  1.0.3 (2014-01-21)
+    1) Community_Member_Resource::draw_resource() calls Portal::_parse_request_posting()
+       not Portal::_parse_request_date_prefix() which has since been renamed
+  1.0.2 (2013-10-07)
+    1) Community_Member_Resource::_draw_resource_rss() now assigns default values
+       for offset and 'what' if not given
+  1.0.1 (2013-09-20)
+    1) Fix to Community_Member_Resource::_draw_resource_jsonp() to retrieve
+       community record for base URL
+  1.0.0 (2013-08-04)
+    1) Initial release -
+       Moved summary code into here from Community_Member_Display

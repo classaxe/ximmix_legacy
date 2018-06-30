@@ -1,0 +1,13 @@
+#wowslider-container$GallerySuffix$ .ws_thumbs .ws_selthumb img{
+	border-color:#444;
+}
+
+#wowslider-container$GallerySuffix$ .ws_thumbs  a img{
+	margin:3px;
+	text-indent:0;
+    -moz-box-shadow: 0 0 5px #3D3D3D;
+    box-shadow: 0 0 5px #3D3D3D;
+    border: 5px solid #ffffff;
+	max-width:none;
+}
+

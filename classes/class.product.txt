@@ -1,0 +1,254 @@
+  1.0.76 (2014-04-16)
+    1) Product::draw_push_products() now sets safeID before drawing listings -
+       prevents warning for unset safe_ID property
+  1.0.75 (2014-02-18)
+    1) Refreshed fields list - now declared as a class constant
+  1.0.74 (2013-12-18)
+    1) New method Product::get_ID_by_itemCode()
+  1.0.73 (2013-09-06)
+    1) Bug fix for Product::get_search_results() -
+       was insisting on specified active from and to dates for public
+       Thanks Lee for the bug report
+  1.0.72 (2013-06-22)
+    1) Changes to Product::get_search_results() to limit results based on created date
+  1.0.71 (2013-06-13)
+    1) Added Product::_draw_listings_load_records() to override version provided
+       by displayable_item
+  1.0.70 (2013-06-07)
+    1) Changed the following CPs for listings mode:
+         Old: 'filter_limit',  'filter_order_by', 'paging_controls'
+         New: 'results_limit', 'results_order',   'results_paging'
+  1.0.69 (2013-05-17)
+    1) Added cp for listings mode for 'filter_important'
+    2) New field 'important' added for products table and fields list
+    3) Implemented 'filter_important' for Product::get_records()
+  1.0.68 (2013-04-01)
+    1) New CP 'thumbnail_show' and set default value for 'thumbnail_image' to 's'
+  1.0.67 (2012-12-12)
+    1) New override method Product::try_delete_item() to prevent context deletion
+       of any product that has orders against it.
+  1.0.66 (2012-12-03)
+    1) The following methods now use time() not mktime() as per strict standards:
+         Product::is_in_active_date_range()
+         Product::test_publish_date()
+  1.0.65 (2012-11-21)
+    1) Fix for available sort order 'itemCode' - not formerly implemented
+  1.0.64 (2012-09-10)
+    1) Bug fix for get_records() -
+       was referencing incorrect table name during error message testing and got
+       left like that in error
+  1.0.63 (2012-09-09)
+    1) Change to Product::get_records() to not duplicate error handling code
+  1.0.62 (2012-08-17)
+    1) Moved Product::get_next_ID_for_QB_conversion() out into quickbooks class file
+       as QB_Inventory_Item::get_next_ID_for_QB_conversion()
+    2) Added qb_name to fields list
+  1.0.61 (2012-07-20)
+    1) Bug fix in Product::get_records() for proper assignment of order_by variable
+  1.0.60 (2012-07-14)
+    1) Product::get_records() now accepts either sequential list of arguments or
+       associative array of arguments, just like Postings::get_records()
+  1.0.59 (2012-06-28)
+    1) Product::get_next_ID_for_QB_conversion() now has new optional parameter
+       'acceptable_codes' -
+       if given, items with these codes will also be returned
+  1.0.58 (2012-05-30)
+    1) Product::get_next_ID_for_QB_conversion() now has optional parameter 'only_ordered' -
+       only gets products that appear in at least one order
+  1.0.57 (2012-05-23)
+    1) Version number increment (that's pretty much it really!)
+  1.0.56 (2012-05-16)
+    1) New method Product::get_next_ID_for_QB_conversion()
+    2) Updated field list
+  1.0.55 (2012-04-23)
+    1) Change to Product::draw_push_products() to return cleanly if there are no
+       push products.
+  1.0.54 (2012-04-02)
+    1) Tweaks to Product::draw_product_child_selector() for better field layout
+  1.0.53 (2012-02-15)
+    1) Added 'quickbooks_listid' to field list
+  1.0.52 (2012-01-18)
+    1) Renamed Product::get_products_for_category_list() to
+       Product::get_products_filtered() and added option to
+       filter by category
+  1.0.51 (2011-12-15)
+    1) New cps for detail and listings for skinning of cart controls
+    2) Now applies skin to checkout and empty cart button if required
+  1.0.50 (2011-12-14)
+    1) Changes to Product::BL_cart_operations() to use Cart::draw_cart_controls()
+       for drawing te cart icon with controls and quantity
+  1.0.49 (2011-12-13)
+    1) Product::get_search_results() now includes meta keywords and description
+       in search clause for finding text
+  1.0.48 (2011-12-08)
+    1) Changes to Product::get_search_results() to use full quotes in all clauses
+  1.0.47 (2011-12-08)
+    1) Changes to Product::draw_push_products() to ensure that only available,
+       active and visible products are shown for each user
+  1.0.46 (2011-12-01)
+    1) Added cp for 'block_layout_push_products' for detail view
+    2) Added new method Product::draw_push_products()
+  1.0.45 (2011-11-29)
+    1) Added title_linked parameter back for product listings - somehow disappeared
+  1.0.44 (2011-11-28)
+    1) Added fields 'meta_description' and 'meta_keywords' to fields list
+  1.0.43 (2011-11-25)
+    1) Now allows value of 'itemCode' for CP 'filter_order_by' in listing mode
+  1.0.42 (2011-11-23)
+    1) Added cps for thumbnail in detail mode to either reload current item or
+       open enlarged image
+  1.0.41 (2011-11-22)
+    1) Added cps for thumbnail display in article detail views
+  1.0.40 (2011-11-21)
+    1) Added XML_data and push_products to fields list
+  1.0.39 (2011-11-18)
+    1) Constructor now sets '_has_push_products'
+    2) Product::export_sql() now includes push_product_assign
+  1.0.38 (2011-11-17)
+    1) Moved _set_type() and _get_type() into parent class
+  1.0.37 (2011-09-16)
+    1) Added override version of _draw_listings_set_shop_page_if_relevant()
+  1.0.36 (2011-09-15)
+    1) Change to Product::get_products_for_category_list() to include `seq` in
+       actual result to allow cart contents to be sorted by it
+  1.0.35 (2011-09-13)
+    1) Change to Product::get_products_for_category_list() to include `seq` in
+       sort display order to allow for items to appear in a fixed order within
+       each product grouping (defaults to title sort if all seq fields are same)
+  1.0.34 (2011-09-07)
+    1) Added Product::get_number_of_related_orders() to prevent products being
+       deleted if they have been sold already
+    2) Added Product::handle_report_delete() to effect safe deletion of products
+    3) Added Product::delete() to handle deletion of Product_Relationships when
+       a product is deleted
+    4) Changed associated items message in constructor
+  1.0.33 (2011-09-07)
+    1) Added Product::manage_relationships()
+    2) Changes to Product::export_sql() to include product_relationships
+  1.0.32 (2011-09-01)
+    1) Change to Product::_draw_detail_include_js() to allow for preservation of
+       context
+  1.0.31 (2011-08-26)
+    1) Changes throughout for renaming of product_category table to product_grouping
+  1.0.30 (2011-08-19)
+    1) Changes to Product::BL_cart_operations() to use cart class for handling
+       cart operations
+  1.0.29 (2011-06-13)
+    1) Added field list
+  1.0.28 (2011-06-03)
+    1) Added cp for listings mode to set background colour
+  1.0.27 (2011-05-15)
+    1) Product::_draw_detail_include_js() now made public to allow this to be
+       called directly - required now that Collection_Viewer does this
+  1.0.26 (2011-04-18)
+    1) Moved BL_product_grouping() into here from Block_Layout class
+    2) Moved BL_cart_operations() into here from Block_Layout class
+  1.0.25 (2011-04-15)
+    1) Now that parent extends Block Layout, not record, modified constructor
+       to take advantage of this by having the new parent handle the systemID
+  1.0.24 (2011-04-15)
+    1) Added match clauses for cps in listings mode
+  1.0.23 (2011-03-11)
+    1) Product::get_search_results() now limits results to those that are visible,
+       active and in correct date range -
+       includes `active_date_to` and `enable` fields and uses
+       Product::is_available() not simply Product::is_visible() as before
+    2) Constructor now calls Product::_set_has_publish_date(true) and
+       Product::_set_has_active_flag(true)
+    3) Added Product::test_publish_date() for determining if item has been
+       published, has expired or is good
+    4) Added CPs for details mode - title_show and title_linked in constructor
+    5) Product::BL_title() now implemented to overload default captions for
+       expired or future products
+  1.0.22 (2011-03-02)
+    1) New CP for listing mode for thumbnail_height
+  1.0.21 (2011-01-25)
+    1) Product Listings now have CP for 'title_show' (was missing)
+  1.0.20 (2011-01-24)
+    1) Tweak to Product::get_search_results() to use double quotes in all tests -
+       Prevents a horrible error if someone searches for something with apostrophes
+  1.0.19 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.18 (2010-09-14)
+    1) Product::draw_search_results() now uses system date format for dates
+  1.0.17 (2010-07-14)
+    1) The following CPs were changed for listings:
+         body_char_limit  ->  content_char_limit
+         body_plaintext   ->  content_plaintext
+         body_show        ->  content_show
+  1.0.16 (2010-07-05)
+    1) Product::get_permission_sql_for_viewer() - removed obsolete permissions
+    2) Product::get_products_for_productID_list() - removed obsolete permissions
+    3) Product::get_children_by_parentID() - removed obsolete permissions
+  1.0.15 (2010-06-27)
+    1) Added Product::get_permission_sql_for_viewer() to get records based on
+       a persons system and group membership rights
+       This is more efficient than getting records first then dumping those not
+       matching criteria later
+    2) Product::get_n_per_category() now uses Product::get_permission_sql_for_viewer()
+       to implement full permissions, not just fake it using 'isPUBLIC' as earlier
+  1.0.14 (2010-05-25)
+    1) Product::is_available() and Product::is_in_active_date_range() now both
+       static to allow these to be used externally more easily
+    2) Added static function Product::is_enabled()
+  1.0.13 (2010-04-29)
+    1) Bug fix for Product::is_in_active_date_range() to have product children
+       available FROM publish date, not a day later
+    2) Small tweak to Product::draw_product_child_selector() to strip html tags
+       from content when showing tooltip for an option
+  1.0.12 (2010-04-23)
+    1) Changes to Product::get_n_per_category() to have it use correct category
+       list type to match category labels and to bring back an array that LOOKS
+       the same format as that brought back by Posting::get_n_per_category() even
+       though it is a diffrent type of item - things like 'comments_count' are
+       faked to zero
+  1.0.11 (2010-04-16)
+    1) Added Product::get_n_per_category() to parallel function for postings
+  1.0.10 (2010-04-14)
+    1) This file was repackaged to allow release of 1.0.9 without breaking anything
+    2) Changes to Product::get_products_for_productID_list() to include tax name
+       and rate info from associated tax_regime -
+       also removed 'ability' to get child products - not needed anywhere
+    3) Change to Product::draw_product_child_selector() to have text_regimeID in JS
+  1.0.9 (2010-03-31)
+    1) Change to Product::get_search_results()
+       If search_memberID given returns an empty result set since members cannot
+       own products
+  1.0.8 (2010-03-12)
+    1) Tweak to Product::draw_product_child_selector() to stop prevent wrapping
+  1.0.7 (2009-10-09)
+    1) Added CP for product_price_show
+  1.0.6 (2009-10-07)
+    1) CP cart_add_show for detail now defaults to off
+    2) CP filter_order_by now defaults to title
+    3) Product::get_records() now includes product_grouping_name
+    4) Added CP for product_grouping_show
+  1.0.5 (2009-10-02)
+    1) New CPs for listing panel to allow cart controls to be turned off and to customise links
+    2) New CPs for detail view to allow cart controls to be turned off and to customise links
+  1.0.4 (2009-10-01)
+    1) Added Product::draw_search_results()
+    2) Added Product::get_search_results()
+  1.0.3 (2009-09-30)
+    1) Now extends Displable_Item and constructor renamed __construct
+    2) Added local implementation of get_records()
+    3) Changes to deal with renaming of various fields in product and product category tables
+    4) Now has CPs for subtitle_show and category_show
+    5) Now implements has_categories and has_keywords
+  1.0.2 (2009-09-10)
+    1) Recreated Product::is_available() which now uses Product::in_active_date_range()
+       in determining availablity - this was used elsewhere, not least in catalogue
+  1.0.1 (2009-09-08)
+    1) Changes to Product::get_children_by_parentID() to make it mark items as
+       'visible', 'in_active_date_range' or 'restricted' before filtering to
+       remove these if logged-on person is not permitted to override these
+       constraints
+    2) Changes to Product::draw_product_child_selector() to simplify it and to allow
+       approvers, admins and master admins to view options outside active date range
+       and to clearly indicate
+         '[D]' for inactive date range and
+         '[R]' for Approvers or higher IF ITEM HAS NO GROUPS ASSIGNED
+         (system cannot tell the purpose of a group programatically even one called
+         'Admins...)
+  1.0.0 (2009-07-02)
+    Initial release

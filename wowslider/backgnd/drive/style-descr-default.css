@@ -1,0 +1,24 @@
+#wowslider-container$GallerySuffix$ .ws-title{
+	position:absolute;
+	display:block;
+	bottom: 35px;
+	left: 20px;
+	margin-right:5px;
+	padding:7px;
+	background:none;
+	color:#FFFFFF;
+	z-index: 50;
+	font-family:'Oswald', Impact, Charcoal, sans-serif;	
+	font-size: 35px;
+	line-height: 42px;
+	font-weight: normal;
+	text-transform: uppercase;
+	text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+	border-radius:0;
+	opacity:1;
+}
+#wowslider-container$GallerySuffix$ .ws-title div{
+	padding-top:5px;
+	font-size: 16px;
+	line-height: 18px;
+}

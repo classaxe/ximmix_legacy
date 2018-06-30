@@ -1,0 +1,244 @@
+  1.0.67 (2013-08-06)
+    1) Changes to Order::get_registered_event_tickets() following field name changes
+       in registerevent report
+  1.0.66 (2013-02-21)
+    1) Order::get_registered_event_tickets() now performs extra SQL query to
+       ensure that all ticket numbers are shown regardless of default SQL settings
+       for Group_Concat() function
+  1.0.65 (2013-02-06)
+    1) Change Order::get_registered_event_tickets() to order by sequence when
+       showing multiple tickets in printable format
+  1.0.64 (2012-11-15)
+    1) Refreshed fields list and added 'originating_page' to that list
+    2) Order::payment() now accepts 'orgininating_page' parameter and saves value
+       in `orders` table
+  1.0.63 (2012-09-20)
+    1) Tweaks to Order::draw_person_details() for missing closing label tags for
+       XHTML-strict compliance
+  1.0.62 (2012-08-20)
+    1) Moved Order::get_next_ID_for_QB_conversion() into Quickbooks class file
+       as QB_Invoice::get_next_ID_for_QB_conversion()
+    2) Moved Order::get_quickbooks_data() into Quickbooks class file
+       as QB_Invoice::get_quickbooks_data()
+  1.0.61 (2012-06-28)
+    1) Order::get_next_ID_for_QB_conversion() now has new optional parameter
+       'acceptable_codes' -
+       if given, items with these codes will also be returned
+  1.0.60 (2012-06-13)
+    1) Order::get_quickbooks_data() now includes ordered items
+  1.0.59 (2012-06-06)
+    1) Added Order::get_next_ID_for_QB_conversion()
+    2) Updated field list to show qb_ident not quickbooks_listID
+    3) Added Order::get_quickbooks_data()
+  1.0.58 (2012-04-04)
+    1) Moved Order::orders_overview() into new class at Orders_Overview::draw()
+  1.0.57 (2012-04-03)
+    1) Added Order::orders_overview()
+  1.0.56 (2012-04-02)
+    1) Order::create now calls Cart::pending_order_set_ID() so that hosted checkouts
+       can know what order to show details for after processing.
+  1.0.55 (2012-04-02)
+    1) Tweak to Order::create() to prevent undefined index warning on request variables
+  1.0.54 (2012-02-29)
+    1) Change to Order::save() to make billing address info use globals so that
+       billing email address is correctly propagated into order
+  1.0.53 (2012-02-15)
+    1) Added 'quickbooks_listid' to field list
+  1.0.52 (2012-02-14)
+    1) Order::get_notification_summary() now requires systemID and base_url
+  1.0.51 (2012-02-06)
+    1) Now assigns categories where added in Order::save() and Order::create()
+  1.0.50 (2012-02-06)
+    1) New column `category` in field list
+    2) Now sets assign_type and has_categories in constructor
+    3) Order::save() now sets category and uses get_var() not globals
+    4) Order::create() now sets category and uses get_var() not REQUEST
+  1.0.49 (2012-01-28)
+    1) Order::payment() -
+         Removed option to reveal modification of order (never used)
+         Added option to choose a gateway for payment
+    2) Order::payment() now has new optional parameter that gives name of
+       Payment Gateway Settings configuration.
+    3) Order::set_costs() -
+         Removed option to reveal modification of order (never used)
+    4) Changed call to Paypal_Gateway::drawSimplePaymentRedirect() to
+       Paypal_Gateway::payment() (old name for this function is now deprecated)
+    5) Order::payment() now saves ID of payment gateway used to process the order
+    6) Added `gateway_settingsID` field to fields list
+  1.0.48 (2012-01-23)
+    1) Moved Order::detail() into its own class as Component_Order_Details::draw()
+  1.0.47 (2012-01-16)
+    1) Chase Payment method name now simply payment()
+  1.0.46 (2012-01-13)
+    1) Changes to Order::payment() to handle Gateway type renaming from
+       'Pay Pal' to 'Paypal (Live)' and 'Pay Pal Test' to 'Paypal (Test)'
+    2) Changes to Order::payment() to handle new Chase Paymentech types
+  1.0.45 (2011-12-02)
+    1) Fix for Australia and Mexico country selection in Order::draw_person_details()
+  1.0.44 (2011-11-29)
+    1) Changes to Order::draw_person_details() to include a targetable classname
+       and real form field labels
+  1.0.43 (2011-11-14)
+    1) Changes to Order::get_registered_event_tickets() following changes
+       that mean event is now linked to image template on image_templateID
+  1.0.42 (2011-10-19)
+    1) Changes to Order::detail() to make link for 'print all tickets'
+       absolute so that right site is accessed for all image assets
+  1.0.41 (2011-10-07)
+    1) Added Order::get_notification_summary()
+  1.0.40 (2011-09-15)
+    1) Moved code for drawing payment method selector and details block into
+       Payment_Method class where it belongs
+  1.0.39 (2011-09-06)
+    1) Moved all code relating to Beanstream Gateway into its own class
+    2) Added Order::get_obfuscated_card_number()
+    3) Slight tidy up for draw_payment_options()
+  1.0.38 (2011-09-02)
+    1) Order::save() now saved related_object and related_objectID in order items
+  1.0.37 (2011-09-02)
+    1) Changes to Order::draw_payment_method_selector() for JS loadTotalCost()
+       function to include loading message when recalculating
+  1.0.36 (2011-09-01)
+    1) Changes to Order::draw_payment_options() to rename internal variable
+       $checkout_NName to $TCardName
+  1.0.35 (2011-08-26)
+    1) Changes to Order::draw_order_summary() for renaming of product_category to
+       product_grouping table
+  1.0.34 (2011-08-26)
+    1) Added 'lst_product_grouping_columns' to Order::manage_ecommerce_options()
+       and implemented quick-links to aid navigation
+  1.0.33 (2011-08-25)
+    1) Bug fix for state / province selector to properly apply JS for 'onchange'
+       in Order::draw_person_details()
+    2) Now uses Product_Catalogue_Order_History in Order::draw_order_summary()
+  1.0.32 (2011-08-19)
+    1) Changed call from Cart::convert_item_to_pending() to
+       Cart::item_convert_to_pending()
+    2) Simplified Order::save() to not bother with chcking for zero quantities
+       (these will already have been dealt with by the cart)
+       and to use cart methods to list items and quantities
+  1.0.31 (2011-08-18)
+    1) Change to Order::save() to use Cart to convert cart items to pending ones
+       to allow this to survive the paypal / paypal cancel process
+  1.0.30 (2011-08-05)
+    1) Removed Order::_add_orderItem() - unused
+    2) Removed Order::_addOrderItemEasy() - unused
+  1.0.29 (2011-06-01)
+    1) Order::draw_person_details() now uses combo_listdata field for state
+       province to enable 'outside' states and provinces to be given and recorded
+  1.0.28 (2011-01-26)
+    1) Order::get_order_items() and Order::get_costs() no longer simply set
+       LastErr if there's a problem - they send it to the log
+  1.0.27 (2010-12-01)
+    1) Order::draw_detail() no longer pushes out page content -
+       redesigned for use in an ecl tag
+    2) Order::manage() no longer pushes out page content -
+       redesigned for use in an ecl tag
+  1.0.26 (2010-10-19)
+    1) Tweaks to Order::download_pdf() to include '%' after tax rate in totals
+       row and to make amount 2-dp
+    2) Removed Order::add_orderItem() - renamed with _ just in case
+    3) Removed Order::addOrderItemEasy() - renamed with _ just in case
+    4) Order::create() now calls insert() method
+    5) Order::issue_credit_memo() now calls insert() method
+    6) Order::save() now calls insert() method
+  1.0.25 (2010-10-15)
+    1) BIG changes to Order::download_pdf() to handle new taxes
+  1.0.24 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.23 (2010-08-10)
+    1) Order::draw_order_summary() has simpler query - no longer joins order
+       table on when drawing items and uses left joins to make less fussy
+  1.0.22 (2010-07-15)
+    1) Now references Component_Base:: where needed not Component::
+  1.0.21 (2010-04-15)
+    1) Changes to Order::draw_items() to remove ref to taxes_location_based
+  1.0.20 (2010-04-12)
+    1) Changes to sql query used in Order::draw_order_summary() to include all
+       taxes now available.
+    2) Order::save() no longer sets tax names, rates and application from product
+    3) Order::payment now informs beanstream of all 20 taxes that may apply
+  1.0.19 (2010-03-23)
+    1) Tweak to Order::draw_order_summary() to invoke Product_Catalogue::draw()
+       directly (formerly went via function draw_product_catalogue() in codebase)
+    2) Removed Order::delete_credit_memo() - now acts via its own class
+    3) JS function TMethod_reveal() in Order::draw_payment_method_selector()
+       updated to include both rate and cost of payment method imposed
+    4) Order::create() has bug fix for XIM-78 which formerly ment that
+       Custom_form - created orders did not charge payment surcharges
+  1.0.18 (2010-03-22)
+    1) Reference to $taxRegime->set_tax_zone() now hard-coded to CAN -
+       this concept of setting a tax_regime will be abandoned very soon.
+  1.0.17 (2010-03-17)
+    1) Order::__construct() updated to include all 20 tax field groups
+    2) Order::get_costs() updated to include all 20 tax field groups
+    3) Changes to Order::payment() for Beanstream to display tax1 and tax2
+       to demonstrate more clearly that correct sum was charged to cardholder
+       This now shows pretty much exactly on the Beanstream Receipt as expected
+  1.0.16 (2010-03-12)
+    1) Order::addOrderItemEasy() now calls Tax_Regime::set_tax_zone()
+    2) Order::save() now calls Tax_Regime::set_tax_zone()
+  1.0.15 (2010-03-11)
+    1) Changes to Order::addOrderItemEasy() to deal with changes to
+       Tax_Regime constructor (now behaves more like a regular record)
+    2) Changes to Order::save() to deal with changes to
+       Tax_Regime constructor (now behaves more like a regular record)
+  1.0.14 (2009-11-21)
+    1) Order::detail() now uses rationalised CPs
+    2) Order::manage() now uses rationalised CPs
+    3) Removed Order::manage_credit_memos() - unused
+    4) Order::manage_refunds() no longer uses CPs - never used ad unnecessary
+  1.0.13 (2009-11-15)
+    1) Added Order::manage_ecommerce_options() - was admin_cmmerce_options() in
+       coebase
+  1.0.12 (2009-11-13)
+    1) Order::draw_person_details() now has extra parameter to determine which
+       address to use to prepopulate billing address section
+  1.0.11 (2009-11-07)
+    1) Order::get_payment_methods_sql() removed
+    2) Order::get_payment_method_surcharge() now Payment_Method::get_method_surcharge()
+       and now uses payment_method table
+    3) Order::is_paid() renamed to is_approved() and changed to use lst_payment_status
+       class for determination
+    4) Changes to Order::on_update_process_payment_actions() to set paymentApproved flag
+       when order status is set to one of those which approves an order for processing
+  1.0.10 (2009-09-29)
+    1) Changes to deal with renaming of various fields in product and product category tables
+    2) Tidied up and repaired Order::addOrderItemEasy() originally added by James
+  1.0.9 (2009-09-18)
+    1) Changes to Order::actions_process_product_pay() and
+       Order::on_update_process_payment_actions() to NOT set update fields
+       for order
+  1.0.8 (2009-09-17)
+    1) Order::set_costs() now doesn't change 'modified' date / user details for
+       either the order or updated order items
+    2) Order::mark_paid() now has option to NOT 'reveal_modification'
+    3) Order::payment() now has option to NOT 'reveal_modification'
+    4) Order::set_costs() now has option to NOT 'reveal_modification'
+    5) Order::create() now records personID against history_created_by field for order
+  1.0.7 (2009-09-04)
+    1) Order Detail params now have 'order_detail.' as common ident
+    2) Removed hard-code that forced Order Detail to show associated events
+  1.0.6 (2009-09-01)
+    1) Added Order::is_paid() to check paymentStatus flag and see if this means 'paid' or not
+    2) Added Order::on_update_process_payment_actions() which takes account of
+       'process_order' flag indicated by custom_1 on list data used for payment
+       status
+  1.0.5 (2009-08-27)
+    1) Change to Order::export_sql() to include archived history
+  1.0.4 (2009-08-20)
+    1) Tweak to Order::get_registered_event_tickets() to only show these where there is
+       an image layout from which a ticket may be generated.
+  1.0.3 (2009-08-18)
+    1) Added Order::get_registered_event_tickets()
+    2) Order::Detail now includes 'Print all (n) ticket(s) link if there are registered
+       events with defined ticket layouts
+    3) Order::draw_person_details() now includes a row for company name
+  1.0.2 (2009-07-24)
+    1) Order::save() now only sets partial credit card number where one is actually given
+    2) Order::save() takes the ID of the person on whose behalf the order is to be created
+       in the call rather than global
+  1.0.1 (2009-07-11)
+    Paypal_Gateway now lives in classes folder and is invoked automatically
+  1.0.0 (2009-07-02)
+    Initial release

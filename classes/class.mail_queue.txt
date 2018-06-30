@@ -1,0 +1,159 @@
+  1.0.36 (2014-02-18)
+    1) Refreshed fields list - now declared as a class constant
+  1.0.35 (2013-10-03)
+    1) Mail_Queue::deliver() now has sender name and email identity and
+       unsubscription links in automated message footer, together with
+       'View in web browser' link as before
+  1.0.34 (2013-04-08)
+    1) Mail_Queue::deliver() now sets component result values for systemID,
+       system_title and system_URL based on system used in mailqueue item
+  1.0.33 (2012-12-03)
+    1) Mail_Queue::_draw_wizard_queue() now uses time() not mktime() as per
+       strict standards
+  1.0.32 (2012-11-28)
+    1) Mail_Queue::_draw_wizard_preview_content() now uses System::get_item_version()
+       not System::get_version() as before
+  1.0.31 (2012-09-14)
+    1) Mail_Queue::_handle_bounced_messages_set_hard_bounce() and
+       Mail_Queue::_handle_bounced_messages_set_soft_bounce() now use
+       $this->do_sql_query to perform update
+  1.0.30 (2012-06-12)
+    1) Mail_Queue::deliver() nmow uses Person::load_profile_fields() to handle
+       retrieval of this information for use in email content substitution
+  1.0.29 (2012-05-25)
+    1) Mail_Queue::deliver() now sets NTitle
+    2) Mail_Queue::create_queue() now sets entry for NTitle
+  1.0.28 (2012-05-25)
+    1) Mail_Queue::deliver() now sets NGreetingName
+    2) Mail_Queue::get_recipients() now retrieves NGreetingname
+    3) Mail_Queue::create_queue() now sets NGreetingName
+  1.0.27 (2011-07-31)
+    1) Mail_Queue::draw_wizard() closed html tags for control buttons and moved
+       some JS into head to conform to XHTML strict
+  1.0.26 (2011-06-29)
+    1) Changed references to Email_Identity to Mail_Identity
+    2) Changed references to Email_Template to Mail_Template
+    3) Changed references to Email_Queue_Item to Mail_Queue_Item
+  1.0.25 (2011-04-04)
+    1) Email_Queue::_draw_wizard_preview_content() now sets XML documenmt type
+       and sets default language according to system
+  1.0.24 (2010-10-19)
+    1) Email_Queue::create_queue() now calls insert() method
+    2) Email_Queue::_draw_wizard_queue() now calls insert() method
+  1.0.23 (2010-10-12)
+    1) Email_Queue::deliver_all() now includes ident in result
+  1.0.22 (2010-10-08)
+    1) Changes to Email_Queue::draw_broadcast_form() to remove provision for
+       instant delivery- now always queued
+    2) Changes to Email_Queue::deliver_all() to remove provision for
+       instant delivery and to return last result
+    3) Changes to Email_Queue::send() to only use offline delivery
+  1.0.21 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.20 (2010-06-16)
+    1) Added call to Email_Template::fix_subject_bodytext_and_path() to
+       Email_Queue::_draw_wizard_queue()
+    2) Changed format for '(Prepared XXXX)' message to use YYYY-MM-DD format
+  1.0.19 (2010-06-15)
+    1) Moved webbeacon to bottom of email so it doesn't mess up backgrounds in
+       tables if used for message layout
+  1.0.18 (2010-06-14)
+    1) Bug fix to change 'PEmail' to 'email' in mail wizard preview
+  1.0.17 (2010-06-09)
+    1) No longer strips out messageID when a message is detected to have bounced
+       This was an unhelpful change in the last build
+    2) Email_Queue::get_mail_identites_in_use() now uses renamed fields
+       e.g. not pop_host but bounce_pop3_host
+    3) Email_Queue::handle_bounced_messages() now uses renamed fields including
+       newly added bounce_pop3_port
+  1.0.16 (2010-06-08)
+    1) Changes to constructor to add in new snapshot fields
+    2) Added Email_Queue::save_sender_and_template_snapshot()
+    3) Changes to Email_Queue::create_queue() to capture initial snapshot of
+       sender and template details
+    4) Changes to Email_Queue::deliver() to capture final snapshot of
+       sender and template details upon completion of job (in case admin
+       made a mid-stream update to correct some issue)
+    5) Bug fix - Email_Queue::get_mail_identites_in_use() and
+       Email_Queue::get_mailqueue_count() no longer limit to current system if
+       current user is a MASTERADMIN
+    6) More changes to Email_Queue::deliver() to NOT permanently fail on
+       'SMTP Error: Data not accepted' - will instead retry in next timeslice
+    7) Now that clicking a job anchors user to the job recipients, slightly
+       refactored Email_Queue::draw_broadcast_form() to exclude extra link to
+       the anchor, and moved link to refresh all job statuses beneath jobs report
+  1.0.15 (2010-06-07)
+    1) Changes to Email_Queue::draw_broadcast_form() to add 'Please wait' layer
+       when checking for bounced messages and to style described 'job number' to
+       look more like the actual link
+  1.0.14 (2010-06-04)
+    1) Emprovements to Email_Queue::handle_bounced_messages() to capture
+       entire error content on bounce
+  1.0.13 (2010-06-04)
+    1) Email_Queue::deliver() now automatically inserts web_beacon code
+    2) Added Email_Queue::export_sql() to allow queue export
+    3) Tweak to Email_Queue::draw_broadcast_form() to change label for
+       'Details for Email Job' to 'Recipients for Selected Email Job'
+    4) Split up bounce-handling code in Email_Queue::draw_broadcast_form() into new
+       Email_Queue::handle_bounced_messages() function with helper functions
+    5) Email_Queue::draw_broadcast_form() now pre-handles deletion to
+       ensure that deleted job doesn't remain selected after removal
+  1.0.12 (2010-06-03)
+    1) Updated fields list in constructor
+    2) Changes to Email_Queue::deliver() to set component_result('ID') as
+       mailqueue_item.ID to enable tracking code
+  1.0.11 (2010-05-13)
+    1) Removed cleansing of email subject from Email_Queue::deliver() -
+       now handled at edit-time by action on email_template form
+  1.0.10 (2010-04-28)
+    1) Changes to Email_Queue::deliver() to have an extra parameter -
+       $smtp_data_fail_limit - to allow a job to suspend after a certain number
+       of 'SMTP Data Not Accepted' messages (prevents self-inflicted DOS attacks)
+    2) Change to Email_Queue::deliver_all() to propagate the $smtp_data_fail_limit
+       parameter
+    3) Tweak to Email_Queue::deliver() to always have subject line as straight
+       text - tags are stripped and &nbsp; is converted to a regular space
+  1.0.9 (2010-02-24)
+    1) Change to Email_Queue::deliver() to allow closing of a job if only pending
+       items are for persons with missing or invalid emails
+    2) Changes to Email_Queue::draw_broadcast_form() to change label on button
+       'Add job to queue' to 'Send later' and added new 'Send Now' function as
+       with the draw_wizard system to make this clearer and easier to operate.
+  1.0.8 (2010-01-15)
+    1) Fix to Email_Queue::_draw_wizard_preview() to ensure that corect mail template
+       is selected for stylesheet inclusion - broke where there were multiple choices
+  1.0.7 (2009-12-14)
+    1) Email_Queue::_draw_wizard_queue() - changed 'Queue Job' button to 'Send Later'
+  1.0.6 (2009-12-12)
+    1) Email_Queue::_draw_wizard_queue() now performs substitutions on text if present
+    2) Email_Queue::_draw_wizard_queue() now copies style
+    3) Email_Queue::deliver() now passes style to mailto() function
+  1.0.5 (2009-12-07)
+    1) Added Email_Queue::draw_wizard() and helper functions
+    2) Email_Queue::draw_broadcast_form() field labels simplified and routine
+       altered to use string concat method for output
+    3) Bug fix for standard email broadcast to select job after creating it
+    4) Standard email broadcast now uses fading status bar and pre-selects correct
+       queue after creating a new one
+    5) Added Email_Queue::create_queue() and Email_Queue::send()
+  1.0.4 (2009-12-04)
+    1) Email_Queue::deliver() now references new `set_random_password` field in
+       mailtemplate table to determine whether to randmose password, then handles
+       the task itself via Person object.
+       Also component_result('system_URL') now tidied up - always has trailing /
+    2) Email_Queue::draw_broadcast_form() now has clear button and gives error
+       message if required values are missing
+  1.0.3 (2009-12-01)
+    1) Job of creating SQL for dropdown selectors for draw_broadcast_form()
+       to allow selection of mail sender, template and group now moved into
+       those objects as static functions and standardised for colour and format
+    2) Added Email_Queue::draw_wizard()
+  1.0.2 (2009-10-14)
+    1) Change for Email_Queue::draw_broadcast_form() to convert submit buttons to
+       regular buttons for 'submit' form actions to prevent spurious 'submit' actions
+       when setting filter criteria
+    2) Email Queue now has filters since these reports and subreports are now independent
+  1.0.1 (2009-07-26)
+    Moved code for email_broadcast() into here as Email_Queue::draw_broadcast_form()
+  1.0.0 (2009-07-02)
+    Initial release

@@ -1,0 +1,11 @@
+  1.0.4 (2014-01-28)
+    1) Refreshed fields list - now declared as a class constant
+  1.0.3 (2010-10-19)
+    1) Report_Settings::assign_settings_for_filter() now calls insert method
+  1.0.2 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.1 (2010-09-17)
+    1) Changes to Report_settings::delete_settings_for_filter() and
+       Report_settings::assign_settings_for_filter() to prevent null entries in list
+  1.0.0 (2010-09-15)
+    Initial release

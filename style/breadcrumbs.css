@@ -1,0 +1,69 @@
+/* 1.0.2
+
+Version History:
+  1.0.2 (2015-02-02)
+    1) Now with unix-style line endings
+  1.0.1 (2011-06-23)
+    1) Fixes for IE8 (inline-block and height) and IE6+7 (*display and zoom hacks)
+  1.0.0 (2011-06-21)
+    1) Initial release
+*/
+
+/* [ Breadcrumb style - small fonts ] */
+.zoom_small ul.breadcrumbs li { display: inline-block; height: 16px; line-height: 16px; *display: inline; zoom:1; }
+.zoom_small ul.breadcrumbs a { display: inline-block; *display: inline; zoom:1; }
+.zoom_small ul.breadcrumbs li.root {
+  background: url(/img/sysimg/breadcrumbs_home_small.gif,%%1%%,%%2%%,%%3%%,%%4%%,%%5%%) right 0%;
+  padding: 0px 12px 0px 19px;
+}
+.zoom_small ul.breadcrumbs li.root:hover {
+  background: url(/img/sysimg/breadcrumbs_home_small.gif,%%1%%,%%2%%,%%3%%,%%4%%,%%5%%) right 100%;
+}
+.zoom_small ul.breadcrumbs li.root a { color: #%%6%%; text-decoration: none; }
+.zoom_small ul.breadcrumbs li.root:hover a { color: #%%7%%; text-decoration: underline; }
+.zoom_small ul.breadcrumbs li.sub {
+  background: url(/img/sysimg/breadcrumbs_small.gif,%%1%%,%%2%%,%%3%%,%%4%%,%%5%%) left 0%;
+  padding: 0px 0px 0px 10px; margin: 0 0 0 -9px; *margin: 0 0 0 -5px; /* Dbl margin fix for IE6+7 */
+}
+.zoom_small ul.breadcrumbs li.sub:hover {
+  background: url(/img/sysimg/breadcrumbs_small.gif,%%1%%,%%2%%,%%3%%,%%4%%,%%5%%) left 100%;
+}
+.zoom_small ul.breadcrumbs li.sub a {
+  background: url(/img/sysimg/breadcrumbs_small.gif,%%1%%,%%2%%,%%3%%,%%4%%,%%5%%) right 0%;
+  color: #%%6%%; text-decoration: none;
+  padding: 0px 10px 0px 3px;
+}
+.zoom_small ul.breadcrumbs li.sub:hover a {
+  background: url(/img/sysimg/breadcrumbs_small.gif,%%1%%,%%2%%,%%3%%,%%4%%,%%5%%) right 100%;
+  color: #%%7%%; text-decoration: underline;
+}
+
+
+/* [ Breadcrumb style - big fonts ] */
+.zoom_big ul.breadcrumbs li { display: inline-block; height: 22px; line-height: 22px; *display: inline; zoom:1;}
+.zoom_big ul.breadcrumbs a { display: inline-block; *display: inline; zoom:1; }
+.zoom_big ul.breadcrumbs li.root {
+  background: url(/img/sysimg/breadcrumbs_home_big.gif,%%1%%,%%2%%,%%3%%,%%4%%,%%5%%) right 0%;
+  padding: 0px 12px 0px 26px;
+}
+.zoom_big ul.breadcrumbs li.root:hover {
+  background: url(/img/sysimg/breadcrumbs_home_big.gif,%%1%%,%%2%%,%%3%%,%%4%%,%%5%%) right 100%;
+}
+.zoom_big ul.breadcrumbs li.root a { color: #%%6%%; text-decoration: none;}
+.zoom_big ul.breadcrumbs li.root:hover a { color: #%%7%%; text-decoration: underline; }
+.zoom_big ul.breadcrumbs li.sub {
+  background: url(/img/sysimg/breadcrumbs_big.gif,%%1%%,%%2%%,%%3%%,%%4%%,%%5%%) left 0%;
+  padding: 0px 0px 0px 12px; margin: 0 0 0 -13px; *margin: 0 0 0 -8px;
+}
+.zoom_big ul.breadcrumbs li.sub:hover {
+  background: url(/img/sysimg/breadcrumbs_big.gif,%%1%%,%%2%%,%%3%%,%%4%%,%%5%%) left 100%;
+}
+.zoom_big ul.breadcrumbs li.sub a {
+  background: url(/img/sysimg/breadcrumbs_big.gif,%%1%%,%%2%%,%%3%%,%%4%%,%%5%%) right 0%;
+  color: #%%6%%; text-decoration: none;
+  padding: 0px 10px 0px 3px;
+}
+.zoom_big ul.breadcrumbs li.sub:hover a {
+  background: url(/img/sysimg/breadcrumbs_big.gif,%%1%%,%%2%%,%%3%%,%%4%%,%%5%%) right 100%;
+  color: #%%7%%; text-decoration: underline;
+}

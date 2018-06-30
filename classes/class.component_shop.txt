@@ -1,0 +1,19 @@
+  1.0.5 (2012-01-18)
+    1) Added new cp 'filter_category_list'
+    2) Renamed cp 'product_grouping_list' to 'filter_grouping_list'
+    2) Added support for category list in Component_Shop::_setup_load_products()
+  1.0.4 (2011-09-16)
+    1) Component_Shop::_draw_checkout_button() now goes to checkout without a form submit
+    2) Now sets shop page when this component is used
+  1.0.3 (2011-08-31)
+    1) Major cleanup - split into much smaller simpler methods and used object-based
+       properties
+       Please note that SHOP mode will never be used to manage context-ordered items
+  1.0.2 (2011-08-25)
+    1) Now implements Product_Catalogue_Shop() (was Product_Catalogue() with submode)
+  1.0.1 (2011-08-25)
+    1) Renamed from Component_Catalog to Component_Shop
+    2) Changed ident from 'catalog' to 'shop'
+    3) Changed personality mode for Product_Catalogue from 'catalogue' to 'shop'
+  1.0.0 (2011-08-19)
+    1) Initial release after splitting from Component class

@@ -1,0 +1,91 @@
+  1.0.24 (2013-06-14)
+    1) Changes to listings CPs following recent standardisation of filter and
+       results parameters
+  1.0.23 (2012-11-10)
+    1) TREB::_manage_insert_available() now sets enabled flag
+    2) Tweak to TREB::_manage_delete_unavailable() to exit cleanly if nothing to
+       delete
+  1.0.22 (2012-09-09)
+    1) Replaced escape_string() calls with non-DB specific ones
+  1.0.21 (2012-01-18)
+    1) Added new method TREB::on_action_set_path()
+    2) Installer and uninstaller sql now in separate files for quicker loading
+       and editing of code
+  1.0.20 (2011-10-19)
+    1) Change to BL_map() to use img/width/image-path mode for resizing map icon
+  1.0.19 (2011-06-17)
+    1) Moved call to _set_path_prefix() up and added note that this is needed
+       to override path_prefix set in parent context, i.e. gallery-image
+  1.0.18 (2011-06-03)
+    1) Moved guts of inline downloader into TREB::do_download()
+    2) Added TREB::do_download_for_cron()
+  1.0.17 (2011-05-12)
+    1) Added new Treb_Component class to allow virtual tour to wrap
+       Component_Gallery_Thumbnails component to virtualise paths for tours
+  1.0.16 (2011-05-06)
+    1) Refreshed Block Layout for Treb Listings to include address and open
+       house details
+    2) CP for 'filter_order_by' in listings mode now includes price_a and price_d
+    3) Added overrides for Posting_Contained::_get_records_sort_records() and
+       Posting_Contained::_get_records_sort_records_using_filter_order_by() to
+       recognise price_a and price_d sort modes for xml:price
+  1.0.15 (2011-05-05)
+    1) Refreshed category list again with new categories for listing type
+    2) TREB::_manage_insert_available() now sets category for listing type
+  1.0.14 (2011-05-04)
+    1) Refreshed category list and field list for Treb Listings in installer
+    2) TREB::do_submode_extra() now toggles category for treb_listing_feature
+    3) TREB::do_submode_extra() now handles treb_listing_openhouse
+  1.0.13 (2011-04-28)
+    1) BL_Photo() now creates matrix of photos for listings to allow visitor to
+       choose from several photos for a given property
+    2) BL_detail_summary_row() - changes for XHTML strict
+    3) Refreshed installer for latest Block Layout
+  1.0.12 (2011-04-27)
+    1) Added TREB::do_submode_extra() to handling making featured homes
+    2) Refreshed installer and uninstaller for latest report changes and new
+       category listtype
+  1.0.11 (2011-04-26)
+    1) Added a whole raft of BL tags for Treb Listing Details and new CPs to
+       support them
+  1.0.10 (2011-04-26)
+    1) Added overide get_URL() method to TREB class
+  1.0.9 (2011-04-21)
+    1) Change to BL_price() to prefix with 'Sale' if price > 10000 or 'Rent' if not
+    2) Constructor now pushes TREB onto the Portal 'path_type_prefixed_types' list
+  1.0.8 (2011-04-18)
+    1) Updated installer and uninstaller to include new actions to set map location
+  1.0.7 (2011-04-15)
+    1) Added BL functions for TREB XML fields price, beds, baths, sqft and city
+  1.0.6 (2011-04-15)
+    1) Added code for TREB context toolbar (not yet implemented)
+    2) Added CPs for detail (not yet implemented) and listings mode
+    3) Overridden parent _get_context_menu_ID() function -
+       this CM type is determined not by postings type but by subtype
+    4) Installer / Uninstaller now includes new ECL tag and block layout
+  1.0.5 (2011-04-14)
+    1) Removed class TREB_Component_Gallery - existing class can now handle
+       an infinate number of subtypes on a case-by-case basis
+  1.0.4 (2011-04-13)
+    1) Added class TREB_Component_Gallery to override existing Component_Gallery
+       and allow context menu to be changed to handle TREB listings
+  1.0.3 (2011-04-13)
+    1) TREB now extends Gallery_Image and sets subtype to 'treb-listing'
+    2) No longer requires to insert parallel gallery_image so removed functions
+       TREB::delete_gallery_image(), TREB::on_action_insert_gallery_image()
+       and TREB::on_action_delete_gallery_image()
+  1.0.2 (2011-04-12)
+    1) Made more helper functions to compartmentalise code
+    2) TREB::delete() now handles ID being a csv list and also takes care of
+       purging of any photos that were downloaded for a listing
+    3) TREB::_manage_insert_available() now links primary photo to listing
+    4) TREB::_manage_insert_available() now performs maps lookup
+    5) Installer and uninstaller now create or remove associated reports
+    6) Now includes TREB::on_action_insert_gallery_image() which creates a
+       gallery image if there isn't one already for that listing
+    7) Now includes TREB::on_action_delete_gallery_image() which delete
+       gallery image for the listing if there is one
+  1.0.1 (2011-04-06)
+    1) Now extends posting and implements its own export process
+  1.0.0 (2011-03-25)
+    Initial Release

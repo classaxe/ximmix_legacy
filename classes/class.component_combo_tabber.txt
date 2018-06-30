@@ -1,0 +1,36 @@
+  1.0.8 (2014-04-26)
+    1) Events, Podcasts and News panels were not respecting the results limit settings
+       passed to them by unified component parameters in this implementation -
+       The passed CP names have now been corrected
+  1.0.7 (2014-01-28)
+    1) Added ; and newline and indent after js_onload code in
+       Component_Combo_Tabber::_draw_section_tabs()
+  1.0.6 (2013-11-18)
+    1) New CP section_tab_order to allow determination of displayed order of tab
+       controls
+  1.0.5 (2013-11-11)
+    1) Now handles condition where there is only one section shown and therefore
+       no section tabs - when this happens onload js code now sets parent container
+       to have the same height as the only section present
+  1.0.4 (2013-11-02)
+    1) Now uses draw_section_tab_buttons() and show_section_tab() which use
+       setOnStage() for handling of current tab without making them invisible -
+       this is so that audio players can calculate the correct size for controls
+    2) Radical rewrite to bring up to date in terms of latest component methods
+  1.0.3 (2013-06-07)
+    1) Changed the following CPs:
+         Old: 'filter_limit_per_category',  'filter_order_by'
+         New: 'results_limit_per_category', 'results_order'
+  1.0.2 (2012-07-15)
+    1) Added CPs for:
+         calendar_small.filter_category_list
+         calendar_small.filter_memberID (default = '')
+         list_events.filter_memberID    (default = '')
+         list_news.filter_memberID      (default = '')
+         list_podcasts.filter_memberID  (default = '')
+  1.0.1 (2011-12-28)
+    1) Component_Combo_Tabber::draw() now uses Component_Calendar_Small::draw()
+       not Component::calendar()
+  1.0.0 (2011-11-24)
+    1) Initial release - moved from Component class
+    2) Added parameters to enable calendar and outer boxes to be switched off

@@ -1,0 +1,22 @@
+  1.0.7 (2011-03-01)
+    1) Changes to delete() function to update postings table from `events` to
+       `postings` (!!!)
+       Also added in clause for contacts
+  1.0.6 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.5 (2010-08-12)
+    1) Changes to Keyword::get_keyword_list_with_weight() to limit keyword
+       assignments to given sites
+  1.0.4 (2010-08-04)
+    1) Changes to Keyword::get_related() to eliminate any trace of hint that
+       postings table used to be called events and now includes path from posting
+       table to ensuire related URLs are correct.
+       (Bug reported by Darlene on 2010-08-04)
+  1.0.3 (2010-07-30)
+    1) Added Keyword::handle_report_copy()
+  1.0.2 (2010-06-30)
+    1) Changes to Keyword::get_related() now that events use effective_date
+  1.0.1 (2009-12-27)
+    1) Changed reference to parent constructor
+  1.0.0 (2009-07-02)
+    Initial release

@@ -1,0 +1,402 @@
+  1.0.164 (2014-08-09)
+    1) Changes to CSS for google map to make size consistent when listing is shown or not
+  1.0.164 (2014-04-05)
+    1) Added CSS for styling ECL tag dropdown in CKEditor panel
+  1.0.163 (2014-01-28)
+    1) Added CSS for swatch field
+  1.0.162 (2014-01-04)
+    1) Added .map_choices for use of class with Google maps lookups alternatives lists
+  1.0.161 (2013-11-03)
+    1) New css for .section_container for new offstage tab switching functionality
+  1.0.160 (2013-10-25)
+    1) Changes to admin_formField, admin_formFixed and admin_fixed to use regular
+       sized font, not fixed at 9pt as before
+  1.0.159 (2013-10-18)
+    1) New admin toolbar manu mode for personal toolbar substitute to accomodate
+       larger icons when personal toolbar is switched
+  1.0.158 (2013-10-02)
+    1) Google Map now has a 1px grey border
+  1.0.157 (2013-07-14)
+    1) Removed definitions for .gallery_album_tree and .gallery_album_main
+  1.0.156 (2013-06-27)
+    1) Tweak to cp_icon stack to ensure that description is not hidden when viewing
+  1.0.155 (2013-05-31)
+    1) Added google_map a.edit for styling of edit link in maps popup
+  1.0.154 (2013-05-24)
+    1) Added .form_box .form_box_footer for use in HTML::draw_form_box()
+    2) Made some other simplifications around .form_box css stack
+  1.0.153 (2013-02-17)
+    1) Added .cal_days_s to fix background colour for calendar in a way that
+       can be overriden
+    2) .context_menu .context .actions .action .op_s made slightly wider
+  1.0.152 (2013-01-15)
+    1) .calendar_big .cal_today now specifies a background colour
+  1.0.151 (2013-01-15)
+    1) Added .icon_add_new for 'add new' controls inside listings panels
+  1.0.150 (2013-01-14)
+    1) .cal_then now specifies cursor: pointer;
+    2) Added .cal_control_disabled
+    3) .monthly_calendar now has no margin;
+  1.0.149 (2012-12-24)
+    1) .gallery_album_hover_photo now defned h2 not h1 as displayed heading, and
+       sets colour to black (important)
+  1.0.148 (2012-11-23)
+    1) Now uses a label no h1 for admin menu categories and works correctly with
+       text sizer control to keep text inside toolbar region
+  1.0.147 (2012-11-21)
+    1) Changes to CSS to more explicitly set font and link colour in div
+       .product_catalogue
+  1.0.146 (2012-09-25)
+    1) Marked all properties for div.cp_icon as !important to prevent CP control
+       panel icon being messed up by layout settings
+  1.0.145 (2012-08-02)
+    1) section_tabs .tab now reduced padding left and right
+  1.0.144 (2012-06-29)
+    1) Changes to context_menu stack to optimise and make slightly wider
+  1.0.143 (2012-05-06)
+    1) Changes to .google_map_listing to allow for screen reizing in conjunction
+       with JS
+  1.0.142 (2012-05-04)
+    1) Added twitter_tweets class
+  1.0.141 (2012-04-27)
+    1) Enhancements to .google_map_listing to allow for wide lists to not break
+       layout - now uses position not floats
+  1.0.140 (2012-04-24)
+    1) Added css for .google_map_frame and .google_map_listing
+  1.0.139 (2012-04-20)
+    1) Tweak to section_tabs to set a line-height of 18px so that those featuring
+       icons as lAbels will appear at the same height as those with text
+  1.0.138 (2012-04-04)
+    1) Changes to new style reports to remove explicit font point sizes and
+       to add provision for thead and class rollup
+    2) Added clauses for table.report in the context of system_health to reimpose
+       font sizes for that purpose
+  1.0.137 (2012-03-29)
+    1) Changed positions of 'new' and 'password' indicators for .gallery_album_album
+  1.0.136 (2012-03-28)
+    1) Added subclause for 'password' within .gallery_album_album stack
+  1.0.135 (2012-03-15)
+    1) Added block for challenge_password
+  1.0.134 (2012-03-06)
+    1) Corrected version number in comments
+  1.0.133 (2012-02-27)
+    1) New class for calendar_yearly
+  1.0.132 (2012-02-24)
+    1) Reduced with of dropdown admin menus now that labels are shorter
+  1.0.131 (2012-02-22)
+    1) Removed #am h1.am_first and #am h1.am_last -
+       admin menu now displayed inside a toolbar-style div
+  1.0.130 (2012-02-18)
+    1) Added stack for #am - admin menu dropdowns
+  1.0.129 (2012-01-23)
+    1) Tweak to .ajax_report to make font color black
+    2) Tweak to .form_view to make font color black
+  1.0.128 (2012-01-18)
+    1) Added class for disambiguation
+  1.0.127 (2012-01-16)
+    1) Added class for product_catalogue_terms
+  1.0.126 (2012-01-16)
+    1) Removed class for '#payment_block' which forced text colour to black
+  1.0.125 (2011-12-15)
+    1) Renamed class cart_old to cart_noskin
+    2) Added new class structure cart_skin
+  1.0.124 (2011-12-14)
+    1) Added new structure for cart_old
+  1.0.123 (2011-12-07)
+    1) Minor simp,lifications and tweaks to css for gallery thumbnails viewer
+  1.0.122 (2011-12-02)
+    table.report set text colour to black
+    div.dialog set text colour to black
+  1.0.121 (2011-11-29)
+    1) Enhancements to .product_catalogue classes to fix text colour
+    2) Added class for #payment_block to fix text colour
+  1.0.120 (2011-11-26)
+    1) Added color=black to .toolbar_text
+    2) Added color=black to .custom_form tr.formHead
+  1.0.119 (2011-11-17)
+    1) Added new classes for search_results
+  1.0.118 (2011-11-06)
+    1) Moved base z-index for tcal from 100 to 300 to allow it to be used with
+       floating div-based popup window form fields (e.g. recurrence end by date)
+  1.0.117 (2011-10-20)
+    1) Added css for tcal control to enable inteligent cache
+  1.0.116 (2011-10-20)
+    1) Added clause for .calendar_mini td.cal_has_event
+  1.0.115 (2011-10-06)
+    1) Added .checkbox_csv for overrideable styling of these controls
+  1.0.114 (2011-09-24)
+    1) Changes to SD Menu to greatly simplify it and work with unmodified tree  1.0.113 (2011-07-31)
+    1) Definition for emailwizard no longer fixes inner tables to fixed width -
+       was messing up ckeditor resize function
+  1.0.112 (2011-07-06)
+    1) Added definition for gallery_album_hover_photo
+  1.0.111 (2011-06-02)
+    1) Fix for span highlighting in reports for .error, .default and .none
+  1.0.110 (2011-05-25)
+    1) Added css class '.css3' to state that position is relative when using it
+  1.0.109 (2011-05-23)
+    1) Added support for PIE css rounded box and drop shadow by including
+       .shadow class and extending .form_box to have rounded corners build in
+  1.0.108 (2011-04-02)
+    1) Added css for gallery_thumbnails
+  1.0.107 (2011-03-30)
+    1) tweak to css for form_view to relax alignment rules for td cells
+  1.0.106 (2011-03-23)
+    1) Added ul.hnavmenu li.invisible and ul.vnavmenu li.invisible to allow admins
+       to work with buttons that would normally be hidden to them
+  1.0.105 (2011-02-28)
+    1) Hack for ie6 for hnavmenu li and vnavmenu li
+       See - http://www.cssnewbie.com/fixing-ie6-whitespace-bug/#comment-5720
+  1.0.104 (2011-02-27)
+    1) Further changes to hnavmenu and vnavmenu to set all children to no border
+  1.0.103 (2011-02-25)
+    1) Added css to replace some inline style for navbutton images
+  1.0.102 (2011-02-10)
+    1) Now includes .gallery_album_main_title h1 and h2
+  1.0.101
+    1) Added classes 'toolbar_left', 'toolbar_right' and 'toolbar_text' and
+       enforced rules for toolbar_icon with !important designation to prevent
+       layouts breaking toolbars that appear in-page
+       (such as custom form toolbars) by overzealous application of margins,
+       padding or borders to any image that appears there.
+       Closes bug ECC:59
+  1.0.100 (2010-12-23)
+    1) Added class 'toolbar_frame' to allow targetting of red hover border for icons
+  1.0.99 (2010-11-03)
+    1) New class 'clear' to act like clr_b but to occupy zero space
+  1.0.98 (2010-10-12)
+    1) New class form_box
+  1.0.97 (2010-09-20)
+    1) Class memory_monitor doesn't set opacity or filter - both failed validation
+  1.0.96 (2010-09-16)
+    1) Tweaks for captions in gallery_album
+  1.0.95 (2010-09-14)
+    1) Added support for gallery_album
+  1.0.94 (2010-09-11)
+    1) Section_tabs now have colours for each filter type - normal, active and error
+  1.0.93 (2010-09-03)
+    1) Tweak to context menu op_s to make a bit more space for command word
+  1.0.92 (2010-08-27)
+    1) Added support for class list_folder_expander
+  1.0.91 (2010-07-28)
+    1) Support aded for indication of hidden comments
+  1.0.90 (2010-07-09)
+    1) Changes to .calendar_big .cal_control and associated to center text in Firefox
+  1.0.89 (2010-05-07)
+    1) Tweak to div.nicetitle class to use same font as windows
+  1.0.88 (2009-12-28)
+    1) Added widths for context menu items
+  1.0.87 (2009-12-15)
+    1) Added support for member_search
+  1.0.86 (2009-12-09)
+    1) Added support for emailwizard
+  1.0.85 (2009-11-21)
+    1) Tweaks to CP Matrix settings
+    2) Support added for cp_icons for all enabling components when turned on
+  1.0.84 (2009-11-15)
+    1) Tweaks to CP Matrix settings
+  1.0.83 (2009-11-03)
+    1) #popupBody now resets float - deals with problem seen on Darlene's PC where font sizes are different
+  1.0.82 (2009-09-24)
+    1) Removed white background from panel_content, panel_header and panel_footer
+  1.0.81 (2009-08-13)
+    1) Added support for cp_matrix
+  1.0.80 (2009-08-06)
+    1) Removed all classes within div.panel_content - now handled in block layout css
+  1.0.79 (2009-08-02)
+    1) For listing panels div.panel_content .date is no longer contained within .item
+    2) For listings panels removed margin in .panel_content
+  1.0.78 (2009-07-16)
+    Changes to popupTitleBar to indicate that it is now a drag handle
+  1.0.77
+    Changes to memory_monitor to remove opacity
+  1.0.76
+    Enhancements to Report class to deal with colour coding and number alignment
+  1.0.75 (2009-07-01)
+    Added class for #memory_monitor
+  1.0.74 (2009-06-26)
+    Added tr.credit_memo_issued and tr.credit_memo_pending to table.product_catalogue cascade
+  1.0.73 (2009-06-13)
+    Change to formButton to apply padding:0 for IE8 and safari which add it otherwise.
+  1.0.72 (2009-06-04)
+    Various minor CSS bug fixes
+  1.0.71 (2009-04-01)
+    Added cal_control class for controls on big calendar
+  1.0.70 (2009-02-19)
+    Added div.poll table tr.selected td and div.poll table tr.disabled td to highlight selected or disabled answers
+  1.0.69 (2009-02-12)
+    1) popupBody no longer has padding of 4px
+  1.0.68 (2009-01-06)
+    1) Changes to cal_large to add borders and simplify colours
+  1.0.67 (2009-01-03)
+    1) .cal now has borders when viewed @media print
+    2) New cascade for cal_large to be added soon
+  1.0.66 (2008-12-30)
+    1) Added in support for calendar_mini
+  1.0.65 (2008-12-27)
+    1) Added support for 'explain' in 'share with' panel
+  1.0.64 (2008-12-15)
+    1) Added suppoprt for form_status controls
+  1.0.63 (2008-12-05)
+    1) Removed all forum support - now in module.forum.css file in modules directory
+  1.0.62 (2008-11-19)
+    1) Added support for edit form to forum cascade
+  1.0.61 (2008-11-11)
+    1) Changes to forum cascade to remove background image and set background colour to white
+  1.0.60 (2008-11-07)
+    1) Changes to div.scrollbox to apply a top border
+  1.0.59 (2008-10-31)
+    1) New cascade for SD Menu classes
+    2) New cascade for forum class
+    3) New class support for img.label
+  1.0.58 (2008-10-07)
+    1) New table class cascade form_view
+  1.0.57 (2008-09-12)
+    1) New definition for h3 in widget
+  1.0.56 (2008-09-04)
+    1) Changes to ratings to put current score and votes underneath to reduce footprint and prevent
+       breaking of control in narrow layouts or when wrapped
+  1.0.55 (2008-08-28)
+    1) Added class cascade for ul.breadcrumbs
+  1.0.54 (2008-08-25
+    1) Added sizing for labels in forms
+  1.0.53 (2008-08-15)
+    1) Added class cascade for rating system
+  1.0.52 (2008-08-13)
+    1) Added new css for img.std_control to prevent page-level changes if page or posting content have
+       image border, margins or padding set
+    2) Now section tabs can have class 'tab' or 'tab_selected' to allow atributes to be overridden separately
+       at system, layout or page level
+    3) Added section_sub_tabs to provide css support for accent blocks and multi-resolution tab components
+  1.0.51 (2008-08-08)
+    1) New class cascade for component_help
+    2) New classes for widget - param, lbl and val
+  1.0.50 (2008-08-02)
+    1) Added class cascade for social bookmarking
+  1.0.49 (2008-07-29)
+    1) div.section_tab now by default floated left, va_b
+  1.0.48 (2008-07-18)
+    1) Various simplifications for panel class - removed all padding, uses margins instead now
+    2) IE7-safe way to clear divs without space now provided in div class='clear'
+  1.0.47 (2008-07-01)
+    1) Support for simplified report class
+  1.0.46 (2008-06-30)
+    1) Support added for dashboard / widget styles
+  1.0.45 (2008-06-26)
+    1) New style for comment action labels for active options
+  1.0.44 (2008-06-25)
+    1) Added CSS for comments spam and reorganised CSS for comments to include an extra div
+  1.0.43 (2008-06-04)
+    1) Added CSS for div.report .none and .grid_head_a
+  1.0.42 (2008-05-30)
+    1) New class comments_list
+    2) Changes to .grid_head_nosort and others to include text-align and vertical-align attributes
+  1.0.41 (2008-05-27)
+    1) Added entries for poll class and children
+  1.0.40 (2008-05-20)
+    1) Added h1.title class for no margin or padding
+  1.0.39 (2008-05-10)
+    1) removed .toolbar_icon and .toolbar_icon:hover - now handled by system css with icons.gif background
+    2) Multiple changes to support context menus code reduction
+  1.0.38 (2008-04-17)
+    1) Added css for report div.report, div.report .default and div.report .error
+  1.0.37 (2008-04-11)
+    1) Removed background images for .admin_toolbartable and #popupMask
+  1.0.36 (2008-02-26)
+    1) Added a cascade for td and th within tablegrid to apply coloured borders to cells
+    2) Added .nowrap class
+  1.0.35 (2008-02-20)
+    1) Added .keyword_block and .keyword_block .num
+  1.0.34 (2008-02-01)
+    1) Section tabs no longer wrap whitespace
+    2) Changes to Custom Form support - all now wrapped in .custom_form class
+       and added .yes and .depends to set asterisk colours
+  1.0.33 (2008-01-10)
+    1) Added admin_tools collection
+  1.0.32 (2007-12-27)
+    1) Added div.panel_detail .subhead
+  1.0.31 (2007-12-20)
+    1) Added formField_ro for making divs that LOOK like readonly fields but never get focus
+  1.0.30 (2007-12-13)
+    1) popup window title now not bold by default
+  1.0.29 (2007-12-08)
+    1) Added .summary li to allow compact bulletted lists in postings
+    2) added panel_detail img to top left align imagfes in details view
+  1.0.28 (2007-10-29)
+    1) product_catalogue th and td now use cascade
+    2) Added order_cost_summary to allow independent control of this block
+  1.0.27 (2007-10-25)
+    1) section_tab height no longer set so can grow for multi-line if needed
+  1.0.26 (2007-10-22)
+    1) operation2 width increased to 85px
+  1.0.25 (2007-09-25)
+    1) Revamped all context_menu code to use cascade
+  1.0.26 (2007-10-22)
+    operation2 width increased to 85px
+  1.0.25 (2007-09-25)
+    Revamped all context_menu code to use cascade
+  1.0.24 - 2007-08-24
+    Added .formLabel, .formOptionValue
+  1.0.23 - 2007-07-24
+    Tweaks on sizes for div.panel_content .item .summary .time, div.panel_content .item .summary .detail
+    Added padding for
+  1.0.22 - 2007-07-23
+    Fixes for some css properties in hr
+  1.0.21 - 2007-07-23
+    Added div.panel:
+      table.panel_head, table.panel_head td.add, table.panel_head td.title,table.panel_head td.title a, table.panel_head td.rss
+      div.panel_header, div.panel_footer,
+      div.panel_content,
+        div.panel_content .item,
+          div.panel_content .item .date,
+          div.panel_content .item .summary,
+            div.panel_content .item .summary .time, div.panel_content .item .summary .detail
+          div.panel_content .item .link
+  1.0.20 - 2007-07-20
+    Added zoom_text h1 - zoom_text h6 to allow headings to be set as percentages
+  1.0.19 - 2007-07-18
+    Added div.dialog, div.status_error and div.status_okay
+  1.0.18 - 2007-07-16
+    Added classes for custom forms:
+    td.formHead, td.formSubHead
+    td.formFieldMargin, td.formFieldLabel, td.formFieldReqIndicator, td.formFieldContent
+    Added hr and table.minimal
+  1.0.17 - 2007-07-03
+     Added div.section_tab and div-section_tab a
+  1.0.16
+  1.0.15 - 2007-06-18
+    Added div.info and div.info h1
+  1.0.14 - 2007-06-13
+    Added table.ajax_report and sub classes, and img.expand_contract
+  1.0.13 - 2007-06-04
+    Added img.ajax_wait and span.ajax_info
+  1.0.12 - 2007-06-01
+    Added a.info, a.info img, .admin_formLabel
+  1.0.11 - 2007-05-24
+    Added .cal, .padding_none and ul.tooltip
+  1.0.10 - 2007-05-21
+    Added .noprint and .noscreen
+  1.0.9 - 2007-05-18
+    Added new styles for context_menu: div.cm_frame
+  1.0.8 - 2007-05-12
+    Added some new styles:
+      .fl, .fr, clr_b, border_none, margin_none, margin_auto, img.b, img.pxl
+      txt_l, txt_c, txt_r, va_b, va_m, va_t
+    Set body margin and padding to 0
+  1.0.7 - 2007-05-05
+    Corrections to pass CSS validation
+  1.0.6 - 2007-05-03
+    Added font-family: Arial for Body
+    Added .hide_tab (was inline previously)
+  1.0.5 - 2007-05-03
+    Added div.nicetitle to this file (was inline previously)
+  1.0.4 - 2007-04-26
+    Fix for border-collapse BORDER-COLLAPSE; (line 204); se
+  1.0.3 - 2006-12-30
+    Removed reference for file in toolbar_icon to allow this to be dynamic - and update cache if changed
+  1.0.2 - 2006-12-26
+    Removed padding in admin_toolbartable which was buggy in Mozilla
+    Added .toolbar_icon and .toolbar_icon:hover
+  1.0.1 - 2006-11-24
+    Initial versioned release
+

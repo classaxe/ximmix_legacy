@@ -1,0 +1,33 @@
+  1.0.14 (2012-11-29)
+    1) mem() now uses System::get_item_version() not System::get_version() as before
+  1.0.13 (2012-09-10)
+    1) db_connect() now invoked via shared file db_connect.php
+  1.0.12 (2012-09-05)
+    1) MySQLi operations now written OO-style and $mysqli global variable renamed
+       $Obj_MySQLi
+  1.0.11 (2012-09-01)
+    1) Now sets up $mysqli from $dsn, and also $li (for backward compatability)
+  1.0.10 (2011-04-21)
+    1) No longer gets system_vars() - this is now handled in codebase
+  1.0.9 (2009-07-12)
+    1) Bug fix for memory to prevent warning when writing point where no classes are loaded
+  1.0.8 (2009-07-10)
+    1) Memory monitor now includes versions of classes invoked and copy button
+  1.0.7 (2009-07-01)
+    1) Memory Monitor now floats in a dragable box
+  1.0.6 (2008-04-30)
+    1) Added code to implement memory_get_usage() for windows
+    2) Added mem() for memory tracking
+    3) Included various memory test points
+  1.0.5 (2007-04-03)
+    commands 'delete_navbutton', 'delete_news', 'delete_event' added (later moved into codebase)
+  1.0.4 (2007-02-21)
+    command 'download_media' added
+  1.0.3 (2007-01-26)
+    command 'delete_file' now uses File_System::delete_dir_entry() to delete files or directories
+  1.0.2 (2006-12-29)
+    Added command switcher for donate
+  1.0.1 (2006-12-20)
+    Moved last bits of inline code into here to free codebase.php for use by ajax server
+    FUNCTIONS_VERSION must now be on first line for reading by ajax
+    Moved getting of ecl_tag globals into convert_safe_to_php(), checked for on first use (if any)

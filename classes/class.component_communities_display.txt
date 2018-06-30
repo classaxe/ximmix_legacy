@@ -1,0 +1,16 @@
+  1.0.4 (2014-01-17)
+    1) Changes to Extended_Community::draw_listing() to use new ecl_map.point.i()
+       helper function to open info window and reduce HTML code served
+  1.0.3 (2013-10-22)
+    1) Changes following renaming of report 'community.sponsorship_plan' to
+       'sponsorship-plans-for-community'
+  1.0.2 (2013-08-18)
+    1) Now handles map drawing even if there's only one community to show
+    2) Admins now see inactive communities
+  1.0.1 (2013-08-15)
+    1) Changes to not display empty communities except for admins
+    2) Changes to not show communities with no lat / lon on map but to
+       visit community when user clicks instead of trying to highlight on the
+       map at point 0,0
+  1.0.0 (2013-07-25)
+    1) Initial release

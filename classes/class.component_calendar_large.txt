@@ -1,0 +1,93 @@
+  1.0.27 (2013-12-14)
+    1) Small change to have URL in anchor for 'Add New...' icons on each day
+       indicate same path as acgivated when user actually clicks on it
+  1.0.26 (2013-03-29)
+    1) Tweak to Component_Calendar_Large::draw() to remove duplicate class
+       definition in HTML div
+    2) Tweak to Component_Calendar_Large::_shared_source_link() to escape single
+       ampersands
+    3) Tweak to Component_Calendar_Large::_draw_event() to escape single ampersands
+  1.0.25 (2013-02-17)
+    1) Component_Calendar_Large:_draw_event() now sets CM var for 'important' value
+    2) Style changes to have events drawn within a curved and bordered box
+  1.0.24 (2013-02-13)
+    1) Component_Calendar_Large::draw() now uses classname to assign red colour to
+       weekend day headings to allow for easier override in customised stylesheets
+  1.0.23 (2013-01-15)
+    1) Component_Calendar_Large::draw() now gives the new event icon a classname
+       of 'icon_add_new' to make it easier to target and remove when rendered via
+       JSONP
+  1.0.22 (2013-01-14)
+    1) New method Component_Calendar_Large->draw_json()
+    2) New CPs for show_controls and show_heading to allow for simpler display
+       via JSON
+    3) Bug fix -
+        clicking on previous days in Jan caused calendar to ADVANCE to Feb
+        clicking on future days in Nov caused calendar to REGRESS to Oct
+    3) Replaced use of function calendar_large_set() with cal_goto()
+    4) Replaced use of calendar_large_click() with cal_list()
+  1.0.21 (2012-07-13)
+    1) Added match clauses for CPs in constructor
+    2) CP for filter_shared now accepts 0|1|x (but not yet operational)
+  1.0.20 (2012-07-03)
+    1) Moved name of report to use for 'New event' and context menu to use for
+       'edit event' into constructor to alow for override by community module
+  1.0.19 (2012-07-03)
+    1) Moved name of category used for items into constructor to allow for override
+  1.0.18 (2012-05-20)
+    1) Changes to Component_Calendar_Large member methods and properties to make
+       these protected, not private, and so allow Community_Calendar_Large to
+       extend this
+    2) Moved code for drawing event summary to Component_Calendar_Large::_draw_event()
+  1.0.17 (2012-02-27)
+    1) Tweak to Component_Calendar_Large::draw() to apply category text colour
+       to linked event title
+  1.0.16 (2012-01-23)
+    1) Changes to _setup() to harness protected method in Component_Base class
+  1.0.15 (2012-01-23)
+    1) Removed _draw_control_panel() - inherits instead
+  1.0.14 (2011-12-19)
+    1) 'Add New Event for this day...' icons now include memberID if set and
+       conform to XHTML strict
+  1.0.13 (2011-10-26)
+    1) Changes to Component_Calendar_Large::draw() - 'Add event' icons for each day
+       now set effective_date_end as well not just effective_date_start when clicked
+    2) Additional changes for XHTML strict compliance
+  1.0.12 (2011-10-21)
+    1) Substantial modularisation of functionality - a lot tidier now
+    2) Now groups items at same time without repeating time heading
+    3) Clicking on a date number where there are events listed brings up listing
+       for that day
+  1.0.11 (2011-10-20)
+    1) No longer requires 'rel' value of -1, 0 or 1 to determine whether events
+       are in current month or from last or next
+    2) Code simplifications now that 'evt' for each day is now always an array
+  1.0.10 (2011-10-19)
+    1) Changes to use `effective_date_start` not `effective_date` for links to
+       add new events on specified dates
+  1.0.9 (2011-10-19)
+    1) Changes for calendar icon to use /img/max/nn/image-path instead of
+       /img/resize/nn/?img= as before (would no longer work)
+  1.0.8 (2011-10-13)
+    1) Changed _CM_ID[0] to _CM.ID in context menu code
+  1.0.7 (2011-05-27)
+    1) Now includes _CM.event_registrants in context menu code
+  1.0.6 (2011-05-04)
+    1) Replaced all references of _CM_type to _CM.type
+  1.0.5 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.4 (2010-08-17)
+    1) Bug fix for calendar to initialise categories list even whern there are
+       no events to show - prevents PHP error
+  1.0.3 (2010-08-16)
+    1) Changes to Component_Calendar_Large::draw() to ensure proper closing of
+       divs even when no controls are shown
+  1.0.2 (2010-08-10)
+    1) Changes to Component_Calendar_Large::draw() to reference new field
+       `effective_time_start`
+  1.0.1 (2010-07-15)
+    1) Now extends Component_Base not component
+  1.0.0 (2010-07-07)
+    1) Moved Component::calendar_large() into here
+    2) Fixed problems with category selection - now working correctly
+    3) Moved 'show icons' to top and added controls to select all / none

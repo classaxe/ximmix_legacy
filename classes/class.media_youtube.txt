@@ -1,0 +1,16 @@
+  1.0.5 (2012-09-28)
+    1) Now uses dynamic JS code to replace an anchor with an iframe to conform to
+       XHTML strict at load time
+  1.0.4 (2012-09-27)
+    1) Ampersand used to append parameter to set rel=0 is now entity encoded for
+       better XML conformance
+    2) Removed Media_Youtube::_draw_clip_embed() - not needed
+  1.0.3 (2012-07-22)
+    1) Added &rel=0 to URL in Media_Youtube::_draw_clip_iframe() to prevent youtube
+       from adding 'related' (NOT!) videos after video clip has played
+  1.0.2 (2012-02-03)
+    1) _draw_clip_iframe() no longer has transparency attribute (didn't work anyway)
+  1.0.1 (2012-02-03)
+    1) Now generates clip as an IFRAME with embed code
+  1.0.0 (2009-07-02)
+    Initial release

@@ -1,0 +1,351 @@
+  1.0.104 (2014-03-27)
+    1) Community_Member::_draw_object_map_html_get_data() now uses fields passed
+       to it to determine which address to display
+  1.0.103 (2014-03-23)
+    1) Community_Member::get_events_upcoming() now includes optional category
+  1.0.102 (2014-02-19)
+    1) Added Community_Member::on_action_pre_update_set_map_coordinates() to
+       force coordinate recalculation if map location has changed
+  1.0.101 (2014-02-17)
+    1) Refreshed fields list - now declared as a class constant
+    2) Updates to Community_Member::get_coords() to include geocode match quality fields
+  1.0.100 (2014-02-05)
+    1) New column `stats_cache` for fields list
+    2) New method Community_Member::get_stats() which is cache-aware
+  1.0.99 (2014-01-25)
+    1) Renamed member dashboard reports and forms to more accurately indicate
+       their use - e.g. 'community.events' is now 'community_member.dashboard.events'
+       Dashboard still needs a lot of work to make it serviceable again
+  1.0.98 (2013-12-16)
+    1) New method Community_Member::get_events_upcoming() used to determine whether
+       or not to show 'Christmas' tab in Member Display mode
+  1.0.97 (2013-11-29)
+    1) Community_Member::get_member_profile() now includes name and shortform name
+       of primary ministerial if a member belongs to one
+  1.0.96 (2013-11-27)
+    1) Added primary_ministerialID to fields list
+  1.0.95 (2013-10-28)
+    1) Community_Member::get_email_contacts() now gets up to 8 contacts
+  1.0.94 (2013-10-09)
+    1) Community_Member::_on_action_member_setup_contact() now exists cleanly
+       if mode is bulk_update, and changes were not marked for the contactID
+       field
+  1.0.93 (2013-10-08)
+    1) Now constructor sets has_languages to true
+  1.0.92 (2013-10-07)
+    1) Community_Member::get_member_profile() now includes URL_external for individual
+       member based on their primary community
+  1.0.91 (2013-09-25)
+    1) Added support for service_notes and office_notes in fields list
+  1.0.90 (2013-09-20)
+    1) link_youtube now link_video
+  1.0.89 (2013-09-12)
+    1) Now sets Title for contact in Community member to 'Minister In Charge'
+       if not known
+  1.0.88 (2013-09-06)
+    1) Now allows categories to be assigned record - previously not working
+  1.0.87 (2013-08-16)
+    1) Now formats telephone numbers correctly and populates contact from first
+       available telephone number and contat form address
+  1.0.86 (2013-08-15)
+    1) Mailing address now defaults to Office if given, services if not
+    2) Contact, if set, now used to set contact details in community_member
+       if these are absent - use for multi-point parishes
+  1.0.85 (2013-08-15)
+    1) Shortform name now defaults to title not name - that was an error
+  1.0.84 (2013-08-14)
+    1) Community_Member::export_sql() now includes linked contacts and category
+       assignments for members postings
+  1.0.83 (2013-08-13)
+    1) Fields list no longer static - caused errors
+  1.0.82 (2013-08-13)
+    1) New sub-action Community_Member::_on_action_member_setup_addresses() to
+       fill in office and mailing address from services address if blank
+    2) Bug fix in both Community_Member::_on_action_member_setup_podcast_album_root()
+       and Community_Member::_on_action_member_setup_gallery_album_root() for correct
+       identification of community root folders (not named same as members yet)
+    3) Fields list now public static class variable, not instance variable
+  1.0.81 (2013-08-10)
+    1) Community_Member::get_coords() now gets both services and office map locations
+    2) Community_Member::on_action_member_setup() now sets both services and
+       office map locations
+  1.0.80 (2013-08-08)
+    1) Refreshed fields list for new address fields
+    2) Changes to Community_Member::_on_action_member_setup_gallery_album_root()
+       for renamed gallery_albumID field
+    3) Changes to Community_Member::_on_action_member_setup_podcast_album_root()
+       for renamed podcast_albumID field
+    4) Changes to Community_Member::_draw_object_map_html_get_data() for renamed
+       map fields
+    5) Changes to Community_Member::_on_action_member_setup_map() for renamed map fields
+  1.0.79 (2013-08-07)
+    1) New Method Community_Member::get_sponsors_national()
+  1.0.78 (2013-08-06)
+    1) Now sets member's avatar (if blank) from their Gallery Album cover (if set)
+  1.0.77 (2013-08-05)
+    1) Now includes addres fields when creating a contact via Community_Member save
+  1.0.76 (2013-08-05)
+    1) Added contact_NMiddle to fields list
+    2) New helper method for Community_Member::on_action_member_setup() -
+       Community_Member::_on_action_member_setup_contact()
+  1.0.75 (2013-08-05)
+    1) Refreshed fields list
+    2) New method Community_Member::on_action_member_setup() to replace all these
+         ACTION: Record: Set map descriptions and coordinates
+         ACTION: MODULE.COMMUNITY_MEMBER: Setup Community Membership
+         ACTION: COMMUNITY MEMBER: Set Gallery Album Root
+         ACTION: COMMUNITY MEMBER: Set Podcast Album Root
+  1.0.74 (2013-08-03)
+    1) Changed 'report' in edit_params to current form used for Community Members
+    2) New method Community_Member::get_email_contacts()
+    3) Community_Member::get_member_profile_images() now returns array of images
+  1.0.73 (2013-07-29)
+    1) Community_Member::get_member_profile() now sets ID for the current object
+  1.0.72 (2013-07-24)
+    1) Split out all other classes into their own class files
+    2) Moved Community_Member::draw() into Community_Member_Display::draw()
+    3) Community_Member::get_member_profile() now returns true or false, depending
+       on whethe member's profile was found or not
+  1.0.71 (2013-07-20)
+    1) Updated Community_Member::_draw_profile() to display photo slideshow if
+       there is one to show
+  1.0.70 (2013-07-19)
+    1) Updated Community_Member::_draw_profile() and Community_Member::_draw_map()
+       to use simple URL path for avatar
+  1.0.69 (2013-07-15)
+    1) Added back accidentally deleted method Community_Member::get_coords()
+  1.0.68 (2013-07-15)
+    1) Implemented Community_Member::_draw_object_map_html_get_data() to allow
+       'with selected... view on map' to work for community members
+  1.0.67 (2013-07-12)
+    1) Refreshed fields list and made changes to support two phone numbers with
+       customisable labels
+    2) New methods Community_Member::on_action_set_gallery_album_root() and
+       Community_Member::on_action_set_podcast_album_root()
+  1.0.66 (2013-06-11)
+    1) Fix for Community_Member::_draw_news() -
+       had wrong ID on container so was invisible
+  1.0.65 (2013-06-07)
+    1) Changes in Community_Member::_serve_jsonp() to handle CP changes
+  1.0.64 (2013-02-18)
+    1) Community_Member::BL_mini_shared_source_link() now has style changes to
+       have a curved heading box and some padding.
+  1.0.63 (2013-01-14)
+    1) Community_Member::_draw_jsonp() extended to include support for calendar
+  1.0.62 (2012-11-30)
+    1) Community_Member::get_coords() now allows address to be passed, and only looks up
+       'map_location' if not given -
+       Signature now looks like that of Record class
+  1.0.61 (2012-11-28)
+    1) Community_Member::draw_avatar() now uses System::get_item_version() not
+       System::get_version() as before
+  1.0.60 (2012-11-12)
+    1) New fields summary and signatories for table
+  1.0.59 (2012-11-10)
+    1) Renamed reports prefixed 'module.' to remove prefix
+    2) Repairs to community_dashboard following changes to label function
+       some time ago
+  1.0.58 (2012-11-10)
+    1) Now implemented as a standard class library, not a module
+  1.0.57 (2012-11-09)
+    1) Community_Member::set_up_member_page_vars() now sets $page_vars['path_real']
+    2) Changes to several of report references following renaming of most
+       module-prefixed report names to drop the prefix
+  1.0.56 (2012-10-31)
+    1) Internal code references to 'sermons' changed to 'podcasts' for consistency
+    2) Community_Member::_setup_tabs() now sets section tab widths depending on
+       how many tabs are shown - and non-members no longer show postings
+  1.0.55 (2012-10-25)
+    1) Change to Community_Member::_draw_js() to call JS function
+       show_section_onhashchange_setup() without a default tab value -
+       This way, if tab indicated by the hash valuedoesn't exist, the change is
+       not attempted
+    2) Community_Member::set_up_member_page_vars() now exits cleanly if path_extension
+       is blank or prefixed with either rss/ or js/
+    3) Some method names shortened
+  1.0.54 (2012-10-18)
+    1) Community_Member::_draw_member_js() now includes link and sitename at bottom
+  1.0.53 (2012-10-15)
+    1) Updated fields list in constructor
+    2) Community_Member::_draw_member_js() now uses PHP native json_encode()
+  1.0.52 (2012-10-13)
+    1) Community_Member::_draw_member_js() now accepts a limit parameter to have
+       paging controls set and limit records per page to limit value
+  1.0.51 (2012-10-12)
+    1) Community_Member::export_sql() now includes member postings and category
+       assignments
+  1.0.50 (2012-10-11)
+    1) Community_Member::_draw_member_js() now returns pure JSON object with
+       callback as provided by requesting application
+  1.0.49 (2012-10-10)
+    1) Community_Member::_draw_member_js() now looking for mode 'news' not
+       'news-items' as before
+  1.0.48 (2012-10-05)
+    1) Change to Community_Member::_draw_member_rss() to pass request in args
+       but not to bother passing submode - this is now computed from request
+  1.0.47 (2012-08-17)
+    1) Community_Member::_draw_profile() now looks up size of poupup window for
+       form when admin clicks on title
+  1.0.46 (2012-08-04)
+    1) Added Community_Member_Event::manage_recurrences() for handling display
+       of community member event occurences
+  1.0.45 (2012-08-01)
+    1) Community_Member::_draw_map() no longer drawn if coordinates are 0,0
+  1.0.44 (2012-08-01)
+    1) Community_Member::_draw_map() now uses correct icon for organisations
+       or churches
+  1.0.43 (2012-07-29)
+    1) Community_Member::_draw_events() now only includes calendar
+  1.0.42 (2012-07-27)
+    1) _draw_js() now includes hash change tracking
+  1.0.41 (2012-07-24)
+    1) Now only full members have tabs for postings
+    2) Added _draw_js() to separate generation of onload JS for tab pre-selection
+    3) Changes to tab prelection to maintain correct section even following a record
+       update that sets the hash of the URL to reflect the modified record
+  1.0.40 (2012-07-21)
+    1) Objects of class Community_Member_Article, Community_Member_Event,
+       Community_Member_News_Item and Community_Member_Podcast now all override
+       context_menu_ID in their constructors
+  1.0.39 (2012-07-06)
+    1) Community_Member::export_sql() now includes membership records
+    2) Greatly improved service times display for member profile
+    3) Now uses htmlentities to handle ampersands in member titles
+  1.0.38 (2012-07-05)
+    1) New method Community_Member::on_action_set_community_membership()
+    2) Updated Community_Member::_draw_contact() to use new office hour fields
+  1.0.37 (2012-07-03)
+    1) Now overrides context menu and 'add new' icon link in large format calendar
+    2) Now overrides context menu in events listing
+  1.0.36 (2012-07-03)
+    1) Now specifies 'Community Posting Category' as category to use in large
+       events calendar
+    2) Styling of shared source link in calendar to make it smaller
+  1.0.35 (2012-06-29)
+    1) Linking of member title for editing in member view now only available to
+       regular site admins since this form is not available at community admin level
+    2) Now clears float after community_member map
+  1.0.34 (2012-06-04)
+    1) Now indicates whether or not a member is a 'full' member and changes content
+       sharing icon with generic icon to allow our sharing icon to be reserved for
+       ndicating full membership
+  1.0.33 (2012-05-22)
+    1) Changes to Community_Member::_draw_dashboard_settings() to make service time
+       textareas and place them in their own tab - Profile is now named 'services'
+    2) Changes to implementation of dashboard layer for easier resizing in code
+  1.0.32 (2012-05-22)
+    1) Changes to use new fields for service times in profile and control panel
+    2) Changes for new fields for social networking and added youtube channel
+    3) Changes to handle missing profile photo
+  1.0.31 (2012-05-20)
+    1) Community_Member_Calendar_Large::get_events() renamed to _setup_load_events()
+       and modified to work with revised code from Component_Calendar_Large
+    2) Community_Member_Calendar_Large::BL_shared_source_link() renamed to
+       Community_Member_Calendar_Large::_shared_source_link()
+    3) New method Community_Member_Posting::BL_mini_shared_source_link()
+  1.0.30 (2012-05-03)
+    1) Community_Member now extends displayable_item to allow map display
+  1.0.29 (2012-04-24)
+    1) Community_Member::_draw_map() now sets title for map point and opens info window
+  1.0.28 (2012-04-17)
+    1) Community_Member::_draw_map() no longer tries to handle its own save function
+       since this will never reach this level.
+       Save action now handled at Community Overview level
+    2) Community_Member::_draw_map() no longer calls $Obj_Map->map_load() -
+       this function is now empty
+  1.0.27 (2012-03-15)
+    1) Changed name of news section tab back to news instead of news-items
+       This corrects a bug present since November 10th of last year which mangled
+       the whole dashboard panel
+  1.0.26 (2011-11-10)
+    1) Changes to Community_Member::_draw_member_resource() to set up args to
+       disable searching of unsupported types
+    2) Fix to prevent member photo width or height being non-integer value
+  1.0.25 (2011-11-10)
+    1) Changes to Community_Member::draw_dashboard() to handle renaming of
+       'module.community.news' report to 'module.community.news-items'
+    2) Change to _draw_member_resource() to have it invoke the matched object to
+       discover its 'type' when setting page vars
+  1.0.24 (2011-10-26)
+    1) Community_Member::_draw_member_resource() now sets up $page_vars for the
+       displayed object to allow 'related' items to be shown
+  1.0.23 (2011-10-19)
+    1) Changes to handle new simpler URLs for /img/width/image-path streamer mode
+  1.0.22 (2011-10-11)
+    1) Shortened all method names
+    2) do_dashboard() changed call to $this->onupdate_set_map_location() to
+       $this->on_action_set_map_location()
+       (Presumably broken since build 2.22.29.1629 on 2011-04-18)
+    3) New fields in dashboard settings and profile view for office / service times
+  1.0.17 (2011-07-19)
+    1) Community_Member::_draw_member_resource() changed reference for
+       Portal::_parse_request_custom_prefix() to _parse_request_date_prefix
+  1.0.16 (2011-07-16)
+    1) Community_Member::_draw_member_draw_section_tabs() and
+       Community_Member::_draw_dashboard_settings() now use HTML class
+       static call to draw section tabs
+  1.0.15 (2011-06-17)
+    1) Replaced references to type_short with type
+  1.0.14 (2011-01-27)
+    1) Changes to Community_Member::_draw_member_resource() to make search work
+       with Search class (was split from System a while back)
+  1.0.13 (2011-01-24)
+    1) Change to Community_Member::set_up_member_page_vars() to fix bad field
+       reference when getting  component parameters
+    2) Changes to replace deprecated function calls in following classes:
+       Community_Member_Article
+       Community_Member_Event
+       Community_Member_News_Item
+       Community_Member_Podcast
+  1.0.12 (2010-11-06)
+    1) Changes to eliminate deprecated function calls
+  1.0.11 (2010-08-19)
+    1) Added 'Share this page' componwent to member profile tab - latest build
+       allows this to work correctly with components on 'Path Extended' pages
+  1.0.10 (2010-07-08)
+    1) Added new class Community_Member_Calendar_Large extending Component_Calendar_Large
+       to allow it to work for communitiy members
+    2) Community_Member::_draw_member_draw_events() now includes a large
+       calendar
+  1.0.9 (2010-04-26)
+    1) Added support for multiple contact names and email addresses in dashboard
+    2) Added support for contact forms in member profiles
+  1.0.8 (2010-04-25)
+    1) Added support for member-specific RSS feeds:
+       New function Community_Member::_draw_member_rss()
+       Extended Community_Member::_draw_member_resource() to activate RSS
+       Added RSS feed links in Community_Member::_draw_member_draw_profile()
+  1.0.7 (2010-03-31)
+    1) Added ability to set AWeb from member's dashboard under contact panel
+    2) Added ability to display AWeb for a member in their profile page
+    3) Included service times on profile page
+    4) Bug fix for maps save following changes to ident for google_map objects
+    5) Added articles tab on dashboard
+    6) Implemented search feature for members to show items in date ranges
+  1.0.6 (2010-03-06)
+    1) Added ability to move, reset and save map markers using Ajax postback
+    2) Map icons now customised to look like churches
+  1.0.5 (2010-03-03)
+    1) All postings panels now have their own community-aware overloaded class methods
+  1.0.4 (2010-02-27)
+    1) Community_Member::set_up_member_page_vars() now gets cps for switched layout
+    2) Community_Member::get_member_profile now gets communityID
+    3) Community_Member_Event class now overloads Event::_get_records_get_sql()
+  1.0.3 (2010-02-25)
+    1) Member Map map entry now links back to member profile
+    2) Added wrapper classes for:
+         Community_Member_Article
+         Community_Member_Event
+         Community_Member_News_Item
+         Community_Member_Podcast
+       These are used to set memberID after initialisation and support their
+       own queries
+  1.0.2 (2010-02-21)
+    1) Added map and calendar for members profile page
+  1.0.1 (2010-02-16)
+    1) Added new function Community_Member::set_up_member_page_vars() for dealing
+       with pre-render page setup
+    2) Extended Community_Member::draw_member() - we can now render community
+       member profiles using specified layouts without actually creating pages!
+  1.0.0 (2010-02-13)
+    1) Initial release

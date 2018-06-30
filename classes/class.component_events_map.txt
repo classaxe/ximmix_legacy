@@ -1,0 +1,4 @@
+  1.0.1 (2014-01-18)
+    1) Changes to Component_Events_Map::_draw_css() to style time and date in css
+  1.0.0 (2014-01-16)
+    1) Initial release

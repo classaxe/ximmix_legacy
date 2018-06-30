@@ -1,0 +1,3 @@
+  1.0.0 (2014-02-06)
+    1) Code moved in from Report_Column::draw_form_field_lookup()
+    2) Now callback is done without original sajax infrastructure

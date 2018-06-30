@@ -1,0 +1,29 @@
+  1.0.9 (2012-09-20)
+    1) Tweak to Payment_Method::draw_selector() to remove errant closing anchor and
+       safely escape JS code to conform with XHTML strict
+  1.0.8 (2012-05-08)
+    1) Added handle_report_copy() method for cloning entries
+  1.0.7 (2012-04-02)
+    1) Changes to draw_selector() to used fix field for method if there is only
+       one method available
+  1.0.6 (2012-01-31)
+    1) Bug fix for undefined variable warning in Payment_Method::method_is_offline()
+  1.0.5 (2012-01-28)
+    1) Added Payment_Method::method_is_offline()
+  1.0.4 (2012-01-16)
+    1) Payment_Method::draw_payment_options() wording changes:
+       When only one method available, and payment details are never needed:
+         'Click 'Place Order' to proceed with payment for this order using (method)'
+       When only one method available and payment details may be needed:
+         Shows method name as read-only fixed field, with details
+       When several methods available displays with selector and card fields
+  1.0.3 (2011-12-16)
+    1) New method Payment_Method::count_methods_available() used to apply default
+       payment method to order overview when there is only one possible choice
+  1.0.2 (2011-09-15)
+    1) Moved Order::draw_payment_method_selector() and Order::draw_payment_options()
+       into here (and stopped asking questions with only one possible answer!)
+  1.0.1 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.0 (2009-11-06)
+    1) Initial release

@@ -1,0 +1,333 @@
+/* 1.0.1
+Version History:
+  1.0.1 (2010-05-12)
+    1) Brought into shared directory and versioned
+  1.0.0 (2008-08-18)
+    1) Initial unversioned release in web document root
+*/
+
+#formwizard {
+	background: silver; 
+	padding: 5px;
+	font: 10pt Arial;
+	height: 700px;
+	position: relative;
+}
+#formwizard input, #formwizard select, #formwizard button, #formwizard textarea {
+	font-size: 100%;
+}
+#formwizard #customFormArea {
+	float: left; 
+	width: 450px; 
+	min-height: 500px; 
+	background: #DDDDDD;
+	border: 4px outset;
+}
+#formwizard #customFormArea h1 {
+	height: 30px;
+}
+#formwizard #customFormArea ul {
+	list-style: none outside none;
+	position: relative;
+	margin: 0 0 0 5px;
+	padding: 0;
+
+}
+#formSections li {
+	position: relative;
+}
+#formSections p.secHead {
+	background-color: #EEEEAA;
+	margin: 0;
+}
+#formSections span.pushright {
+	position: absolute;
+	top: 1px;
+	right: 5px;
+}
+#formSections span.pushright img {
+	margin: 0 0 0 1px;
+}
+.expander {
+	padding: 0 5px;
+	cursor: pointer;
+}
+span.title {
+	padding: 0 25px;
+}
+#formSections p.content {
+	margin: 5px;
+}
+#formwizard h1 {
+	font-size: 14pt;
+	background: #f0f0f0;
+	color: #333333;
+	padding: 5px;
+	margin: 0;
+	text-align: center;
+}
+#formSections li {
+	height: 30px; 
+	background: #FFFFEE; 
+	border: 2px solid #777777; 
+	margin: 10px; 
+	padding: 0;
+	font-size: 80%;	
+}
+#formwizard #controls {
+	float: left;
+	width: 500px;
+	height: 500px;
+	border: 4px outset;
+	background: #EEEEEE;
+	margin-left: 5px;
+}
+.buttonbar {
+	background:#EEEEEE; 
+	color: #333333; 
+	margin: 5px 0 0 0; 
+	padding: 3px;
+}
+.buttonbar input {
+	background: #eeeecc; 
+	margin: 0 0 0 10px;
+	width: 70px;
+}
+#fw_message {
+	color:green;
+	margin: 0 0 0 30px;
+	font-weight: bold;
+}
+#fw_error {
+	color:red;
+	margin: 0 0 0 30px;
+	font-weight: bold;
+}
+.control {
+	padding: 3px;
+	background-color: #dddddd;
+	height: 436px;
+	overflow: auto;
+	font-size: 80%;
+}
+#controls h3 {
+	font-size: 120%;
+	font-weight: bold;
+	margin: 0;
+	padding: 2px;
+	background: #336699;
+	color: #f0f0f0;
+	text-align: center;
+	text-decoration: underline;
+	cursor: pointer;
+	height: 25px;
+	line-height: 25px;
+}
+#sectionLibrary fieldset {
+	border: none;
+	padding: 3px 0;
+	margin: 2px;
+	background-color: #f0f0f0;
+}
+#sectionLibrary legend {
+	margin-left: 11px;
+	font-weight: bold;
+	color: #333333;
+}
+#sectionLibrary ul {
+	margin: 0;
+	padding: 0;
+	list-style: none outside none;
+}
+.contentHolder span {
+	color: navy;
+	text-decoration: underline;
+	cursor: pointer;
+}
+#formwizard #mainControl {
+	height: 50px;
+	border: 4px outset;
+	background: #dddddd;
+}
+#formwizard #mainControl #messages{
+	width: 250px;
+	height: 42px;
+	background-color: pink;
+}
+#formwizard #mainControl button {
+	width: 100px;
+	
+}
+
+
+
+
+
+
+
+#formwizardStart { color: #333333; padding: 15px; }
+#formwizardStart form {margin: 10px;}
+#formwizardStart fieldset {margin: 0 0 20px 0; position: relative;}
+#formwizardStart legend {font-size: 14pt; color: navy;}
+#formwizardStart label {float: left; width: 11em; height: 25px; line-height: 25px;}
+#formwizardStart input, #formwizard select {width: 20em;}
+#formwizardStart .btn {width: 7em;}
+#fw_message {color:green;}
+#fw_error {color:red;}
+
+
+
+
+
+
+
+
+#sb {
+	overflow: hidden;
+}
+#sb input.short {
+	width: 87px;
+	margin: 0 10px 0 0;
+}
+#sectionBuilder {
+	border: 1px solid black;
+	margin: 5px 0;
+}
+#sectionBuilder h4 {
+	font-size: 100%;
+	padding: 2px 25px;
+	margin: 0;
+	background: #336699;
+	color: white;
+}
+#sectionBuilder input, #sectionBuilder select, #sectionBuilder textarea, #sectionBuilder button {
+	xfont-size: 80%;
+}
+
+.builderTemplate ul {
+	list-style: none outside none;
+	margin: 0;
+	overflow: auto;
+	height: 345px;
+	padding: 0;
+}
+.builderTemplate li {
+	margin: 2px 0;
+	padding: 3px;
+	background: #EEEEEE;
+	position: relative;
+}
+.builderTemplate li button {
+	margin: 0 0 0 5px;
+}
+.goright {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+
+
+
+
+
+
+.section_label {
+	color: #333333;
+	margin: 0 5px 0 0;
+}
+.section_field {
+	color: green;
+}
+.section_extra {
+	color: navy;
+}
+.section_script {
+	color: orange;
+}
+
+.icon {
+	margin: 0 0 0 5px;
+}
+.sl_checkbox {
+	margin: 0 5px 0 0;
+}
+
+.iconButton {
+	padding: 3px;
+	cursor: pointer;
+}
+.iconButton_up {
+	padding: 1px;
+	border: 2px outset;
+	cursor: pointer;
+}
+.iconButton_down {
+	padding: 2px 0 0 2px;
+	border: 2px inset;
+	cursor: pointer;
+}
+.iconButton_disabled {
+	padding: 3px;
+}
+#formwizard .loadFormSelect {
+	background: #DDDDDD;
+	border: 2px outset;
+	position: absolute;
+	height: 314px;
+	width: 250px;
+	z-index: 999;
+}
+#formwizard .loadFormSelect h3 {
+	height: 30px;
+	line-height: 30px;
+	margin: 0;
+	text-align: center;
+	background: #336699;
+	color: white;
+}
+#formwizard .loadFormSelect ul {
+	height: 250px;
+	overflow: auto;
+	list-style: none outside none;
+	cursor: pointer;
+	text-decoration: underline;
+	margin: 0;
+	padding: 5px 1px;
+	font-size: 80%;
+}
+#formwizard .loadFormSelect ul li {
+	background-color: #EEEEEE;
+	margin: 2px;
+	
+}
+#formwizard .loadFormSelect .buttonDiv {
+	height: 20px;
+	text-align: center;
+}
+#popupPreview {
+	position: absolute;
+	background: white;
+	border: 2px outset;
+	height: 600px;	
+	width: 800px;
+	left: 5px;
+	top: 30px;
+}
+#popupPreview .scrolly {
+	height: 550px;
+	overflow: auto;
+}
+#popupPreview .closeButton {
+	position: absolute;
+	left: 360px;
+	bottom: 5px;
+	height: 25px;
+	width: 80px;
+}
+ul#componentList li textarea, ul#componentList li select, ul#componentList li input {
+	width: 390px;
+}
+ul#componentList {
+	overflow: auto;
+	position: relative;
+}

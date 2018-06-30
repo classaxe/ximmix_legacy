@@ -1,0 +1,49 @@
+  1.0.19 (2013-05-17)
+    1) Added cp for listings mode for 'filter_important'
+  1.0.18 (2012-08-23)
+    1) New edit parameter in constructor: 'command_for_delete'
+  1.0.17 (2012-07-15)
+    1) CP defaults for filter_memberID and filter_personID now '' not 0
+  1.0.16 (2011-11-10)
+    1) Changed type from 'job' to 'job-posting'
+    2) Changed assign_type from 'job posting' to 'job-posting'
+  1.0.15 (2011-06-17)
+    1) Removed constructor call to _set_type_short()
+    2) Removed constructor calls to _set_search_type() and _set_path_prefix() -
+       Both are now called automatically when setting calling _set_type()
+  1.0.14 (2011-06-03)
+    1) Added cp for listings mode to set background colour
+  1.0.13 (2011-05-09)
+    1) Changed type_short from 'j' to 'job'
+  1.0.12 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.11 (2010-09-27)
+    1) Added CPs for 'subscribe_show' in detail and listings modes
+    2) Set match criteria for all cps
+  1.0.10 (2010-08-16)
+    1) Changed default CP setting for comments_link_show in listing panels to '0'
+  1.0.9 (2010-08-04)
+    1) Added CPs for 'comments_show' and 'comments_link_show' in detail mode
+       (defaults=1)
+    2) Added CPs for 'comments_link_show' in listings mode (default=0)
+  1.0.8 (2010-07-14)
+    1) The following CPs were changed for listings:
+         body_char_limit  ->  content_char_limit
+         body_plaintext   ->  content_plaintext
+         body_show        ->  content_show
+  1.0.7 (2010-07-03)
+    1) Added cps for detail and listing views for 'title_show' and 'title_linked'
+  1.0.6 (2010-07-03)
+    1) Added setting of has_publication_date
+  1.0.5 (2010-02-12)
+    1) Added edit_param in constructor for icon_delete
+  1.0.4 (2009-09-22)
+    1) CP list now includes paging_controls
+  1.0.3 (2009-09-11)
+    1) Renamed parameters for listings to make them clearer with 'filter_' or 'box_' prefixes
+  1.0.2 (2009-09-10)
+    1) New CPs for listings for 'body_show', body_char_limit' and 'body_plaintext'
+  1.0.1 (2009-08-08)
+    1) Added _cp_vars_listings settings
+  1.0.0 (2009-07-02)
+    Initial release

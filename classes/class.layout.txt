@@ -1,0 +1,71 @@
+  1.0.26 (2013-06-17)
+    1) Added 'head_include' to fields list
+    2) Added support for 'head_include' and 'html_top' to Layout::render()
+  1.0.25 (2012-12-11)
+    1) Layout::get_selector_sql() now declared as static and omits any layouts
+       that have language parents
+  1.0.24 (2012-12-03)
+    1) Layout::render() now declared as static
+  1.0.23 (2012-10-27)
+    1) layout::render() code for dragable memory monitor now uses jquery
+  1.0.22 (2012-09-12)
+    1) Layout::usage() completely reqwritten to work correctly on multiple selected
+       layouts at once
+  1.0.21 (2012-06-12)
+    1) Layout::render() now includes body_top
+  1.0.20 (2012-06-12)
+    1) Layout::prepare() - component_results setting now handled by Person class
+  1.0.19 (2012-05-25)
+    1) Layout::prepare() now sets component_result for 'NTitle', not 'title'
+  1.0.18 (2012-05-25)
+    1) Layout::prepare() now sets component result for NreetingName
+  1.0.17 (2012-03-15)
+    1) Layout::render() now includes javascript_onload_bottom in generated code
+  1.0.16 (2011-10-05)
+    1) Layout::render() now uses no global for 'mem' mode
+  1.0.15 (2011-06-02)
+    1) Layout::handle_report_delete() improvements to formatting of error messages
+    2) Layout::usage() now detects '--- Use Default ---' for systemID=0
+       instead of '(Use System Default)' for all sites as before
+  1.0.14 (2011-01-06)
+    1) Added Layout::get_language_options() used by Page_Vars::get() for language
+       option switching
+  1.0.13 (2011-01-03)
+    1) Added Language fields to fields list in constructor
+  1.0.12 (2010-12-21)
+    1) Changed constructor to eliminate switchable resolutions
+    2) Changed Layout::prepare() to eliminate switchable resolutions
+    3) Removed Layout::get_resolutions_for_system()
+  1.0.11 (2010-12-11)
+    1) Layout::prepare() no longer handles selection of layout for report, detail
+       or print mode - this is now handled by Page::get_vars() to allow use of CSS
+       for that also.
+  1.0.10 (2010-12-03)
+    1) Changes to Layout::prepare() to always set component result values for
+       logged in user (if any)
+  1.0.9 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.8 (2010-08-04)
+    1) Change to Layout::handle_report_delete() to properly detect when layouts
+       are safe to be deleted - was failing to allow this even for unused ones
+  1.0.7 (2010-01-21)
+    1) Tweak to Layout::prepare() to have it write the requested URI to the log
+       if invoking 'no layout specified' error for better debugging.
+  1.0.6 (2010-01-08)
+    1) Tweak to Layout::get_css_checksum() to return nothing if no layoutID is
+       given - for example when accessing community dashboard
+  1.0.5 (2009-12-27)
+    1) Changed reference to parent constructor
+  1.0.4 (2009-11-20)
+    1) Constructor now has field set to allow set_field() operations
+  1.0.3 (2009-09-07)
+    1) Constructor now named __construct()
+    2) Greatly simplified Layout::usage() to use one query not three, with modern
+       sql methods, and updated to identify more internally defined layouts
+    3) Changes to Layout::get_css_checksum() to use more efficient query
+  1.0.2 (2009-08-08)
+    1) Change to Layout::render() to output 'style_include'
+  1.0.1 (2009-07-10)
+    Memory monitor now has opacity during drag
+  1.0.0 (2009-07-02)
+    Initial release

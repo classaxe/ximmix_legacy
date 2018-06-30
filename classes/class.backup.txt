@@ -1,0 +1,44 @@
+  1.1.7 (2012-09-10)
+    1) Backup::db_export_sql_query() and Backup::db_export_sql_data() now use
+       Record:get_rows_for_sql(), not deprecated function Record::get_arrays_for_sql()
+  1.1.6 (2012-09-09)
+    1) Backup::db_export_sql_query() now uses Record::escape_string()
+  1.1.5 (2012-09-04)
+    1) Backup now extends Record and uses machinery there to perform queries
+    2) Bugfix for Backup::db_export_sql_data()
+    3) Removed Backup::db_load() - unused
+    4) Removed Backup::db_status() - unused
+    5) Removed Backup::db_variables() - unused
+  1.1.4 (2010-12-14)
+    1) Changes to Backup::db_export_sql_query() and Backup::db_export_sql_data()
+       to set sql connection to utf8 -
+       default mysql connection in library for php is latin which caused problems
+  1.1.3 (2010-06-18)
+    1) Changes to Backup::db_export_sql_query() and Backup::db_export_sql_data()
+       to export nulls as NULL not \N regardless of field type
+  1.1.2 (2009-11-16)
+    1) Replaced ereg() with preg_match() for php 5.3+
+  1.1.1 (2009-09-03)
+    1) Extended maximum time to 10 minutes for db_export_sql_query()
+  1.1.0 (2009-07-05)
+    1) Converted to a class named class.backup.php and moved to classes folder
+  1.0.5 (2009-01-08)
+    1) Changes to db_export_sql_data() to NOT include separate field listing if 'show_fields'=1
+  1.0.4 (2007-04-20)
+    1) Added drop=true parameter to db_export_sql_structure() to allow export of
+       table structures without DROP TABLE IF EXISTS clause
+       (reduces sql queries for testsuite db duplication)
+  1.0.3 (2007-04-17)
+    1) Changes to db_backup() to use Table object to simplify retrieval of variables
+       and tidy up headers
+  1.0.2 (2007-04-16)
+    1) In db_export_sql_structure() now uses SHOW CREATE TABLE instead of doing it the
+       hard way - much simpler and much fewer queries required - one plus one per table
+       Safe for mysql from 3.23.20 onwards
+    2) Now all sql_queries use do_sql_query() to truthfully report data when in debug mode
+  1.0.1 (2007-01-02)
+    Added $noprint parameter to db_export_sql_structure() for use in test suites
+  1.0.0 (2006-11-01)
+    Changed db_backup to accept optional filename and to include system DB version in header
+  2003-03-21 Changed $config_backup_path to $config_path_backup
+  2003-03-27 Improvements to code comments

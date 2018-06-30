@@ -1,0 +1,97 @@
+  1.0.32 (2013-06-21)
+    1) Tweak to setting of default_enclosure_base_folder in constructor to handle
+       instantiation where BASE_PATH is not yet defined.
+  1.0.31 (2013-06-07)
+    1) Changed the following CPs for listings mode:
+         Old: 'grouping_tabs',    'filter_limit',  'filter_order_by', 'paging_controls'
+         New: 'results_grouping', 'results_limit', 'results_order',   'results_paging'
+  1.0.30 (2013-05-17)
+    1) Added cp for listings mode for 'filter_important'
+  1.0.29 (2013-03-30)
+    1) New CP 'thumbnail_show'
+    2) CP setting for 'thumbnail_image' now defaults to 's'
+    3) Removed CP setting for 'contents_thumbnail_image'
+  1.0.28 (2012-11-03)
+    1) Now returns 'available' flag with items in Gallery_Album::get_images(), not
+       'visible' as before and also includes `enabed`, `date` and `date_end` fields
+  1.0.27 (2012-07-15)
+    1) CP defaults for filter_memberID and filter_personID now '' not 0
+  1.0.26 (2012-03-28)
+    1) Now gets `password` in Gallery_Album::get_albums() and Gallery_Album::get_images()
+  1.0.25 (2012-03-06)
+    1) Constructor now sets default_enclosure_base_folder
+    2) Gallery_Album::get_albums() now includes enclosure_url for default folder
+  1.0.24 (2011-09-26)
+    1) Gallery_Album::get_images() and Gallery_Album::get_albums() now include path
+    2) Removed Gallery_Album::get_structure()
+  1.0.23 (2011-09-21)
+    1) Change to Gallery_Album::get_images() to include field thumbnail_cs_small
+  1.0.22 (2011-08-24)
+    1) Change to Gallery_Album::manage_gallery_images() to prevent report refresh
+       from repeating the report title header
+    2) Change to Gallery_Album::manage_gallery_albums() to prevent report refresh
+       from repeating the report title header
+  1.0.21 (2011-08-11)
+    1) New methods Gallery_Album::manage_gallery_images() and
+       Gallery_Album::manage_gallery_albums()
+  1.0.20 (2011-07-21)
+    1) Added more CPs to handle display of gallery images inside an album with
+       control over block layout, paging and thumbnail sizes
+  1.0.19 (2011-07-19)
+    1) Added cps for single and multi-item display and correct icons for editing
+    2) Added stub code for BL_contained_items() to allow Block layout to operate
+  1.0.18 (2011-07-04)
+    1) Removed method getID_for_path() - too similar to getID_by_path() and buggier
+  1.0.17 (2011-06-17)
+    1) Removed constructor call to _set_type_short()
+    2) Removed constructor calls to _set_search_type() and _set_path_prefix() -
+       Both are now called automatically when setting calling _set_type()
+  1.0.16 (2011-04-27)
+    1) Gallery_Album::get_images() now includes parentTitle if applicable
+  1.0.15 (2011-04-14)
+    1) Gallery_Album::get_images() now includes subtype
+  1.0.14 (2011-04-02)
+    1) Now sets container object type since gallery albums may also be contained
+  1.0.13 (2011-03-09)
+    1) Bug fix for Gallery_Album::get_images() -
+       was not setting proper sequence for images according to csv list
+  1.0.12 (2011-03-08)
+    1) Correction for bad previous version number - prematurely set to 1.0.11
+  1.0.11 (2011-03-08)
+    1) Gallery_Album::get_images() now includes images that are NOT visible -
+       but sets their 'visible' flag to show this. Allows admins to see items
+       they that would normally be hidden (but greyed out) to help them set
+       display order using the drag and drop process
+  1.0.10 (2011-03-03)
+    1) Gallery_Album::get_images() now includes category field
+  1.0.9 (2011-01-24)
+    1) Moved Gallery_Album::get_selector_sql() into parent class for use
+       by Podcast Album selector control also
+  1.0.8 (2011-01-21)
+    1) Now inherits from Posting_Folder not Posting class
+    2) Moved Gallery_Album::get_path() into parent class for
+       use by other nestable posting types such as podcasts
+    3) Moved Gallery_Album::on_action_set_path() into parent class for
+       use by other nestable posting types such as podcasts
+  1.0.7 (2010-12-28)
+    1) Changes to Gallery_Album::get_selector_sql():
+         a) to limit site admins to see only albums for their own site or global
+         b) to show path when choosing parent
+         c) to apply sort order based on site name and full path
+  1.0.6 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.5 (2010-09-14)
+    1) Gallery_Album::get_structure() and Gallery_Album::get_albums() allow
+       setting of order and include date field in returned results
+  1.0.4 (2010-09-08)
+    1) Gallery_Album::get_albums() and Gallery_Album::get_images() get extra fields
+  1.0.3 (2010-09-06)
+    1) Added Gallery_Album::on_action_set_path() to set nested paths on updates
+  1.0.2 (2010-08-22)
+    1) Gallery_Album::get_albums() now sorts by name alone
+    2) Gallery_Album::get_images() parentID now optional
+  1.0.1 (2010-08-18)
+    1) Added Gallery_Album::get_albums()
+    2) Added Gallery_Album::get_images()
+  1.0.0 (2010-08-16)
+    Initial release

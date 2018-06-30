@@ -1,0 +1,380 @@
+/* 1.0.3
+
+Version History:
+  1.0.3 (2015-02-02)
+    1) Now with unix-style line endings
+  1.0.2 (2014-02-05)
+    1) Added .profile_frame .member_stats
+  1.0.1 (2014-01-24)
+    1) Added '.community_frame .web_share' and '.profile_frame .web_share'
+  1.0.0 (2014-01-23)
+    1) Initial release
+*/
+/* [ Community and Community Member CSS code ] */
+/* [ Community Display ] */
+.community_frame {
+  margin: 1px; padding: 4px; border: 1px solid #88c; background-color: #eee;
+}
+.community_frame .section_header {
+  padding: 0.5em 0; line-height: 1.5em;
+}
+.community_frame .section_footer {
+  line-height: 2em;
+}
+.community_frame #section_welcome h1 {
+  padding: 0.5em 0 0.25em 0;
+}
+.community_frame #section_welcome h2 {
+  clear: both; float: none; margin: 2em 0 0.25em 0;
+}
+.community_frame .churches_spaced li {
+  margin-bottom: 1em;  clear: left;
+}
+.community_frame .churches_spaced li img {
+  float: left; border: 1px solid #000; margin: 0 0.25em 0.5em 0;
+}
+.community_frame .churches_spaced li a {
+  color: #0000ff; text-decoration: none; font-weight: bold;
+}
+.community_frame .churches_spaced li a:hover {
+  text-decoration: underline;
+}
+.community_frame .signatories {
+  padding: 0 0 0 40px;
+}
+.community_frame .signatories li a {
+  color: #0000ff; text-decoration: none; font-weight: bold; font-style: italic;
+}
+.community_frame .signatories li a:hover {
+  text-decoration: underline;
+}
+.community_frame #section_stats {
+  border-collapse: collapse;
+}
+.community_frame #section_stats fieldset {
+   width: 250px; margin: 0.25em 0; background: #ffffff; border: 1px solid #888;
+}
+.community_frame #section_stats thead{
+  background: #e0e0e0;
+}
+.community_frame #section_stats tbody{
+  background: #ffffff;
+}
+.community_frame #section_stats tbody th{
+  text-align: left;
+}
+.community_frame #section_stats tbody td{
+  text-align: right;
+}
+.community_frame h2{
+  font-size: 150%; margin: 0.25em 0;
+}
+.community_frame h3{
+  font-size: 120%; margin: 1em 0 0 0;
+}
+/* Sharing controls  - RSS and Embed in your website */
+.community_frame .web_share         { float: right; margin: 0.25em 0; }
+.community_frame .web_share .icon   { width:16px; height:16px; margin-right: 4px; vertical-align: top;}
+.community_frame .web_share .rss    { background-position:-8047px 0px; }
+.community_frame .web_share .share  { background-position:-6170px 0px; }
+.community_frame .web_share a       { text-decoration: none; font-weight: bold; color: #000; }
+.community_frame .web_share a:hover { text-decoration: underline; color: #00f; }
+
+.community_frame a.shared_source {
+  font-weight: bold; color: inherit; text-decoration: none; height: 1em; font-size: 80%;
+}
+.community_frame a.shared_source:hover {
+  color: #0000ff; text-decoration: underline;
+}
+.community_frame #section_meetings table{
+  border-collapse:collapse;background:#fff;border:1px solid #000; width: 100%;
+}
+.community_frame #section_meetings table thead{
+  background:#888;color:#fff;border:1px solid #000;
+}
+.community_frame #section_meetings table td{
+  vertical-align:top; padding: 1px 2px;
+}
+.community_frame #section_meetings table td.venue{
+  width:340px;
+}
+.community_frame #section_meetings table td.time{
+  width:140px; border-left: 1px solid #888; border-right: 1px solid #888;
+  text-align: center; font-weight: bold;
+}
+.community_frame #section_meetings table td.detail{
+  vertical-align:top;
+}
+.community_frame #section_meetings table a{
+  color:#004; text-decoration: none; font-weight: bold;
+}
+.community_frame #section_meetings table a:hover{
+  color:#00f; text-decoration: underline;
+}
+.community_frame #community_map_listing_frame{
+  float:left; overflow:auto; width: 340px; margin: 0 10px 0 0;
+}
+.community_frame #community_map_listing_frame ul{
+  margin: 0.5em; padding: 0 0 0 0.75em;
+}
+.community_frame #community_map_listing_frame ol{
+  margin: 0.5em; padding: 0 0 0 0.75em;
+}
+.community_frame #community_map_listing_frame li{
+  margin: 0 0 0.25em 1em; padding: 0;
+}
+.community_frame #community_map_listing_frame li a{
+  text-decoration: none;
+}
+.community_frame #community_map_listing_frame li a:hover{
+  background: #ffff80;
+}
+.community_frame .community_help {
+  padding:3px; background:#ffff40; border:1px solid #808000; margin: 5px 0 0 0;
+}
+.community_frame #section_about p{
+  line-height: 1.5em;
+}
+.community_frame #section_about li{
+  margin-bottom: 0.75em;
+}
+.community_frame #section_about li img{
+  border: 0; margin:0.5em 0.5em 0 0;
+}
+.community_frame #section_about p a,
+.community_frame #section_about li a{
+  color:#0000ff;
+}
+.community_frame .community_stats { border-collapse collapse; }
+.community_frame .community_stats thead th { width: 3em; }
+.community_frame .community_stats tbody th a { text-decoration:none; color:#000; }
+.community_frame .community_stats tbody th a:hover { text-decoration:underline; color:#00f; }
+
+.community_frame .member_gallery_help .icons{
+  margin: 2px 3px 0 0;
+}
+.community_frame .member_gallery_entry {
+}
+.community_frame .member_gallery_entry_header {
+}
+.community_frame .member_gallery_entry a {
+  text-decoration: none;
+  color: #000;
+}
+.community_frame .member_gallery_entry a img.member_gallery_entry_photo {
+  border: 2px solid #fff;
+}
+.community_frame .member_gallery_entry a:hover {
+  text-decoration: underline;
+  color: #00f;
+}
+.community_frame .member_gallery_entry a:hover img.member_gallery_entry_photo {
+  border: 2px solid #ff0;
+}
+.community_frame .member_gallery_entry_name {
+  height: 1.25em; overflow:hidden;
+}
+.community_frame .member_gallery_entry_address {
+  white-space: nowrap;overflow: hidden; text-overflow:ellipsis;
+}
+.community_frame .member_gallery_entry_phone {
+  font-weight: bold;
+}
+.community_frame .member_gallery_entry_photo_area {
+  position:relative; top: 5px;
+}
+.community_frame .member_gallery_entry_photo_area .member_gallery_entry_update_status{
+  position:absolute; top: 2px; left: 5px; height: 16px; background: #ccf;
+  padding: 2px; border-right: 1px solid #bbe; border-bottom: 1px solid #778;
+}
+.community_frame .member_gallery_entry_photo_area .member_gallery_entry_update_status img{
+  display: block; border: 0; width: 16px; height: 16px;
+}
+.community_frame .member_gallery_entry_photo_area .member_gallery_entry_update_status .grey{
+  background-position: 0px 0px;
+}
+.community_frame .member_gallery_entry_photo_area .member_gallery_entry_update_status .red{
+  background-position: -16px 0px;
+}
+.community_frame .member_gallery_entry_photo_area .member_gallery_entry_update_status .green{
+  background-position: -32px 0px;
+}
+.community_frame .member_gallery_entry_photo_area .member_gallery_entry_icons{
+  max-width: 67px; position:absolute; top: 2px; right: 5px; background: #c0c0ff;
+  padding: 2px; border-left: 1px solid #ccf; border-bottom: 1px solid #778;
+}
+.community_frame .member_gallery_entry_photo_area .member_gallery_entry_icons img{
+  margin: 1px 1px 1px 1px;
+}
+.community_frame .member_gallery_entry_photo_area .member_gallery_entry_icons a:hover img{
+  margin: 0 0 0 0px;
+  border: 1px solid #448;
+}
+
+/* [ Member Display ] */
+.profile_nav_outer{
+  margin: 0 1px;
+  position: relative; padding:5px; background:#ffff40; border:1px solid #808000;
+}
+.profile_nav_outer .profile_nav {
+  position: relative; top: -7px; text-align: center; padding: 2px 0 0 0;
+}
+.profile_frame {
+  border: 1px solid #88c;
+  background-color: #eee;
+  margin: 1px;
+  padding: 2px;
+}
+.profile_frame .inner {
+  padding: 10px;
+}
+.profile_frame h2 {
+  font-size: 150%; margin: 0.25em 0;
+}
+.profile_frame h3{
+  margin: 0 0 0.25em 0; color: #000; font-size: 120%;
+}
+/* Sharing controls  - RSS and Embed in your website */
+.profile_frame .web_share         { float: right; margin: 0.25em 0; }
+.profile_frame .web_share .icon   { width:16px; height:16px; margin-right: 4px; vertical-align: top;}
+.profile_frame .web_share .rss    { background-position:-8047px 0px; }
+.profile_frame .web_share .share  { background-position:-6170px 0px; }
+.profile_frame .web_share a       { text-decoration: none; font-weight: bold; color: #000; }
+.profile_frame .web_share a:hover { text-decoration: underline; color: #00f; }
+
+.profile_frame .member_photo,
+.profile_frame .member_slideshow {
+  display:block; float:left; margin:0 1em 0 0; border:1px solid #888;
+}
+.profile_frame .photo_frame { position: relative; }
+.profile_frame .photo_frame .member_photo_frame {
+  float:left; margin:0 1em 0 0; padding:10px;background:#fff; border:1px solid #888;
+}
+.profile_frame .photo_frame .member_icons {
+  background: #ccf; padding: 4px; position: absolute; top:10px; left:11px; z-index:10;
+  border-right: 1px solid #bbe; border-bottom: 1px solid #778;
+}
+.profile_frame .details {
+  width: 530px; float: left;
+}
+.profile_frame .details a {
+ color: #00f;
+}
+.profile_frame .details .details_c1 {
+  width: 310px; float: left;
+}
+.profile_frame .details .details_c2 {
+  width: 220px; float: left;
+}
+.profile_frame .details .details_c1 a {
+  color:#000; text-decoration: none;
+}
+.profile_frame .details .details_c1 a:hover {
+  color:#00f; text-decoration:underline;
+}
+.profile_frame .label {
+  width: 150px; height: 2em; font-weight:bold; float:left;
+}
+.profile_frame .value {
+  width: 380px; height: 2em; float:left;
+}
+.profile_frame .value a {
+  text-decoration: none;
+}
+.profile_frame .value a:hover {
+  text-decoration: underline;
+}
+.profile_frame a.shared_source {
+  font-weight: bold; color: inherit; text-decoration: none; height: 1em; font-size: 80%;
+}
+.profile_frame a.shared_source:hover {
+  color: #0000ff; text-decoration: underline;
+}
+.profile_frame .service_details{
+  border-collapse: collapse; border-color: #888; background: #fffff8; width: 515px;
+}
+.profile_frame .service_details thead th{
+  background: #ddd;
+}
+.profile_frame .service_details .s_day {
+  width: 6em;
+}
+.profile_frame .service_details .s_time {
+  width: 8em;
+}
+.profile_frame .service_details .s_day,
+.profile_frame .service_details .s_time,
+.profile_frame .service_details .s_detail{
+  vertical-align: top; text-align: left; padding: 2px 5px; border-color: #888;
+}
+.profile_frame .service_details .s_time{
+  white-space: nowrap;
+}
+.profile_frame .addresses {
+  display: table; width: 100%;
+}
+.profile_frame .addresses div{
+  display: table-cell; width: 33%; padding: 0 10px; white-space: nowrap;
+}
+.profile_frame .office_day {
+  width:40px; padding:0 0 0 20px; float: left;
+}
+.profile_frame #google_map_community_member {
+  border: 1px solid #888;
+}
+.profile_frame .share_with {
+  float: none; background: #f8f8f8;
+}
+.profile_frame .contact_form label {
+  display: block; width: 13em;
+}
+.profile_frame .table_details {
+  margin: 0 0 2em 1em;
+}
+.profile_frame .table_details th{
+  text-align: left; padding: 0.25em 1em 0.25em 0;
+}
+.profile_frame .member_stats { border-collapse: collapse; }
+.profile_frame .member_stats thead th { width: 4em; vertical-align: bottom}
+.profile_frame .member_stats thead .st_bord_t { border-top:   2px solid #000; }
+.profile_frame .member_stats thead .st_bord_l { border-left:  2px solid #000; }
+.profile_frame .member_stats thead .st_bord_r { border-right: 2px solid #000; }
+.profile_frame .member_stats thead .st_bord_b { border-bottom: 2px solid #000; }
+.profile_frame .member_stats thead .st_date   { width: 5em; background: #d0d0d0; }
+.profile_frame .member_stats thead .st_comm   { background: #ffe0e0; }
+.profile_frame .member_stats thead .st_prof   { background: #e0ffe0; }
+.profile_frame .member_stats thead .st_link   { background: #e0e0ff; }
+.profile_frame .member_stats thead .st_line   { border-right: 3px double #000; }
+.profile_frame .member_stats thead .st_void   { color: #606060; }
+.profile_frame .member_stats tbody .st_date   { background: #d0d0d0; }
+.profile_frame .member_stats tbody .st_line   { border-right: 3px double #000; }
+.profile_frame .member_stats tbody .st_comm   { background: #fff8f8; }
+.profile_frame .member_stats tbody .st_prof   { background: #f8fff8; }
+.profile_frame .member_stats tbody .st_link   { background: #f8f8ff; }
+.profile_frame .member_stats tbody .st_bord_l { border-left:  2px solid #000; }
+.profile_frame .member_stats tbody .st_bord_r { border-right: 2px solid #000; }
+.profile_frame .member_stats tbody .st_bord_b { border-bottom: 2px solid #000 }
+.profile_frame .member_stats tbody td         { text-align: right; padding-right: 2px; background: #fff; }
+
+.profile_frame #section_about p{
+  line-height: 1.5em;
+}
+.profile_frame #section_about li{
+  margin-bottom: 0.75em;
+}
+.profile_frame #section_about li img{
+  border: 0; margin:0.5em 0.5em 0 0;
+}
+.profile_frame #section_about p a,
+.profile_frame #section_about li a{
+  color:#0000ff;
+}
+.community_embedding             { padding: 5px; }
+.community_embedding .info       { width: 11px; height: 11px; background-position: -2600px 0; display: block; float: left; margin: 0 5px 10px 0;}
+.community_embedding .embed_help { padding: 3px; background:#ffff40; border:1px solid #808000; margin: 0 0 10px 0; }
+.community_embedding .embed_c    { padding: 3px; background:#ffc0c0; border:1px solid #a00000; margin: 0 0 10px 0; }
+.community_embedding label       { display: block; float: left; padding-right: 0.5em; }
+.community_embedding .cb         { float:left; margin-right:10px; }
+.community_embedding textarea    { display: block; font: 9pt "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace; }
+.community_embedding textarea.h  { display: block; background-color: #efe; border: 1px solid #080; width:886px; height:210px; margin:0 0 10px 0; }
+.community_embedding textarea.b  { display: block; background-color: #eef; border: 1px solid #008; width:886px; height:80px; }

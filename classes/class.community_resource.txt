@@ -1,0 +1,4 @@
+  1.0.1 (2014-01-24)
+    1) Implemented calendar embedding for community
+  1.0.0 (2014-01-23)
+    1) Initial release, code moved in from Community_Display

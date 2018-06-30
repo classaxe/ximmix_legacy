@@ -1,0 +1,8 @@
+  1.0.0 (2013-11-06)
+    1) Initial release based on former class Component_Person_Category_Listing
+
+(As class.component_person_category_listing.php - former name)
+  1.0.1 (2013-10-24)
+    1) Modularised and updated code to allow for override in custom class variants
+  1.0.0 (2012-05-25)
+    1) Initial release

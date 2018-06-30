@@ -1,0 +1,233 @@
+  1.0.74 (2013-12-14)
+    1) Context_Menu::_cm_community_member() now events for adding Christmas and
+       Easter service times
+  1.0.73 (2013-11-29)
+    1) Context_Menu::_cm_community_member() now permits new news items and events
+       if member belongs to a ministerial
+  1.0.72 (2013-10-22)
+    1) Changes following renaming of report 'community.sponsorship_plan' to
+       'sponsorship-plans-for-community'
+  1.0.71 (2013-10-17)
+    1) Added support for cm_community_sponsor
+  1.0.70 (2013-08-06)
+    1) Added support for 'Print View' and 'Export SQL' in _cm_community_member
+  1.0.69 (2013-07-26)
+    1) Added CM for accessing Gallery for Community Member
+  1.0.68 (2013-07-24)
+    1) Tweaks to Context_Menu::_cm_community_member() to have correct path for
+       Podcasts Collection viewer
+  1.0.67 (2013-07-23)
+    1) Tweak to Context_Menu::_cm_community() to use correct icon for context
+  1.0.66 (2013-07-22)
+    1) Added support for context-menu editing of communities
+  1.0.65 (2013-06-04)
+    1) Added support for block layout editing in CM for contact and user
+  1.0.64 (2013-05-31)
+    1) Added Context_Menu::_cm_user
+    2) Added Context_Menu::_cm_contact
+    3) Bug fix for toggling of important flag in Context_Menu::_cm_event()
+  1.0.63 (2013-05-17)
+    1) Context menus now allow for toggling of 'important' flag whether or not
+       community module is enabled for articles, events, news and podcasts
+    2) Context menu for Products now allows toggling of 'important' flag
+    3) Context menu for Podcast Albums now allows toggling of 'important' flag
+  1.0.62 (2013-02-17)
+    1) Context menus now allow for toggling of shared flag if community-module is
+       enabled for articles, events, news items and podcasts
+    2) Context menus now allow for toggling of important flag if community-module is
+       enabled for articles, events, news items and podcasts
+  1.0.61 (2012-12-24)
+    1) Changes to Context_Menu::draw_JS() for CM_HideContext() to use each()
+       included in JQuery
+  1.0.60 (2012-12-12)
+    1) The following methods now include 'Export' if user is a MasterAdmin:
+         Context_Menu::_cm_article()
+         Context_Menu::_cm_event()
+         Context_Menu::_cm_gallery_album()
+         Context_Menu::_cm_gallery_image()
+         Context_Menu::_cm_job()
+         Context_Menu::_cm_news()
+         Context_Menu::_cm_podcast()
+         Context_Menu::_cm_podcastalbum()
+  1.0.59 (2012-12-12)
+    1) Context_Menu::_cm_product() now includes Export if person is MasterAdmin
+  1.0.58 (2012-11-28)
+    1) Context_Menu::draw_JS() now uses System::get_item_version() not
+       System::get_version() as before
+  1.0.57 (2012-11-12)
+    1) Changes now that community is no longer a module
+  1.0.56 (2012-11-09)
+    1) Tiny tweak to context menu for community member 'View Sermons Collection'
+       so that if base URL has extra slash we don't end up in the wrong place.
+  1.0.55 (2012-11-09)
+    1) Renamed all reports prefixed module.community_member.(name) to
+       community_member.(name) to have these standardised and checksum controlled
+  1.0.54 (2012-11-03)
+    1) Context_Menu::_cm_gallery_image() and Context_Menu::_cm_module_treb_listing()
+       now both support context menu enable / disable
+  1.0.53 (2012-10-28)
+    1) geid('element') replaced with geid('element') to avoid use of prototypejs
+  1.0.52 (2012-10-23)
+    1) Big improvements to context menu for comunity members -
+       Now allows for listing of member items and direct access to sermons collection
+  1.0.51 (2012-09-17)
+    1) Added context-menu for page - used to edit pages in Activity Tabber and perhaps
+       later in search results also.
+    2) Refinements to various functions to prevent the 'Edit block layout' section from
+       showing at all if there is no name given for the block layout, signifying that
+       the invoking cmponent doesn't use block layouts -
+       These components presently include Category_Tabber, Articles_Rotator and
+       Category_Stacker
+  1.0.50 (2012-08-02)
+    1) Changes to CM_report_filter to use post-conversion title in prompt to delete
+       and to use pre-conversion title drawn from 'alt' tag in image in renaming
+       filters - very cool!
+  1.0.49 (2012-07-30)
+    1) Bug fix - was missing a single quote in gallery-image context - yuk!
+  1.0.48 (2012-07-27)
+    1) Now only has 'add postings' items on community member context menu for
+       full members
+  1.0.47 (2012-07-20)
+    1) Changes to all functions to use configurable prefixes for divs to make
+       things more modular
+    2) Now supports all community member posting types
+  1.0.46 (2012-07-03)
+    1) New context menu 'module_community_member_event'
+  1.0.45 (2012-07-03)
+    1) Context menu now uses community module implementations for postings for
+       community members
+  1.0.44 (2012-06-29)
+    1) Changed all instances of geid() to $() for filesize
+    2) Added cluster for community_member
+    3) Now uses CM_label() to set labels and reduce code
+  1.0.43 (2011-11-10)
+    1) Changes to accomodate news report renaming to news-item
+  1.0.42 (2011-10-13)
+    1) Changed _CM_ID[0] to _CM.ID throughout
+    2) Changed _CM_ID[1] to _CM.category() for Gallery Images and TREB Listings
+    3) Changed _CM_ID[1] to _CM.can_delete for Gallery Albums and Podcast Albums
+  1.0.41 (2011-09-26)
+    1) Changes to Context_Menu::_cm_gallery_album() to disable 'Edit' if the album
+       has an ID of 0 - meaning it is virtual and doesn't really exist
+  1.0.40 (2011-09-22)
+    1) Added rotate left / rotate right for TREB Listings
+  1.0.39 (2011-09-21)
+    1) Added rotate left / rotate right for Gallery Images
+  1.0.38 (2011-07-07)
+    1) Change to Context_Menu::_cm_gallery_image(), _cm_podcast() and _cm_podcastalbum()
+       to remove extra 'close' button
+  1.0.37 (2011-05-30)
+    1) Context_Menu::get_HTML() now gets popup size for user NOT person form
+  1.0.36 (2011-05-06)
+    1) Added 'add album' item to Podcast Album context menu
+  1.0.35 (2011-05-05)
+    1) Added 'add podcast' item to Podcast Album context menu
+  1.0.34 (2011-05-05)
+    1) JS for CM_HideContext() now smaller as it uses an array and prototype
+       to loop through divs
+  1.0.33 (2011-05-05)
+    1) Moved more JS CM functions that don't change out into members.js
+  1.0.32 (2011-05-04)
+    1) Major changes to entire system to make this completely modular with just
+       one call to set up support for each context menu type
+  1.0.31 (2011-05-04)
+    1) TREB CM settings enhanced to allow for featured toggle and open house toggle
+  1.0.30 (2011-04-30)
+    1) CMs for gallery_image and treb_listing now set source to _CM['source']
+  1.0.29 (2011-04-29)
+    1) Added CM menu for Podcast Albums
+  1.0.28 (2011-04-28)
+    1) Added support for context-menu editing of Podcast Albums
+  1.0.27 (2011-04-27)
+    1) Relabelled 'Feature' to 'Cover' for Gallery Images and Treb Listings
+       and grouped this under 'Album' and now only shows this is there IS a
+       parent.
+       Submode changed from 'gallery_image_feature' to 'gallery_image_cover'
+    2) For Treb Listings added 'Feature' to allow a home to be featured without
+       making it the cover of the containing album necessarily.
+  1.0.26 (2011-04-27)
+    1) Added support for editing of container album for Gallery Images
+  1.0.25 (2011-04-20)
+    1) Bug fix for image sample link - error showed when viewing in Firefox
+  1.0.24 (2011-04-18)
+    1) Changes to Context_Menu::_cm_event() and Context_Menu::draw_JS() now that
+       event registrations are now shown by _CM.event_registrants not by
+       presence of _CM_ID[2] and _CM_text[2]
+  1.0.23 (2011-04-16)
+    1) Bug fix for preventing deletion of events with registrants and also
+       improved the wording of the explanatory mesage shown if someone tries
+  1.0.22 (2011-04-15)
+    1) Added support for Block Layout editing for Gallery Image and TREB Listing
+  1.0.21 (2011-04-14)
+    1) Treb Listing context menu now includes ability to add a regular gallery
+       image in the same place
+    1) Gallery Image context menu now includes ability to add a TREB Listing
+       (if the module is installed) in the same place
+  1.0.20 (2011-04-13)
+    1) Added support for Treb Listings - like cm_gallery_image but with different
+       icon, report and tooltip
+  1.0.19 (2011-03-28)
+    1) Added function CM_SDMenu_Over() to be used instead of CM_Navbutton_Over()
+    2) Changes to CM code for 'navbuttons' to make it safe to use with SD Menus
+       which have no image to preview
+    3) Bug fix for CM where addressing buttonsuite foa a button - was incorrect
+  1.0.18 (2011-03-28)
+    1) Changes to accomodate need for li items not images to have IDs -
+       required to allow scriptaculous sortable to operate
+  1.0.17 (2011-03-27)
+    1) Changes to CM code for navbuttons to allow for more variables to be
+       obtained from other elements rather than explicitly - reduces code
+  1.0.16 (2011-03-26)
+    1) Extensive changes relating to navbuttons - move up / down code gone and
+       now draws button text from the alt tag of the contained image
+    2) Replaced all context menu numerical indices for navbuttons to object-based
+       indices to prevent one context menu operation affecting another -
+       Previously if you right-clicked a navbutton then moved over another object
+       (say a content-block for example) then moved back over the opened context-menu
+       and clicked an option, you have an error since the context menu settings
+       will have been hijacked by the mouseover on the other object type.
+       Addresses a long-standing issue
+  1.0.15 (2011-03-03)
+    1) Context_Menu::_cm_gallery_image() now sets new item parent to value
+       given in _CM_ID[2] (set dynamically by fader control)
+  1.0.14 (2011-01-13)
+    1) Context_Menu::_cm_gallery_image() no longer includes extra close icon
+    2) Context_Menu::_cm_gallery_image() now sets new item category to value
+       given in _CM_ID[1] (set dynamically by fader control)
+  1.0.13 (2010-12-28)
+    1) Enhancements to Context_Menu::_cm_gallery_album() to label script prompt
+       better and allow for cancellation at point of providing new album name
+  1.0.12 (2010-11-10)
+    1) Added 'Add new...' option for gallery image CM
+  1.0.11 (2010-10-28)
+    1) Changes order of options for report filter preset context menu
+  1.0.10 (2010-09-15)
+    1) Changes to Context_Menu::_cm_report_filter() and Context_Menu::draw_JS()
+       to remove support for move report filter left and right
+    2) Changes to Context_Menu::draw_JS() to handle report filter type of 'global'
+  1.0.9 (2010-09-14)
+    1) Changes to delete confirm for report filters to get name from button text
+  1.0.8 (2010-09-13)
+    1) Changes to context menu to have setting of report filter name derive from
+       the actual text on the button, not some CM variable
+  1.0.7 (2010-09-06)
+    1) Added support for deletion of gallery-albums (if empty)
+  1.0.6 (2010-09-03)
+    1) Added support for Gallery Image deletion and featuring
+    2) Added support for sub-album creation
+  1.0.5 (2010-09-02)
+    1) Added support for gallery_album and moved all remaining CM code from
+       member.js into here to centralise it
+  1.0.4 (2009-12-27)
+    1) Very comprehensive rewrite of entire file to delegate complete control of
+       XHTML creation to helper functions in readiness for code to be created by
+       JS directly
+  1.0.3 (2009-09-24)
+    1) Added support for Block Layout editing for products
+    2) Added Context_Menu::_cm_product()
+  1.0.2 (2009-09-23)
+    1) Added support for Block Layout editing for articles
+  1.0.1 (2009-08-08)
+    1) Added support for Block Layout editing in most posting types
+  1.0.0 (2009-07-02)
+    Initial release

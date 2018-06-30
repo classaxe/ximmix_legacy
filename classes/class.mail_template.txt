@@ -1,0 +1,30 @@
+  1.0.10 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.9 (2010-06-16)
+    1) Split static Email_Template::on_action_fix_subject_bodytext_and_paths()
+       inards out into new function Email_Template::fix_subject_bodytext_and_path()
+       This allows the code to be used with email wizard
+  1.0.8 (2010-06-04)
+    1) Email_Template::on_action_fix_subject_bodytext_and_paths() no longer handles
+       web beacon code - this is now added at run time - but it does add the site
+       name to the plain text to provide some context
+  1.0.7 (2010-06-03)
+    1) Change to Email_Template::on_action_fix_subject_bodytext_and_paths() to
+       replace ECL webbeacon code in text message to 'Message from (Site Name)'
+  1.0.6 (2010-05-13)
+    1) New function Email_Template::on_action_fix_subject_bodytext_and_paths();
+  1.0.5 (2009-12-12)
+    Email_Template::send_email() now passes style to mailto()
+  1.0.4 (2009-12-07)
+    1) Email_Template::get_selector_SQL() now allows choice of stationery or regular
+  1.0.3 (2009-12-06)
+    1) Email_Template::get_selector_SQL() now extended to include '(None)'
+  1.0.2 (2009-12-04)
+    1) Change to Email_Template::send_email() - now references new
+       `set_random_password` field in  mailtemplate table to determine whether
+       to randmose password, then handles the task itself via Person object.
+       Also component_result('system_URL') now tidied up - always has trailing /
+  1.0.1 (2009-12-01)
+    1) Added Email_Template::get_selector_SQL()
+  1.0.0 (2009-07-02)
+    Initial release

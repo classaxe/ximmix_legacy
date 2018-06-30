@@ -1,0 +1,12 @@
+  1.0.4 (2012-04-25)
+    1) No longer has its own version of export_sql() -
+       inherits from Person class instead
+  1.0.3 (2011-06-15)
+    1) Now extends from Person with type qualifier.
+    2) No longer implements its own variation of get_coords()
+  1.0.2 (2011-03-01)
+    1) Constructor now allows items to have keywords and categories
+  1.0.1 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.0 (2009-07-02)
+    Initial release

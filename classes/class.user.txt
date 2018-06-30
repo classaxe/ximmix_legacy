@@ -1,0 +1,27 @@
+  1.0.6 (2014-01-05)
+    1) User::get_ssi_token_for_email() no longer invokes an instance of person
+       to carry out the operation -
+       this would no longer work as single_signin_encode() now belongs to User class
+  1.0.5 (2013-12-13)
+    1) Moved Person::update_logon_count() into here and updated to record method
+       and who performed operation if by someone already logged in
+    2) Moved Person::single_signin() into here and changed to record method as SSI
+       and who performed the action if someone was already logged in
+    3) Moved Person::get_ssi_token_for_email() into here
+    4) Moved Person::single_signin_encode() into here
+    5) Moved Person::single_signin_decode() into here
+  1.0.4 (2013-10-31)
+    1) Removed User::component_signin_context() (and about time too!)
+  1.0.3 (2013-06-03)
+    1) Removed User::component_edit_your_profile() -
+       now handled by Component_Edit_Your_Profile::draw()
+    2) Overrode listings cp for default block layout as now defined in User class
+  1.0.2 (2011-08-04)
+    1) Added in User::component_signin_context() - was in codebase
+       This really needs some work before it is usable, but for ow removed
+       old shadow support
+  1.0.1 (2011-08-04)
+    1) Added User::component_edit_your_profile() - was in codebase
+    2) Added User::do_signin() - was in Person class
+  1.0.0 (2011-05-30)
+    1) Initial Release

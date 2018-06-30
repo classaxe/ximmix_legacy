@@ -1,0 +1,8 @@
+  1.0.2 (2012-07-15)
+    1) Component_Calendar_Small::draw() now has value of '' given for memberID if
+       not given
+    2) New component parameters given for filter_category_list and filter_memberID
+  1.0.1 (2012-01-26)
+    1) Moved leading whitespace - was messing up RSS feeds
+  1.0.0 (2011-12-28)
+    1) Initial release - moved from Component class

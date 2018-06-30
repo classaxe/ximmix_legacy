@@ -1,0 +1,464 @@
+  1.0.125 (2014-06-22)
+    1) Report_Column::draw_selector_with_selected() now includes support for Email Opt-in
+       and Opt-Out
+  1.0.124 (2014-03-26)
+    1) Report_Column::draw_form_field() for 'fieldset_map_loc_lat_lon' now uses
+       form_field_special just like the report field counterpart, and also allows
+       for passing of area field
+  1.0.123 (2014-02-21)
+    1) Report_Column::draw_form_field() for 'fieldset_map_loc_lat_lon' now only
+       links to map if valid coordinates are present
+  1.0.122 (2014-02-20)
+    1) Report_Column::draw_form_field() for 'swatch' bug-fix -
+       was missing name attribute on input field
+    2) Some big changes for Report_Column::draw_selector_with_selected():
+       Now uses loop to get available options defined in new class constant
+       Report::REPORT_FEATURES, and includes 'With selected: Reprocess Map Locations'
+  1.0.121 (2014-02-19)
+    1) Report_Column::draw_form_field() for 'fieldset_map_loc_lat_lon' now has
+       informational fields set to readonly
+  1.0.120 (2014-02-17)
+    1) Report_Column::draw_form_field() for 'fieldset_map_loc_lat_lon' now includes
+       quality field and links to open map
+    2) Refreshed fields list - now declared as a class constant
+  1.0.119 (2014-02-10)
+    1) Report_Column::draw_form_field() changed call to Report_Form_Field_Lookup::init()
+       to pass associative array instead of sequential parameters
+    2) Report_Column::draw_form_field_lookup() (only used now in custom code)
+       changed call to Report_Form_Field_Lookup::init() to pass associative array
+       instead of sequential parameters
+  1.0.118 (2014-02-06)
+    1) Moved code required for Report_Column::draw_form_field_lookup() into its
+       own class Report_Form_Field_Lookup with init() and draw() methods
+  1.0.117 (2014-01-28)
+    1) Report_Column::draw_form_field() for 'swatch' extensively changed to use
+       new JQuery-based Specrum control
+    2) Eliminated support for formwizard editing
+  1.0.116 (2013-12-10)
+    1) Report_Column::draw_selector_with_selected() now supports 'merge_profiles'
+  1.0.115 (2013-12-05)
+    1) Change to Report_Column::draw_form_field_lookup() to handle a bug in IE10
+       when expanding or contracting results
+  1.0.114 (2013-12-04)
+    1) Report_Column::draw_form_field_lookup() has new parameter to set height of
+       scrolling results box (default: 100px)
+  1.0.113 (2013-10-28)
+    1) Changes to Report_Column::draw_form_field() for cases 'radio_csvlist' and
+       'selector_csvlist' to convert '&comma;' within label back to ','
+       Initial conversions were to prevent parameter confusion for Community Member
+       contact form where labels themselves contained commas
+    2) Changes to Report_Column::draw_select_options_from_records() to convert
+       '&comma;' within label back to ','
+  1.0.112 (2013-10-25)
+    1) Report_Column::draw_form_field() added support for 'fieldset_text_text_date'
+       used in EDN for dependents fields
+    2) Report_Column::draw_form_field() for 'server_file_image' no longer shows
+       an image placeholder if there is not value given.
+  1.0.111 (2013-10-17)
+    1) Report_Column::draw_form_field() for type 'YYYY-MM-DD' now slightly longer
+       to provide space for browsers to add the 'clear field' behaviour
+    2) Report_Column::draw_label() now accepts optional width parameter
+  1.0.110 (2013-10-09)
+    1) Bug fix for bulk update support in Report_Column::draw_form_field() for
+       type 'fieldset_map_loc_lat_lon'
+  1.0.109 (2013-10-08)
+    1) Added support for languages_assign in Report_Column::draw_form_field()
+  1.0.108 (2013-09-25)
+    1) Report_Column::draw_form_field() support for type 'combo_listdata' now includes
+       ability to edit listdata entries directly where enabled and rights are sufficient
+    2) Report_Column::draw_form_field() for type 'listdata_value' now has checkbox for
+       'URL Safe' (checked by default) which if unchecked disables modification behaviour
+       for value derived from text (e.g. for denomination dropdown in community members)
+  1.0.107 (2013-08-15)
+    1) Icons for the following types now open up actual linked record not report:
+        selector_contact, selector_gallery_album, selector_link, selector_podcast_album
+  1.0.106 (2013-08-10)
+    1) Added support for new fieldset types:
+       'fieldset_map_loc_lat_lon', 'fieldset_name_email', 'fieldset_name_phone'
+  1.0.105 (2013-08-05)
+    1) Added support for column type of 'selector_contact'
+  1.0.104 (2013-04-24)
+    1) Report_Column::draw_form_field() for 'media_information' now read-only
+       and nicer format
+  1.0.103 (2013-03-22)
+    1) Report_Column::draw_form_field() now handles new type 'media_information'
+  1.0.102 (2013-03-05)
+    1) Report_Column::draw_radio_selector() now adds extra container div of fixed
+       width for whole assembly IF a width is given and the control is not 'stacked'
+  1.0.101 (2012-02-17)
+    1) Report_Column::draw_form_field() for 'radio_csvlist' and 'selector_csvlist'
+       now trims value provided that value didn't consist only of spaces
+    2) Report_Column::draw_form_field() for 'importance' now uses regular checkbox
+       not radio list with yes / no options
+    3) Report_Column::draw_form_field() for 'toggle_shared' added
+  1.0.100 (2013-01-11)
+    1) Report_Column::draw_form_field() bug fix for 'checkbox_csvlist' as used
+       only in recurring events dialog to list days
+    2) Internal variable name change for Report_Column::draw_label() to make intent
+       of fourth parameter clearer - was 'readonly', now 'standalone'
+  1.0.99 (2012-11-28)
+    1) Report_Column::draw_form_field() for readonly 'bool' and 'importance' now uses
+       System::get_item_version() not System::get_version() as before
+  1.0.98 (2012-11-08)
+    1) Jquery selectors used for setting textarea content to ensure that forms
+       conform to XHTML strict regardless of content have a problem with xml:
+       fields - ':' and '.' are valid in a form field ID but need to be escaped
+       for Jquery to operate correctly.
+  1.0.97 (2012-10-28)
+    1) Change for various field types to use jquery not prototypejs for element
+       selectors
+  1.0.96 (2012-10-10)
+    1) Tweak to label for cases 'categories_assign' and 'selector_listdata_csv'
+       to correct quote nesting
+    2) Changes to draw_radio_selector() to have label 'for' attribute point to
+       first element in the list
+    3) Report_Column::draw_list_selector() now includes two hidden dummy values
+       in select to make HTML conform to XHTML strict, even if there are no
+       other options available. These are removed when the JS OptionTransfer.init()
+       method is called.
+    4) New supported type 'selector_timezone' - uses built-in functions to get timezone list
+  1.0.95 (2012-10-09)
+    1) More changes to change javascript: style anchors with onclick ones
+    2) Changes for all textareas to set content dynaically after page load so
+       they will always pass XHTML Strict, regardless of actual content
+  1.0.94 (2012-10-08)
+    1) Changes to Report_Column::draw_form_field() for cases 'view_credit_memo'
+       and 'view_order_details' to use onclick event rather than javascript:
+       href to open sub-reports
+  1.0.93 (2012-10-08)
+    1) No longer converts fieldType to lowercase - they all are now anyway
+  1.0.92 (2012-10-07)
+    1) Change to Report_Column::draw_form_field() for cases 'groups_assign_person'
+       and 'groups_assign_person' where record isn't saved yet to wrap text in
+       div with same ID as we'd have used for the field so that the label has a
+       valid ID to link to with the 'for' attribute.
+  1.0.91 (2012-10-02)
+    1) Report_Column::get_selector_sql() no longer handles 'group_assign'
+  1.0.90 (2012-09-30)
+    1) Report_Column::draw_select_options_from_records() now specifically targets
+       ampersands that appear with a clear whitespace after so will no longer
+       mess up other HTML entities but WILL convert & to &amp;
+    2) Tweak to Report_Column::draw_label() to now show blank labels
+    3) Tweak to Report_Column::draw_form_field() for 'file_upload_to_userfile_folder'
+       to use onclick for displaying 'no file to download' message
+  1.0.89 (2012-09-29)
+    1) Report_Column::draw_form_field() for 'groups_assign_person' now uses
+       anchor-based dynamic iframe conversion to pass XHTML strict
+    2) Report_Column::draw_form_field() for 'iframe' now uses
+       anchor-based dynamic iframe conversion to pass XHTML strict
+    3) Report_Column::draw_form_field() for 'categories_assign' and for
+       'selector_listdata_csv' formerly used a span to wrap the selector element
+       which itself contained block-level div elements - this now uses a div instead
+    4) Report_Column::draw_form_field() for 'file_upload_to_userfile_folder'
+       formerly had a font element which fails XHTML strict -
+       this is now performed using inline style instead
+    5) Report_Column::draw_label() now has additional parameter 'readonly' which
+       if set ensures that html label element doesn't have 'for' attribute that
+       points to a non-existant ID
+  1.0.88 (2012-09-20)
+    1) Tweak to Report_Column::draw_combo_selector() to add an extra space before
+       onchange attribute within element tag and to use css to set with of container
+    2) Tweak to Report_Column::draw_select_options_from_records() to NOT unencode
+       ampersands in text for options (e.g. 'Newfoundland &amp; Labrador')
+  1.0.87 (2012-09-09)
+    1) Change to Report_Column::draw_radio_selector_for_sql() to not duplicate
+       error handling code
+    2) Change to Report_Column::draw_select_options() to not duplicate error
+       handling code
+  1.0.86 (2012-09-03)
+    1) Replace calls to get_listtype_ID_for_name() with ListType::get_ID_by_name()
+  1.0.85 (2012-08-02)
+    1) Tweak to Report_Column::draw_form_field() for 'categories_assign' and
+       'selector_listdata_csv' to have more explicit label that says which category
+       entries are being edited for
+  1.0.84 (2012-05-14)
+    1) Changes to Report_Column::draw_form_field() to not allow userfiles upload
+       until record has first been saved.
+  1.0.83 (2012-04-24)
+    1) Extended Report_Column::draw_selector_with_selected() to include 'View on map'
+  1.0.82 (2012-03-28)
+    1) Tweak to Report_Column::draw_form_field() for case 'text_alignment_and_offsets'
+       to prevent xhtml strict error
+  1.0.81 (2012-03-13)
+    1) Bug fix for podcast selector field in Report_Column::draw_form_field() -
+       Support was accidentally removed last build.
+       Thanks Cecil for the bug report.
+  1.0.80 (2012-03-12)
+    1) Added support for type 'selector_link'
+  1.0.79 (2012-03-06)
+    1) Tweak to Report_Column::draw_form_field() for 'server_file_image' to use
+       width and height restrictions when displaying linked image (especially
+       good for rotating banners)
+  1.0.78 (2011-12-15)
+    1) Changed JS call inside attach_behaviour() to call afb() (shorter alias)
+  1.0.77 (2011-11-28)
+    1) Chages to draw_form_field() for case 'server_file' to ensure that JS function
+       names are valid, even if field is an XML field named like 'xml:supplier'
+  1.0.76 (2011-11-21)
+    1) Implemented Report_Column::draw_form_field() mode for 'push_products_assign'
+  1.0.75 (2011-11097)
+    1) Changed call in Report_Column::draw_form_field() for 'event_recurrence_settings'
+       to invoke Event_Recurrence method as handler
+  1.0.74 (2011-11-06)
+    1) Added read-only implementation for type 'date' in Report_Column::draw_form_field()
+  1.0.73 (2011-11-04)
+    1) Report_Column::draw_form_field() added type 'checkbox_csvlist_scrollbox'
+       for use with System Edit Features Modules listing
+    2) Changed Report_Column::draw_form_field() for type 'checkbox_csvlist' to
+       not include scrollbox and to place items inline rather than stacked -
+       used in Event Recurrence Weekday settings
+  1.0.72 (2011-10-27)
+    1) Event class method calls from Report_Column::draw_form_field() for cases
+       'event_end_date_and_time', 'event_recurrence_settings' and
+       'event_start_date_and_time' no longer pass 'value' -
+       this is now determined in the Event class method handlers
+  1.0.71 (2011-10-19)
+    1) Changes to Report_Column::draw_form_field() for 'posting_name' to reference
+       `effective_date_start`
+  1.0.70 (2011-10-25)
+    1) Changes to Report_Column::draw_radio_selector() to simplify HTML, provide
+       for a 'stacked' format and an ajax-friendly mode that applies colours
+       directly to label and contents rather than via css in head
+  1.0.69 (2011-10-25)
+    1) Added clause for 'event_recurrence_settings' and moved code for
+       'event_start_date_and_time' and 'event_end_date_and_time' into Event class
+  1.0.68 (2011-10-24)
+    1) Minor tweaks to code for 'event_start_date_and_time' and 'event_end_date_and_time'
+  1.0.67 (2011-10-22)
+    1) Changed references to Report::get_filter() to Report_Report::get_filter()
+    2) Added code for 'event_start_date_and_time' and 'event_end_date_and_time' in
+       Report_Column:draw_form_field()
+  1.0.66 (2011-10-20)
+    1) Changes to Report_Column::draw_form_field() for 'hh:mm' to clarify label
+       and make admin link to change display format XHTML compliant
+  1.0.65 (2011-10-19)
+    1) Changes to Report_Column::draw_form_field() for 'posting_name' to reference
+       `effective_date_start`
+  1.0.64 (2011-10-19)
+    1) Changes to Report_Column::draw_form_field() for 'server_file_image' to use
+       new simpler image path for image preview
+  1.0.63 (2011-10-06)
+    1) Changes to Report_Column::draw_form_field() for cases
+       'checkbox_listdata_csv' and 'checkbox_sql_csv' to use stylesheet not
+       inline code for styling for easier overriding
+  1.0.62 (2011-09-19)
+    1) Changes to Report_Column::draw_form_field() for 'date' and 'datetime' to
+       display blank if the value is '0000-00-00' or '0000-00-00 00:00:00'
+  1.0.61 (2011-09-17)
+    1) Changes to Report_Column::draw_form_field() for 'date' and 'datetime' to
+       use new tigra calendar
+  1.0.60 (2011-08-23)
+    1) Changes to column order for read-only handling of 'groups_assign_person'
+  1.0.59 (2011-08-23)
+    1) Changes to Report_Column::draw_form_field() for 'groups_assign_person' to
+       handle recent label classname changes and to pass this through
+       convert_labels(), otherwise LBL tags are not converted in popups
+  1.0.58 (2011-08-22)
+    1) Updated field list in constructor
+  1.0.57 (2011-08-21)
+    1) Removed display of permAPPROVER and permADMIN for read-only implementation
+       of 'groups_assign_person' in Report_Column::draw_form_field()
+  1.0.56 (2011-08-04)
+    1) Removed support for 'embed_event_registrants'
+  1.0.55 (2011-07-31)
+    1) Changes for Report_Column::draw_form_field() clauses
+       'server_file' and 'server_file_image' to reference new client folder path
+       for ckfinder
+  1.0.54 (2011-07-13)
+    1) Removed support for 'selected_clear_visits' in
+       Report_Column::draw_selector_with_selected()
+  1.0.53 (2011-06-09)
+    1) Report_Column::draw_selector_with_selected() now uses renamed column types
+       for export to excel and add to group, and implements view email addresses
+       and includes propagation of toolbar
+  1.0.52 (2011-06-04)
+    1) Changes to Report_Column::draw_combo_selector() to correct JS -
+       was breaking when called with externally supplied JS, e.g. with
+       add to group wizard which provided its own JS code for onchange events
+  1.0.51 (2011-06-01)
+    1) Changes to Report_Column::draw_combo_selector() to make its own field
+       HTML for the selector and alt text inputs so that these do NOT have
+       a name attribute setting and therefore preventing these internal values
+       from being posted to the server along with the content of the hidden field
+       that actually transmits this value.
+    2) Report_Column::draw_form_field() - removed support for combo_sp_selector
+  1.0.50 (2011-05-29)
+    1) Change to Report_Column::draw_form_field() for type 'posting_name' to use
+       `effective_date` to derive posting path for Events, and `date` otherwise
+  1.0.49 (2011-05-13)
+    1) Changes to Report_Column::draw_selector_with_selected() to add support for
+       'selected_set_importance'
+    2) Changes to Report_Column::draw_form_field() to add support for 'importance'
+  1.0.48 (2011-04-20)
+    1) Modified read-only version of 'groups_assign_person' field to use new
+       LBL tags - was still using LABEL tags, no longer supported
+  1.0.47 (2011-03-21)
+    1) Implemented read-only version of 'file_upload' field
+  1.0.46 (2011-02-01)
+    1) Report_Column::draw_report_field() now just a stub -
+       innards of function moved to new child class 'Report_Column_Report_Field'
+  1.0.45 (2011-01-13)
+    1) Report_Column::draw_form_field() for read-only fields now sets container
+       divs id to 'div_' + field name (was using same ID for both!)
+  1.0.44 (2011-01-10)
+    1) Report_Column::draw_form_field() for type html_multi_language now includes
+       label above control
+  1.0.43 (2011-01-08)
+    1) Report_Column::draw_form_field() support added for all html fields to
+       allow mult-language capability where enabled
+    2) Report_Column::draw_form_field() now allows width to be %, px, em or en -
+       defaults to px if units not given
+    3) Report_Column::draw_report_field() now supports html_multi_language()
+  1.0.42 (2010-12-30)
+    1) Change to Report_Column::draw_report_field() for case 'edit_list_data'
+       to select 'Entries for List' report instead of wasting a filter on listdata
+    2) Change to Report_Column::draw_report_field() for case 'copy' to use
+       onclick not href for JS action
+    2) Change to Report_Column::draw_report_field() for case 'edit' to use
+       onclick not href for JS action
+    3) Added clause for type 'listdata_value' for Report_Column::draw_form_field()
+  1.0.41 (2010-12-21)
+    1) Removed support for html_multi_resolution in Report_column::draw_form_field()
+  1.0.40 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.39 (2010-08-17)
+    1) Changes to Report_Column::draw_form_field() to add support for
+       'selector_gallery_album' and 'selector_podcast_album'
+  1.0.38 (2010-08-14)
+    1) Changes to Report_Column::draw_form_field() for the following types to
+       have them invoke FCKEditor objects directly:
+       'html', 'html_multi_block' and 'html_multi_resolution',
+  1.0.37 (2010-08-12)
+    1) Changes to Report_Column::draw_form_field() for 'keyword' type:
+       Now allows editing of keywords or creation of a new keyword directly
+  1.0.36 (2010-08-11)
+    1) Changes to Report_Column::draw_selector_with_selected() to support
+       'export_to_excel'
+  1.0.35 (2010-07-30)
+    1) New column type 'server_file_image' which combines 'server_file' with a
+       preview image
+  1.0.34 (2010-07-29)
+    1) Report_Column::draw_form_field() tweak to field width reduction when in
+       bulk-update mode, and field widths for text_font_and_size and text_alignment
+  1.0.33 (2010-07-28)
+    1) Report_Column::draw_selector_with_selected() - added provision for
+       'selected_set_as_hidden' for use with comments
+  1.0.32 (2010-07-26)
+    1) Added sample_buttonstyle and sample_navsuite to list of field types
+       ignored in Report_Column::draw_form_field() for bulk update mode
+  1.0.31 (2010-07-23)
+    1) Report_Column::draw_form_field() reinstated 'sample_navsuite'
+    2) Report_Column::draw_report_field() reinstated 'sample_navsuite'
+    3) Report_Column::draw_form_field() added 'text_alignment_and_offsets' combo
+    4) Report_Column::draw_form_field() added 'text_color_and_effects' combo
+    5) Report_Column::draw_form_field() added 'text_font_and_size' combo
+  1.0.30 (2010-07-04)
+    1) Bug fix for Report_Column::draw_form_field() to uncomment a line removed
+       during development - affects new uninitialised posting dates
+  1.0.29 (2010-07-02)
+    1) Changes to Report_Column::draw_form_field() for 'posting_name' to allow for
+       use of Request variables to set when creating a new record (previously noted
+       as a future development) and to use effective_date when working with events
+    2) Changes to Report_Column::draw_report_field() for 'cancel' to use effective_date
+  1.0.28 (2010-06-16)
+    1) Changed Report_Column::draw_select_options_from_records() to NOT convert
+       &amp; to html entities (as implemented in1.0.25 on 2010-05-26)
+  1.0.27 (2010-06-08)
+    1) Changes to Report_column::draw_report_field() for type 'select_item' to
+       append  Report Field Params to the URL for the link
+  1.0.26 (2010-06-07)
+    1) Report_column::draw_form_field() and Report_column::draw_report_field()
+       changes for type 'link_programmable_form' to allow for optional field setting
+       to allow link text to use one field and the actual link to draw from another
+    2) Change to Report_column::draw_report_field() for type 'select_item' to colour
+       the link bold dark-yellow and to use real URL not JS to preserve location
+  1.0.25 (2010-05-26)
+    1) Bug fix for Report_Column::draw_select_options_from_records() to uri_encode
+       text and option group labels for XHTML strict
+  1.0.24 (2010-05-12)
+    1) Changes in Report_Column::draw_form_field(): swapped operation of
+       'link_edit_formsectionwizard' and 'link_edit_customform' and removed former
+       to have friendly URL
+  1.0.23 (2010-04-12)
+    1) Changes to Report_Column::draw_form_field() for 'tax_name_and_rate' to
+       make tax names read-only and get these from the associated tax zone or
+       from the system default tax zone if this is a new tax regime record
+  1.0.22 (2010-04-10)
+    1) Changes to Report_Column::draw_form_field() for type groups_assign_person
+       in read-only mode to include EMAILOPTOUT permission
+  1.0.21 (2010-03-29)
+    1) Change to Report_Column::draw_list_selector() to apply text and background
+       colours if available
+    2) Extended Report_Column::draw_form_field() to provide for read-only percent
+  1.0.20 (2010-03-15)
+    1) Added support to Report_Column::draw_form_field() for 'tax_name_and_rate'
+  1.0.19 (2010-02-11)
+    1) Changes to Report_Column::draw_report_field() for type 'link_map' to have
+       this call new global _map page with appropriate parameters
+       (work in progress)
+  1.0.18 (2010-01-29)
+    1) Report_Column::draw_select_options_from_records() updated to only mark
+       first matching option as selected and not do so with any subsequent match
+  1.0.17 (2009-12-25)
+    1) Changed constructor to __construct()
+  1.0.16 (2009-12-07)
+    1) Report_Column::draw_form_field() for 'password' now has autocomplete='off'
+  1.0.15 (2009-12-04)
+    1) Tweak to Report_Column::draw_form_field() for 'notes' to respect height
+  1.0.14 (2009-12-03)
+    1) Implemented bulk_update for category, group and keyword assignments by
+       enabling these modes in Report_Column::draw_form_field()
+  1.0.13 (2009-11-27)
+    1) Added in clause for draw_for_field() of type 'field_processor' as created
+       by James then lost in an upgrade.
+  1.0.12 (2009-11-13)
+    1) Moved function draw_list_selector() from codebase into this class
+  1.0.11 (2009-11-11)
+    1) Changes to Report_Column::draw_form_field() to prevent display of
+       groups, keywords or categories when in bulk_update mode
+  1.0.10 (2009-11-07)
+    1) Split Report_Column::draw_select_options() into two parts:
+       Report_Column::draw_select_options_from_records() takes a record set and
+       creates options from that directly
+    2) Removed clause for 'groups_assign_for_person' in Report::draw_form_field()
+    3) Implemented read-only form field for group_assign_person
+       (closes bug XIM-47)
+  1.0.9 (2009-11-01)
+    1) Fixes to Report_Column::draw_report_field() for 'edit_report_columns' (used in
+       'Reports' report for number of columns display) to select filter criteria
+    2) Change to Report_Column::draw_report_field() to only show '... is undefined'
+       message for non-xml data entries that are not explicitly set
+       (Closes bug XIM-41)
+    3) Properly implemented read-only form field display for groups_assign
+       (Closes bug XIM-6)
+  1.0.8 (2009-10-29)
+    1) Changes for various iframes to make them URL path-friendly and to use
+       formFieldSpecial not formField for the URL value
+    2) Change to Report_Column::draw_report_field() to convert '/' in XML virtual field
+       names to ':' to allow values to be shown in reports
+    3) Change to Report_Column::draw_report_field() for swatch to add titles to
+       colours and to prevent non hex values from being viewed as colours, specifically
+       values shown as '?' with span wrapper saying 'value is not given'
+    4) References to inline function get_sql_filter() now Report::get_filter()
+  1.0.7 (2009-10-13)
+    1) Changes in Report_Column::draw_report_field() to use class 'num' not 'txt_r'
+  1.0.6 (2009-09-30)
+    1) Added support for type 'posting_name_unprefixed' (used for product itemCode setting)
+  1.0.5 (2009-09-01)
+    1) Tweak to Report_Column::draw_report_field() for 'swatch' to eliminate use of table for swatch sample.
+  1.0.4 (2009-09-01)
+    1) Tweak to Report_Column::draw_selector_with_selected() to better format HTML
+  1.0.3 (2009-08-28)
+    1) Fix for Report_Column::draw_form_field() for type 'sample_fontface' to use
+       row[ID] to determine whether the record has been saved already or not
+  1.0.2 (2009-07-15)
+    1) Changes to Report_Column::draw_form_field() for radio_csvlist and selector_csvlist
+       to split choices on new line
+    2) Changes to Report_Column::draw_radio_selector() to use get_web_safe_ID()
+       for setting option IDs - now even options with values containing '%' or
+       brackets can be safely handled
+  1.0.1 (2009-07-02)
+    1) Removed other classes
+    2) Added get_version()
+  1.0.0 (2009-07-02)
+    Initial release

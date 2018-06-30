@@ -1,0 +1,12 @@
+  1.0.3 (2012-11-19)
+    1) New extends Gallery_Album
+    2) New method on_action_set_subfolder()
+  1.0.2 (2012-11-08)
+    1) Move to classes folder and renamed class.sponsorship_plan.php
+       Now extends posting class
+    2) Override version of _get_records_available() to check only enabled flag
+    3) Override version of _get_records_sort_records() to sort by cost (desc)
+  1.0.1 (2012-11-07)
+    1) Added Community_Sponsor_Plan::get_plans_for_community()
+  1.0.0 (2012-11-06)
+    1) Initial Release

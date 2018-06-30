@@ -1,0 +1,42 @@
+  1.0.11 (2012-08-23)
+    1) Tweak to Event_Recurrence::promote_first_child() to set recurrence description
+       even when there the one remaining recurrence has been converted to stand-alone
+  1.0.10 (2012-08-23)
+    1) Removed local method Event_Recurrence::children_get() in favour of
+       get_children() method defined in Event class (parent)
+    2) Change to Event_Recurrence::children_set_recurrence_description() to not
+       reveal update date for all items
+    3) New method Event_Recurrence::promote_first_child() used in Event::delete
+    4) Major changes to split job of setting recurrence fields and job of setting
+       recurrence decription into to separate methods to simplify code flow and
+       to allow for independent use of Event_Recurrence::set_recurrence_description()
+       by Event_Recurrence::promote_first_child()
+  1.0.9 (2011-12-23)
+    1) Recurrence modifications now selectively delete or insert events as needed
+    2) Split out _draw_save() into sub-functions to simplify
+  1.0.8 (2011-12-04)
+    1) Saving recurrence now sets a 100ms timeout that reloads form and opener
+       (if present) which closes popup layer form automatically
+  1.0.7 (2011-11-14)
+    1) Bug fix in form_field_recurrence_settings() which caused errors on unsaved
+       events
+  1.0.6 (2011-11-14)
+    1) Completed work on date calculations -
+       Now correctly handles all day, week, month and year scenarios
+    2) Now generates sequences of recurring events but right now it's pretty
+       destructive if you resave recurrence settings  -
+       old ones are all cleared out and regenerated
+  1.0.5 (2011-11-09)
+    1) More work on date calculations
+  1.0.4 (2011-11-08)
+    1) Added code to calculate which new dates are required for repeated events
+       Incomplete as yet but a good start.
+  1.0.3 (2011-11-07)
+    1) Usability tweaks and corrections for recurrence settings
+    2) Moved Event::form_field_recurrence_settings() into this class
+  1.0.2 (2011-11-05)
+    1) Added control ad saving of recurring event ranges
+  1.0.1 (2011-11-04)
+    1) Added more functionality
+  1.0.0 (2011-10-31)
+    1) Initial release

@@ -1,0 +1,13 @@
+  1.0.5 (2013-04-01)
+    1) Removed CP options for image selection
+  1.0.4 (2012-08-23)
+    1) Link::get_children() is now pubic to match that in Record class
+  1.0.3 (2012-07-15)
+    1) CP defaults for filter_memberID and filter_personID now '' not 0
+  1.0.2 (2012-07-11)
+    1) Added functions originally in Treenode class:
+       Link::get_children(), Link::draw_js() and Link::draw_treeview_js()
+  1.0.1 (2012-03-13)
+    1) Items no longer have categories, keywords or activity
+  1.0.0 (2012-03-12)
+    1) Initial Release

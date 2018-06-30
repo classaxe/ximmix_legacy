@@ -1,0 +1,6 @@
+  1.0.2 (2012-07-13)
+    1) Bug fix - constructor function incorrectly named
+  1.0.1 (2012-01-23)
+    1) Upgrades to use properties and control panel method from Component_Base
+  1.0.0 (2011-12-30)
+    1) Initial release - moved from Component class

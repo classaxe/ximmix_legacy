@@ -1,0 +1,133 @@
+  1.0.41 (2014-01-28)
+    1) Newline after JS code in Component_Gallery_Fader::_draw_js()
+  1.0.40 (2013-06-14)
+    1) Simplified setup by using common functuions contained in parent
+    2) Bug fix - code and css generated here included h1 headings which were
+       changed some time ago to h2 headings.
+    3) More use of css block rather than inline style to control layout
+  1.0.39 (2013-06-07)
+    1) Changed the following CPs:
+         Old: 'filter_limit',  'filter_order_by'
+         New: 'results_limit', 'results_order'
+  1.0.38 (2012-11-10)
+    1) Changes to Component_Gallery_Fader::_load_records() to never show disabled
+       images, even for admins.   Too confusing and buggy.
+  1.0.37 (2012-11-03)
+    1) Component_Gallery_Fader::draw() now includes enabled flag for images
+  1.0.36 (2012-09-25)
+    1) Tweaks for SEO improvement - canvas and overlay now have width, height and
+       alt text
+  1.0.35 (2012-07-15)
+    1) CP defaults for filter_memberID and filter_personID now '' not 0
+  1.0.34 (2012-03-02)
+    1) Changes to Component_Gallery_Fader:draw() and _draw_css() to have text
+       always at 100% opacity even if background for it is at less than that
+  1.0.33 (2012-01-23)
+    1) Changes to _setup() to harness protected method in Component_Base class
+    2) Removed local implementation of _setup_load_parameters()
+  1.0.32 (2012-01-23)
+    1) Removed _draw_control_panel() - inherits instead
+  1.0.31 (2011-11-17)
+    1) Renamed class to Component_Gallery_Fader
+    2) Renamed method draw_fader() to draw()
+    3) New CP for 'cover_image' that if set will display cover image once at
+       the start of display sequence
+  1.0.30 (2011-09-22)
+    1) Component_Gallery::draw_fader() now uses checksum for image as cache buster
+  1.0.29 (2011-06-25)
+    1) Bug fix for html produced in Component_Gallery::draw_fader() when no images
+       are available to be shown - wasn't closing container div after error message
+  1.0.28 (2011-05-27)
+    1) Tweak to Component_Gallery::draw_fader() to use spans instead of divs
+       inside h1 title caption to conform to XHTML strict
+  1.0.27 (2011-05-24)
+    1) Changes to allow max_width and max_height to be set independently and
+       to allow aspect to NOT be maintained causing shape deformation if desired
+  1.0.26 (2011-05-02)
+    1) Added new div with id suffix '_overlay'
+  1.0.25 (2011-04-30)
+    1) Component_Gallery::_do_submode() now checks that get_var(source) matches
+       the component ID before proceeding
+  1.0.24 (2011-04-27)
+    1) Component_Gallery::_do_submode() now uses Gallery_Image::do_submode()
+       (which is really Posting_Contained::do_submode()) for all operations
+  1.0.23 (2011-04-27)
+    1) Component_Gallery::_load_records() now uses centralised routine from
+       Posting_Contained::get_records_matching() to allow for editing of container
+       album
+    2) Component_Gallery::draw_fader() now includes parentTitle in JS array
+  1.0.22 (2011-04-14)
+    1) Component_Gallery::draw_fader() now includes subtype in js list
+       to allow context menu to change with type
+  1.0.21 (2011-04-13)
+    1) Component_Gallery::_setup_pre_operation() now explicitly sets
+       $this->_cm_type to allow it to be easily overridden by a child class -
+       implemented for Component_TREB_Gallery which extends it
+    2) Made private methods protected to allow them to be overridden - ace!
+  1.0.20 (2011-04-13)
+    1) Component_Gallery::_do_submode() for 'gallery_image_feature'
+       now sets the childID_featured value for the affected parent
+  1.0.19 (2011-03-31)
+    1) Bug fix for Component_Gallery::draw_fader to display control panel when
+       enabled even if there are no images to show
+  1.0.18 (2011-03-25)
+    1) Reorganised most of code to modularise it
+    2) Enabled context-menu featuring of images on album cover
+    3) Enabled context-menu deletion of images (closes bug ECC:71)
+  1.0.17 (2011-03-15)
+    1) CP filter_album_path doesn't do anything - removed it
+  1.0.16 (2011-03-03)
+    1) Subtle refinement to Component_Gallery::draw_fader() to ONLY set the
+       container_path for new images IF the container path was specified by the
+       fader component itself - otherwise it's probably using categories rather
+       than the actual path of any given image seen.
+  1.0.15 (2011-03-03)
+    1) Component_Gallery::draw_fader() now allows for container path to be set
+       for new images added using context-menu
+  1.0.14 (2011-02-25)
+    1) Many changes to Component_Gallery::draw_fader() to allow for onchange
+       actions, several control sizes, title text prefixes and ability to
+       turn off caption, title or count without disabling content display entirely
+  1.0.13 (2011-01-27)
+    1) Component_Gallery::draw_fader() now includes cps for filter_container_path
+       and filter_container_subs
+    2) Component_Gallery::_load_records() now passes cps for filter_container_path
+       and filter_container_subs
+  1.0.12 (2011-01-20)
+    1) Component_Gallery::draw_fader() now has new parameter filter_album_path
+       which if set will allow only items in the specified folder
+  1.0.11 (2011-01-13)
+    1) Component_Gallery::draw_fader() now exits cleanly if no records to show
+    2) Component_Gallery::draw_fader() now sets max height as $cp['max'] if actual
+       maximum image height cannot be established - e.g. where images are all on
+       a remote site and shared.
+       More work probably needs to be done there.
+    3) Component_Gallery::draw_fader() now includes categories in image list
+       for context menu new item creation
+  1.0.10 (2011-01-10)
+    1) Component_Gallery::draw_fader() now applies Language::convert_tags()
+       to content
+  1.0.9 (2010-11-16)
+    1) Changes to escape apostrophes on initial item draw
+  1.0.8 (2010-10-28)
+    1) Component_Gallery::draw_fader() now correctly handles new lines and apostrophes
+       in image titles and content
+    2) Enabled context-menu editing in slideshow
+  1.0.7 (2010-08-20)
+    1) Changes not recorded
+  1.0.6 (2010-08-23)
+    1) Removed draw_album() - now in its own class
+  1.0.5 (2010-08-18)
+    1) Added Component_Gallery::draw_album()
+  1.0.4 (2010-08-18)
+    1) Component_Gallery::draw() renamed to Component_Gallery::draw_fader()
+       and instance name changed to match
+  1.0.3 (2010-08-18)
+    1) Tweak to prevent error messages if an image isn't found
+  1.0.2 (2010-08-04)
+    1) Content area height now settable as CP, also fixed opacity on same for
+       browsers other than IE
+  1.0.1 (2010-08-04)
+    1) Tweaks for IE6
+  1.0.0 (2010-07-30)
+    1) Initial release

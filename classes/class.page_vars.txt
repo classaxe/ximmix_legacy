@@ -1,0 +1,84 @@
+  1.0.23 (2014-06-22)
+    1) Added support in Page_vars::_get_vars_for_page_substitution() for
+       'email-opt-in' and 'email-opt-out'
+  1.0.22 (2013-10-19)
+    1) Tweak to prevent Page_vars::_get_vars_for_page_substitution() from mangling
+       settings for good pages when found - was overriding title for password page
+  1.0.21 (2013-10-04)
+    1) Now includes Page_vars::_get_vars_for_page_substitution() which allows
+       substituted pages such as default checkout, email-unsubscribe etc to NOT
+       show as 404 - page not found
+  1.0.20 (2012-12-09)
+    1) Now splits content into content_zones using <!--zonebreak--> as a separator
+       New method Page_vars::_get_content_zones() performs this task
+  1.0.19 (2012-09-14)
+    1) Page_vars::_get_default_vars() now includes 'path' and 'path_real' (set
+       from accessed URL) and 'path_extension' (set to blank)
+  1.0.18 (2012-03-29)
+    1) Tweak to Page_Vars::get() for more robust checking of the setting of
+       'path_extender'
+  1.0.17 (2012-03-28)
+    1) Moved code for generating password prompt into new Password class
+    2) Page_Vars::_password_check_history() now Password::check_csvlist_against_previous()
+    3) Page_vars::_password_check() now Password::check_password_against_csvlist()
+  1.0.16 (2012-03-20)
+    1) Changes in Page_Vars::get() to have shortcut for reopening password dialog
+       point to current page, not null hash on the current page
+  1.0.15 (2012-03-15)
+    1) More work on Page_vars::_get_vars_for_page() for password protection:
+       Added Page_Vars::_password_check_history()
+  1.0.14 (2012-03-14)
+    1) Page_vars::_get_vars_for_page() now checks if page has a password and
+       if so it will (for now) simply prevent access.
+  1.0.13 (2011-11-28)
+    1) Page_vars::_get_vars_for_type() now includes meta_description and
+       meta_keywords if present
+  1.0.12 (2011-07-19)
+    1) Changes to Page_vars::_get_vars_for_type() to redirect and change type if a valid
+       path for a comtainer object is given in the context of a contained item:
+       Example of a valid and complete path:
+         http://www.fotofinish.ca/gallery-image/images/head-shots/deluca-3833-email
+       but this causes redirect:
+         http://www.fotofinish.ca/gallery-image/images/head-shots
+       to this:
+         http://www.fotofinish.ca/gallery-album/images/head-shots
+  1.0.11 (2011-07-15)
+    1) Page_vars::_get_vars_for_page() now includes relative_URL
+  1.0.10 (2011-06-13)
+    1) Page_vars::_get_vars_for_type() now gets component_parameters for displayed
+       items
+  1.0 9 (2011-06-06)
+    1) Page_vars::_swap_layout_for_theme() and Page_vars::_swap_layout_if_default()
+       changes to treat invalid values of '0' as 'use default' rather than just
+       showing a blank screen
+  1.0.8 (2011-06-05)
+    1) Changes to Page_vars::_get_navsuiteIDs() to handle layout suite overrides
+       by theme
+  1.0.7 (2011-06-05)
+    1) Added Page_vars::_swap_layout_for_theme() and included this in process chain
+       for Page_vars::get()
+    2) Changes to Page_vars::_get_navsuiteIDs() to recognise page having navsuite
+       columns named navsuiteXID instead of navbarX_suiteID as before
+  1.0.6 (2011-05-05)
+    1) Page_vars::_get_vars_for_type() now sets path and relative_path even
+       when mode was given but item was not matched to a known record
+  1.0.5 (2011-04-25)
+    1) Page_vars::get() now sets object_type using class_name() and adds
+       object_name which uses the _get_object_name() from the object as before
+  1.0.4 (2011-02-23)
+    1) Page_vars::_swap_layout_if_report_or_print() now gives priority to print
+       over mode (was showing toolbars in 'Entries for listdata' subforms)
+  1.0.3 (2011-02-18)
+    1) Page_vars::_get_vars_for_mode() now checks that report_name is given
+       before attempting to get report name in modes 'details', 'export',
+       'print_form' and 'report'
+    2) Tweak to Page_vars::_swap_layout_if_report_or_print() to exit cleanly
+       if invalid print or mode values are given (e.g. by McAfee Secure Scan)
+  1.0.2 (2011-02-09)
+    1) Page_vars::_get_vars_for_mode() simplified and now sets 'status' of 404
+       if resource not found
+  1.0.1 (2011-01-06)
+    1) Page_vars::get() now provides for switching of layout based on language
+  1.0.0 (2011-01-04)
+    1) Initial release -
+       removed from page_class and modularised - several subtle bugs also fixed

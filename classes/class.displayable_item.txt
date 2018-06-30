@@ -1,0 +1,581 @@
+  1.0.150 (2014-03-29)
+    1) Displayable_Item::_draw_listings_draw_add_icon() now sets communityID if present
+  1.0.149 (2014-03-27)
+    1) Displayable_Item::_draw_object_map_html_setup() now stores request vars
+       that specify fields to use as info sources in the map
+    2) Displayable_Item::_draw_object_map_html_draw_map_points() no longer
+       converts embedded quotes to entity equivalent -
+       was messing up js code in map point markers
+  1.0.148 (2014-02-22)
+    1) Moved Displayable_Item::get_IDs_requiring_map_updates() into here from
+       Person::get_IDs_requiring_map_updates()
+    2) Tweak to Displayable_Item::_draw_object_map_html_draw_map_points() to deal
+       with non-entity-encoded quotes that may exist in location description
+       (http://ecm.ecclesiact.com/_map?reportID=1&width=900&height=600&ID=1651526371)
+  1.0.147 (2014-01-21)
+    1) Changes to Displayable_Item::draw_search_results_paging_nav() to replace
+       URLs having javascript URLs with onclick events
+  1.0.146 (2014-01-17)
+    1) Displayable_Item::_draw_object_map_html_draw_map_listing() changes to use
+       simplified helper function to open info-window and reduce HTML served
+  1.0.145 (2014-01-15)
+    1) Renamed some parameters used in Displayable_Item::_draw_listings_load_records()
+       to correctly bracket them as filter parameters:
+         range_address      ->      filter_range_address
+         range_distance     ->      filter_range_distance
+         range_lat          ->      filter_range_lat
+         range_lon          ->      filter_range_lon
+         range_units        ->      filter_range_units
+    2) Displayable_Item::_draw_listings_load_records() now includes support for
+         filter_date_duration
+         filter_date_units
+  1.0.144 (2013-12-17)
+    1) Displayable_Item::link() now always opens link in a new window
+  1.0.143 (2013-12-10)
+    1) New method Displayable_Item::_draw_render_JSON() -
+       used in Event Recurrence and Profile Merge layer-based dialogs
+    2) New protected property $_css
+    3) Displayable_Item::_common_load_user_rights() now detects isUSERADMIN
+    4) New method Displayable_Item::_common_draw_status()
+  1.0.142 (2013-12-03)
+    1) Moved Block Layout rendering code within Displayable_Item::draw_listings()
+       into Block_Layout::draw_Block_Layout() and now calls that routine to operate
+    2) Removed highlight function - only allowed a single field to be filtered on
+  1.0.141 (2013-12-03)
+    1) Updated Displayable_Item::draw_listings() to use exception and simpler
+       helper functions
+  1.0.140 (2013-11-20)
+    1) Displayable_Item::draw_from_recordset() removed support for
+       permADMIN and permAPPROVER
+  1.0.139 (2013-11-20)
+    1) Phantom build - number not used
+  1.0.138 (2013-11-02)
+    1) Displayable_Item::_draw_listings_load_paging_controls() now invokes audio
+       player replacement code
+  1.0.137 (2013-10-28)
+    1) Displayable_Item::draw_object_map_html() no longer sets redundant variables
+       associated only with Person maps
+  1.0.136 (2013-10-24)
+    1) Set map height to actual size give, now 30px less as before
+  1.0.135 (2013-10-24)
+    1) Changes to map anchor titles to handle possible uppercase html entities
+  1.0.134 (2013-08-08)
+    1) Displayable_Item::_draw_object_map_html_draw_map_points() now uses
+       map_desc if available instead of map_loc as before
+  1.0.133 (2013-07-15)
+    1) Displayable_Item::_draw_object_map_html_draw_map_listing() now uses correct
+       classname when invoking displayable object
+  1.0.132 (2013-06-12)
+    1) Displayable_Item::_draw_listings_load_records() now applies range arguments
+       if given
+  1.0.131 (2013-06-07)
+    1) Internal changes in support of CP changes to replace the following
+       deprecated parameters with their new equivalents:
+         Old: 'grouping_tabs',    'filter_limit',  'filter_order_by', 'paging_controls'
+         New: 'results_grouping', 'results_limit', 'results_order',   'results_paging'
+  1.0.130 (2013-06-05)
+    1) New protected properties _search_field and _search_value used to highlight
+       text in block layout display that matches a searched term with a give value
+    2) New method hightlight() that takes a single parameter - a field name -
+       and if field is being seached on it highlights the value if found there
+    3) Changes to Displayable_Item::_draw_object_map_html_draw_map_listing() to
+       allow for CM detection for both contacts and users in the same listing
+  1.0.129 (2013-06-03)
+    1) Displayable_Item::draw_panel_box() now safely disables adition of new
+       items IF edit_form is not given
+  1.0.128 (2013-05-31)
+    1) Displayable_Item::draw_object_map_html() now sets title attribute of
+       side-link to have tags stripped before displaying
+    2) Displayable_Item::_draw_object_map_html_sort_data() added to sort items
+  1.0.127 (2013-05-30)
+    1) Displayable_Item::_draw_object_map_html_setup() now gets user rights
+  1.0.126 (2013-05-29)
+    1) Changes to draw_object_map_html() to modularise for overriding and to
+       trim text shown on map marker
+  1.0.125 (2013-05-24)
+    1) Displayable_Item:draw_link() for case 'register_event' now jumps to
+       actual event and 'register' anchor within the event detail instead of
+       dealing with the 'registerevent' system as previously
+  1.0.124 (2013-05-19)
+    1) Multiple changes to eliminate JS errors by using safe_ID instead of
+       concatenating ident and instance name throughout
+  1.0.123 (2013-05-17)
+    1) Added support in Displayable_Item::_draw_listings_load_records() for
+       tri-state arg for of 'important' filter
+    2) Displayable_Item::_draw_listings_setup() when displaying 'no records'
+       message now includes status of 'filter_important' flag where a value is
+       given
+  1.0.122 (2013-04-23)
+    1) Tweak to Displayable_Item::draw_object_map_html() to correctly clear floats
+  1.0.121 (2013-04-23)
+    1) Displayable_Item::draw_object_map_html() now safely handles cr and lf and
+       not just crlf as before
+    2) Displayable_Item::draw_object_map_html() now accepts 'show_home' and 'show_work'
+       if given, and if only one is given standard google maps marker is used
+  1.0.120 (2013-04-01)
+    1) Displayable_Item::draw_from_recordset() now respects new CP for
+       thumbnail_show where given
+  1.0.119 (2013-01-21)
+    1) Tweak to Displayable_Item::_draw_detail_include_og_support() to not simply
+       add slashes to content, but to replace quotes with HTML entity instead
+  1.0.118 (2013-01-15)
+    1) Displayable_Item::draw_listings_json() now removes any admin code that
+       may be present owing to browser being open as admin for the source site
+       in another window or tab
+    2) Displayable_Item::_draw_listings_setup() tweak to 'add new' icon to use
+       class name of 'icon_add_new' instead of inline style - allows for simpler
+       HTML and easier targetting and removal of the control by JSON streamer
+  1.0.117 (2012-12-26)
+    1) draw_object_map_html() replaced Event.observe() call from prototypeJS for
+       bind() call in JQuery
+  1.0.116 (2012-12-03)
+    1) Displayable_Item::do_tracking() now uses time() not mktime() as per
+       strict standards
+  1.0.115 (2012-11-28)
+    1) Displayable_Item::_draw_detail_setup() now uses System::get_item_version() not
+       System::get_version() as before
+    2) Displayable_Item::draw_listings_json() now uses System::get_item_version() not
+       System::get_version() as before
+  1.0.114 (2012-11-12)
+    1) Changes to Displayable_Item::_draw_listings_setup() to use each object's
+       own edit_params to find out which report to use when adding items
+  1.0.113 (2012-11-06)
+    1) Renamed Displayable_Item::_draw_detail_include_facebook_sharer_thumbnail_support()
+       to Displayable_Item::_draw_detail_include_og_support()
+    1) Displayable_Item::_draw_detail_include_og_support()
+       now includes opengraph (og) tags for acebook and other social networking
+       sharers
+  1.0.112 (2012-11-02)
+    1) Removed some debug code
+  1.0.111 (2012-11-02)
+    1) Displayable_item::_draw_associated_setup() now checks for is_enabled
+    2) Displayable_item::_draw_detail_setup() now checks for is_enabled
+  1.0.110 (2012-10-28)
+    1) Displayable_item::_draw_listings_load_paging_controls() now uses jquery
+       not prototypejs for setting scope of bible ref tagging
+  1.0.109 (2012-10-13)
+    1) Displayable_Item::draw_listings_json() now does version control for system
+       css
+  1.0.108 (2012-10-07)
+    1) Removed errant anchor name '_comment_new' inside draw_comments_block() -
+       not only was this not used anywhere, but the automatic conversion to id
+       for that attribute would have failed since ids cannot start with underscore
+  1.0.107 (2012-09-19)
+    1) Change to Displayable_Item::try_delete_item() to allow for access to
+       $page_vars to determine where to return to after deletion has taken place
+  1.0.106 (2012-09-18)
+    1) Change to Displayable_Item::_draw_detail_setup() to use new anchor ID of
+      (system-family)_main_content to mark start of content
+  1.0.105 (2012-08-29)
+    1) New method Displayable_Item::try_delete_item() which handles checks to
+       determine whether the user has sufficient rights to perform the operation
+  1.0.104 (2012-08-23)
+    1) Removed Displayable_Item::_draw_detail_do_submode() -
+       this is now handled by a type-specific command handled by system class
+  1.0.103 (2012-07-29)
+    1) Change to Displayable_Item::_draw_listings_load_paging_controls() to make
+       sure that path extension (if present) is respected -
+       this happens in Community Member content whenever paging controls are used
+  1.0.102 (2012-07-16)
+    1) Minor code formatting tweaks
+  1.0.101 (2012-07-14)
+    1) Call to Posting::get_records() inside Displayable_Item::_draw_listings_load_records()
+       is now associative argument array
+  1.0.100 (2012-07-03)
+    1) Cleaned up getter for context_menu_ID - no longer twisted logic
+    2) Added setter for context_menu_ID and invoked this via class constructor
+       in a more conventional manner
+  1.0.99 (2012-06-29)
+    1) Converted all vars in class header to protected
+  1.0.98 (2012-05-25)
+    1) Tweaks to Displayable_Item::draw_object_map_html() to allow 'maximize'
+       feature to be turned on or off
+  1.0.97 (2012-05-06)
+    1) Displayable_Item::draw_object_map_html() now includes a scale where there
+       are multiple points shown
+  1.0.96 (2012-05-03)
+    1) Displayable_Item class now extends Displayable_Item and has a $type member
+       variable property to prevent warnings when trying to display on a map
+       that is is no 'type' to retrieve
+  1.0.95 (2012-04-28)
+    1) Change to Displayable_Item::draw_object_map_html() now that features have
+       been standardised for display of map addresses for both users and contacts
+  1.0.94 (2012-04-27)
+    1) Changes to Displayable_Item::draw_object_map_html()
+       a) It no longer differentiates between work and home addresses if only one
+          kind is available.
+       b) It includes company name for work map locations
+       c) It handles long lists of points much better
+  1.0.93 (2012-04-25)
+    1) Tweaks to Displayable_Item::draw_object_map_html() to exit cleanly if there
+       are no map locations to display for the selected items
+  1.0.92 (2012-04-24)
+    1) Displayable_Item::draw_object_map_html() now uses width and height as passed
+       to it to size map to fit dimensions
+    2) Displayable_Item::draw_object_map_html() now shows listing of names if there
+       are more than one to show, and pre-opens infowindow if there is just one
+  1.0.91 (2012-04-18)
+    1) Tweak to Displayable_Item::draw_object_map_html() to remove debug message
+  1.0.90 (2012-04-16)
+    1) Added method Displayable_Item::draw_object_map_html()
+  1.0.89 (2012-04-05)
+    1) Moved check for debug_no_internet in System::do_tracking() -
+      should be fine anyway
+  1.0.88 (2012-01-04)
+    1) Renamed draw_related() and helpers to draw_associated() to make it more
+       distinct from draw_related_block()
+    3) CP 'block_layout_for_related' now called 'block_layout_for_associated'
+    4) Combined code for detail and listings mode help
+       as Displayable_Item::_common_draw_help()
+    5) Combined code for detail, listing and associated mode help()
+       as Displayable_Item::_common_load_parameters()
+    6) Combined code for detail and listings mode render()
+       as Displayable_Item::_common_render()
+    7) Combined code for detail, listing and associated mode load_block_layout()
+       as Displayable_Item::_common_load_block_layout()
+    8) Combined code for detail, listing and associated mode load_user_rights()
+       as Displayable_Item::_common_load_()
+  1.0.87 (2011-12-24)
+    1) Displayable_Item::get_keywords() now has a cache to eliminate duplication
+    2) Displayable_Item::draw_from_recordset() - removed ability to display keywords
+  1.0.86 (2011-12-19)
+    1) Changes in Displayable_Item::_draw_listings_setup() and draw_panel_box()
+       to only include 'category=' argument if categories are set, and to now
+       preset memberID whenever that value is given
+  1.0.85 (2011-12-08)
+    1) Changes to Displayable_Item::_draw_detail_setup() to ensure that only
+       visible items can be seen
+  1.0.84 (2011-11-28)
+    1) Changes to Displayable_Item::_draw_listings_setup() for 'New item...' icon
+       to include all items from cps 'filter_category_master' and 'filter_category_list'  1.0.83 (2011-11-17)
+    1) Moved _set_type() and _get_type() into this class -
+       was defined separately in Product class, but also needed in Page class
+       for use with search results paging controls.
+       This is overridden in Posting class.
+    2) Changes to Displayable_Item::draw_search_results_paging_nav() to use
+       invocation of displayed class to discover posting typeadd a
+       classname of 'search_paging' to nav controls to allow css to be fine tuned
+       (for example for use with sites having black backgrounds)
+  1.0.82 (2011-10-27)
+    1) Moved guts of Displayable_Item::draw_related_block() out into its own
+       child class - Component_Related_Block::draw()
+  1.0.81 (2011-10-26)
+    1) References to draw_keyword_block() changed to draw_related_block()
+    2) Moved Record::get_keywords() into here
+  1.0.80 (2011-10-24)
+    1) Changes to Displayable_Item::do_tracking() to prevent error if
+       page_vars['path'] isn't set (e.g. when mode=rss/config)
+  1.0.79 (2011-10-19)
+    1) Changed references in Displayable_Item::get_URL() from `effective_date`
+       to `effective_date_start`
+  1.0.78 (2011-10-13)
+    1) Changed references of _CM_ID[0] to _CM.ID in context menu for
+       Displayable_Item::draw_from_recordset()
+  1.0.77 (2011-09-16)
+    1) Added empty Displayable_Item::_draw_listings_set_shop_page_if_relevant()
+       to be overridden by children if they represent products for purchase
+  1.0.76 (2011-09-14)
+    1) Displayable_Item::_draw_related_setup() reduced fixed size of thumbnail
+       width down to 100px from 200px
+  1.0.75 (2011-09-12)
+    1) Displayable_Item::isPurchasable() now works on current object
+  1.0.74 (2011-09-02)
+    1) New method Displayable_Item::draw_related() to provide item description
+       for product checkout and order details for products that list related items
+  1.0.73 (2011-08-30)
+    1) Added new public method Displayable_Item::draw_listings_json()
+  1.0.72 (2011-08-19)
+    1) Displayable_Item::_draw_listings_update_cart() now uses cart methods for
+       cart operations
+  1.0.71 (2011-08-18)
+    1) Updated Displayable_Item::draw_link()for 'register_event' and
+       'register_event_large' to reference selectID not eventID when specifying
+       event to register for
+  1.0.70 (2011-07-20)
+    1) Displayable_Item::_draw_listings_load_block_layout() now calls
+       Block_Layout::draw_css_include() to create CSS include line inetead of
+       leaving Displayable_Item::_draw_listings_setup() to do it manually
+    2) Fix to Displayable_Item::get_URL() to reallow local items to have path
+       set for date in items such as events and article - bug was introduced in
+       last build during development
+  1.0.69 (2011-07-19)
+    1) Displayable_Item::get_URL() now forces a type prefix for the following types:
+         gallery-album, gallery-image and podcast-album
+  1.0.68 (2011-07-17)
+    1) Changed two references from Component::get_parameter_defaults_and_values()
+       to Component_Base::get_parameter_defaults_and_values()
+  1.0.67 (2011-07-14)
+    1) Removed persistent cookie in Displayable_Item::do_log() - not used and
+       also a bit of a no-no now with current privacy legislation
+  1.0.66 (2011-07-13)
+    1) Displayable_Item::do_tracking() now track each logged-in access to system
+       table now, not to visitor database as before
+  1.0.65 (2011-06-03)
+    1) Displayable_Item::draw_panel_box() now sets background colour according
+       cp of 'background' if given, otherwise leaves it alone.
+  1.0.64 (2011-05-28)
+    1) Displayable_Item::draw_panel_box() now includes extra parameter $shadow
+       which includes 'shadow' class in container div if set
+  1.0.63 (2011-05-17)
+    1) Displayable_Item::_draw_listings_load_paging_controls() now
+       checks for installation of Church module before attempting to invoke the
+       Ref Tagger
+  1.0.62 (2011-05-15)
+    1) A couple of protected functions made public to allow them to be used by
+       the Collection_Viewer
+  1.0.61 (2011-05-09)
+    1) Displayable_Item::get_URL() now uses long form posting types to get object
+       type
+    2) Displayable_Item::draw_search_results_paging_nav() now uses long-form type
+  1.0.60 (2011-05-07)
+    1) Displayable_Item::_draw_listings_load_paging_controls() now
+       reapplies externalLinks() to make external anchor references open in popup
+  1.0.59 (2011-05-06)
+    1) Change to Displayable_Item::_draw_listings_load_paging_controls() to
+       reapply Reftagging if this is loaded
+  1.0.58 (2011-05-06)
+    1) Displayable_Item::draw_listings() now sets record 'computed_sequence_value'
+       value to the sequence within the collection in which it is displayed
+       for use by new BL tag 'sequence'
+  1.0.57 (2011-05-05)
+    1) Changes to both _draw_detail_setup() and draw_listings_setup() to ensure
+       that component controls are displayed even if block layout isn't found.
+       Closes bug ECC:67
+  1.0.56 (2011-05-04)
+    1) Replaced all references of _CM_type to _CM.type
+  1.0.55 (2011-05-02)
+    1) Displayable_Item::_draw_listings_setup() now handles setting of
+       _filter_offset from supplied variable (if any)
+  1.0.54 (2011-04-30)
+    1) Displayable_Item::_draw_listings_draw_status() now sends unadorned safeID
+       to HTML::draw_status - extra suffix was not needed
+    2) Displayable_Item::_draw_listings_setup() now checks 'source' to see if
+       a submode operation was intended for the named instance of a component
+  1.0.53 (2011-04-27)
+    1) Displayable_Item::draw_listings() now handles submode and provides a
+       status bar for feedback
+  1.0.52 (2011-04-26)
+    1) Tidied up Displayable_Item::get_URL() to remove cases for Treb-Listing
+       and Pages
+  1.0.51 (2011-04-25)
+    1) System::do_tracking() now moved to Displayable_item::do_tracking()
+  1.0.50 (2011-04-25)
+    1) Removed archane references to event_id in Displayable_Item::draw_link()
+  1.0.49 (2011-04-25)
+    1) Moved Record::get_URL() into here - makes more sense
+  1.0.48 (2011-04-22)
+    1) Displayable_Item::_draw_listings_load_user_rights() now includes SYSAPPROVER
+       as a person who can edit
+    2) Several protected functions now made public to allow use by collection viewer
+  1.0.47 (2011-04-18)
+    1) Displayable_Item::draw_listings() now decodes xml fields to make these
+       available for display via block layout tags
+    2) Displayable_Item::_draw_detail_setup() now decodes xml fields to make these
+       available for display via block layout tags
+  1.0.46 (2011-04-15)
+    1) Now extends Block_Layout class not Record
+    2) Moved all block layout functions into Block Layout class - more logical
+  1.0.45 (2011-04-15)
+    1) Added Displayable_Item::_get_context_menu_ID() to separate this out and
+       allow for easier overriding by children if required -
+       e.g. for TREB which determines CM not by posting type but by subtype
+  1.0.44 (2011-04-14)
+    1) In Displayable_Item::_draw_listings_setup() -
+       Ensured that ident is always JS-safe, even if it contains a hyphen
+       (as in Gallery-Image)
+    2) Displayable_Item::_draw_listings_load_records() now respects parameters
+       filter_container_path and filter_container_subs if given
+  1.0.43 (2011-04-14)
+    1) In Displayable_Item::_draw_listings_setup() -
+       Changed idents for all listing panels from (Object)_panel to list_(Object)
+  1.0.42 (2011-03-11)
+    1) Now includes getters and setters for _has_enable_flag and
+        _has_publish_date (which was moved up here from Postings class)
+    2) BL_title_linked() now uses title from BL_title() to allow for simpler
+       overloading by child classes such as Product
+  1.0.41 (2011-03-02)
+    1) Displayable_Item::BL_thumbnail_image() now accepts thumbnail_height as
+       possible parameter and resizes accordingly
+  1.0.40 (2011-01-09)
+    1) Displayable_item::truncate_more() now applies Language::convert_tags() to
+       ensure that closing language tag is not lost
+  1.0.39 (2010-12-11)
+    1) Tweak to Displayable_item::_draw_listings_setup() to URI encode category
+       clause in URL
+    2) Tweak to Displayable_item::draw_panel_box() to URI encode category
+       clause in URL
+  1.0.38 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.37 (2010-09-20)
+    1) Fix for title in link for 'Add this Event to your Outlook Calendar' in
+       Displayable_Item::draw_link() -
+       was mangling XHTML as it contained an embedded closing anchor tag
+  1.0.36 (2010-09-14)
+    1) Simplified Displayable_item::BL_date() and BL_date_heading_if_changed()
+       to use new codebase format_date() function to format the date
+    2) Displayable_item::draw_from_recordset() now uses format_date()
+  1.0.35 (2010-08-17)
+    1) Now respects CP for 'products' in Displayable_item::BL_links()
+       and Displayable_item::BL_links_for_listings()
+  1.0.34 (2010-08-14)
+    1) Displayable_item::BL_content() now invokes FCK editor object directly
+    2) Displayable_item::_draw_detail_draw_context_toolbar() no longer
+       checks to see if content has ECL&nbsp;or other tags - this is no longer
+       relevant
+  1.0.33 (2010-08-10)
+    1) Change to Displayable_item::BL_event_times() to use new fields
+       `effective_time_start` and `effective_time_end` and to operate
+       using new static event method Event::format_times()
+  1.0.32 (2010-08-04)
+    1) Fix for Displayable_item::BL_thumbnail_image in product listings -
+       was assuming URL field was always available, but it isn't for products.
+       Broke 2 builds ago.
+  1.0.31 (2010-08-04)
+    1) Displayable_item::BL_comments_link() now extended to work in either
+       listings or detail modes
+  1.0.30 (2010-08-02)
+    1) Tweak to Displayable_item::draw_keywords_block() to enclose component controls
+       inside bounding div to allow it to move with layout positioning.
+  1.0.29 (2010-07-28)
+    1) Changes to Displayable_item::draw_from_recordset() to support new argument
+       'links_point_to_URL' - this turns off regular bottom link for URLs and
+       changes links for thumbnail and title to use that URL instead IF SET
+    2) Change to Displayable_item::BL_links_for_listings() to turn off 'Link' if
+       CP 'links_point_to_URL' is set
+    3) Changes to Displayable_item::BL_thumbnail_image() to link to URL if set
+       and 'links_point_to_URL' CP is enabled
+    4) Changes to Displayable_item::BL_thumbnail_image() to link to URL if set
+       and 'links_point_to_URL' CP is enabled
+  1.0.28 (2010-07-15)
+    1) Now references Component_Base:: where needed not Component::
+  1.0.27 (2010-07-14)
+    1) Change to Displayable_item::BL_comments_link() to prevent link being shown
+       if item is for registered persons to comment on only and the viewer is public
+    2) The following CPs were changed:
+         body_char_limit  ->  content_char_limit
+         body_plaintext   ->  content_plaintext
+         body_show        ->  content_show
+  1.0.26 (2010-07-03)
+    1) Changes to Displayable_item::BL_title() to allow cps to turn off
+    2) Changes to Displayable_item::BL_title_linked() to allow cps to turn off
+       or opt for straight non-linked text
+  1.0.25 (2010-07-02)
+    1) Displayable_item::isRegisterable() now always returns false -
+       Event class overrides this
+    2) Displayable_item::BL_date() and Displayable_item::BL_date_heading_if_changed()
+       now choose effective_date instead of date if object type is Event
+  1.0.24 (2010-06-06)
+    1) Now when keywords feature is turned off, keywords block does not show at all
+    2) If keywords are on but listed item has no keywords, extra break is displayed
+  1.0.23 (2010-06-03)
+    1) Tweak to Displayable_item::convert_Block_Layout() to trim BL results
+  1.0.22 (2010-06-02)
+    1) Bug fix for Displayable_item::draw_panel_box() to set correct form for 'add'
+       icon - was fixed to events which is obviously wrong.
+       Now also preseta categories if CPs for category_filter_master or
+       category_filter_list are set
+    2) Change to Displayable_item::_draw_listings_setup() to include Add icon
+       ifd there is no box provided
+  1.0.21 (2010-05-28)
+    1) Displayable_Item::BL_links() now also includes link for 'Buy Event'
+  1.0.20 (2010-05-26)
+    1) Displayable_Item::_draw_detail_include_js() which formerly added JS for Product
+       detail mode now a stub - JS for product now delegated to that child class instead
+    2) Displayable_Item::BL_links_for_listings() now includes link for 'Buy Event'
+  1.0.19 (2010-05-24)
+    1) Tweak to Displayable_Item::draw_panel_box() to convert 'add' href to onclick
+    2) Tweak to Displayable_Item::BL_event_times() to have dash between start and
+       end times bounded by 'thin-space' t corect non-breaking issues in Firefox
+    3) Bug fix for Displayable_Item::BL_cart_operations() when clicking a cart with
+       the current product included to empty the cart of that product
+    4) Split out loading of records into Displayable_Item::_draw_listings_load_records()
+       to allow for easier overloading
+  1.0.18 (2010-04-23)
+    1) Changes to Displayable_Item::draw_from_recordset() to get context menu
+       working for different types of item and to only display a date if there
+       is a valid date to show.  Also includes an extra clearing div to get
+       CM to span entire item even when body wrapping against floated image is
+       to short to clear the image intself.
+  1.0.17 (2010-04-19)
+    1) Moved Article::draw_from_recordset() to Displayable_Item::draw_from_recordset()
+       in preparation for making it handle any tyype of item (including products)
+    2) Bug fix on Displayable_Item::draw_from_recordset() for thumbnail picture display
+  1.0.16 (2010-04-07)
+    1) Added safety check in Displayable_Item::_draw_detail_load_publication_status()
+       to check object has a get_has_publish_date() method before trying to call it
+  1.0.15 (2010-03-30)
+    1) In Displayable_Item::_draw_detail_setup() removed errant and unnecessary
+       call to Displayable_Item::_draw_detail_test_pending_publication()
+    2) Displayable_Item::_draw_detail_draw_context_toolbar() now invokes HTML class
+       to show the toolbar instead of invoking method directly which caused problems
+  1.0.14 (2010-02-12)
+    1) Displayable_Item::draw_detail() now handles posting deletion
+  1.0.13 (2009-12-02)
+    1) Change to Displayable_Item::BL_thumbnail_image() to use new 'resize' mode
+       of image streamer to perform resize while mainitaining aspect ratio for
+       shorter and cleaner URLs
+  1.0.12 (2009-11-17)
+    1) Change to Displayable_Item::draw_keywords_block to remove terminating ';'
+       in parameter string and to modernise CP code and provide an ident
+  1.0.11 (2009-10-09)
+    1) BL_add_to_cart now renamed BL_cart_operations and includes price if CP is
+       set to allow that
+    2) Added BL_field() to write value for any given field
+    3) Changes to convert_BL_tags to allow optional inline parameters for those
+       BL tags that support them - e.g. BL_field()
+  1.0.10 (2009-10-07)
+    1) Added BL_product_grouping to show product_category_name
+      (not to be confused with BL_category which is for standard category)
+  1.0.9 (2009-10-03)
+    1) Added support for Products in Displayable_Item::draw_search_results_paging_nav()
+  1.0.8 (2009-10-02)
+    1) Support added for shopping cart for product listings:
+         Added BL_add_to_cart(), _BL_add_to_cart_for_detail() and _BL_add_to_cart_for_panel()
+    2) Changes to BL_date() to respect system default date format
+  1.0.7 (2009-09-30)
+    1) Change to Displayable_Item::isRegisterable() to exit if the record doesn't
+       have a canRegister entry
+    2) Change to Displayable_Item::draw_panel_box to deal with 'add form' and
+       'rss link' for products
+    3) Change to Displayable_Item::BL_context_selection_start() to deal with "
+       in title
+    4) Change to Displayable_Item::_draw_listings_setup() to deal with missing
+       personID or memberID
+    5) BL_content_truncated() now respects CP setting for body_show
+    6) BL_author() now respects CP setting for author_show
+    7) BL_subtitle() now respects CP setting for subtitle_show
+    8) Added BL_category()
+    9) Added BL_thumbnail_image_at_top() and BL_thumbnail_image_at_bottom()
+  1.0.6 (2009-09-23)
+    1) Added Displayable_Item::BL_thumbnail_image()
+  1.0.5 (2009-09-22)
+    1) Added Displayable_Item::_draw_listings_load_paging_controls() to handle paging
+       for all listings panels
+    2) Displayable_Item::draw_panel_box() now makes its own determination as to whether
+       someone can add a new record or not, parameter no longer required
+  1.0.4 (2009-09-11)
+    1) Changes to Displayable_Item::_draw_listings_render(),
+       Displayable_Item::_draw_listings_setup() to use new rationalised parameters
+       with box_ or filter_ parameters
+    2) Changes to Displayable_Item::draw_panel_box() to remove inner support for
+       header and footer - not used now and was believed to never have been used
+       for an articles panel
+    3) Displayable_Item::_draw_listings_load_parameters() and
+       Displayable_Item::_draw_detail_load_parameters() now much simplified -
+       these now invoke static function Component::get_parameter_defaults_and_values()
+    4) Displayable_Item::_draw_listings_draw_help() and
+       Displayable_Item::_draw_detail_draw_help() now much simplified -
+       these now invoke static function Component::get_help()
+  1.0.3 (2009-09-10)
+    1) Changes to BL_content_truncated() to use CPs for
+       'body_char_limit', 'body_plaintext' and 'body_show'
+  1.0.2 (2009-08-05)
+    1) Now each type has its own list of component_parameters
+    2) BL_context_selection_start provides for editing of Block Layouts
+  1.0.1 (2009-08-04)
+    1) Added in Displayable_Item::draw_panel_box() - moved from Posting class
+    2) Displayable_Item::_draw_listings_load_parameter_defaults() now sets defaults
+       for personID and memberID
+    3) Changes to Displayable_Item::
+  1.0.0 (2009-08-01)
+    Initial release

@@ -1,0 +1,78 @@
+  1.0.21 (2014-01-28)
+    1) Newline after JS onload code
+  1.0.20 (2012-11-08)
+    1) Fix to handle fieldnames containing : (e.g. xml:test) for Jquery selectors
+  1.0.19 (2012-10-28)
+    1) FCK::draw_editor() now uses jquery not prototypejs to reference initial
+       textarea field
+  1.0.18 (2012-10-09)
+    1) FCK::draw_editor() now sets content of initial textarea dynamically using
+       JSON-encoded content immediately after load time so all textarea content
+       is now valid for XHTML Strict
+  1.0.17 (2012-10-07)
+    1) Tweak to HTML for textarea used to seed FCK Editor now has required rows
+       and cols attributes for XHTML Strict
+  1.0.16 (2011-10-22)
+    1) Moved old history into text file
+    2) FCK::draw_editor() now overwrites CKeditors timestamp with version code
+       from this class, so all plugins are now updated each time this file changes
+  1.0.15 (2011-09-04)
+    1) Tweak to FCK::draw_editor() to safely sanitize textarea html tags
+  1.0.14 (2011-07-31)
+    1) FCK::do_fck(1) now sets content type as JSON for submode 'ecl'
+    2) FCK::draw_plugin_ecl() now streams all ecl tag data as JSON
+    3) Deleted FCK::draw_plugin_audio()
+    4) Deleted FCK::draw_plugin_video()
+    5) Deleted FCK::draw_plugin_youtube()
+    6) Deleted FCK::draw_config()
+    7) Removed references to gFckEditorsLoading in FCK::draw_editor() - not needed
+    8) FCK::attach_ckfinder() changed path for ckfinder include to new location
+  1.0.13 (2011-05-11)
+    1) Change to FCK::draw_editor() to bypass browser compat check if IE9+
+       IE10 was causing error in the _IsCompatibleBrowser() test in fckeditor.js
+    2) FCK::draw_config() now permits Opera, Safari and Chrome to work with tags
+  1.0.12 (2011-04-19)
+    1) Added new toolbar 'Email_Template_HTML_Full'
+  1.0.11 (2011-03-05)
+    1) Added toolbar set for 'Category'
+  1.0.10 (2010-12-21)
+    1) FCK::draw_config() now includes config for skin path
+  1.0.9 (2010-11-18)
+    1) FCK::draw_config() now handles exclusion of media plugins for safari properly
+       - Safari APPEARED to work (see placeholder demo for FCKEditor 2.6.6) but
+       completely failed to set context in popup when invoked:
+         see http://dev.ckeditor.com/ticket/2425
+       It is noteworthy that sample code shipped with version 3.4.2 doesn't even try
+    2) FCK::draw_config() now includes inline video and youtube tag controllers
+  1.0.8 (2010-08-14)
+    1) FCK::draw_editor() now replaces [ with {{[}} when setting value for control
+       and has javascript convert it back to [ client-side.
+       This has far-reaching implications:
+       a) We can now defeat the ECL tag processing engine when we generate the page
+          so now ANY page can be edited using 'in-page' methods, regardless of the
+          ECL, audio, youtube or transform tags it may contain
+       b) Email wizard content that contains ECL tags can be safely reloaded
+          following sender, group or other change without parser attempting to
+          interfere with FCKEditor-enclosed content
+       TWO significant 'gotchas' now gone!
+    2) FCK::draw_editor() no longer shims width by means of a transparent spacer
+       image and allows for % values to be given while defaulting to px where
+       units are not given for width or height
+  1.0.7 (2010-07-28)
+    1) Added support for Gallery_Image toolbar
+  1.0.6 (2010-01-08)
+    1) Added Audio tag for all postings (requested by Darlene)
+  1.0.5 (2009-12-08)
+    1) Added 'Email_Wizard' toolbar set
+    2) Removed 'More' for Page - meaningless.
+  1.0.4 (2009-11-01)
+    1) Removed incorrect and unnecessary includes in 'transformer' section
+       (Closes bug XIM-40)
+  1.0.3 (2009-10-22)
+    1) Added Bug toolbar to list of toolbars
+  1.0.2 (2009-09-24)
+    1) Added Product toolbar set to list of toolbars
+  1.0.1 (2009-07-26)
+    Moved contents of function draw_fck_editor() into FCK::draw_editor()
+  1.0.0 (2009-07-02)
+    Initial release

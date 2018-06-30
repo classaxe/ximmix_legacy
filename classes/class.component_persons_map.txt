@@ -1,0 +1,4 @@
+  1.0.0 (2013-10-27)
+    1) New class containing code previously in Component_Person_Category_Map
+    2) Modified to conformm to latest modular standards
+    3) Now filters on current system

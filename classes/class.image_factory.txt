@@ -1,0 +1,23 @@
+  1.0.9 (2011-09-22)
+    1) Image_Factory::rotate() now logs process
+  1.0.8 (2011-09-22)
+    1) Added Image_Factory::rotate()
+  1.0.7 (2011-08-05)
+    1) new static function setColorIndex() - was in codebase as setColourIndex()
+  1.0.6 (2011-08-03)
+    1) New static functions get_dimensions(), get_extension
+  1.0.5 (2010-01-18)
+    1) Header now properly formatted to allow export of latest changes to build list
+  1.0.4 (2010-01-08)
+    1) Change to Image_Factory::xml_to_image() to allow canvas section of an xml
+       document to be optionally wrapped in XML wrapper with other data
+  1.0.3 (2009-11-16)
+    1) Replaced split() with explode() in Image_Factory::xml_to_image() for php 5.3+
+  1.0.2 (2009-06-24)
+    Bug fix in Image_Factory::xml_to_image() to correctly read mode attribute
+    Now allows for mode attribute value of 'none' which returns the image object
+    without streaming it so you can do other things to it.
+  1.0.1 (2009-06-16)
+    Improvements to Image_Factory::xml_to_image() for multi-line text with center and right alignment
+  1.0.0 (2009-06-15)
+    Initial release

@@ -1,0 +1,14 @@
+  1.0.5 (2012-03-07)
+    1) Changes to remove option for USA orders from Canada to be shipped overnight
+       This is now enforced by FEDEX as an invalid service option
+  1.0.4 (2011-09-21)
+    1) If method is FEDEX and Fedex feature isn't enabled for the site, an error
+       message is now returned
+  1.0.3 (2010-10-14)
+    1) Changes to Shipping::get_shipping() to operate using CPs passed from caller
+  1.0.2 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.1 (2010-07-15)
+    1) Changed references to inline get_parameter() to Component_Base::get_parameter()
+  1.0.0 (2009-07-02)
+    Initial release

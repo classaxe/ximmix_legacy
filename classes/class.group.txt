@@ -1,0 +1,81 @@
+  1.0.28 (2013-11-20)
+    1) Group::member_assign() removed support for permADMIN and permAPPROVER
+    2) Group::get_perms_array_from_csv() removed support for permADMIN and permAPPROVER
+    3) Group::member_perms() removed support for permADMIN and permAPPROVER
+    4) Group::test_person_access_for_named_group() removed support for permADMIN
+       and permAPPROVER
+  1.0.27 (2013-10-04)
+    1) Group::member_perms() now includes ID and systemID of group_membership
+  1.0.26 (2013-05-07)
+    1) New method Group::on_action_set_group_membership_description()
+  1.0.25 (2012-12-03)
+    1) Group::copy() now has same signature as Record::copy()
+  1.0.24 (2012-10-08)
+    1) Removed errant paragraph container for report in Group:manage() -
+       contents cannot be enclosed in non-block level element
+  1.0.23 (2012-09-09)
+    1) Changed previous comment to not reference a specific database
+  1.0.22 (2012-09-05)
+    1) Group::member_unassign() now uses Record::get_affected_rows()
+  1.0.21 (2012-05-25)
+    1) Group::get_email_recipients() now includes NTitle
+  1.0.20 (2012-05-25)
+    1) Group::get_email_recipients() now includes NGreetingName
+  1.0.19 (2011-02-15)
+    1) Moved Group::add_people() to new class Group_wizard::draw()
+    2) Removed unrequired methods Group::get_selector_permissions_SQL() and
+       Group::get_selector_basic_permissions_SQL()
+  1.0.18 (2011-01-26)
+    1) Group::member_assign() and Group::member_unassign() now write errors to log
+  1.0.17 (2010-10-19)
+    1) Group::add_people() now calls insert() method
+    2) Group::copy() now calls insert() method
+    3) Group::member_assign() now calls insert() method
+  1.0.16 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.15 (2010-06-17)
+    1) Removed support for aggregate filters
+  1.0.14 (2010-06-08)
+    1) Changes elsewhere in this build mean that clicking a 'select_item' report
+       field link can take user to an anchor on page - added anchor for group
+       members so clicking on a 'View Group Members' link will take user to listing
+  1.0.13 (2010-02-17)
+    1) Added edit parameters to allow report copy with rename
+  1.0.12 (2010-02-04)
+    1) Modernised Group::member_perms()
+    2) Bug fix for Group::member_unassign() which was clearly missing an execute
+       statement
+  1.0.11 (2010-01-05)
+    1) Group::add_people() bug fix - xml_field conversion required name of table
+       to avoid any possible ambiguity between different tables in the report which
+       may have an XML_data field - this is now resolved.
+  1.0.10 (2010-01-01)
+    1) Group::add_people() now fully supports XML field filtering
+  1.0.9 (2009-12-13)
+    1) Bug fix for Group::add_people() to apply filter settings for report correctly
+       - now determines filterField by looking at report column indicated
+       Fixes second half of bug  XIM-50
+  1.0.8 (2009-12-12)
+    1) Change to Group::get_selector_email_groups_sql() to fix displayed count to
+       exclude persons with missing email addresses.
+  1.0.7 (2009-12-09)
+    1) Added Group::get_email_recipients()
+    2) Added Group::get_email_recipients_count()
+  1.0.6 (2009-12-06)
+    1) Group::get_selector_email_groups_sql() now extended to include '(None)'
+  1.0.5 (2009-12-01)
+    1) Added static function Group::get_selector_email_groups_sql()
+  1.0.4 (2009-11-03)
+    1) Change to Group::get_names_for_IDs() to have it return empty array if the
+       associated item has not yet been created (e.g. for new events where groups
+       is read-only but the event has not yet been saved)
+  1.0.3 (2009-11-01)
+    1) Added Group::get_names_for_IDs() to be used with read-only implementation
+       of groups_assign control
+  1.0.2 (2009-10-26)
+    1) References to inline function get_sql_filter() now Report::get_filter()
+  1.0.1 (2009-10-14)
+    1) Change to Group::manage() to allow filters for groups report and to change
+       wording for header text message to clarify how to view members
+  1.0.0 (2009-07-02)
+    Initial release

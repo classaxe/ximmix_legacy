@@ -1,0 +1,34 @@
+  1.0.6 (2012-06-19)
+    1) Moved Navbutton::get_text_size() into here
+    2) Moved Navbutton::get_button_base_size() into here
+    3) Now capitalises text for each line if the 'uppercase' flag is set
+  1.0.5 (2011-08-05)
+    1) Remapped old use of setColourIndex() to Image_Factory::setColorIndex
+       in Navbutton_Image::_add_overlay() and Navbutton_Image::_remap_template_colors()
+  1.0.4 (2011-08-04)
+    1) Navbutton_Image::_set_palette() now uses Image_Factory::allocateColor()
+  1.0.3 (2011-07-01)
+    1) Changes to Navbutton_Image::_add_text_glow_state() and _add_text_shadow_state()
+       to include two new intensity matrices and to make existing ones smoother
+  1.0.2 (2011-03-29)
+    1) Changes to Navbutton_Image::_add_button_style_overlay() to work with
+       new sequence rules
+  1.0.1 (2010-08-09)
+    1) Bug fix for Navbutton_Image::_add_text_overlays() -
+       was not correctly respecting text alignment following change to
+       two text regions.
+  1.0.0 (2010-07-27)
+    1) Initial release - code moved here from Navbutton class
+    2) Substantial optimisations for text and text effects:
+       a) If alpha is 100%, second layer and merge are skipped
+       b) For _add_text_effect_from_matrix(), all points with the same
+          alpha level are now handled in a single pass:
+          Formerly glow of 100% required 37 merges per button state, now
+          takes just 4 to achieve the same result (around 1/10)
+    3) If button has transparent colour on it anywhere, transparency is set
+       and palette remains at 16.7 million
+    4) If button does NOT require transparency, palette is reduced to max of 1024
+       colours with no dithering or transparency.
+    5) Net effect is that regular images are 20% SMALLER than before, while
+       those with transparency are abou 150% larger but both have better
+       effect rendering

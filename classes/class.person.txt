@@ -1,0 +1,406 @@
+  1.0.121 (2014-12-29)
+    1) Added support for LinkedIn BL tags
+    2) Added support for about field and privacy controls for it, along with BL_about tag
+  1.0.120 (2014-09-21)
+    1) New fields `about`, `AGooglePlus`, `ALinkedIn`, `WGooglePlus` and `WLinkedIn`
+  1.0.119 (2014-08-17)
+    1) Person::get_email_message_list() now gets messages with latest shown first
+  1.0.118 (2014-07-13)
+    1) Added helper method _social to deal with block layout tags for social sites
+    2) Added BL_facebook(), BL_facebook_home() and BL_facebook_work()
+    3) Added BL_twitter(),  BL_twitter_home()  and BL_twitter_work()
+    4) Added BL_youtube(),  BL_youtube_home()  and BL_youtube_work()
+    5) All social BL tags and email BL tags now have optional boolean parameter which if
+       set returns bare URL without wrapping in link text
+  1.0.117 (2014-06-23)
+    1) Correct names fotr static functions added last build should have been
+       Person::get_email_opt_in_link_for_group() and Person::get_email_opt_out_link_for_group()
+       and changed implied paths to make them shorter
+  1.0.115 (2014-03-27)
+    1) Person::BL_map() now checks for CPs of
+       search_area was given
+    2) Person::_draw_item_map_point() now accepts icon parameter
+    3) Person::BL_map() now accepts cps of 'marker_home' and 'marker_work' if given
+  1.0.114 (2014-03-27)
+    1) Person::_draw_object_map_html_get_data() now includes areas for map match
+       confidence to allow probability range to be drawn with points
+  1.0.113 (2014-02-23)
+    1) Moved Person::get_IDs_requiring_map_updates() into
+       Displayable_Item::get_IDs_requiring_map_updates()
+  1.0.112 (2014-02-21)
+    1) Person::get_IDs_requiring_map_updates() now accepts limit parameter
+  1.0.111 (2014-02-21)
+    1) Added new field `process_maps` to fields list
+    2) New method Person::get_IDs_requiring_map_updates()
+    3) New action for use with CRON heartbeat scheduler - on_schedule_update_pending()
+    4) Person::get_coords() now uses a loop to move through options
+  1.0.110 (2014-02-19)
+    1) Added new action Person::on_pre_update_action_set_map_coordinates() to
+       force coordinate recalculation if map location has changed
+  1.0.109 (2014-02-16)
+    1) Refreshed fields list - now declared as a class constant
+    2) Person::get_coords() now includes geocodeID, match type and quality fields
+  1.0.108 (2014-01-28)
+    1) Removed Person::draw_change_password() - unused
+  1.0.107 (2014-01-17)
+    1) Person::_map_link() (as used in search results listings) now uses new helper
+       function ecc_map.point.i() to open info-window and reduce code
+  1.0.106 (2014-01-05)
+    1) Person::draw_forgotten_password() now gives correct error message if unable
+       to send email to specified address
+  1.0.105 (2013-12-13)
+    1) New field `PLogonLastMethod` for person table to record method of last login
+    2) Moved Person::single_signin() into User class
+    3) Moved Person::get_ssi_token_for_email() into User class
+    4) Moved Person::single_signin_encode() into User class
+    5) Moved Person::single_signin_decode() into User class
+    6) Person::BL_context_selection_start() now indicates if the person belongs
+       to another site
+  1.0.104 (2013-12-10)
+    1) Moved Person::merge_profiles() into new Person_Merge_Profiles child class
+       as Person_Merge_Profiles::merge()
+  1.0.103 (2013-12-05)
+    1) Changes to Person::BL_context_selection_start() to use person record type
+       to determine correct context-menu operations
+  1.0.102 (2013-12-04)
+    1) Upgraded Person::BL_map to show 'you are here' and a range ring if map
+       is associated with search position and distance
+    2) New BL tags BL_website, BL_website_home, BL_website_work
+    3) Bug fix - Person::_phone() was referrencing cellphone field not phone
+  1.0.101 (2013-12-03)
+    1) Enhanced BL tags that respect privacy settings and system features
+    2) New CPs for show_address_map_link, show_company and show_email
+    3) Removed CP address_choice - unnecessary, now always respects privacy
+    4) Removed BL_address_prefix - unnecessary
+    5) Removed filter_search_listing - privacy options now always respected
+    6) Use of listing control now requires privacy options to be enabled
+  1.0.100 (2013-11-27)
+    1) Added BL_map function to allow person listings to suport an embedded map
+    2) New method Person::privacy_check_viewer_access()
+    3) New method Person::_draw_item_map_point()
+  1.0.99 (2013-11-20)
+    1) Person::get_named_group_rights() removed support for permADMIN and permAPPROVER
+    2) Person::merge_profiles() removed support for permADMIN and permAPPROVER
+    3) New public static method Person::get_group_permissions()
+  1.0.98 (2013-11-14)
+    1) Refreshed fields list
+  1.0.97 (2013-11-07)
+    1) Added [set_edit_params][report] as either user or contact depending on type
+  1.0.96 (2013-11-06)
+    1) Bug fix for Person::on_action_set_map_descriptions_and_coordinates() which
+       was missing address line 1 and putting line 2 twice!
+    2) Person::_draw_object_map_html_get_data() now adds suffix 'a' or 'w' instead
+       of 0 or 1 to distinguish between home and work coordinates
+  1.0.95 (2013-10-28)
+    1) Changes to Person::_draw_object_map_html_get_data() to only look in home
+       or work addresses if the specific address is enabled
+  1.0.94 (2013-10-24)
+    1) Improvements to Person::on_action_set_map_descriptions_and_coordinates()
+       to eliminate blank lines in address descriptions
+  1.0.93 (2013-10-23)
+    1) Added support for inclusion of home_phone or work_phone in Person Map
+  1.0.92 (2013-10-03)
+    1) Added Person::get_email_messages()
+    2) Person::get_group_membership() now includes groupID
+  1.0.91 (2013-09-09)
+    1) Person::get_selector_sql() tweak to ensure that '(None)' is always at top
+  1.0.90 (2013-08-13)
+    1) Fields list no longer static - caused errors
+  1.0.89 (2013-08-13)
+    1) Refreshed fields list and made $fields explicitly public static
+  1.0.88 (2013-08-05)
+    1) Fix to Person::get_selector_sql() to include Greeting name and both home
+       and work telephone numbers
+  1.0.87 (2013-08-05)
+    1) New method Person::get_selector_sql() as used in selector_contact field type
+    2) New method Person::lookup() for Community_Member::_on_action_member_setup_contact()
+  1.0.86 (2013-06-05)
+    1) Internal changes in support of CP changes to replace the following
+       deprecated parameters with their new equivalents:
+         Old: 'grouping_tabs',    'filter_limit',  'filter_order_by', 'paging_controls'
+         New: 'results_grouping', 'results_limit', 'results_order',   'results_paging'
+    2) Changed default for CP 'paging_controls' to '0' and removed CPs for
+       'title_show' and 'title_linked'
+  1.0.85 (2013-06-03)
+    1) Added cp for filter_order_by
+  1.0.84 (2013-06-03)
+    1) Removed Person::edit_profile() -
+       now handled by Component_Edit_Your_Profile::draw()
+    2) Refreshed fields list
+  1.0.83 (2013-05-31)
+    1) Added record to array created in Person::_draw_object_map_html_get_data()
+       to support context-menu operations involving people later on
+  1.0.82 (2013-05-29)
+    1) Bug fix for Person::on_action_set_map_descriptions_and_coordinates() to handle
+       case where country is either blank or doesn't appear in countries list
+    2) Tweaks to Person::on_action_set_map_descriptions_and_coordinates() to allow
+       clearing of lat / lon when location string is cleared
+    3) Overriden version of Displayable_Item::_draw_object_map_html_setup()
+       to allow determination of which addresses are available to be displayed
+    4) Overriden version of Displayable_Item::_draw_object_map_html_get_data()
+       to allow both home and work addresses to be shown and identified
+  1.0.81 (2013-05-25)
+    1) Moved Person::draw_signup() out into its own class extends Component_Base
+    2) Person::draw_signup() remains for now as a deprecated stub to activate new
+       Component_Signup::draw() method
+  1.0.80 (2013-05-23)
+    1) Person::draw_signup() - changes to conform to xhtml strict and to allow
+       for switching on or off of box shadow
+  1.0.79 (2013-05-06)
+    1) Person::get_group_membership() now only returns currently used fields
+    2) New method on_action_set_group_membership_description()
+    3) Added groups_list field to fields list
+  1.0.78 (2013-01-25)
+    1) Changes to Person::manage_emails() to only allow regular users access IF
+       they have the same ID as the selectedID value for ther report
+  1.0.77 (2012-11-23)
+    1) Person::_set_type() now uses  $this->_push_fixed_field() to add `type` as a
+       fixed field, not $this->_set_fixed_fields() as before
+  1.0.76 (2012-10-29)
+    1) Added tax_codeID to field list
+  1.0.75 (2012-10-28)
+    1) Change to Person::do_group_unsubscribe() to use onclick for action link
+  1.0.74 (2012-09-09)
+    1) Changed previous comment to not reference a specific database
+  1.0.73 (2012-09-03)
+    1) Moved codebase function exists_emailaddress() here as Person::exists_emailaddress()
+    2) Moved codebase function exists_username() here as Person::exists_username()
+    3) Changes to draw_forgotten_password() to use machinery in Record class for
+       DB operations
+    4) Simplified Person::uniq_PUsername() to use machinery in Record class
+  1.0.72 (2012-08-10)
+    1) Removed Person::get_next_ID_for_QB_conversion() from here -
+       Now moved to QB_User::get_next_ID_for_QB_conversion()
+    2) Removed Person::lookup_from_QB_data() from here -
+       Now moved to QB_User::lookup_from_QB_data()
+  1.0.71 (2012-08-08)
+    1) Change to Person::lookup_from_qb_data() to try exact match for work OR home
+       email address and phone numbers and to use REXP matching to isolate
+    2) Added `qb_name` to fields list
+  1.0.70 (2012-07-24)
+    1) New method - Person::lookup_from_qb_data()
+  1.0.69 (2012-06-29)
+    1) Removed local definition of $_type and _get_type() -
+       now handled by parent class
+  1.0.68 (2012-06-28)
+    1) Person::get_next_ID_for_QB_conversion() now has new optional parameter
+       'acceptable_codes' -
+       if given, items with these codes will also be returned
+  1.0.67 (2012-06-21)
+    1) Added Person::handle_report_delete() to prevent locked profiles from being
+       deleted and Person::get_number_of_locked() which is used by that routine
+  1.0.66 (2012-06-12)
+    1) Added method Person::load_profile_fields() to centralise setting of this
+       information both for content display (e.g. in 'signed in' area) and in
+       email broadcast
+  1.0.65 (2012-05-30)
+    1) Person::get_next_ID_for_QB_conversion() now has optional parameter 'only_customers' -
+       only gets people who have have no QB Ident AND have placed at least one order
+  1.0.64 (2012-05-29))
+    1) Changes to Person::single_signin_encode() to detect whether plaintext
+       password is available - if it is, this is encoded and used instead of
+       the existing encrypted password which is therefore about to be changed.
+  1.0.63 (2012-05-25)
+    1) Added `NGreetingName` to fields list
+    2) Changes to Person::on_action_set_map_descriptions_and_coordinates()
+       to remove country from display IF country is Canada, and to keep town,
+       state / province and postal code all on same line
+  1.0.62 (2012-05-08)
+    1) Person::on_action_set_map_descriptions() renamed to
+       Person::on_action_set_map_descriptions_and_coords() -
+       Now this also sets coordinates IF the map location was initially blank
+       and now isn't
+  1.0.61 (2012-05-02)
+    1) Changed quickbooks_listID to qb_ident in fields list
+    2) New method Person::get_next_ID_for_QB_conversion()
+  1.0.60 (2012-05-02)
+    1) Tweak to Person::get_coords() to not have error if neither home nor work
+       address is given
+  1.0.59 (2012-04-29)
+    1) Person::on_action_set_map_descriptions() now has extra parameter to
+       reveal modification via datestamp or not
+  1.0.58 (2012-04-28)
+    1) Big changes to Person::get_coords() to have it check whether addresses are
+       even used in system before attempting to get coordinates for them
+  1.0.57 (2012-04-27)
+    1) Removed Person::onupdate_set_map_location() - unused
+    2) Improvements to Person::on_action_set_map_descriptions() to use full country
+       name in maps lookups for more reliable matches AND to omit 'USA' if state
+       is PR (caused problems)
+  1.0.56 (2012-04-25)
+    1) Fix for sql in Person::export_sql() deletion clause
+  1.0.55 (2012-04-25)
+    1) Person::export_sql() now includes notes associated with person (if any)
+  1.0.54 (2012-04-24)
+    1) Person::on_action_set_map_descriptions() now includes person's name above
+       description for company (needed for multi-point maps)
+  1.0.53 (2012-04-20)
+    1) Person::manage_notes() now features 'Quick Add' toolbar
+  1.0.52 (2012-04-19)
+    1) Added Person::manage_notes() to handle groups subreport in contact and user
+       forms
+  1.0.51 (2012-04-18)
+    1) Added Person::on_action_set_map_descriptions() for setting map description
+       and location upon which geocode is later performed, using existing addresses
+  1.0.50 (2012-04-16)
+    1) Now extends Displayable_Item class to allow profile and map display
+  1.0.49 (2012-03-19)
+    1) Added new fields for social networking and public notes to field list
+  1.0.48 (2012-02-15)
+    1) Added 'quickbooks_listid' to field list
+  1.0.47 (2012-02-14)
+    1) Person::get_notification_summary() now requires systemID and base_url
+  1.0.46 (2012-01-30)
+    1) Tweaks to Person::do_email_signup() and Person::send_email_for_new_user()
+       for better debug messages
+  1.0.45 (2011-12-04)
+    1) Person::draw_signup() no longer requires CAPTCHA feature to use captcha
+    2) Person::draw_change_password()
+  1.0.44 (2011-10-07)
+    1) Added Person::get_notification_summary()
+  1.0.43 (2011-08-24)
+    1) Change to Person::manage_groups() to prevent report refresh from
+       repeating the report title header
+    2) Change to Person::manage_orders() to prevent report refresh from
+       repeating the report title header
+    3) Added Person::manage_emails()
+  1.0.42 (2011-08-23)
+    1) Eliminated internal unused references to permGROUPMEMBER
+  1.0.41 (2011-08-22)
+    1) Added new static method Person::get_permission() -
+       was in codebase as person_get_permission(), updated for permUSERADMIN
+    2) Added new static method Person::get_user_status() -
+       was in codebase as get_user_status(), updated for permUSERADMIN
+    3) Added new static method Person::get_user_status_text() -
+       was in codebase as get_user_status_text(), updated for permUSERADMIN
+    4) Changes to Person::get_person_to_session() to include permUSERADMIN
+  1.0.40 (2011-08-05)
+    1) Typo correction for heading in Person::manage_groups()
+  1.0.39 (2011-08-04)
+    1) Changes to Person::do_group_unsubscribe() (used in global /unsubscribe page)
+       to use new shadow method and eliminate tables
+  1.0.38 (2011-08-04)
+    1) Moved Person::do_signin() into user class
+  1.0.37 (2011-08-04)
+    1) Added Person::manage_groups() to handle groups subreport in person form
+  1.0.36 (2011-08-04)
+    1) Added Person::manage_orders() to handle orders subreport in person form
+  1.0.35 (2011-06-29)
+    1) Changed references for class Email_Template to Mail_Template() in methods
+         Person::do_email_signup()
+         Person::draw_forgotten_password()
+         Person::send_email_for_new_user()
+  1.0.34 (2011-06-17)
+    1) Changed setter for type to also set fixed_fields list to allow User and
+       Contacts to force the record type when inserting new records automatically
+  1.0.33 (2011-06-03)
+    1) Removed ASpAlt and WSpAlt from fields list
+  1.0.32 (2011-05-30)
+    1) Added getter and setter for type to allow override by Contact and User
+    2) Person::edit_profile() now opens 'user' form not 'person'
+  1.0.31 (2011-05-27)
+    1) Added `type` to field list
+  1.0.30 (2011-05-26)
+    1) Person::draw_change_password() now respects cp for shadow - was hard-coded on
+  1.0.29 (2011-05-23)
+    1) Person::draw_change_password() now uses real html labels and has cps for
+       label text and uses new CSS-3 rounded corners and shadows
+       (was two nested tables!)
+    2) Person::draw_forgotten_password() now uses real HTML labels
+    3) Person::draw_signup() no longer uses a table to combine form and action button
+  1.0.28 (2011-04-25)
+    1) Person::do_signin() now calls Page::get_URL() not $this->get_URL()
+  1.0.27 (2011-04-20)
+    1) References to old codebase draw_signin() now handled via Component class
+  1.0.26 (2011-02-15)
+    1) Bug fixes for Person::merge_profiles() to remap Object::set_table() to
+       Object::_set_table_name() and remove campaign references
+  1.0.25 (2011-02-14)
+    1) Added three new functions to enable link-based single-signin:
+       Person::single_signin(), Person::single_signin_decode() and
+       Person::single_signin_encode()
+  1.0.24 (2011-01-25)
+    1) Added Person::send_email_for_new_user() -
+       was previously coded directly inside component
+  1.0.23 (2011-01-19)
+    1) Added WDepartmant and WDivision to person fields list
+  1.0.22 (2010-12-09)
+    1) Changes to make IE6 detection in Person::get_person_to_session()
+       more robust:
+       see http://stackoverflow.com/questions/671890/can-i-detect-ie6-with-php#3119582
+       Was causing far too many sessions to be generated in non-ie6 browsers
+       causing problems for jumploader when uploading chunked failes -
+       kept 'forgetting' session ID and ending up with scattered chunks.
+  1.0.21 (2010-11-16)
+    1) Various changes to reduce 'strict' PHP warnings
+  1.0.20 (2010-10-19)
+    1) Person::draw_signup() now calls insert method()
+    2) Person::merge_profiles() now calls insert method()
+  1.0.19 (2010-10-18)
+    1) Person::get_person_to_session() now ONLY regenerates session ID for IE6
+  1.0.18 (2010-10-12)
+    1) Person::draw_forgotten_password() now uses HTML::draw_form_box() for layout
+    2) Person::edit_profile() now uses divs to include control button for submit
+  1.0.17 (2010-10-06)
+    1) Tweaks to Person::draw_forgotten_password() to have it use setters on object IDs
+  1.0.16 (2010-10-05)
+    1) Person::get_person_to_session() now regenerates session ID again -
+       had prevented IE6 users who placed orders with custom forms from
+       being signed in to see their orders
+  1.0.15 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.14 (2010-08-16)
+    1) Removed session_regenerate_id() command in Person::get_person_to_session()
+       Was preventing IE7 users from signing in as of around August 16th 2010
+       Probably due to MS Update -
+       http://www.microsoft.com/technet/security/bulletin/ms10-053.mspx
+  1.0.13 (2010-07-15)
+    1) Now references Component_Base:: where needed not Component::
+  1.0.12 (2010-06-14)
+    1) Person::do_signin() now preserves field variables again in case needed,
+       but the separate anchor portion as added in 1.0.11 remains.
+  1.0.11 (2010-05-31)
+    1) Removed Person::draw_signin() - now handled by Component::signin()
+    2) BIG improvements to Person::do_signin() to preserve path and anchor when
+      signing in
+  1.0.10 (2010-05-10)
+    1) Removed Captcha for change password - I'm fed up of people complaining
+       about it and having to try and justify why someone who has already logged
+       on would ever need it.
+  1.0.9 (2010-04-19)
+    1) Split out Person::get_person_for_signin() and Person::update_logon_count()
+       from Person::do_signin() to allow API calls to these actions
+    2) Bug fix for unreported 'double logon' bug in Person::draw_signin()
+    3) Moved bulk of code for codebase get_person_to_session() into
+       Person::get_person_to_session() to simplify and allow API access
+  1.0.8 (2010-02-09)
+    1) Implemented local Person::onupdate_set_map_location() to limit operation
+       based on availability of 'person-maps' feature or MASTERADMIN
+    2) Changes to Person::get_coords() to return sets of coordinates for both
+       home and work addresses
+  1.0.7 (2010-02-05)
+    1) Tidied up Person::do_signin() and fixed broken 'missing' clause
+  1.0.6 (2009-11-21)
+    1) Change to Person::draw_change_password() to rationalise single cp
+    2) Change to Person::draw_signin() to rationalise cps and keep page from
+       redirecting due to signed in status if CPs controls are enabled
+    3) Change to Person::do_group_unsubscribe() to rationalise cps
+  1.0.5 (2009-11-14)
+    1) Change to Person::draw_signup() to use Report class to get columns to include
+       in email notification
+  1.0.4 (2009-11-09)
+    1) Added Person::get_group_membership() used for RO display of membership
+       of groups for a person - closes bug XIM-47
+  1.0.3 (2009-11-02)
+    1) Person constructor now sets 'has_categories' (added for The Auroran)
+    2) Person constructor renamed to __construct()
+  1.0.2 (2009-10-14)
+    1) Changes to Person::draw_signin() to activate 'signin' button if striking
+       'enter' key from password field
+  1.0.1 (2009-07-26)
+    1) Moved code for draw_forgotten_password() into here
+    2) Moved code for draw_changePassword() into here as draw_change_password()
+    3) Moved code for draw_signin() into here
+    4) Moved code for draw_signup() into here
+  1.0.0 (2009-07-02)
+    Initial release

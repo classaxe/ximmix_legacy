@@ -1,0 +1,99 @@
+  1.0.27 (2011-01-04)
+    1) Change to call within Product_Catalogue::_draw_item_description() from
+       draw_related() to draw_associated() to make this more distrinct from
+       'other' use of the term related.
+  1.0.26 (2012-01-03)
+    1) Changes to Product_Catalogue::_draw_refund_items() to use associative array
+       for tracking tax columns in use - this prevents duplication of columns each
+       time a new item is added to the refund list.   Closes bug XIM-147
+  1.0.25 (2011-12-30)
+    1) Changes to Product_Catalogue::_draw_category_heading() and
+       Product_Catalogue::_draw_item() to not require popup lookup to tell them
+       what report and tooltip text to use (was unsupported two builds ago)
+  1.0.24 (2011-12-16)
+    1) Changes to Product_Catalogue::_draw_totals_for_order() to show 'Discount'
+       where payment method surcharge is negative
+  1.0.23 (2011-11-29)
+    1) Added new optional args dealing with selection and sizing of image
+    2) Changed internal matching for 'thumbnail_small' to 'image'
+  1.0.22 (2011-09-14)
+    1) Bug fix for Product_Catalogue::_draw_item_description() for when there is
+       no related item - i.e. dealing with a regular product by itself
+  1.0.21 (2011-09-14)
+    1) Modified Product_Catalogue::_draw_item_description() to use whatever
+       type is given for related_type and then invoke that directly instead of
+       switching on it.
+  1.0.20 (2011-09-02)
+    1) Product_Catalogue::_draw_item_description() now checks if there is a
+       related item and if so calls the item's draw_detail_for_related_item()
+       method and prepends the output from that to the content description.
+  1.0.19 (2011-08-26)
+    1) Changes to Product_Catalogue::_draw_setup_load_product_groupings() for
+       table name and column name changes
+  1.0.18 (2011-08-25)
+    1) Removed all personality code for mode 'checkout'
+    2) Removed all personality code for mode 'credit_memo'
+    3) Now permanently locked into personality mode 'order_history'
+  1.0.17 (2011-08-25)
+    1) Turned this class into a base class for personality extenders
+    2) Removed all personality code for mode 'shop'
+    3) Big changes to _get_columns_for_category() -
+       renamed it to _get_columns_for_grouping() and massively simplified it
+  1.0.16 (2011-08-25)
+    1) Standardised spelling of internal references to catalog to catalogue
+    2) Replaced 'catalogue' personality references to 'shop' in preparation for
+       splitting personalities to child classes that inherit from this base class
+  1.0.15 (2011-08-18)
+    1) Deleted recently added Product_Catalogue::update_cart() -
+       Now delegated to its own class
+  1.0.14 (2011-08-18)
+    1) Product_Catalogue::draw() now looks for related_type and related_ID in
+       args if given
+    2) Change to Product_Catalogue::_draw_item_quantity() to set source URI
+       value to related type and ID if given when calling for cart update
+  1.0.13 (2010-05-31)
+    1) Change to Product_Catalogue::_draw_item_quantity() to have anchors that
+       return scroll position to clicked cart or existing hash if set.
+  1.0.12 (2010-05-24)
+    1) Change to Product_Catalogue::_draw_item_quantity() to simplify JS and move
+       this to onclick instead of href
+  1.0.11 (2010-04-06)
+    1) Moved majority of setup code out of constructor and into new draw()
+       helper function - this reduces load when instantiating for version check
+    2) Private member variables now prefixed with _ and in standard format
+    3) Steps to move calculation code to nearer where it is actually used
+       (more loops doing less things but much clearer)
+    4) Removed Product_Catalogue::_draw_calc_refund_suggested_total() -
+       answer given was completely irrelevant as JS overwrites it immediately
+       (with wrong answer, but that's another issue...)
+    5) Removed unrequired Product_Catalogue::_get_tax_names_and_rates()
+    6) Removed Product_Catalogue::_draw_totals_for_order_history() -
+       now uses Product_Catalogue::_draw_totals_for_order() as it does for
+       checkout mode
+  1.0.10 (2010-03-22)
+    1) Reference to $taxRegime->set_tax_zone() now hard-coded to CAN -
+       this concept of setting a tax_regime will be abandoned very soon.
+  1.0.9 (2010-03-12)
+    1) Product_Catalogue::draw() now calls Tax_Regime::set_tax_zone()
+  1.0.8 (2010-03-11)
+    1) Changes to Product_Catalogue::draw() to deal with changes to
+       Tax_Regime constructor (now behaves more like a regular record)
+  1.0.7 (2009-11-09)
+    1) Change to Product_Catalogue::draw() to get payment method surcharge
+       from Payment_Method class
+  1.0.6 (2009-10-10)
+    1) Removed shipping_gateway option - now handled by means of manditory product instead
+    2) Tax rates in tax columns now converted to float - e.g. 5.00 becomes 5
+  1.0.5 (2009-10-06)
+    1) Product_Catalogue::draw() now includes option for shipping_gateway (not yet implemented)
+  1.0.4 (2009-09-29)
+    1) Changes to deal with renaming of various fields in product and product category tables
+  1.0.3 (2009-08-03)
+    1) Bug fix to Product_Catalogue::draw() to only include items in roll-up that
+       are not related to refunds or credit memos
+  1.0.2 (2009-07-26)
+    1) Moved code for getCatalogColumns() into here as Product_Catalogue::get_columns()
+  1.0.1 (2009-07-02)
+    Added get_version()
+  1.0.0 (2009-07-01)
+    Initial release

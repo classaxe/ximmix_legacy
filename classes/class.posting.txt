@@ -1,0 +1,426 @@
+  1.0.119 (2015-02-01)
+    1) Renamed methods in Posting class
+         from Posting::_get_records_sort_records_using_filter_order_by()
+         to   Posting::_get_records_sort_records_using_results_order()
+    2) Changed call in Posting::_get_records_sort_records()
+         from $this->_get_records_sort_records_using_filter_order_by()
+         to   $this->_get_records_sort_records_using_results_order()
+    3) Internal changes in Posting::get_records() to handle renamed parameters for consistency with other classes:
+         Old: 'order_by',       'limit'
+         New: 'results_order',  'results_limit'
+    4) Class constant Posting::fields renamed to Posting::FIELDS
+    5) Now PSR-2 Compliant
+  1.0.118 (2014-10-26)
+    1) Change to Posting::_get_records_sort_records_using_filter_order_by() when sorting
+       by date (with implicity title subsort) to also reverse title order when showing in
+       decending order, allowing multiple postings in a day to be sub-sorted by the title
+       correctly when the order is decending - was fixed to ascending order
+  1.0.117 (2014-02-24)
+    1) New method Posting::on_schedule_update_pending()
+    2) Posting::get_record() now only checks type of record for child classes
+       that inherrit from this one
+  1.0.116 (2014-02-17)
+    1) Refreshed fields list - now declared as a class constant
+    2) Updates to Posting::get_coords() to include geocode match quality fields
+  1.0.115 (2014-01-23)
+    1) Posting::draw_search_results() no longer assigns an extra path prefix for
+       gallery-image postings
+  1.0.114 (2014-01-21)
+    1) Posting::get_match_for_name() now performs sanitize checks on all path
+       date components and returns early if anything looks fishy
+    2) Posting::set_path() now sets paths for items belonging to communities but
+       which are not assigned to specified members
+    3) Posting::get_search_results() now accepts and operate with communityID parameter
+  1.0.113 (2014-01-15)
+    1) Changes to two methods following prefixing of several listing arguments
+       with 'filter_' -
+         Posting::get_records()
+         Posting::_get_records_get_sql_filter_range()
+  1.0.112 (2013-12-18)
+    1) Posting::get_community_member_path() now includes slash separating community
+       name and member name since communities no longer have trailing slashes
+  1.0.111 (2013-12-18)
+    1) Moved Posting_Contained::get_ID_by_path() into here as
+       Posting::get_ID_by_path()
+  1.0.110 (2013-11-05)
+    1) Posting::get_n_per_category() now only returned items that are labelled as
+       active
+  1.0.109 (2013-10-07)
+    1) Posting::_get_records_get_sql() now accepts specific 'isShared' parameter
+       to only get items that are shared (like 'byRemote' but clearer intent)
+  1.0.108 (2013-06-23)
+    1) Posting::get_unique_name() now accepts container_path to limit only to a
+       given container
+  1.0.107 (2013-06-12)
+    1) Added new parameters to Posting::get_records()
+       'range_address', 'range_distance', 'range_lat', 'range_lon' and 'range_units'
+    2) New method Posting::_get_records_get_sql_filter_range()
+  1.0.106 (2013-06-08)
+    1) Refreshed fields list after adding notes fields
+  1.0.105 (2013-05-17)
+    1) Posting::set_path() now has additional optional parameter for
+       'reveal_modification' (default now false - was implied as true before)
+  1.0.104 (2013-05-17)
+    1) New fields added to posting table so refreshed fields list
+    2) Now added support for filtering on cp value of 'filter_important'
+  1.0.103 (2013-03-22)
+    1) Changes to Posting::handle_video() to work with shortform youtube URLs
+       so that both http://www.youtube.com/watch?v=8l9XU_zgQPc&feature=youtu.be
+       and now http://youtu.be/8l9XU_zgQPc process correctly
+  1.0.102 (2013-02-06)
+    1) Refreshed fields list
+  1.0.101 (2012-12-05)
+    1) Added Posting::manage_product_relationships() intended to be invoked by Gallery_Image
+       and Gallery_Album
+  1.0.100 (2012-12-03)
+    1) The following methods now use time() not mktime() as per strict standards:
+         Posting::draw_search_results()
+         Posting::is_in_active_date_range()
+         Posting::test_publish_date()
+  1.0.99 (2012-11-30)
+    1) Posting::get_coords() now allows address to be passed, and only looks up
+       'map_location' if not given -
+       Signature now looks like that of Record class
+  1.0.98 (2012-11-23)
+    1) Tweak to Posting::_get_records_get_sql() to apply filterng on subtype if
+       the object in question actually has a subtype
+    2) Posting::_set_type() now uses $this->_push_fixed_field() to add `type`
+       as a fixed field, not $this->_set_fixed_fields() as before
+    3) Posting::_set_subtype() now calls $this->_push_fixed_field() to add `subtype`
+       as a fixed field (not previously given so required fixed field in form)
+  1.0.97 (2012-11-07)
+    1) Added new optional argument in Posting::get_records() for 'communityID'
+    2) Posting::_get_records_get_sql() now filters on communityID if given
+    3) Aded comunmityID to fields list
+  1.0.96 (2012-11-02)
+    1) New method Posting::is_enabled()
+    2) Posting::is_available() now also includes Posting::is_enabled() in tests
+    3) Posting::get_search_results() now includes `enabled` field in data
+    4) Posting::get_records() now calls Posting::_get_records_available() not
+       Posting::_get_records_visible() as before
+  1.0.95 (2012-11-01)
+    1) New fields `enabled` and `deleted` for fields list
+  1.0.94 (2012-09-09)
+    1) Change to Posting::_get_records_get_initial_records() to not duplicate
+       error handling code
+    2) Changed previous comment to not reference a specific database
+  1.0.93 (2012-09-05)
+    1) Posting::delete_for_parentID() now uses Record::get_affected_rows()
+  1.0.92 (2012-08-29)
+    1) Removed Posting::delete() - not needed
+  1.0.91 (2012-08-23)
+    1) Added class-based override Posting::delete() for debug purposes
+  1.0.90 (2012-08-16)
+    1) Posting::_get_records_sort_records_using_filter_order_by() now uses an
+       'is_a()' test to see if current object is an event or a derived sub-class,
+       rather than a simple test for $this->_get_object_name()=='Event' as before.
+       This means that Community_Member events now display in correct time order.
+  1.0.89 (2012-07-16)
+    1) Posting::get_records() now deprecates use of list-based arguments
+  1.0.88 (2012-07-15)
+    1) Posting::_get_records_get_sql() now includes memberID and personID clauses
+       if argument is not exactly equal to '' -
+       in other words, if '0' is given, that value is used
+  1.0.87 (2012-07-13)
+    1) Posting::get_records() is now polymorphic
+    2) Removed Posting::draw_wizard() - unused
+  1.0.86 (2012-06-29)
+    1) Changed internal public var type to _type
+  1.0.85 (2012-03-14)
+    1) Added `password` to fields list
+  1.0.84 (2012-03-09)
+    1) Added OrderID to fields list
+  1.0.83 (2012-03-06)
+    1) Added getter and setter for default_enclosure_base_folder
+  1.0.82 (2012-02-27)
+    1) Posting::_get_records_sort_records_using_filter_order_by() -
+       added clause for 'year'
+  1.0.81 (2012-02-03)
+    1) Posting::handle_video() now saves embed mode video URL for HTML5 support
+  1.0.80 (2012-01-01)
+    1) Posting::draw_product_catalogue() now uses Component_Signin::draw()
+  1.0.79 (2011-12-13)
+    1) Posting::get_search_results() now includes meta keywords and description
+       in search clause for finding text
+  1.0.78 (2011-11-28)
+    1) Added fields 'meta_description' and 'meta_keywords' to fields list
+  1.0.77 (2011-11-25)
+    1) Posting::_get_records_sort_records_using_filter_order_by() now allows for
+       ordering based on itemCode or name
+  1.0.76 (2011-11-17)
+    1) Moved Posting::_get_type() into parent class
+  1.0.75 (2011-11-15)
+    1) Added 'video' to fields list
+    2) New method Posting::on_action_handle_video() for use with Articles that have
+       ability to paste in a video path
+    3) New method Posting::handle_video() -
+       when a youtube video is seen in the path this corrects the path for embedding
+       and downloads a video thumbnail then attaches it as the article thumbnail
+       if not already set.
+  1.0.74 (2011-11-14)
+    1) Added 'image_templateID' to fields list
+  1.0.73 (2011-11-10)
+    1) Change in Posting::get_search_results() query to ensure that literal date
+       field used in comparison clause is cast as UTF8
+    1) Changes to Posting::get_search_results() to
+       handle changes to posting types for Job Postings and News Items
+  1.0.72 (2011-11-04)
+    1) Renamed various recurrence fields in field list
+  1.0.71 (2011-10-25)
+    1) Added new recurrence fields to fields list
+  1.0.70 (2011-10-19)
+    1) Updated fields list for `effective_date_start` and `effective_date_end`
+    2) Change to the following to reference `effective_date_start`:
+         Posting::get_match_for_name()
+         Posting::_get_records_sort_records_using_filter_order_by()
+         Posting::draw_search_results()
+         Posting::get_search_results()
+  1.0.69 (2011-09-21)
+    1) Added new fields `thumbnail_cs_small`, `thumbnail_cs_medium` and
+       `thumbnail_cs_large` to fields list
+  1.0.68 (2011-09-19)
+    1) Bug fix in Posting::draw_product_catalogue() for when no products are
+       available (was prompting signin)
+  1.0.67 (2011-09-16)
+    1) Changes to Posting::draw_product_catalogue() to include link to
+       'continue shopping' if History shop page is set and to use simple URL
+       to go to checkout instead of post with 'goto' switching
+  1.0.66 (2011-09-14)
+    1) Fix for Posting::draw_product_catalogue() on correct type for displaying
+       current item count
+  1.0.65 (2011-09-14)
+    1) Added Posting::get_related_products() - overidden by Event class
+    2) Posting::draw_product_catalogue() now uses newly added base method
+       $this->_get_object_type() instead of $this->_get_object_name() so
+       therefore requires no type switching to use it later on
+  1.0.64 (2011-09-12)
+    1) Added Posting::draw_product_catalogue() - delegated from from Events class
+  1.0.63 (2011-08-24)
+    1) Renamed Posting::draw_associated_products() to Posting::manage_products()
+       and altered to prevent report refresh from repeating the report title header
+  1.0.62 (2011-08-04)
+    1) Posting::draw_associated_products() eliminated unrequired $page_vars global
+  1.0.61 (2011-08-03)
+    1) Event::draw_associated_products() moved into here ahd modified to take
+       required parameters and text from the associated object itself
+  1.0.60 (2011-07-19)
+    1) Changed Posting::get_match_for_name() to use path_date_prefixed_types not
+       path_custom_prefixed_types
+  1.0.59 (2011-07-18)
+    1) Removed member variable type_short and made all vars public
+    2) Removed deprecated getter and setter for type_short
+  1.0.58 (2011-07-07)
+    1) Added clause in Posting::draw_search_results() to prefix URL with 'type'
+       designation for gallery-images
+  1.0.57 (2011-06-17)
+    1) Marked _get_type_short() and _set_type_short() as deprecated
+    2) Changes to _set_type() to also call the following functions:
+        _set_fixed_fields() - fixes insert field value for type automatically
+        _set_search_type() - set to same as type
+        _set_path_prefix() - set to same as type
+    3) Posting::get_n_per_category() now uses _get_type() NOT _get_type_short()
+    4) Posting::get_random_record() now uses _get_type() NOT _get_type_short()
+    5) Posting::get_record() no longer bothers to check type_short
+    6) Posting::_get_records_get_sql() now uses _get_type() NOT _get_type_short()
+  1.0.56 (2011-06-13)
+    1) Added `component_parameters` to field list
+  1.0.55 (2011-06-04)
+    1) Bug fix for get_search_results() when search_name is enabled to prevent
+       search term that includes ' from breaking sql
+  1.0.54 (2011-05-30)
+    1) Added get_ID_by_name() for postings to filter on type
+  1.0.53 (2011-05-13)
+    1) Added 'important' field to fields list
+  1.0.52 (2011-05-09)
+    1) Posting::get_search_results() now handles searches for gallery-images
+  1.0.51 (2011-05-09)
+    1) Posting::get_search_results() now uses search types of event instead of e
+  1.0.50 (2011-05-09)
+    1) get_search_results() now uses search types of article, news and job
+       instead of a, n and j
+  1.0.49 (2011-05-09)
+    1) get_search_results() now replaces search type of 'p' for 'podcast'
+  1.0.48 (2011-04-28)
+    1) Replaced references to _get_records_sort_records_by_date_or_title to
+       _get_records_sort_records_using_filter_order_by
+  1.0.47 (2011-04-28)
+    1) Posting::_get_records_sort_records_by_date_or_title() added new sort
+       mode 'date_a' used in Collection_Viewer to put oldest at the top of the
+       list for a selected series or author
+  1.0.46 (2011-04-18)
+    1) Moved Record::onupdate_set_map_location() into here as
+       Posting::on_action_set_map_location()
+  1.0.45 (2011-04-13)
+    1) Now that parent extends Block Layout, not record, modified constructor
+       to take advantage of this by having the new parent handle the systemID
+  1.0.44 (2011-04-13)
+    1) Added new field `childID_featured` to fields list
+    2) Added $subtype to class variables and setter and getter for this
+    3) Posting::count_all_for_system() now also filters on 'subtype' if set
+  1.0.43 (2011-04-08)
+    1) Posting::count_all_for_system() now filters on 'type' not 'short type'
+       and casts result to integer like its parent does (used with TREB module)
+    2) Added Posting::get_ID_csv_for_name_csv() to take a csv list of names
+       and return a csv list of matching IDs
+    3) Added Posting::delete_for_parentID() to take CSV list of IDs and return
+       number of deleted records
+  1.0.41 (2011-04-02)
+    1) Posting::_get_records_get_sql now uses intermediate variable to facilitate
+       easier debugging
+  1.0.40 (2011-03-18)
+    1) Now sets $this->_isAdmin in Postin::get_records() to allow overriding of
+       Posting::_get_records_visible() by Posting_Contained class - that class
+       ALLOWS invisible records IF user is an admin. Necessary to allow for
+       viewing and sorting of items normally invisible according to view rights
+  1.0.39 (2011-03-11)
+    1) Removed deprecated setter and getters
+    2) Moved Posting::_get_has_publish_date() and Posting::_set_has_publish_date()
+       to parent class - Displayable_item - so these can be used by Products too
+    3) Added Posting::test_publish_date() for determining if item has been
+       published, has expired or is good - now prevents items that have expired
+       from showing in search results (these previously showed)
+  1.0.38 (2011-03-10)
+    1) Moved guts of Posting::_get_records_sort_records() into
+       Posting::_get_records_sort_records_by_date_or_title() to allow for
+       overloading of method by Posting_Contained items for sequences
+  1.0.37 (2011-03-08)
+    1) Added childID_csv to fields list
+  1.0.36 (2011-03-07)
+    1) Changes to query used in Posting::get_search_results() to alias postings
+       table to `p` not `e` (a throwback to when items were in events table)
+  1.0.35 (2011-01-27)
+    1) Attempts to make get_records() polymorphic seem to have failed -
+       remerged get_records() and _get_records() into a single function
+    2) Parameter container_get_descendents now internally renamed to
+       container_subs
+    3) Posting::_get_records_get_sql() now Posting::_get_records_get_initial_sql()
+       and applies args for container_path and container_subs to allow filtering
+       on container path
+    4) Posting::_get_records_from_partners() now includes args for
+       container_path and container_subs when retrieving remote gallery-image and
+       podcast records
+  1.0.34 (2011-01-24)
+    1) Split out inards of Posting::on_action_set_path() into Posting::set_path()
+       to allow for easier overriding where required
+  1.0.33 (2011-01-24)
+    1) Refreshed field list for Posting to include new container_path field
+    2) Posting::get_records() now serves as a stub to feed an args array to
+       Posting::_get_records() which actually does the work
+    3) Posting::get_records() now has container_path and
+       container_get_descendents (not yet implemented)
+  1.0.32 (2011-01-13)
+    1) Posting::_get_records_from_partners() now handles gallery-images
+  1.0.31 (2011-01-10)
+    1) Removed navsuites from field list in constructor
+  1.0.30 (2010-11-06)
+    1) Deprecated methods now invoke deprecated() function to track and log calls
+  1.0.29 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.28 (2010-09-14)
+    1) Posting::draw_search_results() now uses system date format for dates
+  1.0.27 (2010-08-10)
+    1) Updated field list in constructor
+    2) Change to Posting::_get_records_sort_records() to reference new fields
+       `effective_time_start` and `effective_time_end`
+  1.0.26 (2010-07-07)
+    1) Bug fix for Posting::get_search_results() when public and therefore limiting
+       results by published date
+    2) Added 'shared_only' filter to 'get_records'
+  1.0.25 (2010-07-03)
+    1) Changes to Posting::get_match_for_name() to extend query to match events
+       by effective_date union joined with regular match (was failing to
+       find events by date path)
+    2) Changes to Posting::get_search_results() to handle matching of events by
+       `effective_date` not by `date`
+  1.0.24 (2010-07-03)
+    1) Changes to Posting::_get_records_sort_records() to sort by date or
+       effective_date if object is an Event
+    2) Changes to Posting::get_search_results() to provide sortby effective_date
+       if item is an event
+    3) Changes so that ANY type of posting that has its 'has_publish_date' flag set
+       can embargo items not yet published or already expired (now including events):
+       a) Renamed Posting::_get_records_get_sql_filter_date() to
+          Posting::_get_records_get_sql_filter_publish_date() and added empty stub for
+          Posting::_get_records_get_sql_filter_date() back here
+       b) Posting::_get_records_get_sql() now includes filtering on publish date
+          where items have 'has_publish_date' flag set
+  1.0.23 (2010-06-29)
+    1) Changes to Posting::get_search_results() to limit results to those given in cps
+  1.0.22 (2010-06-27)
+    1) Added Posting::get_permission_sql_for_viewer() to get records based on
+       a persons system and group membership rights
+       This is more efficient than getting records first then dumping those not
+       matching criteria later
+    2) Posting::get_n_per_category() now uses Posting::get_permission_sql_for_viewer()
+       to implement full permissions, not just fake it using 'isPUBLIC' as earlier
+       This change fixes bug XIM:91
+  1.0.21 (2010-05-20)
+    1) Changes to Posting::get_records() to allow for optional DD limit
+    2) Changes to Posting::_get_records_from_partners() to allow for optional DD limit
+  1.0.20 (2010-04-23)
+    1) Changes to Posting::get_n_per_category() to have it work with other types
+       of posting than just articles
+  1.0.19 (2010-04-01)
+    1) Changes to Posting::on_action_set_path() to include path extension for
+       postings that have a memberID to prefix the path with the profile page
+       for the member on the earliest community that they have membership for
+    2) Change to Posting::get_search_results() query to ONLY limit results by
+       publish date for non-admins IF the type is a, n, j or p
+       (was failing to show future events in search results - doh!)
+       Query now gets `path`, allowing display_results() to use it
+       Query also optionally bound by memberID as arg
+  1.0.18 (2010-02-27)
+    1) Refactored Posting::get_records() to split into helper functions to
+       allow for easier overriding of parts by child classes
+  1.0.17 (2010-02-12)
+    1) Added 'icon_delete' for default edit parameters
+  1.0.16 (2010-01-13)
+    1) Tweak to Posting::get_n_per_category() to not cause error if called without
+       category_master argument
+  1.0.15 (2010-01-07)
+    1) Change to Component::get_n_per_category() to allow use of category_master
+  1.0.14 (2009-10-25)
+    1) Change to Posting::on_action_set_path() to make it work properly for bulk updates
+  1.0.13 (2009-09-29)
+    1) Default name field now set to 'name' not 'title' to make URL paths correct
+  1.0.12 (2009-09-21)
+    1) Changes to Posting::get_records() to NOT prematurely apply offset from
+       remote sources until the records from all sources are merged
+  1.0.11 (2009-09-13)
+    1) Change to Posting::get_n_per_category() to default to SYS_ID if no systemIDs_csv
+  1.0.10 (2009-09-03)
+    1) Further bug fix for Posting::get_root_ID() - was referencing 'type_short' not 'type'
+  1.0.9 (2009-08-23)
+    1) Bug fix for Posting::get_root_ID() - was using invalid SQL now that postings are not in
+       events table (discovered broken since version 1.13.0.1294 2009-04-23)
+  1.0.8 (2009-08-14)
+    1) Updated field list for constructor
+  1.0.7 (2009-08-04)
+    1) Changes to Posting::get_records() to include optional personID parameter
+    2) Moved Posting::draw_panel_box() into Displayable_Item::draw_panel_box
+  1.0.6 (2009-08-01)
+    1) Bug fix in Posting::draw_listings() to prevent multiple panels with subgrouping tabs from
+       interfering with one another
+    2) Many changes to Posting::draw_listings() to split functionality into helper functions that
+       use the object itself as operating area.
+    3) Moved all Block Listing implementation into new class Record_Displayable
+  1.0.5 (2009-07-26)
+    1) Bug fix in Posting::BL_extra_fields() to initialise extra_fields='' before trying to add to it.
+    2) Bug fix for Posting::draw_link() so that call to Record::get_URL() includes a copy of the record
+  1.0.4 (2009-07-16)
+    1) Changed [BLARG] to [ARG]
+    2) Renamed all block-layout compatible functions to BL_xxxx
+    3) Renamed all other draw_detail helper functions to _draw_detail_xxx()
+    4) Bug fix for proper checking of rights to rate items
+  1.0.3 (2009-07-15)
+    1) Posting::draw_detail() now operates by parsing member variable _block_layout['detail'] and
+       executing a host of tiny helper functions none of which require parameters but operate
+       directly on the object itself.
+    2) Bug fix for Posting::draw_detail() to pass actual record to get_URL()
+  1.0.2 (2009-07-10)
+    1) Added get_has_publish_date() and set_has_publish_date() used to control embargo of
+       item in single-item draw_detail() mode
+  1.0.1 (2009-07-02)
+    1) Split off other classes
+  1.0.0 (2009-07-01)
+    Initial release

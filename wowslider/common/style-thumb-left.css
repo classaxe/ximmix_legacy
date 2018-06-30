@@ -1,0 +1,10 @@
+#wowslider-container$GallerySuffix$  .ws_thumbs { 
+    left: -$thumbMarginWidth$px;
+    top: 0;
+	width:$thumbFullWidth$px;
+	height:100%;
+}
+#wowslider-container$GallerySuffix$  .ws_thumbs div{
+	position:relative;
+	width:100%;
+}

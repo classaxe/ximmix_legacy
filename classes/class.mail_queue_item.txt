@@ -1,0 +1,37 @@
+  1.0.14 (2014-02-18)
+    1) Refreshed fields list - now declared as a class constant
+  1.0.13 (2013-10-03)
+    1) Added Mail_Queue_Item::unsubscribe() and Mail_Queue_Item::unsubscribe_all()
+    2) Tweak to Mail_Queue_Item::view() to fix extra closing td tag issue
+  1.0.12 (2012-05-25)
+    1) Added `NTitle` to fields list
+  1.0.11 (2012-05-25)
+    1) Added `NGreetingName` to fields list
+  1.0.10 (2011-07-03)
+    1) Bug fix in Mail_Queue_Item::view() for retrieving user details
+  1.0.9 (2011-06-29)
+    1) Renamed class from Email_Queue_Item to Mail_Queue_Item
+  1.0.8 (2011-06-20)
+    1) Email_Queue_Item::draw() now only tracks read if person is not signed in
+       or has signed in as the person the message was sent to to
+  1.0.7 (2011-06-20)
+    1) Constructor now sets its own object name - was defaulting to 'Block layout'
+  1.0.6 (2011-04-25)
+    1) Email_Queue_Item() now extends Displayable_Item not Record to allow tracking
+       to operate in object context
+  1.0.5 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.4 (2010-06-11)
+    1) Removed duplicated 'PEmail' field in Email_Queue_Item::get_message_details()
+  1.0.3 (2010-06-08)
+    1) Changes to Email_Queue_Item::get_message_details() to draw details for
+       sender and email template from mailqueue snapshot rather than live records
+       (which may have changed or even been deleted)
+  1.0.2 (2010-06-07)
+    1) Added Email_Queue_Item::export_sql() to allow export of records
+    2) Added Email_Queue_Item::view() to allow viewing of previously sent message
+    3) Added Email_Queue_Item::get_message_details()
+  1.0.1 (2010-06-03)
+    1) Added fields list with new mail_webbeacon_viewed column
+  1.0.0 (2009-07-02)
+    Initial release

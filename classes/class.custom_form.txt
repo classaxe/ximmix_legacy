@@ -1,0 +1,169 @@
+  1.0.40 (2014-01-06)
+    1) Custom_Form::xml_form_process() section handing user signing in as newly created
+       user now uses User class since contacts cannot be signed in
+    2) Custom_Form::xml_form_process_person() now uses User class for user creation
+  1.0.39 (2012-11-28)
+    1) Custom_Form::xml_download() now uses System::get_item_version() not
+       System::get_version() as before
+  1.0.38 (2012-11-15)
+    1) Custom form now passes payment_gateway_setting name to Order::payment()
+       as given in component parameters
+    2) Cstom_Form::xml_form_process() now saves originating_page in order if
+       an order is generated
+  1.0.37 (2012-10-17)
+    1) Changes to Custom_Form::draw_js_loadTotalCost() for JS escaping to conform
+       to XHTML Strict
+  1.0.36 (2012-09-09)
+    1) Change to Custom_Form::xml_form_process() to use Record::escape_string()
+  1.0.35 (2012-04-02)
+    1) BUG FIX - total row not showing in Custom_Form::draw_fees_overview()
+       Got broken in Build 2.37.3.1812 (2011-09-29)
+       Also made tweaks for better formatting
+    2) DTD now allows for default section width
+    3) Removed support for default_label_width both in DTD and in code
+    4) Custom_Form::draw_js_tax_regimes() no longer shows first tax (normally GST)
+       where no tax columns are actually used
+    5) Tweak to Custom_Form::xml_form_process_order() if card number is disabled
+       to prevent undefined index warning message
+  1.0.34 (2012-03-12)
+    1) Reinserted code for setting top form elements in Custom_Form::xml_form_fields()
+       This code was removed a bit too enthusiastically back in build 2.28.5.1688
+       released 2011-06-01
+       No longer creates a new user when a user is logged in already.
+  1.0.33 (2012-01-30)
+    1) Changed Custom_Form::xml_form_process_order() to remove argument of 'false'
+       for 'reveal_modification' on calls to Order::set_costs() and Order::payment()
+    2) Custom_Form::xml_form_process_order() simplified slightly by using call to
+       newly added Payment_Method::method_is_offline()
+    3) Tweak to avoid possible undefined index message
+  1.0.32 (2012-01-26)
+    1) Changes to Custom_Form::xml_form_process_person() to allow for sending
+       of email for new users if cp is set to allow that
+  1.0.31 (2011-09-29)
+    1) Added 'nobreak' attribute to fields to allow multiple fields in a row
+       without forcing a break - uses include credit-card expiry month / year
+  1.0.30 (2011-09-15)
+    1) Change to xml_form_prepare() for case 'selector_payment_method' to
+       reference Payment_method class now that methods have been moved there
+  1.0.29 (2011-08-19)
+    1) Change to Custom_Form::xml_form_process() to perform conditional redirect
+       check where two options are given using Cart class to determine if cart
+       has items or not
+  1.0.28 (2011-06-06)
+    1) Changes to code for combo_sp_selector to properly include JS onchange code
+       to allow correct operation
+  1.0.27 (2011-06-01)
+    1) In rest of system field type of 'combo_sp_selector' has been abandoned in
+       favour of combo_listdata with lst_sp that operates on a single field.
+       For custom forms - with hundreds of forms and sections defined using this
+       field type - this code has been altered to use combo_listdata field type
+       but to operate on a single field.
+       All extra code that supported the hidden alt field previously associated
+       with 'combo_sp_selector' type fields has been removed.
+  1.0.26 (2011-04-05)
+    1) Now js function doVerify() can take an optional language code -
+       if 'fr' is given error message will show in French
+       Note: this file needs to be saved as UTF-8 for this to work!
+  1.0.25 (2011-03-10)
+    1) Change to Custom_Form::_xml_form_prepare_get_product_tax_regimes() to
+       handle product selectors without any eligible child products gracefully
+  1.0.24 (2011-02-14)
+    1) Changes to Custom_Form::xml_form_process() to accept an ID for record if
+       given and to use update method not insert to allow for data appending
+       (this falls back to insert if no table ID is given)
+       Required for OMS surveys that build on data given in earlier submissions
+  1.0.23 (2010-11-02)
+    1) Custom_Form::xml_form_process_person() now sets an initial randomised
+       password whenever a person is created but does NOT send out an email -
+       if an email is triggered later by means of an action it has the chance
+       to regenerate a password a second time then send that.
+       This means that a post-process auto-signin now works.
+    2) Removed cp for 'auto_signin' - now assumed always
+    3) Custom_Form::actions_execute() now gets personID according to $data[ID']
+       NOT currently logged on user - may be an admin proxying required user
+  1.0.22 (2010-10-21)
+    1) Changes to Custom_Form::xml_form_process() to set POST variables for the
+       IDs of any record inserted - e.g. [cus_oms_registration_ID] => 1397441177
+       This information can be used by actions to determine what happens next
+  1.0.21 (2010-10-20)
+    1) Remmed out diagnostic in custom_form::xml_form_process() when orders are
+       created - shouldn't have been there
+  1.0.20 (2010-10-19)
+    1) Better handling of errors when trying to write to invalid fields in a table
+    2) Custom_Form::xml_form_process_order() now calls insert() method
+    3) Custom_Form::xml_form_process_person() now calls insert() method
+  1.0.19 (2010-10-14)
+    1) Changes to take instance-nameable CPs from Component::custom_form()
+    2) Custom_Form::do_main() nenamed Custom_Form::draw()
+    3) Custom_Form::xml_form_process() now takes CPs from instance
+    4) Custom_Form::draw_js_tax_regimes() exits cleanly if there are no products
+  1.0.18 (2010-10-05)
+    1) Changes to layout of tables to work better with IE6 to remove size
+       conflicts that caused content to be hidden
+  1.0.17 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.16 (2010-07-15)
+    1) Changed references to inline get_parameter() to Component_Base::get_parameter()
+  1.0.15 (2010-04-05)
+    1) Added Custom_Form::_xml_form_prepare_get_product_tax_regimes_js()
+    2) Added Custom_Form::_xml_form_prepare_get_product_tax_regimes() to
+       get all unique tax regimes possible for a custom form
+  1.0.14 (2010-03-22)
+    1) Reference to $this->ObjTR->set_tax_zone() now hard-coded -
+       this concept of setting a tax_regime will be abandoned very soon.
+  1.0.13 (2010-03-17)
+    1) Custom_Form::xml_form_prepare() now uses string concat for output
+    2) Added smaller helper functions for Custom_Form::xml_form_prepare() to
+       reduce complexity
+  1.0.12 (2010-03-12)
+    1) Custom_Form::xml_form_prepare() no longer calls draw_js_get_taxes_applied()
+       The function placed by this is now universal and lives in functions.js
+  1.0.11 (2010-03-12)
+    1) Custom_Form::xml_form_prepare() now calls Tax_Regime::set_tax_zone()
+    2) Custom_Form::xml_form_process_order() now calls Tax_Regime::set_tax_zone()
+  1.0.10 (2010-03-11)
+    1) Changes to Custom_Form::xml_form_prepare() and
+       Custom_Form::xml_form_process_order() to deal with changes to constructor
+       for Tax_Regime which now looks more like a regular record.
+  1.0.9 (2010-02-19)
+    1) Removed the following redundant functions which were left in only to
+       support HRPYRs golf day registration system plus some pehistoric code
+       in CICBV - these are now part of the Custom extender class for hrpyr
+       in custom.php if they are ever needed again (doubtful!)
+         Custom_Form::frm_hr()
+         Custom_Form::frm_control_radio()
+         Custom_Form::frm_control_radio_YN()
+         Custom_Form::frm_control_radio_YN_group()
+         Custom_Form::frm_js_block()
+         Custom_Form::frm_js_doVerify()
+  1.0.8 (2009-12-16)
+    1) Change to Custom_Form::xml_form_process() to force generation of order
+       if products are added but admin didn't include hidden 'category' field
+       for the actual order in the custom form itself.
+  1.0.7 (2009-11-30)
+    1) Added field_processor to DTD
+    2) Added support for field_processor in xml_form_get_field_list() which
+       assumes that the field always represents a product
+  1.0.6 (2009-11-08)
+    1) Custom_Form::xml_form_process_order() now uses
+       Payment_Method::get_methods_available() to establish whether method is
+       offline method or not
+    2) Constructor renamed __construct and invokes parent::__construct()
+  1.0.5 (2009-10-22)
+    1) Added id for form elements in DTD
+  1.0.4 (2009-09-18)
+    1) Bug fix for Custom_Form::xml_form_process_order() to ensure that
+       other order fields are applied to the order when the order has been
+       created.
+  1.0.3 (2009-09-17)
+    1) Changes to Custom_Form::xml_form_process_order() to prevent in-operation
+       updates from causing the order to indicate 'modified by' during the same
+       operation
+  1.0.2 (2009-09-09)
+    1) Change to Custom_Form::actions_execute() to fix missing variable
+    2) Changed warning message on Custom_Form::xml_form_process() to be more
+       specific (not just 'now do something...' as before)
+  1.0.1 (2009-09-04)
+    1) Tweak to JS to initialise err_err with 'var'
+  1.0.0 (2009-07-02)
+    Initial release

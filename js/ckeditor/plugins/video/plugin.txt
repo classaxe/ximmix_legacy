@@ -1,0 +1,9 @@
+  1.0.3 (2014-04-18)
+    1) Completely rewritten for CKEditor 4.3.4
+  1.0.2 (2011-05-11)
+    1) Changes to force IE9 to use Firefox safe code for the FCK_ECLTags.Redraw()
+       function - the window.performance variable is the test for IE9
+  1.0.1 (2010-12-01)
+    1) Unknown changes
+  1.0.0 (2010-11-19)
+    1) Initial release

@@ -1,0 +1,24 @@
+  1.0.8 (2012-09-16)
+    1) Now provides instance name of content block as part of tooltip
+    2) If Content block doesn't exist, includes name of new content block to be
+       created in the 'Create new Content Block' link
+  1.0.7 (2012-02-24)
+    1) Now defaults name to instance name of inserted block
+    2) Changes to Content_Block::draw() to have it provide an 'Add...' icon if
+       the named content_block doesn't exist and user is admin.
+  1.0.6 (2011-10-13)
+    1) Changed references of _CM_ID[0] to _CM.ID in context menu for
+       Content_Block::draw()
+  1.0.5 (2011-05-04)
+    1) Replaced all references of _CM_type to _CM.type
+  1.0.4 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.3 (2010-08-01)
+    1) Change to ensure that component controls icon is moved inside content block
+  1.0.2 (2010-07-15)
+    1) References to Component:: now Component_Base::
+  1.0.1 (2009-11-21)
+    1) Rationaised CPs for content_block::draw() -
+       Parameter content_block is now draw_content_block.name
+  1.0.0 (2009-07-02)
+    Initial release

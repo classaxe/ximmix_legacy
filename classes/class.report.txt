@@ -1,0 +1,300 @@
+  1.0.84 (2014-06-22)
+    1) New features added to Report::REPORT_FEATURES for email CASL compliance:
+         selected_set_email_opt_in and selected_set_email_opt_out
+  1.0.83 (2014-02-20)
+    1) New class constant Report::REPORT_FEATURES for more efficient testing
+       of features through use of caching to eliminate repeated lookups
+    2) Report::test_feature() now strips out extra spaces in list of tests
+  1.0.82 (2014-02-17)
+    1) Refreshed fields list - now declared as a class constant
+  1.0.81 (2014-01-26)
+    1) Change to Report::get_records_count() to have it select which FROM clause
+       is used as either last FROM (as previous) or as the last one with a suffix of
+       #primary following it
+  1.0.80 (2013-11-15)
+    1) Report::_get_columns_check_features() logic now handles csv list of features
+       allowing more complex matches to be performed -
+       e.g. site must have both show-home-address and person-public-profile to display
+  1.0.79 (2013-11-14)
+    1) Added note to Report::_get_columns_custom_code_report_column_rules()
+       showing which site uses this for verification purposes
+  1.0.78 (2013-10-08)
+    1) Added support for languages_assign in Report::draw_form_view()
+  1.0.77 (2012-12-03)
+    1) Report::copy() now has same signature as Record::copy()
+  1.0.76 (2012-11-12)
+    1) Improved debug info for Report::get_popup_params_for_report_form()
+  1.0.75 (2012-10-08)
+    1) Changes to Report::draw_form_view() to not have lowecase matching for
+       selectID and listTypeID field type conditions
+  1.0.74 (2012-09-09)
+    1) Change to Report::get_records() to not duplicate error handling code
+    2) Change to Report::get_records_count() to not duplicate error handling code
+  1.0.73 (2012-07-16)
+    1) Added switch inside Report:export_sql() which if set will include
+       report filter presets for the current site in the export
+  1.0.72 (2012-07-11)
+    1) Moved Report::seq() into Report_Form::seq() and removed reference to
+       'navbuttons_for_navsuite' - no such table name - and replaced reference
+       to 'treenode' with 'postings' since links now used instead of treenodes
+       and these are postings of type 'link'
+  1.0.71 (2012-04-19)
+    1) Tweak to Report::_get_columns_sort_function() to perform true numerical
+       sort on sequence (was alpha!)
+  1.0.70 (2012-04-18)
+    1) Changes to Report::get_columns() and all helper functions to use class
+       property $this->_report_columns for all data transfer -
+       static helpers now all non-static to allow for use of $this
+    2) Report::get_columns() now calls new helper method
+       Report::_get_columns_custom_code_report_column_rules() to see if the site
+       has any special rules concerning tabs on the report or form
+    2) Added Report::_get_columns_sort() to allow for resorting of fields if
+       tab labels are dynamically overridden in any way
+  1.0.69 (2012-04-04)
+    1) Tweak to French translation in Report::draw_form_view() for 'Attribute'
+  1.0.68 (2012-02-18)
+    1) Changes to Report::get_report_icons() to include tab and label fields
+  1.0.67 (2012-02-15)
+    1) Change to fields list for `adminLinkPosition` to `seq` and addition of `tab`,
+       and `adminLink` to `icon`
+    2) Changes to draw_form_view() now that `adminLink` field is called `icon`
+  1.0.66 (2011-12-29)
+    1) Changes to Report::get_popup_params_for_report_form() to prevent needless
+       invokation of objects associated with popup windows to get tooltip text
+       that is never actually used -
+       prevents pointless autoloading of Component class
+  1.0.65 (2011-12-11)
+    1) Defined class constants for use in setting what access a given column has
+    2) Changed clause for feature overridden column for master admins to
+       COLUMN_NO_ACCESS (was COLUMN_DEFAULT_VALUE)
+       Closes bug ECC:77
+  1.0.64 (2011-10-22)
+    1) Changed references to Report::get_filter() to Report_Report::get_filter()
+    2) Moved Report::get_filter() to Report_Report class
+    3) Moved Report::get_js_form_code() into Report_Form class
+  1.0.63 (2011-10-22)
+    1) Moved Report::get_report_head_sortable() into Report_Report class
+  1.0.62 (2011-10-13)
+    1) Changed references of _CM_ID[0] to _CM.ID in context menu for
+       Report::get_report_head_sortable()
+  1.0.61 (2011-08-24)
+    1) Changes to Report::manage_columns() to simplify it, remove global variables
+       and avoid use of unconventional use of extra parameters in draw_auto_report()
+  1.0.60 (2011-08-23)
+    1) Eliminated internal references to GROUPMEMBER permission in
+       Report::_get_columns_mark_readonly()
+    2) Added support for USERADMIN Report::_get_columns_mark_readonly()
+    3) Added support for USERADMIN Report::test_feature()
+    4) Changes to Report::get_records() and Report::get_records_count()
+       to eliminate checking of permGROUPAPPROVER and permGROUPADMIN
+  1.0.59 (2011-08-23)
+    1) Changes to Report::get_report_icons() to complete implementation of
+       permUSERADMIN
+  1.0.58 (2011-08-22)
+    1) Updated fields list in constructor
+    2) Changes to Report::get_report_icons() to include permUSERADMIN and to
+       eliminiate permGROUPAPPROVER and permGROUPADMIN
+  1.0.57 (2011-08-10)
+    1) Report::copy() no longer handles copying of actions -
+       this is done by Record class and to do so again results in duplicates
+  1.0.56 (2011-08-04)
+    1) Report::copy() bug fix to escape embedded quotes in report_column data
+  1.0.55 (2011-06-09)
+    1) Report::get_email_addresses() now checks for targetID to limit items to
+       those that have been selected
+    2) Report::get_tabs_array() now ignores renamed column types for export to excel,
+       add to group and view email addresses
+  1.0.54 (2011-06-01)
+    1) Report::draw_form_view() removed support for type 'combo_sp_selector'
+  1.0.53 (2011-05-17)
+    1) Report::handle_copy() and Report::handle_delete() now both use
+       Base::module_test() to check for required module instead of trying to do
+       this themselves
+  1.0.52 (2011-05-04)
+    1) Replaced all references of _CM_type to _CM.type
+  1.0.51 (2011-04-25)
+    1) Now extends Displayable_Item instead of Record
+  1.0.50 (2011-04-19)
+    1) Report::_get_columns_remove_overridden() now differentiates between
+       columns enabled by features or inverted features
+  1.0.49 (2011-04-13)
+    1) Report::get_ObjPrimary() now implements latest rules for selection of
+       primary object - if report is prefixed with 'module.', the module is
+       loaded BUT the primary object derived after this is from the specific
+       object named.
+  1.0.48 (2011-04-08)
+    1) Report::convert_xml_field_for_sort() no longer insists on the order by
+       field starting with xml: - allows us to cast the results -
+       e.g. CAST(xml:price AS UNSIGNED) ASC
+  1.0.47 (2011-03-23)
+    1) Change to Report::_get_columns_remove_overridden() to differentiate
+       between the same field and type but on different tabs to allow a field
+       on one tab to be turned off and turned back on again on another tab
+  1.0.46 (2011-02-02)
+    1) Removed several functions relating exclusively to Reports in 'report'
+       mode - these now live in a child class called Report_Report (ugh!)
+    2) Report::draw_report() is now a stub calling Report_Report::draw() and
+       registering as 'deprecated'
+  1.0.45 (2011-01-28)
+    1) Report::draw_form_view() now has 'forEmail' option which inserts a border
+    2) Report::email_form() now passes system defaultLanguage to draw_form_view
+       and specifies 'forEmail' true to include borders and left-align headings
+    3) Report::draw_form_view() now also displays data in XML fields (new feature)
+  1.0.44 (2011-01-04)
+    1) Changes to Report::export_sql() to apply more repeatable sort order to
+       report assets -
+       useful in side-by-side comparison of difference between two sites
+  1.0.43 (2010-12-21)
+    1) Removed support for html_multi_resolution in Report::draw_form_view()
+  1.0.42 (2010-11-18)
+    1) Tweak to Report::get_records_count() -
+       gave group admin precedence over site admin (unlike Report::get_records())
+  1.0.41 (2010-11-05)
+    1) Report::draw_form_view() now includes language option, en or fr
+  1.0.40 (2010-11-01)
+    1) Removed count query fields from field list (these no longer exist)
+    2) Simplified Report::get_records_count() to eliminate dedicated count fields
+  1.0.39 (2010-10-29)
+    1) Bug fixes for ajax report updates for reports when embedded in non-root
+       pages:
+         a) Report::draw_toolbar_paging() now applies correct base path
+         b) Report::get_report_head_sortable() now applies correct base path
+         c) Report::draw_toolbar_filter() now applies correct base path
+  1.0.38 (2010-10-19)
+    1) Report::get_email_addresses() now detects if report isn't equipped for
+       displaying email addresses.  Changes made to Report::draw_report() for this
+  1.0.37 (2010-10-19)
+    1) Report::copy() now calls insert() method
+    2) Report::draw_report() now calls filter_add() method when adding filters
+  1.0.36 (2010-10-06)
+    1) Tweak to Report::get_match_mode() to have it use setter function
+    2) Tweak to Report::get_match_modes() to have it use setter function
+    3) Changes to Report::export_sql() to prevent duplication of exported actions
+       previous build fixed bug in Report constructor that did this automatically
+  1.0.35 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.34 (2010-09-24)
+    1) Changes to Report::export_sql() to limit export of report_filters and
+       filter_settings to those that are global
+  1.0.33 (2010-09-20)
+    1) Moved draw_config() to new class Report_Config::draw()
+    2) Job of invoking Repoirt_Config::draw() now via system::do_commands() directly
+  1.0.32 (2010-09-17)
+    1) Added clause in Repoort::do_commands() for command=report_config
+    2) Added Report::draw_config();
+    3) Removed formPopup and formOnSubmit from fields list
+  1.0.31 (2010-09-16)
+    1) Report::export_sql() now includes export of report_settings
+  1.0.30 (2010-09-15)
+    1) Changes to Report::draw_report() for assigning a filter globally to set
+       destinationType to 'global' and destinationID to '0' (was 'system' and '1')
+    2) Changes to Report::draw_report() to adapt 'filter_seq' for drag and drop
+  1.0.29 (2010-09-14)
+    1) Simplified call to Report_Filter::get_filter_buttons_for_report() in
+       Report::draw_report() - now 2 params not four
+  1.0.28 (2010-08-11)
+    1) Report::get_email_addresses() now respects sort order
+  1.0.27 (2010-08-11)
+    1) Worked on Report::get_email_addresses() to eliminate globals and fix a bug
+  1.0.26 (2010-07-28)
+    1) Moved Report_Form::_get_js_form_code() back into Report class
+  1.0.25 (2010-07-27)
+    1) Moved all code relating to Report::draw_form() from here into new class
+       Report_Form::draw(). Report::draw_form() remains as a deprecated hook.
+  1.0.24 (2010-07-23)
+    1) Report::_draw_form_prepare_field() now handles 'text_alignment_and_offsets'
+    2) Report::_draw_form_prepare_field() now handles 'text_font_and_size'
+    3) Report::_draw_form_prepare_field() now handles 'button_state_swatches'
+  1.0.23 (2010-07-01)
+    1) Change to Report::draw_form() to preset effective_date for events
+  1.0.22 (2010-06-17)
+    1) Removed all support for aggregate field matches
+    2) Change to Report::draw_toolbar_paging() to include empty hidden fields
+       for offset and limit when controls not shown to allow JS to work correctly
+  1.0.21 (2010-06-16)
+    1) Change to Report::get_report_head_sortable() to include full path when
+       performing ajax_report update to preserve page_vars after sorting
+    2) Changes to Report::draw_toolbar_paging() to include full path when
+       performing ajax_report update to preserve page_vars after paging
+    3) Changes to Report::draw_toolbar_filter() to include full path when
+       performing any operation to preserve page_vars
+    4) Report::get_match_mode() is now static
+    5) Report::get_match_modes() is now static
+  1.0.20 (2010-06-06)
+    1) Changes to Report::draw_form() to handle new default setting features
+       Product-default-enabled, Product-default-publish-now and Product-default-all-user-perms
+  1.0.19 (2010-05-03)
+    1) Changes to Report::draw_report() to ensure that json conformant array is
+       returned even if toolbar type 4 is selected
+  1.0.18 (2010-04-14)
+    1) Tweak to Report::_draw_form_prepare_field() to only set rate for fields
+       of type 'tax_name_and_rate'
+  1.0.17 (2010-03-15)
+    1) Added clause in Report::_draw_form_prepare_field() to handle field type
+       of 'tax_name_and_rate'
+  1.0.16 (2010-01-01)
+    1) Added Report::convert_xml_field_for_filter()
+    2) Added Report::convert_xml_field_for_sort()
+    3) Report::draw_report() now fully supports XML field filtering
+    4) Report::get_email_addresses() now fully supports XML field filtering
+  1.0.15 (2009-12-31)
+    1) Change to Report::draw_form() to set ID to targetID if bulk update is active
+       to deal with Ajax implementation of this feature since
+  1.0.14 (2009-12-27)
+    1) Change to Report::get_email_addresses() to correctly apply filter -
+       Fixes bug XIM-60
+  1.0.13 (2009-12-25)
+    1) Changed constructor to __construct()
+  1.0.12 (2009-12-03)
+    1) Implemented bulk_update for category, group and keyword assignments splitting
+       ID_csv before call to Report::_draw_form_do_post_operation_assignments()
+  1.0.11 (2009-11-14)
+    1) Change to Report::draw_form_view() to use native Report class version of
+       get_columns()
+  1.0.10 (2009-11-11)
+    1) Change to Report::draw_report() to NOT attempt to set categories, keywords
+       or groups when the mode is bulk_update - was losing data previously
+  1.0.9 (2009-11-09)
+    1) Changes to Report::_draw_form_do_post_operation_assignments() to prevent
+       persons who have only readonly access to categories, groups or keywords
+       from blowing away those field settings on update - fixes bug XIM-46
+  1.0.8 (2009-10-26)
+    1) Implemented xmlfields_decode() for Report::draw_form() when loading a record
+    2) Changes to ensure that where xml virtual fields are used on a form their
+       ID and name values are xhtml safe - '/' is substituted with ':'
+    3) Moved in codebase function get_sql_filter() as Report::get_filter()
+       and extended it to work with LAST_WEEK, THIS_WEEK and NEXT_WEEK
+    4) Moved in codebase function getSortBySQL() as Report::get_sortby()
+       and extended it to work with xml virtual fields by rewriting sql for these
+       fields as nested substring code to work with prescise node in question
+  1.0.7 (2009-10-14)
+    1) Change to Report::draw_report() to prevent application of any filter field
+       where the indicated report column does NOT belong to the specified report
+       This prevents two reports on the same page from having their filters interact
+  1.0.6 (2009-10-11)
+    1) Small change to Report::draw_report() to preserve value of '0' in filter value
+       field if that was given rather than '' (=== not == used)
+  1.0.5 (2009-09-22)
+    1) Changes to Report::draw_form() to apply get_sql_constants() conversion
+       to default value given for fixed fields -
+       this means group members are no longer added without having a valid
+       systemID (was trying to force the value 'SYS_ID' into systemID column!)
+  1.0.4 (2009-09-05)
+    1) Changes to Report::draw_toolbar_filter() to support striking enter from
+       filter value field to execute search with that value - uses new JS functions
+       in functions.js
+  1.0.3 (2009-08-31)
+    1) More changes to Report::draw_form() to simplify it and avoid some more
+       hard-coded references. Report::draw_form() now uses Record::add() and
+       update() for record modifications
+  1.0.2 (2009-08-26)
+    1) MAJOR rewrite of Report::draw_form() - several new private helper functions and
+       some code moved into class-defined controlled actions
+    2) Report::actions_execute() now recognises trigger 'report_insert_pre'
+  1.0.1 (2009-07-26)
+    1) Moved code for draw_toolbar_paging() into here as
+       Report::draw_toolbar_paging() and remapped references in Report::draw_report()
+    2) Moved code for draw_toolbar_report_filter() into here as
+       Report::draw_toolbar_filter() and remapped references in Report::draw_report()
+  1.0.0 (2009-07-01)
+    Initial release

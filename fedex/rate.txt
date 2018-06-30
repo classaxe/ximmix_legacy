@@ -1,0 +1,12 @@
+  1.0.5 (2010-05-03)
+    1) Changes to operate using newer .htaccess file
+  1.0.4 (2008-11-05)
+    1) Changed package weight to 0.5KG so that FEDEX_ENVELOPE can be used without
+       FEDEX substituting the product for FEDEX_PAK
+  1.0.3 (2008-05-15)
+    1) Change to fedex_get_rate() to only log request when called from ajax
+       directory, now ignores log attempt if called by server directly.
+  1.0.2 (2008-05-14)
+    1) Data for shipping address now urldecoded - prevents spaces from becoming %20
+  1.0.1 (2008-04-03)
+    1) Changes to use version 3 of Fedex services

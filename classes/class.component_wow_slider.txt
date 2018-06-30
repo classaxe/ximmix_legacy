@@ -1,0 +1,24 @@
+  1.0.7 (2014-01-28)
+    1) Properly indented JS onload code in Component_WOW_Slider::_draw_js()
+  1.0.6 (2013-11-08)
+    1) New CP to cause fader to hide if the path was extended -
+       use this on pages where there's also a photo album and you want to hide
+       the fader when drilling down to view individual images.
+  1.0.5 (2013-07-30)
+    1) CP option 'maintain_aspect' has been removed
+    2) Images now include height and width attributes for improved SEO scores
+  1.0.4 (2013-06-25)
+    1) Timings for effect duration and dwell were reversed -
+        no wonder that was so confusing!
+  1.0.3 (2013-06-23)
+    1) New CP for bullet top margin
+    2) New CP&nbsp;to have thumbnails not respect aspect ratio
+  1.0.2 (2013-06-18)
+    1) Default effect in CP now set to 'fade'
+    2) Changes to have stylesheet externally included and to not use google font
+       for the caption.
+    3) Added effect_reverse flag in CP
+  1.0.1 (2013-06-17)
+    1) Wired in timings and random_order to CPs
+  1.0.0 (2013-06-13)
+    1) Initial release

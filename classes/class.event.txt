@@ -1,0 +1,376 @@
+  1.0.103 (2014-06-07)
+    1) Changes to these block layout tags to enable manual setting for time and date format:
+       BL_date($format=false)
+       BL_date_heading_if_changed($format=false)
+       BL_event_times($timeFormatCode=false)
+    2) New BL tag  BL_filter_date_range($format=false)
+  1.0.102 (2014-03-26)
+    1) Event::_draw_object_map_html_setup() now uses correct report for child object
+       to edit field
+  1.0.101 (2014-03-23)
+    1) Event::BL_date_heading_if_changed() no longer uses static to determine old
+       date heading as this will fail if a second panel is shown with this tag used.
+       Now uses instance-based variable to track this.
+  1.0.100 (2014-01-28)
+    1) Newline and semicolon after JS code in Event::form_field_start_date_and_time()
+  1.0.99 (2014-01-18)
+    1) Tweak to Event::_draw_object_map_html_get_data() to use css class 'when'
+  1.0.98 (2014-01-16)
+    1) Tweak to Event::_draw_object_map_html_get_data() to fit time and date better
+  1.0.97 (2014-01-15)
+    1) New CPs for event listings used to limit future events to given timespan:
+         filter_date_duration
+         filter_date_units
+    2) Modified Event::_get_records_get_sql_filter_date() to allow for specified
+       timespan and also (for the first time) to look at effective start time when
+       determining which events are now past or future
+  1.0.96 (2013-12-12)
+    1) Event::BL_date() now includes full date range for multi-day events
+    2) Event::BL_event_times() no longer shows '(All day)' for multi-day events
+    3) Changes to Event::draw_map() to constrain event image icon to 100x100px max
+  1.0.95 (2013-10-24)
+    1) Changed default map width from 1000 (rather large!) to 450, same as height
+  1.0.94 (2013-10-02)
+    1) New CP for detail view to control map zoom
+    2) Event map now has infowindow open by default
+  1.0.93 (2013-09-20)
+    1) Changes to BL_links_for_listings() and BL_event_times() to replace type
+       checking with is_a() instead of $this->_get_object_name() to work correctly
+       with extension types such as 'Community Member Event'
+    2) Now includes cp setting for 'category_show' in listings and details modes
+  1.0.92 (2013-08-01)
+    1) New CPs for thumbnail image in listings and details modes
+  1.0.91 (2013-06-12)
+    1) Added the following CPs for listings mode:
+       'filter_range_address', 'filter_range_distance', 'filter_range_lat',
+       'filter_range_lon' and 'filter_range_units'
+  1.0.90 (2013-06-07)
+    1) Changed the following CPs for listings mode:
+         Old: 'grouping_tabs',    'filter_limit',  'filter_order_by', 'paging_controls'
+         New: 'results_grouping', 'results_limit', 'results_order',   'results_paging'
+  1.0.89 (2013-05-30)
+    1) Event::_draw_object_map_html_setup() now loads popup edit form details if user is
+        admin
+    2) Event::draw_object_map_html_get_data() now adds edit URL to map point
+       descriptions
+  1.0.88 (2013-05-29)
+    1) Overriden version of Displayable_Item::_draw_object_map_html_get_data()
+       to allow time and date to be shown
+  1.0.87 (2013-05-22)
+    1) Added cp 'registration' for detail view
+    2) New block layout tag 'BL_register_for_event'
+    3) Block layout tag 'BL_links' now respects new CP 'registration'
+    4) Block layout tag 'BL_links_for_listings' now respects new CP 'registration'
+  1.0.86 (2013-05-19)
+    1) Tweak to Event::draw_map() to respect objects ID if set, but to fetch it
+       if not.  Applies to event detail where event has a map location defined
+  1.0.85 (2013-05-17)
+    1) Added cp for listings mode for 'filter_important'
+    2) Changes to Event::draw_map() to eliminate use of global for ID and to
+       perform sanity checks on ID given, and to handle use of unix-style line
+       breaks in map location string passed to map marker.
+    3) Removed class-specific implementation of Event::BL_context_selection_start()
+       Block Layout standard implemntation extended slightly to include registrants
+       count if the item is an Event
+  1.0.84 (2013-02-17)
+    1) Event::_get_records_get_sql_filter_date() bug fix in calendar mode -
+       was not correctly limiting record scope and returning far too many
+       records
+  1.0.83 (2013-02-16)
+    1) Event::get_calendar_dates() now includes important and permSHARED fields
+  1.0.82 (2013-01-11)
+    1) Event::form_field_start_date_and_time() and Event::form_field_end_date_and_time()
+       have small tweaks for XHTML&nbsp;strict - was including errant 0 in tag where
+       js event binding would have been placed
+  1.0.81 (2012-12-03)
+    1) Event::isRegisterable() now uses time() not mktime() as per strict standards
+  1.0.80 (2012-10-03)
+    1) No longer uses PEAR date library or Local_Date functions.
+       PHP 5.3.0 is now required - we'll do the conversion using native functions
+    2) Now correctly handles multi-day events and exports to existing outlook calendar
+       rather than creating multiple calendars all called by the site title.
+  1.0.79 (2012-08-30)
+    1) Tweaks to Event::_try_delete_item_dialog_has_children() to have targetID
+       passed in from outside which lets it be used with Event::handle_report_delete()
+       for single item selected deletions in report mode.
+       Also changes to operation of cancel button to have this work safely in any context
+    2) Big changes to Event::handle_report_delete() to have this handle one or more
+       selected events being a Master Event.
+       If there is only one event selected and it is a Master Event, options are
+       provided to delete just the one event (promoting the first recurrence or
+       making the recurrence standalone if it is the only one there is), or to delete
+       the whole series.
+  1.0.78 (2012-08-29)
+    1) Event::delete() which overrides parent::delete() with extra sanity checks
+       is now renamed Event::try_delete_item(), and associated helper functions
+       renamed similarly
+  1.0.77 (2012-08-28)
+    1) Event::delete() now returns true if a deletion actually took place
+  1.0.76 (2012-08-23)
+    1) New edit parameter in constructor: 'command_for_delete'
+  1.0.75 (2012-08-23)
+    1) New method Event::get_children(), overrides new Record::get_children() also
+       added in this build, but with items ordered by effective start date
+    2) New local method override for Event::delete() that checks for issues and
+       provides dialog if additional information or confirmation is required.
+       This handles deletion of events with Registrants (assuming that Context Menu
+       for some reason fails to prevent this) and for Master Events with Recurrences
+  1.0.74 (2012-08-02)
+    1) Added Event::manage_recurrences() for recurrences sub-report in Edit Event form
+  1.0.73 (2012-07-16)
+    1) Explicit clause for what='all' added in Event::_get_records_get_sql_filter_date()
+       for clarity
+  1.0.72 (2012-07-15)
+    1) Event::get_yearly_dates() call to Event->get_records() now array-based
+    2) Event::get_events_for_date() call to Event->get_records() now array-based
+    3) Cps for _cp_vars_listings now have memberID and personID given as '' by default
+  1.0.71 (2012-07-13)
+    1) Call inside Event::get_calendar_dates() to Event::get_records() now uses
+       array of parameters
+  1.0.70 (2012-05-20)
+    1) Changes to Event::get_calendar_dates() to include member_shortform in records
+  1.0.69 (2012-05-20)
+    1) Changes to Event::get_calendar_dates() to include memberID in records
+  1.0.68 (2012-05-01)
+    1) Changes to Event::export_icalendar()
+       Improved error handling if Pear date library isn't present -
+       Now provides instructions to correct the issue
+  1.0.67 (2012-04-17)
+    1) Removed redundant call to Google_Map::map_load() and a redundant font-size
+       span that was making text too small
+  1.0.66 (2012-02-27)
+    1) Extended Event::_get_records_get_sql_filter_date()
+    2) Cps for Listings now allow 'year' for 'what'
+  1.0.65 (2012-02-25)
+    1) Upgraded Event::BL_date_heading_if_changed() to work with multi-day
+       events
+  1.0.64 (2012-01-04)
+    1) CP 'block_layout_for_related' now called 'block_layout_for_associated'
+  1.0.63 (2011-12-24)
+    1) Event::count_registrations() now uses get_field_for_sql() and has its own
+       cache
+  1.0.62 (2011-11-07)
+    1) Moved Event::form_field_recurrence_settings() into Event_Recurrence class
+  1.0.61 (2011-10-31)
+    1) Moved code for handling Event Recurrence settings into its own class
+  1.0.60 (2011-10-27)
+    1) Event::form_field_start_date_and_time(), Event::form_field_end_date_and_time()
+       and Event::form_field_recurrence_settings() now obtain form GET variables for
+       effective_date_start and effective_date_end internally rather than looking to
+       the values given by Report_Column::draw_form_field() which calls them
+  1.0.59 (2011-10-25)
+    1) Event::recurrence_settings() - more work on interface
+  1.0.58 (2011-10-25)
+    1) Event::get_events_for_date() now passes content through ECL tag engine
+       before returning data
+  1.0.57 (2011-10-21)
+    1) Improvements to Event::format_times()
+    2) Event::Simplified get_events_for_date() slightly
+    3) Improvements to Event::get_calendar_dates() to handle multi-day events
+       where first day may have start time but no end, second may be full day,
+       and third might end at given time.   All cases now correctly handled.
+  1.0.56 (2011-10-20)
+    1) Changes to _get_records_get_sql_filter_date() to remove all remaining
+       support for the concept of 'annual' repeating events
+    2) Complete rewrite and massive simplification of get_calendar_dates()
+       which is now able to handle multi-day events
+  1.0.55 (2011-10-19)
+    1) The following methods have been updated to reference `effective_date_start`
+       instead of `effective_date`:
+         Event::BL_date()
+         Event::BL_date_heading_if_changed()
+         Event::draw_map()
+         Event::draw_registrants()
+         Event::export_icalendar()
+         Event::get_calendar_dates()
+         Event::_get_records_get_sql_filter_date()
+         Event::get_events_for_date()
+         Event::isRegisterable()
+         Event:manage_registrants()
+         Event::on_action_warn_if_non_registerable()
+    2) Removed 'annual date' functionality from Event::get_calendar_dates()
+  1.0.54 (2011-10-19)
+    1) Event::get_events_for_date() now uses simplified URL for resized
+       event icons
+  1.0.53 (2011-10-13)
+    1) Event::BL_context_selection_start() changed _CM_ID[0] to _CM.ID
+  1.0.52 (2011-09-12)
+    1) Renamed Event::get_products() to Event::get_related_products()
+    2) Moved Event::draw_product_catalogue() into postings class
+  1.0.51 (2011-09-02)
+    1) Added cp for 'block_layout_for_related' in detail mode
+  1.0.50 (2011-08-31)
+    1) Event::draw_product_catalogue() still sets a compond key - for now - but
+       now sets related_object to 'Event' (Object NAME) NOT 'event' (Record TYPE)
+  1.0.49 (2011-08-26)
+    1) Event::get_products() now references product_grouping table
+  1.0.48 (2011-08-25)
+    1) Event::draw_product_catalogue() now generates product listing via
+       new child-class Product_Catalogue_Shop
+  1.0.47 (2011-08-25)
+    1) Changed personality for Product_Catalogue from 'catalogue' to 'shop'
+  1.0.46 (2011-08-24)
+    1) Change to Event::manage_registrants() to prevent report refresh from
+       repeating the report title header
+    2) Change to Event::manage_registrants() to prevent report refresh from
+       repeating the report title header
+  1.0.45 (2011-08-19)
+    1) Event::draw_product_catalogue() now uses cart method to establish quantity
+       of a given item in the cart, and whether there are items to allow 'checkout'
+       button to show
+  1.0.44 (2011-08-18)
+    1) Change to Event::draw_product_catalogue() to pass type and ID to
+       Product_Catalogue::draw() when showing related products, and to
+       isolate quantity portion of cart item from compound string that now
+       includes the source type and ID of the item invoking the product purchase
+  1.0.43 (2011-08-04)
+    1) Change to Event::manage_registrants() to use $selectID not $eventID
+  1.0.42 (2011-08-04)
+    1) Added Event::manage_registrants()
+    2) Event::draw_registrants() now references renamed report 'event_registrations'
+    3) Deleted Event::draw_registrants() - now handled via Event::manage_registrants()
+  1.0.41 (2011-08-03)
+    1) Added parameter for 'report_related_products' to edit_params in constructor
+    2) Moved Event::draw_associated_products() to posting class
+  1.0.40 (2011-06-17)
+    1) Removed constructor call to _set_type_short()
+    2) Removed constructor calls to _set_search_type() and _set_path_prefix() -
+       Both are now called automatically when setting calling _set_type()
+    3) Event::draw_registrants() now uses _get_type() not _get_type_short()
+    4) Event::get_products() now uses _get_type() not _get_type_short()
+  1.0.39 (2011-06-03)
+    1) Added cp for listings mode to set background colour
+  1.0.38 (2011-05-09)
+    1) Changed type_short from 'e' to 'event'
+    2) draw_registrants() changed hard-coded type to that given by Event class
+  1.0.37 (2011-05-04)
+    1) Replaced all references of _CM_type to _CM.type
+  1.0.36 (2011-04-25)
+    1) Removed archane references to event_id
+  1.0.35 (2011-04-18)
+    1) Renamed Event::onUpdate_warn_if_non_registerable() to
+       Event::on_action_warn_if_non_registerable() and now handles multiple
+       items correctly
+  1.0.34 (2011-04-18)
+    1) Moved BL_event_cancellation_notice() into here from Block_Layout class
+    2) Moved BL_event_register_icon() into here from Block_Layout class
+    3) Moved BL_event_times() into here from Block_Layout class
+    4) Moved BL_location() into here from Block_Layout class
+    5) Moved BL_map() into here from Block_Layout class
+    6) Added override version of BL_date() that uses `effective_date`
+    7) Added override version of BL_date_heading_if_changed() that uses `effective_date`
+    8) Added override version of BL_links with icons specific to Events
+    9) Added override version of BL_links_for_listings with icons specific to Events
+  1.0.33 (2011-04-18)
+    1) Added in Event-specific version of BL_context_selection_start()
+  1.0.32 (2011-04-15)
+    1) Added match clauses for cps in listings and details mode
+  1.0.31 (2011-03-26)
+    1) Added Event::onUpdate_warn_if_non_registerable() to handle admin
+       warnings when editing events - code moved in from database component
+  1.0.30 (2010-12-04)
+    1) Changes to Event::draw_registrants() to work as an ECL tag
+  1.0.29 (2010-10-19)
+    1) Event::add_product_action() now calls insert() method
+  1.0.28 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.27 (2010-08-17)
+    1) Added CP 'products' for listings view
+  1.0.26 (2010-08-16)
+    1) Changed default CP setting for comments_link_show in listing panels to '0'
+  1.0.25 (2010-08-10)
+    1) Added new static function Event::format_times() - added to deal with
+       far too many instances of near-identical code to handle this.
+    2) Bug fix for export_icalendar() - now checks system default timezone
+       when converting start and end times to GMT
+    3) Changes to Event::draw_registrants() to reference new fields
+       `effective_time_start` and `effective_time_end` and to operate
+       using new static event method Event::format_times()
+    4) Change to Event::isRegisterable() to reference new fields
+       `effective_time_start` and `effective_time_end`
+    5) Change to Event::export_icalendar() to reference new fields
+       `effective_time_start` and `effective_time_end`
+    6) Changes to Event::get_events_for_date() to reference new fields
+       `effective_time_start` and `effective_time_end`
+    7) Changes to Event::get_calendar_dates() to reference new fields
+       `effective_time_start` and `effective_time_end`
+  1.0.24 (2010-08-04)
+    1) Added CPs for 'comments_show' and 'comments_link_show' in detail mode
+       (defaults=1)
+    2) Added CPs for 'comments_link_show' in listings mode (default=0)
+  1.0.23 (2010-07-16)
+    1) Bug fix forpast events on Event::_get_records_get_sql_filter_date()
+  1.0.22 (2010-07-14)
+    1) The following CPs were changed for listings:
+         body_char_limit  ->  content_char_limit
+         body_plaintext   ->  content_plaintext
+         body_show        ->  content_show
+  1.0.21 (2010-07-08)
+    1) Changes to Event::get_calendar_dates() to include member_url and member_title
+       if required
+  1.0.20 (2010-07-03)
+    1) Added cps for detail and listing views for 'title_show' and 'title_linked'
+  1.0.19 (2010-07-02)
+    1) Changes to deal with use of `effective_date` not `date`:
+       a) Event::draw_registrants() sql changes
+       b) Event::_get_records_get_sql_filter_date() sql changes
+    2) Moved isRegisterable() back into here - overrides Displayable_Item::isRegisterable()
+       and now acts on effective_date not date
+    3) Added setting of has_publication_date
+  1.0.18 (2010-05-28)
+    1) Added new CPs to Event::_cp_vars_detail to allow for customisation of
+       'Signin' dialog that may be used in Event Detail for product purchases
+  1.0.17 (2010-05-26)
+    1) Added BL_products_for_event() to allow Block Layout Display of products
+       for an event
+    2) Added new CP for event detail to enable viewing of products for an event
+  1.0.16 (2010-05-24)
+    1) Event::get_events_for_date() now includes 'shared' flag to indicate if
+       an item was sourced remotely
+    2) Added Event::get_product_catalogue_for_event() to get products associated
+       with an event for paid registration
+  1.0.15 (2010-05-20)
+    1) Change to Event::_get_records_get_sql_filter_date() to allow for 'what'
+       mode of 'date' and to apply DD if given in that mode
+    2) Event::get_events_for_date() now uses Event::get_records() and ensures
+       output is consistent whether remote data is fed from database or via RSS
+  1.0.14 (2010-05-14)
+    1) Added Event::get_events_for_date() to be used with ajax lookup
+  1.0.13 (2010-02-27)
+    1) Bug fix for Event::get_calendar_dates() to show recurring annual dates
+       where present e.g. '0000-12-25' Christmas day
+    2) Event class now has its own version of _get_records_get_sql_filter_date() to override
+       this for calendar, past, future and month modes none of which make any sense
+       for other posting types
+  1.0.12 (2010-02-25)
+    1) Changes to Event::export_icalendar() to diagnose when PEAR library is not present
+  1.0.11 (2010-02-12)
+    1) Added edit_param in constructor for icon_delete
+  1.0.10 (2009-10-04)
+    1) Event::draw_map() now shows thumbnail image on map if given
+  1.0.9 (2009-09-22)
+    1) CP list now includes paging_controls
+  1.0.8 (2009-09-16)
+    1) Changes to accomodate Google_Map::draw() now accepting array of arguments
+  1.0.7 (2009-09-11)
+    1) Renamed parameters for listings to make them clearer with 'filter_' or 'box_' prefixes
+  1.0.6 (2009-09-10)
+    1) New CPs for listings for 'body_show', body_char_limit' and 'body_plaintext'
+  1.0.5 (2009-08-08)
+    1) Added _cp_vars_listings settings
+    2) Moved isRegisterable() into Displayable_Item class
+    3) Now uses draw_listings() from parent
+  1.0.4 (2009-08-04)
+    1) Changes to Event::draw_listings() to enable filtering by memberID or personID,
+       in lieu of this whole section being replaced with a block_layout construct
+    2) More changes to Event::draw_listings() to use 'events_panel.' instead of
+       'planner_' as component parameters
+  1.0.3 (2009-08-03)
+    1) Added 5px internal padding on draw_listings box until the function is
+       deprecated to use Displayable_Item::draw_listings() instead
+  1.0.2 (2009-07-26)
+    1) Moved code for get_calendar_dates() into here
+  1.0.1 (2009-07-14)
+    Now has a block section layout defined
+  1.0.0 (2009-07-02)
+    Initial release

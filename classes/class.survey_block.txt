@@ -1,0 +1,13 @@
+  1.0.4 (2013-03-05)
+    1) Survey_Block::_draw_question_radio() now passes width where given for
+       field to allow multiple options to wrap to same width as other options
+  1.0.3 (2013-02-22)
+    1) Survey_Block::draw() now supports new type Question: Textarea
+  1.0.2 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.1 (2009-07-21)
+    1) Added draw() function to handle rendering of different survey block types
+    2) Added private helper functons to assist draw()
+    3) Changes to support multiple surveys on screen at once if ever required
+  1.0.0 (2009-07-02)
+    Initial release

@@ -1,0 +1,47 @@
+  1.0.16 (2013-06-07)
+    1) Internal changes in support of CP changes to replace the following
+       deprecated parameters with their new equivalents:
+         Old: 'grouping_tabs',    'filter_limit',  'filter_order_by', 'paging_controls'
+         New: 'results_grouping', 'results_limit', 'results_order',   'results_paging'
+  1.0.15 (2013-05-17)
+    1) Added cp for listings mode for 'filter_important'
+  1.0.14 (2013-03-30)
+    1) New CP 'thumbnail_show'
+    2) CP setting for 'thumbnail_image' now defaults to 's'
+    3) Set defaults for thumbnail to give dimensions
+  1.0.13 (2012-07-15)
+    1) CP defaults for filter_memberID and filter_personID now '' not 0
+  1.0.12 (2012-03-06)
+    1) Constructor now sets default_enclosure_base_folder
+  1.0.11 (2011-08-24)
+    1) Change to Podcast_Album::manage_podcasts() to prevent report refresh
+       from repeating the report title header
+    2) Change to Podcast_Album::manage_podcast_albums() to prevent report refresh
+       from repeating the report title header
+  1.0.10 (2011-08-09)
+    1) Added Podcast_Album::manage_podcasts() and
+       Podcast_Album::manage_podcast_albums()
+  1.0.9 (2011-07-21)
+    1) Completed podcast listings BL tag BL_contained_items() for listing items
+       within a podcast album
+    2) Added more CPs to handle display of podcasts inside an album with
+       control over block layout, paging and thumbnail sizes
+  1.0.8 (2011-07-19)
+    1) Added cps for single and multi-item view and correct icons for editing
+    2) Added stub code for BL_contained_items() to allow Block layout to operate
+  1.0.6 (2011-06-17)
+    1) Removed constructor call to _set_type_short()
+    2) Removed constructor calls to _set_search_type() and _set_path_prefix() -
+       Both are now called automatically when setting calling _set_type()
+  1.0.5 (2011-06-03)
+    1) Added cp for listings mode to set background colour
+  1.0.4 (2011-04-02)
+    1) Now sets container object type since albums may also be contained
+  1.0.3 (2011-01-24)
+    1) Replaced podcast_Album::get_selector_sql() with that in new parent class
+  1.0.2 (2011-01-24)
+    1) Now extends from Posting_Container
+  1.0.1 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.0 (2010-08-17)
+    Initial release

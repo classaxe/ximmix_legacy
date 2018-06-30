@@ -1,0 +1,115 @@
+  1.0.34 (2014-01-28)
+    1) Newline after JS code in Component_Gallery_Thumbnails::_draw_js
+  1.0.33 (2013-10-10)
+    1) Tweak in Component_Gallery_Thumbnails::_draw_css() to always have title
+       centred even when there is no image shown by making container table full
+       width
+  1.0.32 (2013-09-30)
+    1) Changes to link title to specified URL if 'show_links' is enabled
+  1.0.31 (2013-07-29)
+    1) Applied html entity encoding to image title attribute to deal with
+       ampersands in titles
+  1.0.30 (2013-06-07)
+    1) Changed the following CPs for listings mode:
+         Old: 'filter_limit',  'filter_order_by'
+         New: 'results_limit', 'results_order'
+  1.0.29 (2012-12-03)
+    1) Component_Gallery_Thumbnails::_is_new() now uses time() not mktime() as per
+       strict standards
+  1.0.28 (2012-11-23)
+    1) Tweak to Component_Gallery_Thumbnails::_draw_image_centered() to place
+       alt attribute for centred images to improve SEO score
+  1.0.27 (2012-11-09)
+    1) New cp 'show_image' to allow component to show title or caption but no
+       actual image if so configured
+  1.0.26 (2012-11-09)
+    1) Component_Gallery_Thumbnails::_draw() now clears _html property each time
+       it is called so multiple calls to the same object don't end up with echos
+       of previous calls
+    2) Component_Gallery_Thumbnails::_gallery_image_add() now sets enabled flag
+    3) Component_Gallery_Thumbnails::_add_sub_album() now sets enabled flag
+  1.0.25 (2012-11-03)
+    1) Component_Gallery_Thumbnails::_draw_js() now includes enabled flag in
+       image info entry
+  1.0.24 (2012-11-03)
+    1) Now shows items that are not available as 'greyed out' for admins
+  1.0.23 (2012-09-16)
+    1) Title and Caption where shown are now entity converted to handle ampersands
+  1.0.22 (2012-09-14)
+    1) Tweak to _draw_css() so that when 'show_image_border' is set the border
+       is applied to the actual IMAGE, NOT the TD container (which may have
+       either larger width or height resulting in a gap)
+   2) Change to _draw_image_centered() which now reduces width and height by 2px
+      if the CP for 'show_image_border' is set so that image isn't too large for
+      the centering container cell
+  1.0.21 (2012-07-30)
+    1) Split some of code in Component_Gallery_Thumbnails::_setup_load_images()
+       into Component_Gallery_Thumbnails::_setup_load_container() -
+       This new code now discovers what the default folder is for uploads to
+       the album and that value is used in Component_Gallery_Thumbnails::_add_image()
+  1.0.20 (2012-07-15)
+    1) CP defaults for filter_memberID and filter_personID now '' not 0
+  1.0.19 (2012-04-11)
+    1) New CPs: 'color_image_border', 'color_image_border_over', 'show_image_border'
+       and 'show_tooltip'
+  1.0.18 (2012-01-23)
+    1) Changes to _setup() to harness protected method in Component_Base class
+    2) Removed local implementation of _setup_load_parameters()
+  1.0.17 (2012-01-23)
+    1) Removed _draw_control_panel() - inherits instead
+  1.0.16 (2011-12-07)
+    1) Component_Gallery_Thumbnails::_draw_image_thumbs() now uses common CSS
+       for the component rather than inline style for containers and images
+    2) Grid mode is now always on - cp to override this is gone
+  1.0.15 (2011-10-19)
+    1) Component_Gallery_Thumbnails::_draw_image_thumbs() now uses new simpler
+       URLs for image resize mode
+  1.0.14 (2011-09-22)
+    1) Component_Gallery_Thumbnails::_draw_image_thumbs() now includes checksum
+       in images shown to allow images to be rotated without forcing old views
+       from the cache to obscure the effect.
+  1.0.13 (2011-05-23)
+    1) Component_Gallery_Thumbnails::_draw_image_thumbs() now adds left float
+       to inline style to allow IE6 and 7 to display properly
+  1.0.12 (2011-05-18)
+    1) Changed default CP values for show_title and show_content to 0
+  1.0.11 (2011-05-12)
+    1) Moved CP list into a new method _setup_load_cp_spec() for overriding
+    2) Renamed _setup_pre_operation() to _setup()
+    3) All private methods now changed to protected to allow for extension and
+       overriding by child classes
+  1.0.10 (2011-05-11)
+    1) Moved CP list into draw() to make it more accessible
+    2) Added CPs for content_show and title_show
+  1.0.9 (2011-05-02)
+    1) Changed image_grid_spacing to image_padding_horizontal and
+       image_padding_vertical - no longer requires grid
+  1.0.8 (2011-05-02)
+    1) Component_Gallery_Thumbnails::_do_submode() now checks 'source' to
+       determine whether a submode operation was intended for it or not
+    2) Added cp 'image_grid' and changed cp 'image_spacing' to 'image_grid_spacing'
+  1.0.7 (2011-04-27)
+    1) Component_Gallery_Thumbnails::_do_submode() now uses
+       Gallery_Image::do_submode() for all operations
+  1.0.6 (2011-04-27)
+    1) Component_Gallery_Thumbnails::_setup_draw_js() now includes parentTitle
+       to allow context menu to edit the container if set
+    2) Component_Gallery_Thumbnails::_setup_load_images() now finds tite of
+       container parent for each image where a parent exists
+  1.0.5 (2011-04-14)
+    1) Component_Gallery_Thumbnails::_setup_draw_js() now includes subtype in
+       js list to allow context menu to change with type
+  1.0.4 (2011-04-13)
+    1) Component_Gallery_Thumbnails::_do_submode() for 'gallery_image_feature'
+       now sets the childID_featured value for the affected parent
+  1.0.3 (2011-04-02)
+    1) Added cp 'image_spacing' to gallery_thumbnails component and moved some
+       inline css into system css to reduce code and simplify customisation
+  1.0.2 (2011-03-25)
+    1) Changes method of accessing jumploader to allow uploaded image count to
+       be shown
+    2) Now prevents submode operations if user is not an admin
+  1.0.1 (2011-03-18)
+    1) All context-menu actions now added in javascript - keeps HTML cleaner
+  1.0.0 (2011-03-15)
+    1) Initial release

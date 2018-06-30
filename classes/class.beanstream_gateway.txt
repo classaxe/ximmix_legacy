@@ -1,0 +1,15 @@
+  1.0.3 (2012-01-28)
+    1) Moved option to rreveal modification of order record (never used)
+    2) Renamed Beanstream_Gateway::process() to Beanstream_Gateway::payment()
+  1.0.2 (2011-10-19)
+    1) Changes to _build_request_add_items() to use `effective_date_start` field
+       in event description
+  1.0.1 (2011-09-07)
+    1) SKU sent with products now consists of:
+       productID - related_object - related_objectID
+       This is because beanstream only reads first 32 chars of SKU and repeats
+       description if another item with the same first 32 characters is seen
+  1.0.0 (2011-09-06)
+    1) Initial release - separated from Order class
+    2) Comprehensive rewrite into single-responsibility functions and to pass
+       details of related products to gateway for recording in transaction details

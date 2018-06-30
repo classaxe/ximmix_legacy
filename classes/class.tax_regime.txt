@@ -1,0 +1,68 @@
+  1.0.14 (2012-12-03)
+    1) Tax_Regime::copy() now has same signature as Record::copy()
+  1.0.13 (2012-08-08)
+    1) Added field list to constructor
+  1.0.12 (2011-10-04)
+    1) Added Tax_Regime::get_selector_sql()
+  1.0.11 (2010-10-19)
+    1) Tax_Regime::copy() now calls insert() method
+  1.0.10 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.9 (2010-04-14)
+    1) KLUDGE in last build now gone
+    2) Added Tax_Regime::get_tax_regimes_and_rules_for_CSV()
+    3) Added Tax_Regime::get_tax_regimes_and_rules_in_use()
+    4) Tax_Regime::draw_js_get_tax_costs() now in functions.js
+    5) Tax_Regime::draw_js_tax_arrays() now gone
+    6) Tax_Regime::draw_js_loadTotalCost() now fully regime independent and JS
+       moved to functions.js
+    7) Population of individual taxes in Tax_Regime::draw_fees_overview() now
+       by means of JS function customform_draw_fees_overview() in functions.js
+    8) Removed Tax_Regime::apply_taxes()
+    9) Removed Tax_Regime::set_tax_zone()
+   10) Tax_Regime::draw_fees_overview() moved into Custom_Form class
+   11) Tax_Regime::draw_js_loadTotalCost() moved into Custom_Form class
+   12) Tax_Regime::draw_js_tax_regimes() moved into Custom_Form class
+   13) Tax_Regime::taxes_levied() now gone.
+   14) Tax_Regime::get_tax_zone() now gone.
+  1.0.8 (2010-03-22)
+    1) Tax_Regime::set_tax_zone() no longer switches based on tax zone, BUT
+       (for now at least), does add in an extra place to apply GST - '!CAN.*'
+       IF  (and only if) the page name matches one of the three given by CICBV
+       THIS IS A KLUDGE AND MUST BE REMOVED SOON!
+  1.0.7 (2010-03-17)
+    1) Changes to Tax_Regime::draw_js_tax_arrays() to include JS definitions of
+       all tax regimes and their rules for the current site
+    2) Tax_Regime::get_rules() now renamed get_tax_rules()
+  1.0.6 (2010-03-16)
+    1) Tweak to Tax_Regime::copy() to assign rules to current system if user
+       is not a MASTERADMIN
+  1.0.5 (2010-03-15)
+    1) Turned off !CAN.* rule for GST after phone call from Judith who doesn't
+       want that temporary workaround yet.
+    2) Added Tax_Regime::get_rules()
+    3) Added Tax_Regime::handle_report_copy()
+    4) Added Tax_Regime::copy() which also clones and remaps associated rules
+  1.0.4 (2010-03-13)
+    1) Rewrote Tax_Regime::taxes_levied() to apply taxes based on NNN.SP,
+       and to apply wildcard matches and inversions like its functions.js
+       counterpart get_taxes_applied()
+       Now works with any number of taxes
+    2) Changes to Tax_Regime::draw_js_loadTotalCost() -
+       Now works with any number of taxes
+  1.0.3 (2010-03-12)
+    1) Modified the following to allow tax settings to live in tax_arr[]
+       Tax_Regime::draw_js_tax_arrays() - previously tax_gst, tax_qst etc (yuk!)
+       Tax_Regime::draw_js_loadTotalCost()
+    2) Tax_Regime::draw_js_get_taxes_applied() removed -
+       JS get_taxes_applied() is now universally capable and moved to functions.js
+    3) Locations where tax apply now shown as NNN.SP (NNN=country), was just SP
+  1.0.2 (2010-03-12)
+    1) References to member variable $country, get_country() and set_country() now
+       all changed to indicate tax_zone (less confusing)
+  1.0.1 (2010-03-11)
+    1) Tax_Regime now extends Record and has a standard constructor
+    2) Job of setting tax columns now handled by Tax_Regime::set_country()
+    3) Removed Tax_Regime::draw_js_arrays() (was used in cicbv.ca/StudentsOnline)
+  1.0.0 (2009-07-02)
+    Initial release

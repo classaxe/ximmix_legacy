@@ -1,0 +1,8 @@
+  1.0.3 (2013-05-14)
+    1) Added support for group_header and group footer
+  1.0.2 (2013-05-09)
+    1) Major rewrite to use many smaller simpler functions and block layout
+  1.0.1 (2013-03-30)
+    1) New CP 'thumbnail_show' and set default value for 'thumbnail_image' to 's'
+  1.0.0 (2011-12-28)
+    1) Initial release - moved from Component class

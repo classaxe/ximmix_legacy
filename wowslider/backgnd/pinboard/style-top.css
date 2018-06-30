@@ -1,0 +1,6 @@
+/* bottom center */
+#wowslider-container$GallerySuffix$  .ws_bullets {
+    top: 0px;
+    right: $backMarginsRight$px;
+}
+

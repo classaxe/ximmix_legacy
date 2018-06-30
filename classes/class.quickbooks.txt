@@ -1,0 +1,155 @@
+  1.0.30 (2012-12-03)
+    1) Removed hard-coded enabling of error displays
+  1.0.29 (2012-11-26)
+    1) Changes to export of Sales Orders -
+         Was sending description not title for products
+         Was sending S/P instead of postal code
+         Wasn't sending customer name in 'Bill To'
+    2) QB_Order::get_quickbooks_data() now includes NFull, derived from name of
+       person on whose bahalf ordr was placed.
+    3) New method QuickBooks::get_qwc_xml()
+    4) Quickbooks::_invoice_add_request() and Quickbooks::_salesorder_add_request()
+       now send company name and billing name
+  1.0.28 (2012-11-19)
+    1) Quickbooks::_invoice_add_request() now writes special instructions from
+       order into memo field
+    2) Quickbooks::_salesorder_add_request() now writes special instructions from
+       order into memo field
+  1.0.27 (2012-11-19)
+    1) Now only exports taxcodes for ordered items if qbwc_export_orders_taxcodes
+       setting for site is set to 1
+    2) Quickbooks::_qbwc_setup_set_site_settings() now loads setting for
+       `system`.`qbwc_export_orders_taxcodes`
+    3) New method QuickBooks::_salestaxcodes_get_xml() that standardises inclusion
+       of taxcodes applied to an ordered item
+  1.0.26 (2012-11-15)
+    1) Now includes working tax_codes lookup
+    2) QB_Order::get_quickbooks_data() now includes all fields for ordered items
+    3) QuickBooks::_invoice_add_request() now includes line entries for each
+       sales tax applied to each ordered item
+    4) QuickBooks::_salesorder_add_request() now includes line entries for each
+       sales tax applied to each ordered item
+  1.0.25 (2012-11-13)
+    1) No longer tries to queue orders that have no products associated with them.
+    2) Now has correct capitalisation of 'SalesOrderQuery' in 'not found' handler
+    3) Added support for 'ItemSalesTaxQuery' in 'not found' handler
+    4) Changes to QuickBooks::_salesorder_add_request():
+       If ordered product doesn't exist (i.e. it was deleted after order was processed)
+       it isn't added to a sales order
+    5) Changes to QuickBooks::_invoice_add_request():
+       If ordered product doesn't exist (i.e. it was deleted after order was processed)
+       it isn't added to an invoice
+  1.0.24 (2012-11-07)
+    1) Added new callback for QUICKBOOKS_QUERY_SALESTAXCODE
+    2) Added handlers for new callback:
+         QuickBooks::_salestaxcode_query_request(),
+         QuickBooks::_salestaxcode_query_response()
+    3) Added new class QB_Tax_Code
+    4) New processor QuickBooks::_qbwc_queue_tax_codes_lookup_from_qb_name()
+    5) Added new processor to queue with priority of 2
+  1.0.23 (2012-11-05)
+    1) Added two new callbacks 'QUICKBOOKS_ADD_SALESORDER' and 'QUICKBOOKS_QUERY_SALESORDER'
+    2) Added new handlers for new callbacks:
+         _salesorder_add_request(),
+         _salesorder_add_response(),
+         _salesorder_query_request(),
+         _salesorder_query_response()
+    3) Added new new processors for _qbwc_queue_orders():
+         _qbwc_queue_order_invoices() and
+         _qbwc_queue_order_salesorders()
+    4) _qbwc_queue_orders() now switches control to correct processor depending on
+       setting of $system_vars['qbwc_invoice_type']
+  1.0.22 (2012-08-21)
+    1) Bug fix for errant product callback name in QuickBooks::_qbwc_setup_callback_map()
+  1.0.21 (2012-08-21)
+    1) Replaced hard-coded path in QuickBooks::quickbooks_log() with self-correcting
+       path
+  1.0.20 (2012-08-21)
+    1) Renamed functions for better grouping, add products now operating correctly
+       in two passes
+    2) New object type QB_Invoice which handles QB operations for orders
+  1.0.19 (2012-08-17)
+    1) QB_Customer::lookup_from_qb_data() now also checks qb_name for record where
+       set so that customers whose QB_Names are given can be matched on the import
+       phase instead of waiting for phase 2
+    2) New subclass QB_Inventory_Item which extends Product and implements
+       QB_Inventory_Item::get_next_ID_for_QB_conversion() formerly in Product class
+    3) Products being queried now have their qb_name set to their itemCode if the
+       qb_name field is initially blank, then are searched on their qb_name field
+  1.0.18 (2012-08-15)
+    1) Improved logging and now complete elimination of repeated operations
+    2) Removed QUICKBOOKS_QUERY_CUSTOMER_BY_QB_NAME and related support -
+       now QUICKBOOKS_QUERY_CUSTOMER uses the qb_name (as it should)
+    3) Now uses sequence to set workqueue thread priority and eliminates
+       hard-coded values in rountines themselves.
+  1.0.17 (2012-08-14)
+    1) Now works properly with all items in sequence up to customer add
+  1.0.16 (2012-08-13)
+    1) Now works in three phases - but can't yet run all in one suite.
+       First:
+         downloads entire QB database in 100-record chunks
+         Checks each downloaded record against user database looking for
+         QB_Name and QB_Ident and sets these if it finds a reliable unique match
+       Second:
+         Looks for any remaining web-side customers with orders who have a QB name
+         (which will have been manually entered after a manual search) and gets the
+         corresponding QB_Ident
+       Third:
+         Looks for any remaining web-side customers who do not have a QB name
+         and creates these in quickbooks.
+  1.0.15 (2012-08-10)
+    THIS VERSION DOES WORK - But next version needs to handle import from QB in
+    smaller blocks then parse and update or insert user records in same thread
+    1) QB_Import::get_customer_data() now gets both qb_ident and qb_name
+    2) QB_Import::_qbwc_get_customer_qb_idents() now sets both qb_ident and qb_name
+  1.0.14 (2012-07-24)
+    1) Added QB_Import::get_completed_download()
+  1.0.13 (2012-07-19)
+    1) Added class qb_import to interact directly with importer data
+    2) Now includes QuickBooks::_qbwc_queue_download_all_customers(),
+       QuickBooks::_customer_get_all_request() and QuickBooks::_customer_get_all_response()
+    3) Data from quickbooks customers is now loaded into a new table qb_data as
+       XML chunks in 500 record segments to avoid server timeouts
+    4) Still need to post process this to do customer imports to wqebsite after
+       checking for duplicates
+  1.0.12 (2012-06-28)
+    1) Now looks up products and customers in quickkbooks before trying to add
+       them
+  1.0.11 (2012-06-21)
+    1) Code simplification and start of work on product lookups
+  1.0.10 (2012-06-13)
+    1) Now successfully adds orders - these have a lower queue priority than
+       products and customers so dependencies are in place when we need them.
+       TODO:
+       Mark Orders as paid
+       Tag correct tax codes to items
+  1.0.9 (2012-06-06)
+    1) Changes to QuickBooks::_product_add_request()
+       to use itemCode for name, then have title prefix description
+  1.0.8 (2012-05-30)
+    1) Now respects export settings in system panel to decide what to export
+       via web connector
+  1.0.7 (2012-05-23)
+    1) Now sets up the quickbooks listID of any item queued to 'q' to avoid
+       looping indefinately
+  1.0.6 (2012-05-23)
+    1) Now takes account names and username / password from site settings
+  1.0.5 (2012-05-18)
+    1) Now has all handlers within main class
+    2) Extended to allow for exporting of all unknown products
+  1.0.4 (2012-05-09)
+    1) Code moded into this standard class file for version control purposes
+  1.0.3 (2012-05-02)
+    1) Moved from qb/docs/example_server.php to qb/server.php
+  1.0.2 (2012-02-22)
+  1.0.1 (2012-02-17)
+    1) Changes to operate with Ecclesiact environment:
+       Globalising $dsn
+       Setting include path to shared folder
+       Updating person records when quickbooks inserts customer and issues a
+       ListID as the primary key
+    2) TODO:
+       Major tidy up
+       Complete real-word code for syncronisation functions
+  1.0.0 (?)
+    1) Initial release by Keith Palmer

@@ -1,0 +1,94 @@
+  1.0.28 (2014-01-23)
+    1) Added support for communityID when retrieving records
+  1.0.27 (2013-10-07)
+    1) Bug fix for RSS::_serve_get_records() to correctly get events for a given
+       member (was looking in personID field for memberID!)
+    2) New arguments available:
+        base_path
+        feed_title
+        isShared
+    3) Help is now invoked as a default mode when a valid mode is not encountered
+  1.0.26 (2013-05-02)
+    1) Tweaks to allow use of query parameters for category, not just
+       path format as before, and to respect limit in all cases
+       http://www.saministryresources.ca/rss/articles?category=MR-Formation&limit=2
+       http://www.saministryresources.ca/rss/articles/category/MR-Formation/limit/2
+       http://www.saministryresources.ca/rss/articles/limit/2
+    2) Now includes help if RSS is accessed without a submode being given
+  1.0.25 (2012-11-28)
+    1) RSS::_serve_open_channel() and RSS::_serve_set_title() now both use
+       System::get_item_version() not System::get_version() as before
+  1.0.24 (2012-10-10)
+    1) Changes to ensure that pubdate uses publish date for display
+  1.0.23 (2012-10-05)
+    1) Removed support for css - no browser supports it now anyway
+    2) Improved support for Itunes by adding Itunes Category, Explicit and Owner
+       settings
+  1.0.22 (2012-09-04)
+    1) Removed support for rss/tables_and_fields - unused
+  1.0.21 (2012-07-31)
+    1) RSS::_serve_get_records() still had one old call left in it, used as a template
+       but left in place thus triggering Deprecated warnings. Doh!
+  1.0.20 (2012-07-16)
+    1) RSS::_serve_get_records() converted all $Obj->get_record() calls to use
+       arguments arrays (12 of them!)
+  1.0.19 (2011-10-19)
+    1) Changes to RSS::get_items()
+    RSS::_serve_prepare_data()
+  1.0.18 (2011-10-19)
+    1) RSS::_serve_prepare_data() changes for event icons to use simpler path
+       through image streamer
+  1.0.17 (2011-04-25)
+    1) RSS::_serve_render() now calls do_tracking() in Page context, not System
+  1.0.16 (2011-04-25)
+    1) RSS::_serve_prepare_data() now calls $this->Obj->get_URL() not $this->get_URL()
+  1.0.15 (2011-02-17)
+    1) RSS::_serve_setup() now provides defaults for container_path and container_subs
+  1.0.14 (2011-01-27)
+    1) Now supports container_path and container_subs for podcasts and
+       gallery-images:
+       RSS::_serve_get_records() updated to support this
+  1.0.13 (2011-01-13)
+    1) Now supports gallery_images and shared_gallery_images:
+       RSS::_serve_set_object() specifies it
+       RSS::_serve_get_records() now supports it
+  1.0.12 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.11 (2010-09-26)
+    1) Changes to include report status
+  1.0.10 (2010-08-10)
+    1) Change to RSS::get_items() to remove backward compatability for older
+       namespace format (used unfriendly URLs)
+    2) Change to RSS::get_items() to add 'effective_date', 'effective_time_start'
+       and 'effective_time_end'
+  1.0.9 (2010-06-30)
+    1) Changes to RSS::_serve_prepare_data() now that events use effective_date
+  1.0.8 (2010-05-21)
+    1) RSS::_serve_prepare_data() now sets rsized icon size to 80 pixels
+  1.0.7 (2010-04-27)
+    1) Changes to RSS::_serve_prepare_data() to wrap CDATA tags around ecl NS
+       tags for content, title and icon to keep them safe when parsing
+    2) Bug fix for URLs for resources on other sites
+  1.0.6 (2010-04-25)
+    1) Major rewrite for RSS::serve() to split into pieces and allow complete
+       control via optional args input array
+    2) Removed XSL for RSS - no modern browsers use it anyway
+    3) Removed IE sort criteria - these don' seem to work on IE8 anyway
+  1.0.5 (2010-03-13)
+    1) Change to RSS::serve() to have Chanle URL be that for the site, not the feed
+       (makes it behave more like a wordpress feed)
+  1.0.4 (2010-02-27)
+    1) Bug fix for RSS::serve() to use correct site URL for enclosures
+    2) RSS::serve() now includes non-standard (but very useful...) duration attribute
+       to duplicate setting provided for itunes NS entry
+    3) Added capability to handle 'shared_podcasts' - was missing
+    4) Updated RSS::get_items() to retrieve enclosure attributes for audio
+  1.0.3 (2009-12-14)
+    1) Added RSS::do_rss() - formerly in codebase.php
+  1.0.2 (2009-10-17)
+    1) RSS::serve() for config now includes Library version and status in title
+  1.0.1 (2009-09-04)
+    1) Constructor now named __construct
+    2) RSS::serve() for config now reports version, DB and class statuses in title
+  1.0.0 (2009-07-02)
+    Initial release

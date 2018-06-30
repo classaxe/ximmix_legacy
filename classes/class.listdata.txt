@@ -1,0 +1,10 @@
+  1.0.4 (2011-03-05)
+    1) Field list now includes content and thumbnail - and textFrench is gone
+  1.0.3 (2010-10-19)
+    1) Added fields list to allow validation
+  1.0.2 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.1 (2009-12-27)
+    1) Changed reference to parent constructor
+  1.0.0 (2009-07-02)
+    Initial release

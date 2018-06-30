@@ -1,0 +1,11 @@
+  1.0.3 (2014-02-10)
+    1) Changes to call to init() with associative array of parameters instead of
+       sequential
+  1.0.2 (2014-02-06)
+    1) Now invokes Report_Form_Field_Lookup class to handle Ajax lookup
+    2) Now allows multiple filter field options to be set with labels to choose
+       between search criteria
+  1.0.1 (2013-12-04)
+    1) New CP 'results_height' to allow setting of height for displayed results scrolling area
+  1.0.0 (2013-11-29)
+    1) Initial release

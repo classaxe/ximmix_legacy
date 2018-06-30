@@ -1,0 +1,123 @@
+  1.0.36 (2014-03-23)
+    1) Special events section for Christmas now retasked as configurable special
+       services section so it can also be used for Easter or Summer VBS
+  1.0.35 (2014-03-21)
+    1) Now issues a 404 if community is not found -
+        keeps bots from coming back to dead or moved content
+  1.0.34 (2014-02-08)
+    1) Fix to prevent 'stats' section tab showing if user is public
+  1.0.33 (2014-02-06)
+    1) Now checks global constant PIWIK_DEV and if seen on a dev machine system
+       includes piwik stats (even though remote from dev server)
+  1.0.32 (2014-01-24)
+    1) Each postings section now has links for RSS and Web Embed code generation
+  1.0.31 (2014-01-23)
+    1) Methods for displaying Member and Community Resources (such as JSONP, RSS,
+       Member and Community Postings and Member Details) now all moved into a new
+       class Community_Resource
+    2) Most of the CSS originally served inline now contained within a new external
+       version-controlled streamed CSS file 'community.css'
+  1.0.30 (2014-01-21)
+    1) Added method Community_Display::_draw_community_posting() and ability to
+       display posted items prefixed with community path but not belonging to any
+       specific member -
+       e.g. http://www.churchesinyourtown.ca/communities/aurora/2014/03/25/city-wide-aurora-prayer-gathering
+  1.0.29 (2014-01-17)
+    1) Tweak to Community_Display::_draw_map_listing_name() following google map
+       code simplifications
+    2) Tweak to Community_Display::_draw__js() following google map code simplifications
+  1.0.28 (2014-01-13)
+    1) Switched of default diaplay of Christmas services (overdue!)
+    2) Added new template for Members pages 'About' section.
+  1.0.27 (2013-12-14)
+    1) Added ability to show Christmas Services in a tab by itself
+  1.0.26 (2013-12-06)
+    1) New CPs for audio section labelling used in Mnisterial account details
+  1.0.25 (2013-11-29)
+    1) _draw_context_menu_member() now propages ministerial member status
+  1.0.24 (2013-11-27)
+    1) Tweak to spacing for Community_Display::_draw_members_help()
+  1.0.23 (2013-11-27)
+    1) Added support for display of Ministerial Associations
+    2) Changes to Community_Display::_draw_map() to use sub-functions for display
+       of map points and listed names -
+       now groups points by type where there is more than one type
+    3) Improvements to member icons
+  1.0.22 (2013-11-02)
+    1) Now uses draw_section_tab_buttons() and show_section_tab() which use
+       setOnStage() for handling of current tab without making them invisible -
+       no longer need to build the map in foreground
+    2) New CPs 'detail_audioplayer_width' and 'listing_audioplayer_width'
+  1.0.21 (2013-10-22)
+    1) Context-menu operations added for stats and meetings
+    2) Changes to correctly handle display of local sponsorship as determined by
+       Root Sponsorship album setting for community
+    3) Now uses About page template specified as a component parameter
+  1.0.20 (2013-10-17)
+    1) Added 'verified Listing' to help entry for icons shown
+    2) Removed extra border around map since this is handled at the map level now
+    3) Now gets visitor stats for sponsors
+  1.0.19 (2013-10-10)
+    1) Now includes new 'About...' tab that describes what the site is, who
+       sponsored it (if sponsors are enabled), and where to obtain downloadable
+       button for linking to it. Also features RSS feeds for community items
+  1.0.18 (2013-10-07)
+    1) Now includes support for community RSS feeds
+    2) Bug fix for RSS feed for Community Member Events RSS feed
+  1.0.17 (2013-09-30)
+    1) Header for National sponsors now includes request to mention us when responding
+  1.0.16 (2013-09-28)
+    1) Fully-qualified path is now used for JS call to community_dropbox_check()
+       avoiding a pointless and confusing path transition to the real location
+  1.0.15 (2013-09-23)
+    1) Now indicates 'Verified' checkmark in members gallery over members who
+       returned their surveys
+  1.0.14 (2013-09-20)
+    1) Now has future events listing as well as calendar view
+    2) New cp 'listing_show_categories' controls whether categories are shown
+  1.0.13 (2013-09-15)
+    1) Default profile map zoom changed to 14
+  1.0.12 (2013-08-20)
+    1) For now, switched off Piwik Stats retrieval
+  1.0.11 (2013-08-15)
+    1) Change to Community_Display::_draw_map() to add numbering to list for admins
+  1.0.10 (2013-08-13)
+    1) Change to Community_Display::_draw_map() to handle situation where there
+       is only a single point listed
+  1.0.9 (2013-08-08)
+    1) Big changes following reorganisation of community_member fields to allow
+       for separate addresses for office, mailing and services
+  1.0.8 (2013-08-01)
+    1) New CPs for footer_calendar, header_calendar, label_calendar and tab_calendar
+  1.0.7 (2013-07-29)
+    1) Moved dropbox checking code into parent class
+  1.0.6 (2013-07-29)
+    1) Substantial rewrite of Community_Display::_draw_meetings() to use rowspan
+       to show members associated with a number of time slots on any given day
+  1.0.5 (2013-07-29)
+    1) Moved internals of Community_Display::_setup_listings_load_records() to
+       Community::get_members()
+    2) Meeting times no longer show shortform name
+  1.0.4 (2013-07-28)
+    1) Changed defaults for CP sizes to allow new communities to be minimal setup
+    2) Fixed Community_Display::_draw_gallery_embedded() link paths
+    3) Map no longer references shortform name
+    4) Removed CP 'map_width' and 'profile_frame_width' - now both use 'width'
+    5) CP 'profile_frame_height' now 'profile_map_height'
+    6) Implemented National sponsorships panels at head of 'sponsors' section
+  1.0.3 (2013-07-26)
+    1) New CPs 'profile_photo_height' and 'profile_photo_width'
+  1.0.2 (2013-07-25)
+    1) Tweak to remove width in CSS for 'community_map_map_frame' rather than
+       force it to a fixed width
+  1.0.1 (2013-07-25)
+    1) Changed internal references of gallery_member_nnn to members_nnn
+       to avoid confusion with support for Gallery Albums which is added in this build
+    2) Now calls Community_Member_Display::draw() to perform display of member
+       rather than Community_Member::draw() which is now renamed and moved
+    3) Added support for community gallery
+  1.0.0 (2013-07-23)
+    1) Initial release - moved from Community class
+    2) Community::get_communities() now includes number of members
+    3) Community::draw_communities_list() includes number of members
+    4) Moved draw_community() into its own class file as Community_Display

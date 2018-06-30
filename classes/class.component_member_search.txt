@@ -1,0 +1,37 @@
+  1.0.11 (2013-12-04)
+    1) Tweaks to search dialog to remove extra HR
+    2) Simplified draw() routine with new draw_results() method
+    3) Simplified _setup() routine with new _setup_set_person_object() method
+    4) Removed some unused member variables
+  1.0.10 (2013-12-04)
+    1) Massive changes to use block layout for display
+    2) New CPs for show_email, show_fax, show_phone and show_web
+  1.0.9 (2013-12-03)
+    1) Eliminated confusing $_show_home and $_show_work variables
+  1.0.8 (2013-11-29)
+    1) CPs added to 'No results' message and default range
+  1.0.7 (2013-11-28)
+    1) Huge changes to support Radius search
+  1.0.6 (2013-11-22)
+    1) Huge overhaul to properly respect all new permission settings
+    2) Removed pool_query -
+       Was only used in CICBV for groups selection, now uses filter_group instead
+    3) Added filter_category and greatly improved filter_group selectivity
+  1.0.5 (2013-06-05)
+    1) Added options to hide address and control panel in which case search
+       executes automatically
+    2) Now uses new static method Google_Map::get_bounds() to get bounding box
+       for coordinates
+  1.0.3 (2013-05-14)
+    1) Now checks that there is at least one valid map point before attempting to
+       draw a map
+  1.0.2 (2013-05-13)
+    1) Very comprehensive rewrite to make more consistent with other more modern
+       component-based classes and greatly improve query efficiency
+    2) Can now filter easily on group membership
+    3) Now includes embedded google map showing all matched locations
+  1.0.1 (2012-03-09)
+    1) Renamed Component_Member_Search::member_search() method to draw()
+    2) Tweaks to edit forms to user 'user' report, not 'person'
+  1.0.0 (2011-12-31)
+    1) Initial release - moved from Component class

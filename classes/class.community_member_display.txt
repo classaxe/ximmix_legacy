@@ -1,0 +1,127 @@
+  1.0.37 (2014-12-26)
+    1) Changes to ensure that 404 headers are sent when either comminity or member doesn't
+       exist.
+  1.0.36 (2014-03-27)
+    1) All postings panels now pass community_URL to invoked objects so that
+       shared items can be properly linked in methods
+       Community_Member_Posting::BL_shared_source_link() and
+       Community_Member_Posting::BL_mini_shared_source_link()
+  1.0.35 (2014-03-23)
+    1) Changes to make former 'Christmas Services' tab configurable for other
+       special services such as 'Easter' or 'Summer VBS'
+  1.0.34 (2014-02-08)
+    1) Fix to prevent 'stats' section tab showing if user is public
+  1.0.33 (2014-02-06)
+    1) Now includes piwik stats for individual member in preparation for
+       inclusion in newsletters to members
+  1.0.32 (2014-01-28)
+    1) Formatting fixes for JS onload code in Community_Member_Display::_draw_js()
+  1.0.31 (2014-01-24)
+    1) Each postings section now has its own 'RSS' and 'Web Embed' code links
+    2) Community_Member_Display::_setup_load_edit_parameters() changes to deal
+       with renaming of sponsorship plan report and form
+  1.0.30 (2014-01-23)
+    1) Moved bulk of CSS code into externally linked, version-controlled and
+       streamed community.css file
+  1.0.29 (2014-01-18)
+    1) Minor tweaks to allow for inner padding in 'About' section
+  1.0.28 (2014-01-13)
+    1) Community_Member_Display now includes 'About...' section
+  1.0.27 (2014-01-06)
+    1) Community_Member_Display::_draw_contact_form_setup() now uses User class
+       to load in details of logged in person - Contacts cannot login
+  1.0.26 (2013-12-18)
+    1) Tweak to Community_Member_Display::_setup_load_events_upcoming() to correct
+       case capitalisation of 'Christmas' and 'Easter'
+  1.0.25 (2013-12-16)
+    1) Test is done to see if member has Christmas services before showing tab
+    2) Community_Member_Display::_draw_address() now returns empty if there is
+       no actual address information other than spaces used to prevent automatic
+       population of alternative addresses when the 'edit member' form is saved.
+  1.0.24 (2013-12-14)
+    1) Added ability to show Christmas Services in a tab by itself
+  1.0.23 (2013-12-06)
+    1) Now replaces 'Sermons' for 'Audio' for Ministeriums
+    2) 'Regular Service Times' now says 'Regular Meeting Times' so this works for
+       other regular meeting types e.g. Ministerial Meetings.
+  1.0.22 (2013-11-30)
+    1) Ministeriums now list members under a new 'Members' tab
+    2) Members with a single profile image now have image framed similar to
+       the framing of slideshows
+  1.0.21 (2013-11-29)
+    1) Members who belong to a ministerial now show events and news tabs and
+       RSS feeds for news and events
+  1.0.20 (2013-11-15)
+    1) Tweak to Community_Member_Display::_draw_profile() to remove protocols from
+       linked resources
+  1.0.19 (2013-11-03)
+    1) Updated to use new offstage section switching methods and to include width
+       setting for audio players
+  1.0.18 (2013-10-28)
+    1) Changes to support up to 8 contact names / email adreses in contact form
+    2) Community_Member_Display::_draw_contact_form_get_contacts_csv() now converts
+       regular commas in label to htmlentity equivalent to prevent parameter confusion
+  1.0.17 (2013-10-17)
+    1) Now shows verified by member date in profile if applicable
+    2) Better layout for member profile details to improve use of space
+  1.0.16 (2013-10-10)
+    1) Now includes languages spoken in profile overview
+  1.0.15 (2013-10-01)
+    1) Changes to Community_Member_Display::_draw_contact() for
+       better use of space for contact details in member profile
+  1.0.14 (2013-09-25)
+    1) Added support for service_notes and office_notes
+  1.0.13 (2013-09-21)
+    1) Added UStream support for video icon in profile
+    2) Community_Member_Display::_draw_contact_form_handle_user_requests() now
+       sets result message correctly to display on screen
+  1.0.12 (2013-09-20)
+    1) Changes to Community_Member_Display::_draw_events() to display FUTURE events
+       not this months as before
+    2) link_youtube is now a generic type capable of handling other providers
+    3) Calendar now appears immediately after events in tab order
+    4) Now uses new cps in Community Display to govern how listings are displayed
+  1.0.11 (2013-09-15)
+    1) Change to remove erroneous empty info window which appears as a white triangle
+       and to correct title attribute for custom icon
+  1.0.10 (2013-08-10)
+    1) Changes to support alternative office and mailing addresses
+  1.0.9 (2013-08-08)
+    1) Changes to deal with field name changes to accomodate separate addresses
+       for office, mail and services, and other field re-organisations
+  1.0.8 (2013-08-04)
+    1) Tweak to Community_Member_Display::_draw_service_times() to be more
+       tollerant of blank lines in service times listings
+  1.0.7 (2013-08-04)
+    1) Moved Community_Member_Display::draw_summary() into its own class as
+       Community_Member_Summary::draw()
+    2) Moved Community_Member_Display::draw_resource() into its own class as
+       Community_Member_Resource::draw()
+  1.0.6 (2013-08-03)
+    1) Completed work on Summary view when viewing in 'print friendly' mode
+    2) No longer shows Service Times header in profile if there are none to show
+    3) No longer shows 'Share on your website' and RSS Feeds unless full member
+    4) Moved Community_Member_Display_draw_contact_form_get_contacts() to
+       Community_Member::get_email_contacts()
+  1.0.5 (2013-08-01)
+    1) Now includes its own linked title
+    2) Now has separate sectons for 'upcoming events' and 'calendar'
+    3) Now cleanly ignores any section not enabled, rather than simply hiding them
+    4) Community_Member_Display::_setup_tabs() now stretches last button to occupy
+       any remaining space in overall profile width - looks much better
+    5) Began adding support for Community Member Summary view
+  1.0.4 (2013-08-01)
+    1) Unreleased code
+  1.0.3 (2013-07-29)
+    1) Added navigation controls to allow visitors to view previous and next
+       members in any given community
+    2) Tweak to Community_Member_Display::_draw_profile() to remove blank lines
+  1.0.2 (2013-07-28)
+    1) Community_Member_Display::_draw_map() now uses CP 'width' for sizing,
+       not 'profile_frame_width' as before
+  1.0.1 (2013-07-26)
+    1) Now uses Community CPs 'profile_photo_height' and 'profile_photo_width'
+       when sizing photos and slideshow
+  1.0.0 (2013-07-24)
+    1) Initial release - moved Community_Member::draw() into here as
+       Community_Member_Display::draw()

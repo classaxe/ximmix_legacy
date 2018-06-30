@@ -1,0 +1,42 @@
+  1.0.12 (2013-05-07)
+    1) Now sets group membership descriptions on affected users and contacts
+  1.0.11 (2013-05-01)
+    1) No longer throws an exception if there's a filter set somewhere that
+       doesn't apply to the report being operated upon in group wizard context -
+       simply ignores it and moves on
+  1.0.10 (2013-05-01)
+    1) Now correctly applies query optimisations when working with reports that
+       deal directly with records in the person table (i.e. users and contacts)
+    2) Additional optimisations that speed up loading by several seconds on
+       systems having many records
+  1.0.9 (2013-04-23)
+    1) Bug fix to avoid running subseqlect query when there are no persons
+       selected in report
+    2) Tweak to extend SQL concat results size to include all persons matched
+  1.0.8 (2011-10-22)
+    1) Changed references to Report::get_filter() to Report_Report::get_filter()
+  1.0.7 (2011-10-03)
+    1) Bug fix in Group_Wizard::_setup_get_targetIDs() to let select boxes work
+       with objects other than Person -
+       now works with group member, event registrations and custom registration
+       sub-selects
+  1.0.6 (2011-08-20)
+    1) Removed groupAPPROVER and groupEDITOR permissions
+  1.0.5 (2011-08-11)
+    1) Change to Group_Wizard::_setup_get_targetIDs() to make subselect clause
+       unambiguous - was failing
+  1.0.4 (2011-07-16)
+    1) Group_Wizard::draw() now calls HTML class for section tabs
+  1.0.3 (2011-06-09)
+    1) Replaced references to report columns of type 'button_add_to_group' with
+      'selected_add_to_group' for Group_Wizard::_do_submode_get_persons_csv(),
+      Group_Wizard::_setup_get_total_count() and Group_Wizard::_setup_get_targetIDs()
+  1.0.2 (2011-06-04)
+    1) Group_Wizard::_setup_get_targetIDs() now has no special clause for reports
+       based on 'Person' object (we'll have Users, Contacts and eventually Subscribers)
+       but instead the filter in the 'add_to_group' button definition in User report
+       includes only one table to prevent abiguities from being encountered
+  1.0.1 (2011-05-26)
+    1) Group_Wizard::draw() changes to bottom buttons for consistency
+  1.0.0 (2011-02-15)
+    Initial release

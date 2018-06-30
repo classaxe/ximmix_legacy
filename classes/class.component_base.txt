@@ -1,0 +1,61 @@
+  1.0.17 (2014-05-19)
+    1) Tweak to Component_Base::get_safe_ID() to deal with posibility that an instance-name
+       might actually contain spaces (e.g. TUC homepage 'combo_tabber:front page')
+  1.0.16 (2014-01-28)
+    1) Newline after JS Onload code in Component_Base::_draw_section_container_open()
+  1.0.15 (2013-12-05)
+    1) Component_Base::_setup_load_user_rights() now sets isAdmin if person
+       has permUSERADMIN rights
+  1.0.14 (2013-11-20)
+    1) Added Component_Base::_setup_load_user_groups()
+    2) Component_Base::_setup_load_user_rights() now detects isPUBLIC and
+       isSYSMEMBER
+  1.0.13 (2013-11-03)
+    1) Added Component_Base::_draw_section_container_open()
+    2) Added Component_Base::_draw_section_container_close()
+  1.0.12 (2013-10-31)
+    1) Component_Base::get_parameter_defaults_and_values() now returns additional
+       info on which values were actually in configuration
+    2) Added Component_Base::_draw_status() so all children can use it directly
+  1.0.11 (2013-06-27)
+    1) Tweaks to Component_Base::help() to better protect CP icon hints from
+       being mangled by overzealous stylesheets
+  1.0.10 (2012-12-08)
+    1) Removed UTF8 encoding - too problematic, better resolved in other ways
+    2) Parameter concatenator changed to [;] from ; so that ; can be included in
+       a value (e.g. HTML entities which all end that way)
+  1.0.9 (2012-12-08)
+    1) Component_Base::help() now performs UTF8 encode on default values such as
+       french accented characters before attempting JSON encoding of the array
+       so at to prevent errors with incorrectly handled characters as seen before
+  1.0.8 (2012-09-17)
+    1) New method Component_Base::_setup_load_block_layout()
+    2) New method Component_Base::_setup_load_user_rights()
+  1.0.7 (2012-01-23)
+    1) Added standarised method _setup() into here - can be used and extended by
+       children
+    2) Added standardised _setup_load_parameters() in here
+  1.0.6 (2012-01-23)
+    1) Added _draw_control_panel() into here - with option for newline or not
+  1.0.5 (2012-01-01)
+    2) Moved Component_Base::get_selector_sql() into Component class
+  1.0.4 (2011-12-29)
+    1) Moved the following into Component class:
+       a) Component_Base::export() now Component::export()
+       b) Component_Base::execute() now Component::execute()
+       c) Component_Base::execute_code_isolated() now Component::execute_code_isolated()
+       d) Component_Base::handle_report_copy() now Component::handle_report_copy()
+  1.0.3 (2011-06-13)
+    1) Changes to Component_Base::help() to view item-level cps for all object
+       types, not just pages, and to standardise use of 'site' over 'system' and
+       'item' over 'page'
+    2) Changes to Component_Base::set_parameters() to apply item-level cps for
+       all object
+  1.0.2 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.1 (2010-08-12)
+    1) Component_Base::get_parameter_defaults_and_values() added match modes
+       'hex3' and 'date-format'
+  1.0.0 (2010-07-15)
+    1) Initial release with framework code moved in from Component class which
+       now extends this one

@@ -1,0 +1,10 @@
+  1.0.2 (2013-09-23)
+    1) Community_Member_Posting::BL_shared_source_link() now absolutised to work
+       with JSONP embeds in third-party sites
+    2) Community_Member_Posting::BL_mini_shared_source_link() now absolutised and
+       contains rel='external' to work with JSONP embeds in third-party sites
+  1.0.1 (2013-09-20)
+    1) Community_Member_Posting::BL_mini_shared_source_link() now accepts optional
+       anchor to jump to given section
+  1.0.0 (2013-07-24)
+    1) Moved this class out of Community_Member class

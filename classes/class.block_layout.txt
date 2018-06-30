@@ -1,0 +1,198 @@
+  1.0.60 (2014-06-07)
+    1) Changes to these block layout tags to enable manual setting for time and date format:
+       BL_date($format=false)
+       BL_date_field($field=false, $format=false)
+       BL_date_heading_if_changed($format=false)
+  1.0.59 (2013-12-18)
+    1) Block_Layout::BL_field() now checks to see if there is any data before
+       attempting to display with with prefixes and suffixes
+  1.0.58 (2013-12-17)
+    1) Block_Layout::BL_field() now has option to apply text before and after each
+       line in the field data, allowing bulletted lists to be created
+    2) New BL tag BL_time_field()
+  1.0.57 (2013-12-03)
+    1) New public method Block_Layout::draw_Block_Layout() allowing other components
+       to use this themselves.
+       Code was originally part of Displayable_Item::draw_listings()
+  1.0.56 (2013-11-20)
+    1) Block_Layout::BL_extra_fields() removed support for permADMIN and permAPPROVER
+  1.0.55 (2013-07-22)
+    1) Tweak to Block_Layout::BL_context_selection_start() for when there is no
+       source type set
+  1.0.54 (2013-07-15)
+    1) Block_Layout::BL_context_selection_start() now better handles missing parentID
+       and Block Layout parameters - e.g. when used in 'with selected - show on map'
+       functionality for Community Maps
+  1.0.53 (2013-06-07)
+    1) Internal changes in support of pending CP changes to replace the following
+       deprecated parameters with their new equivalents:
+         Old: 'grouping_tabs',    'filter_limit',  'filter_order_by', 'paging_controls'
+         New: 'results_grouping', 'results_limit', 'results_order',   'results_paging'
+  1.0.52 (2013-06-05)
+    1) New BL tags BL_letter_anchor() and BL_letter_anchor_links()
+  1.0.51 (2013-05-31)
+    1) Tweaks to Block_Layout::BL_context_selection_start() to operate where
+       block layout isn't specified (e.g. in map listings panel)
+  1.0.50 (2013-05-17)
+    1) Extended Block_Layout::BL_context_selection_start() slightly to replace
+       overridden version Event::BL_context_selection_start() and support display
+       of event registrants
+  1.0.49 (2013-05-14)
+    1) New BL tags for BL_category_label and BL_category_value
+  1.0.48 (2013-04-01)
+    1) New BL tag 'video' for configurable display of embedded youtube videos
+    2) Thumbnail drawing now respects new CP for thumbnail_show where given
+  1.0.47 (2013-02-10)
+    1) Block_Layout::BL_context_selection_start() now includes _CM.shared
+  1.0.46 (2012-11-03)
+    1) Block_Layout::BL_context_selection_start() now includes _CM.enabled
+  1.0.45 (2012-11-02)
+    1) Now checks that enabled flag is even present before trying to use it in
+       Block_Layout::BL_title()
+  1.0.44 (2012-11-02)
+    1) Block_Layout::BL_title() now looks for enabled flag and adds 'Non-enabled
+       Publication' if the item has an enable flag with a value of '0'
+  1.0.43 (2012-09-28)
+    1) Block_Layout::BL_Link() now attaches '?autostart=1&amp;wmode=transparent'
+       to end of URL passed to JS video_setup() function to allow autostart of
+       presentation when a new video is chosen.
+  1.0.42 (2012-09-27)
+    1) New method BL_link() to produce generic link for a posting that applies
+       CP switch settings that govern what the link actually does
+  1.0.41 (2012-09-24)
+    1) Bugfix for Block_Layout::BL_content_truncated() to not apply conversion
+       to plaintext if cp['content_plaintext'] was not preset or set
+  1.0.40 (2012-09-18)
+    1) Change to Block_Layout::draw_css_include()
+       Having a 'title' in a stylesheet link indicates it to be the preferred
+       sheet and any others are then ignored -
+       see http://www.w3.org/TR/html4/present/styles.html#h-14.3.2
+       This title attribute has now been replaced with an HTML comment
+  1.0.39 (2012-09-17)
+    1) Block_Layout::draw_css_include() now includes a title attribute showing
+       which block layout is being included
+    2) Block_Layout::BL_content_truncated() now collapses white-space into single
+       space units before calling convert_html_to_plaintext() which could otherwise
+       reslt in too many blank lines being shown
+  1.0.38 (2012-06-01)
+    1) Added Block_Layout::BL_thumbnail_image_filename() which is now used
+       internally within Block_Layout::BL_thumbnail_image_filename(),
+       which itself is now used in Block_Layout::BL_thumbnail_image()
+  1.0.37 (2012-02-25)
+    1) New tag Block_Layout::BL_date_field()
+  1.0.36 (2011-12-24)
+    1) Block_Layout::BL_related() no longer passes meaninless parameter to
+       call for $this->draw_related_block() which accepts none
+  1.0.35 (2011-12-13)
+    1) Changes to Block_Layout::convert_Block_Layout() to have system first parse
+       ECL tags to allow for ECL tags to change block layout code dynamically -
+       e.g. to make shopping cart available only to perople in a certain group
+  1.0.34 (2011-12-12)
+    1) New block layout tag field_for_group_member which shows a given field IF
+       person has editor or viewer rights in one of the given groups
+    2) New block layout tag field_for_site_member which shows a given field IF
+       person has System Member flag set
+  1.0.33 (2011-12-01)
+    1) New BL tag QRCode which accepts optional quality and size parameters and
+       creates self-linked QR Code image path with built-in 'enlargement' feature
+  1.0.32 (2011-11-25)
+    1) BL_field() now accepts a search string and true / false text to output
+  1.0.31 (2011-11-17)
+    1) Implemented 'links_open_full_image' parameter in BL_title_linked() and
+       BL_thumbnail_image(), and by extension BL_thumbnail_image_at_bottom()
+       and BL_thumbnail_image_at_top()
+  1.0.30 (2011-11-17)
+    1) Implemented 'links_switch_video' parameter in BL_title_linked() and
+       BL_thumbnail_image(), and by extension BL_thumbnail_image_at_bottom()
+       and BL_thumbnail_image_at_top()
+  1.0.29 (2011-10-26)
+    1) Renamed BL tag BL_keywords() to BL_Related()
+  1.0.28 (2011-10-19)
+    1) Changes to BL_thumbnail_image() to use new shorter URLs for streamer modes
+       /img/resize/image-path, /img/width/nnn/image-path and /img/height/nnn/image-path
+    2) More changes to Block_Layout::BL_thumbnail_image() to pass watermark paramter
+       in if given as CP
+  1.0.26 (2011-10-13)
+    1) Block_Layout::BL_context_selection_start() changed _CM_ID[0] to _CM.ID
+  1.0.25 (2011-09-22)
+    1) Block_Layout::BL_thumbnail_image() now uses new img resize modes to reduce
+       URL length and checksum for images if set
+  1.0.24 (2011-09-15)
+    1) Added Block_Layout::BL_thumbnail_image_filename()
+  1.0.23 (2011-09-12)
+    1) Added Block_Layout::BL_related_products()
+  1.0.22 (2011-07-21)
+    1) Added Block_Layout::draw_css_include()
+    2) Block_Layout::BL_CP_footer() and Block_Layout::BL_CP_header() no longer
+       show error messages if parameters were not given
+  1.0.21 (2011-07-19)
+    1) Removed hard-coded prefix for gallery-image in BL_title_linked() -
+       better handled by getting it right in page_vars
+  1.0.20 (2011-07-16)
+    1) Block_Layout::BL_grouping_tab_controls() now calls HTML class for section tabs
+  1.0.19 (2011-07-07)
+    1) Tweak to Block_Layout::BL_title_linked() to ensure that extra leading /
+       s removed in URL
+  1.0.18 (2011-07-06)
+    1) Tweak to Block_Layout::BL_title_linked() to include gallery-image prefix
+       if viewing a gallery image in single-item mode.
+    2) Tweak to Block_Layout::BL_thumbnail_image() to not show warning if
+       cp['thumbnail_link'] is not defined
+  1.0.17 (2011-06-13)
+    1) Block_Layout::BL_content_truncated() uses convert_html_to_plaintext() to
+       allow tags to  be stripped while replacing linebreaks.
+  1.0.16 (2011-05-15)
+    1) Added BL_path_safe_author(), BL_path_safe_container_path() and
+       BL_path_safe_name()
+  1.0.15 (2011-05-06)
+    1) Added Block_Layout::BL_sequence() to use computed sequence number if available
+  1.0.14 (2011-05-05)
+    1) Block_Layout::BL_field() now no longer shows 'field not found' if field
+       was an xml: virtual field
+  1.0.13 (2011-05-04)
+    1) Replaced all references of _CM_type to _CM.type
+  1.0.12 (2011-05-04)
+    1) Block_Layout::BL_context_selection_start() now sets _CM.source and
+       _CM.category for toggling of categories in list
+  1.0.11 (2011-04-27)
+    1) Block_Layout::BL_context_selection_start() to set _CM['source'] to
+       prevent other components from trying to execute submodes intended for
+       another instance
+  1.0.10 (2011-04-27)
+    1) Block_Layout::BL_context_selection_start() now sets parentTitle for CM
+  1.0.9 (2011-04-25)
+    1) Removed references to event_id from Block_Layout::BL_context_selection_start()
+       and Block_Layout::BL_context_selection_end()
+  1.0.8 (2011-04-25)
+    1) Moved old version history out
+  1.0.7 (2011-04-21)
+    1) Block_Layout::convert_Block_Layout() now public to allow other context uses
+  1.0.6 (2011-04-18)
+    1) Moved BL_product_grouping() into Product class
+    2) Moved BL_cart_operations() into Product class
+    3) Moved BL_event_cancellation_notice() into Event class
+    4) Moved BL_event_register_icon() into Event class
+    5) Moved BL_event_times() into Event class
+    6) Moved BL_location() into Event class
+    7) Moved BL_map() into Event class
+    8) Moved BL_audio_clip() into Podcast class
+    9) Greatly simplified BL_links() and BL_links_for_listings() to remove
+       icons that are not for all types of item
+  1.0.5 (2011-04-18)
+    1) Changes to remove any type-specific settings in here -
+       these are now effected by child classes that override or add methods
+  1.0.4 (2011-04-15)
+    1) Block layout is now the proud parent of Displayable_Item -
+       moved all BL_tag functions and convert_block_layout() down to here and
+       modifiued constructor to allow grandchildren (posting and product plus
+       their own children) to pass down their table names via this inheritance
+       chain to Record where they are ultimately invoked.
+  1.0.3 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.2 (2009-07-16)
+    1) Corrected parameters for parent::try_copy
+  1.0.1 (2009-07-15)
+    1) Implemented handle_report_copy()
+    2) Renamed class and file from Block_Template to Block_Layout
+  1.0.0 (2009-07-02)
+    Initial release

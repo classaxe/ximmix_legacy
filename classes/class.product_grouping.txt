@@ -1,0 +1,21 @@
+  1.0.7 (2011-08-24)
+    1) Change to Product_Category::manage_products() to prevent report refresh
+       from repeating the report title header
+  1.0.6 (2011-08-04)
+    1) Product_Category::manage_products() rewritten to operate in a report context
+       rather than from an all-systems page
+  1.0.5 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.4 (2010-03-16)
+    1) Product_Category::manage_products() to reference renamed subreport
+       PLEASE NOTE:
+         This class is in transition - it will be renamed Product_Grouping and the
+         product_category table will be renamed to product_grouping at some point.
+  1.0.3 (2009-12-27)
+    1) Changed reference to parent constructor
+  1.0.2 (2009-10-01)
+    1) Changed object name to Product Grouping - this is used for tooltips on edit links
+  1.0.1 (2009-09-28)
+    1) Changes to deal with renaming of various fields in product and product category tables
+  1.0.0 (2009-07-02)
+    Initial release

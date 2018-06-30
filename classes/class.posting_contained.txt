@@ -1,0 +1,85 @@
+  1.0.241 (2013-12-18)
+    1) Moved Posting_Contained::get_ID_by_path() into Posting as
+       Posting::get_ID_by_path()
+  1.0.23 (2013-06-07)
+    1) Internal changes in support of CP changes to replace the following
+       deprecated parameters with their new equivalents:
+         Old: 'grouping_tabs',    'filter_limit',  'filter_order_by', 'paging_controls'
+         New: 'results_grouping', 'results_limit', 'results_order',   'results_paging'
+  1.0.22 (2013-01-02)
+    1) Posting_Contained::do_submode() no longer performs URL Decode of input for
+       submodes of 'gallery_image_set_content' and 'gallery_image_set_title' since
+       double encoding has now been removed in JS
+  1.0.21 (2012-12-26)
+    1) Posting_Contained::do_submode() now perfoprms URL Decode of input for
+       submodes of 'gallery_image_set_content' and 'gallery_image_set_title'
+  1.0.20 (2012-11-03)
+    1) Posting_Contained::get_records_matching() now returns 'available' not
+       'visible'
+  1.0.19 (2012-11-02)
+    1) Posting_Contained::_get_records_visible() renamed to
+       Posting_Contained::_get_records_available() and includes check for
+       is_enabled()
+  1.0.18 (2012-09-18)
+    1) New BL tag BL_parent_field()
+  1.0.17 (2012-07-16)
+    1) Posting_Contained::get_records_matching now uses array-based arguments in
+       call to Posting::get_records()
+  1.0.16 (2011-09-22)
+    1) Added 'gallery_image_rotate_left' and 'gallery_image_rotate_right' to
+       list of operations supported by Posting_Contained::do_submode()
+  1.0.15 (2011-09-19)
+    1) Posting_Contained::get_ID_by_name() now matches only for specific type
+  1.0.14 (2011-09-14)
+    1) Added Posting_Contained::get_related_products()
+  1.0.13 (2011-07-21)
+    1) Added methods BL_author_linked() and BL_parent_title_linked()
+  1.0.12 (2011-05-18)
+    1) get_ID_by_path() more forgiving -
+       now fixes path to start at root '//' and removes any extra trailing '/'
+       which is not technically part of the path
+  1.0.11 (2011-05-11)
+    1) Added new submode handlers 'gallery_image_set_content' and
+       'gallery_image_set_title'
+  1.0.10 (2011-05-06)
+    1) Replaced references to _get_records_sort_records_by_date_or_title to
+       _get_records_sort_records_using_filter_order_by
+  1.0.9 (2011-05-06)
+    1) Added new Block Layout tag BL_parent_title
+  1.0.8 (2011-04-27)
+    1) Posting_Contained::do_submode() now uses actual object type and container
+       object type to word status messages
+  1.0.7 (2011-04-27)
+    1) Added Posting_Contained::do_submode() to handle submode actions
+  1.0.6 (2011-04-27)
+    1) Added Posting_Contained::get_records_matching() to centralise retrieval of
+       records for component_gallery_fader and omponent_gallery_thumbnails
+  1.0.5 (2011-04-26)
+    1) Posting_Contained::get_ID_by_path() now tries to match both path
+       AND (for types such as Podcast whose path will be date prefixed...)
+       concat(`container_path`,'/',`name`) -
+         So now these all work for podcasts:
+           http://mjk.ecclesiact.com/podcast/1531211442
+           http://mjk.ecclesiact.com/2009/12/06/a-living-hope
+         AND - NEW FOR THIS BUILD
+           http://mjk.ecclesiact.com/podcast/a-living-hope
+           http://mjk.ecclesiact.com/podcast/sermons/1-peter/a-living-hope
+  1.0.4 (2011-04-12)
+    1) Added Posting_Contained::get_ID_by_path()
+  1.0.3 (2011-03-18)
+    1) Overridden _get_records_visible() to allow normally invisible records to
+       show if user is an administrator - used to allow invisible items to
+       be sorted by drag and drop in Component_Gallery_Thumbnails::draw()
+  1.0.2 (2011-03-10)
+    1) Added Posting_Contained::_get_records_sort_records() to override the one
+       in regular postings to allow the use of another new method -
+       method Posting_Contained::_get_records_sort_records_by_sequence() sorts
+       all items according to the sequence stored in the container IF a csv list
+       has indeed been set, otherwise reverts to normal behaviour
+  1.0.1 (2011-03-08)
+    1) Added Posting_Contained::sequence_append() to append newly added items
+       to the childID_csv list contained in the parent folder
+    2) Posting_Contained::on_action_set_path() now calls sequence_append() to
+       ensure that parent contains all items in its csv list
+  1.0.0 (2011-01-24)
+    1) Initial release

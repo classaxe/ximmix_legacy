@@ -1,0 +1,29 @@
+  1.0.10 (2011-08-25)
+    1) Now uses Product_Catalogue_Credit_Memo() instead of Product_Catalogue()
+  1.0.9 (2010-12-04)
+    1) Changes to Credit_Memo::detail() to work as an ECL tag
+  1.0.8 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.7 (2010-07-15)
+    1) Changes to Credit_Memo::detail() - now references Component_Base where needed
+  1.0.6 (2010-04-15)
+    1) Changes to Credit_Memo::draw_items() to remove ref to taxes_location_based
+  1.0.5 (2010-04-06)
+    1) Changes to sql query used in Credit_Memo::draw_items() to include all
+       taxes now available
+  1.0.4 (2010-03-23)
+    1) Tweak to Credit_Memo::draw_items() to invoke Product_Catalogue::draw()
+       directly (formerly went via function draw_product_catalogue() in codebase)
+    2) Moved Order::delete_credit_memo() into here as Credit_Memo::delete() so
+       that this can actually work now (probably failing to remove associated
+       items for a while now)
+  1.0.3 (2009-11-21)
+    1) Rationalised CPs for Credit_Memo::draw() -
+       credit_memo_detail_xxx now becomes credit_memo_detail.xxx
+  1.0.2 (2009-10-21)
+    1) Change to Credit_Memo::draw_items() to fix SQL error caused by 1.0.1 when
+       viewing actual credit memos
+  1.0.1 (2009-09-29)
+    1) Changes to deal with renaming of various fields in product and product category tables
+  1.0.0 (2009-07-02)
+    Initial release

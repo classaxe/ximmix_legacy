@@ -1,0 +1,5 @@
+  1.0.1 (2012-08-20)
+    1) Tweak to Component_Product_Dropdown::_draw_options() to prevent undefined
+       index warnings in log
+  1.0.0 (2012-01-07)
+    1) Initial release

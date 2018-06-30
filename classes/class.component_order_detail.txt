@@ -1,0 +1,15 @@
+  1.0.5 (2013-03-08)
+    1) Printing of registered events and tickets now handled by two helper functions
+       also allowing use of these by other objects, such as paypal_gateway for SPN
+  1.0.4 (2013-02-21)
+    1) When showing 'Print Tickets' link now splits into batches of 100 to prevent
+       max URL query length issues.
+  1.0.3 (2012-12-10)
+    1) Now prompts for signin if person is not signed in already
+  1.0.2 (2012-01-25)
+    1) Bug fix for cp which wasn't converted to new property based value
+  1.0.1 (2012-01-23)
+    1) Changes to _setup() to harness protected method in Component_Base class
+    2) Removed local implementation of _setup_load_parameters()
+  1.0.0 (2012-01-01)
+    1) Initial release - moved from Component class

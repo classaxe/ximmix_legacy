@@ -1,0 +1,21 @@
+#wowslider-container$GallerySuffix$ .ws-title{
+	position: absolute;
+	bottom:15%;
+	left: 0;
+	margin-right:10px;
+	z-index: 50;
+	padding:12px;
+	color: #F9FBFB;
+	text-transform:uppercase;
+	background:#2a2a2a;
+    font-family: Franklin Gothic Medium,sans-serif;
+	font-size: 18px;
+	line-height: 18px;
+	opacity:0.8;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=90);
+}
+#wowslider-container$GallerySuffix$ .ws-title div{
+	padding-top:5px;
+	font-size: 13px;
+	text-transform:none;
+}

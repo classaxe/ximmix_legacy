@@ -1,0 +1,418 @@
+  1.0.114 (2014-03-23)
+    1) Added Community::get_events_upcoming() to enable special events tab
+  1.0.113 (2014-02-17)
+    1) Refreshed fields list - now declared as a class constant
+  1.0.112 (2014-01-25)
+    1) Changes to Community::_setup_load_user_rights() to handle renaming of
+       sponsorship plans report and form
+  1.0.111 (2013-11-27)
+    1) Community::get_members() now includes primary ministerial name if available
+  1.0.110 (2013-10-22)
+    1) Changes following renaming of report 'community.sponsorship_plan' to
+       'sponsorship-plans-for-community'
+  1.0.109 (2013-10-10)
+    1) Extended Community::_on_action_community_setup() to generate website button
+    2) Community::_setup_load_user_rights() now loads popup sizes for pages report
+  1.0.108 (2013-10-07)
+    1) New method Community::get_members_ID_csv()
+  1.0.107 (2013-09-30)
+    1) Very significant changes to dropbox checker -
+       Logic reworked and now working correctly in all circumstances
+  1.0.106 (2013-08-18)
+    1) Now Community::get_communities() includes inactive communities for admins
+       so that they can see the full list
+  1.0.105 (2013-08-15)
+    1) Community::get_communities() now includes map_lat and map_lon calculated
+       as centre of bounding box
+  1.0.104 (2013-08-14)
+    1) Change to export to include members whose primary community, together with
+       their postings and linked contacts
+  1.0.103 (2013-08-13)
+    1) Fields list no longer static - caused errors
+  1.0.102 (2013-08-13)
+    1) Pulled internals for Community::_on_action_community_setup_bounding_box() into
+       public method Community::get_bounding_box() so that Community_Members map
+       setting action can invoke it to set map boundaries for community
+    2) Fields list now public static class variable, not instance variable
+  1.0.101 (2013-08-11)
+    1) New method Community::_on_action_community_setup_home_page()
+       called as part of Community::on_action_community_setup()
+    2) Removed method Community::draw_communities_list() -
+       was replaced by Component_Communities_Display::draw()
+  1.0.100 (2013-08-07)
+    1) New method Community::on_action_community_setup() which chains into
+       a bunch of sub functions that replace discrete actions as previously,
+       making extension simpler
+    2) Change to Community::get_members() following renaming of community member
+       address fields
+    3) Changes to Community::get_selector_sql following renaming of community member
+       address fields
+  1.0.99 (2013-07-29)
+    1) Moved dropbox checking code into here
+  1.0.98 (2013-07-29)
+    1) Added Community::get_members()
+  1.0.97 (2013-07-24)
+    1) Removed support for draw_communities_list() -
+       now handled in new component Component_Communities_Display
+  1.0.96 (2013-07-24)
+    1) Community::get_communities() now public (should have been anyway)
+    2) Added setting of context-menu ID in constructor
+  1.0.95 (2013-07-23)
+    1) Community::get_communities() now includes number of members
+    2) Community::draw_communities_list() includes number of members
+    3) Moved draw_community() into its own class file as Community_Display
+  1.0.94 (2013-07-22)
+    1) Updated fields list
+    2) New methods:
+         Community::draw_communities_list()
+         Community::get_communities()
+         Community::on_action_set_bounding_box()
+    3) Tweaks to default CPs for member sizes
+    4) Tweaks to Community::_draw_gallery_help() to prevent wrapping
+  1.0.93 (2013-07-20)
+    1) Updated Community::draw_member_summaries() to use simple URL path for avatar
+  1.0.92 (2013-07-19)
+    1) Updated Community::_draw_gallery_entry() and Community::_draw_map()
+       to use simple URL path for avatar
+  1.0.91 (2013-07-15)
+    1) Fixed embedded URL in default header for Sermons leading to 'All Sermons'
+    2) Added context-menu editiong of community members via linked names in maps
+       listing
+  1.0.90 (2013-07-15)
+    1) Implemeted Community::delete() to deleted linked postings and memberships
+    2) Extended Community::export_sql() to include postings belonging to community
+  1.0.89 (2013-07-15)
+    1) Heading in Members Gallery now clickable to allow community to be edited
+  1.0.88 (2013-07-14)
+    1) Now added support for integrated Sermons Collection
+    2) Changes to Community::_draw_gallery_entry() to handle field name changes
+       for provision of labeled phone numbers
+    3) New methods Community::on_action_set_gallery_album_root() and
+       Community::on_action_set_podcast_album_root()
+  1.0.87 (2013-07-05)
+    1) New icon for admins for adding brand new members to an existing community
+    2) Community::_check_dropbox_update_get_delta() now exits cleanly if there
+       is no dropbox account to check
+    3) Community::_draw_gallery() now correctly handles situations where there
+       are no members to show
+    4) Community::_draw_map() now only applies bounding box when more than member
+  1.0.86 (2013-06-07)
+    1) Community::_draw_sponsors() now passes results_limit cp not filter_limit
+    2) Changes in Community::_serve_jsonp() to handle CP changes
+  1.0.85 (2013-06-05)
+    1) Community::_draw_map() now uses Google_Map::get_bounds() to find zoom size
+  1.0.84 (2013-03-29)
+    1) Tweak to the following to escape single ampersands:
+        Community::BL_mini_shared_source_link()
+        Community::BL_mini_shared_source_link()
+        Community::draw_member_signatories()
+        Community::draw_member_summaries()
+    2) Changes to Community::_check_dropbox_update_added() and
+       Community::_check_dropbox_update_deleted() to only store unique file paths
+       so that if an item is added and modified within a single check cycle it
+       won't be stored twice, meaning that on deletion a file is still shown as
+       pending
+  1.0.83 (2013-02-18)
+    1) Tweak to Community::BL_mini_shared_source_link() to make style less
+       'in your face' since all these items are shared anyway.
+  1.0.82 (2013-02-18)
+    1) Community::BL_mini_shared_source_link() now has style changes to have a
+       curved heading box and some padding.
+  1.0.81 (2012-12-03)
+    1) Community::_check_dropbox() now uses time() not mktime() as per strict standards
+       compliance
+  1.0.80 (2012-11-29)
+    1) Fix for Community::_draw_sponsors() to not try to link category titles
+       when not logged in as admin
+  1.0.79 (2012-11-23)
+    1) Now sponsorship album gets all albums in parent album regardless of
+       community assignment - but code elsewhere will now restrict this to
+       just albums of subtype sponsorship-plan
+  1.0.78 (2012-11-22)
+    1) Added getter / setter for default_enclosure_base_folder (as with postings)
+       and implemented to set default base for communities sponsorship groupings
+    2) Community sponsors now filtered by container sponsorship plan (now a subtype
+       of Gallery Album)
+  1.0.77 (2012-11-15)
+    1) Removed class Community_Component_Collection_Viewer to its own class file
+       for on-demand inclusion
+  1.0.76 (2012-11-13)
+    1) Sponsorship plans now editable directly from sponsors panel
+  1.0.75 (2012-11-13)
+    1) Sponsors width now set by xml:width, not xml:logo_size
+    2) Sponsors tab no longer shows if sponsor ablbum isn't set
+  1.0.74 (2012-11-12)
+    1) New method Community::draw_member_summaries()
+    2) New method Community::draw_member_signatories()
+    3) Changes to Community::_draw_welcome() to substitute ##MEMBER_SUMMARIES##
+       and ##MEMBER_SIGNATORIES## for machine-generated versions which even support
+       context menu operations for admins
+  1.0.73 (2012-11-10)
+    1) Now implemented as a standard class library, not a module
+    2) Removed Community::install() and Community::uninstall() - not needed
+  1.0.72 (2012-11-09)
+    1) More work on sponsorship - now uses actual categories for sponsor display
+  1.0.71 (2012-11-09)
+    1) Renamed reports prefixed 'module.' to remove prefix and allow for checksum
+       controls
+    2) More work on sponsorship section
+  1.0.70 (2012-11-08)
+    1) Changes to Community::_draw_sponsors() to use postings method for getting
+       sponsorship_plans
+  1.0.69 (2012-11-07)
+    1) Now shows headings for community sponsor plans in sponsors section
+  1.0.68 (2012-10-31)
+    1) Added 'Edit...' link on community 'Welcome' panel to edit community record
+    2) References to 'about' in code and database changed to 'welcome'
+    3) Nows shows customisable sponsorship message in 'Sponsors' tab
+  1.0.67 (2012-10-30)
+    1) New cps 'show_sponsors', 'label_sponsors', 'tab_sponsors' and 'width'
+    2) Bug fix for _check_dropbox_update() to handle no connection problems
+    3) Section tabs width now set as function of width divided by number of tabs
+  1.0.66 (2012-10-28)
+    1) Removed Community::_draw_add_button()
+  1.0.65 (2012-10-25)
+    1) Change to Community::_draw_listings_draw_js() to call JS function
+       show_section_onhashchange_setup() without a default tab value -
+       This way, if tab indicated by the hash value doesn't exist, the change is
+       not attempted
+    2) New method Community::_draw_jsonp() to serve community level embed code
+    3) Some method names shortened
+  1.0.64 (2012-10-18)
+    1) Added new cps 'community_title' and 'community_URL' for use in adding link
+       at bottom of shared community panels on thrid-part websites
+  1.0.63 (2012-10-17)
+    1) Community::_check_dropbox_update_added() now adds items to member property
+       list _dropbox_additions or _dropbox_modifications as required
+    2) Community::_check_dropbox() now performs email of new or modified items
+       even if prson (or CRON job) isn't signed in, but does not show results
+       unless they are logged in
+  1.0.62 (2012-10-15)
+    1) Now uses Dropbox 'delta' mode API to update files pending - 30 times faster!
+    2) Changed $cp['dropbox_check_frequency'] to 60 seconds
+  1.0.61 (2012-10-12)
+    1) Reorganised tabs to bring 'welcome' message to the front and provide for
+       alternative tab text and heading names
+  1.0.60 (2012-09-09)
+    1) Changes to Community::install() and Community::uninstall() to avoid native
+       DB access
+    2) Changes to Community::_check_dropbox_pending_content() to avoid native DB
+       access for escape string
+  1.0.59 (2012-08-01)
+    1) Changes to Community::_draw_listings_draw_map() to allow for organisations
+       to be shown
+    2) Changes to Community::_draw_listings_draw_map() to prevent any member whose
+       lat and lon values are exactly equal to 0 (let's assume that we're not
+       going to accept churches in the ocean off the west coast of Africa)
+  1.0.58 (2012-07-29)
+    1) Removed CP for 'profile_show_calendar' - now assumed
+  1.0.57 (2012-07-27)
+    1) Labeling changes for section tabs to better accomodate non-church members
+    2) Community::_draw_listings_draw_shared_events() no longer lists events underneath
+    3) Changes in Community::_draw_listings_draw_js() to include code to track
+       window location hash changes (e.g. when user hist back button in history)
+    4) Shared source links now reference correct section in community member profile
+    5) Now only shows the 'About this Community' section if there is something to report
+  1.0.56 (2012-07-24)
+    1) Community::_draw_listings_draw_gallery_entry_header() now includes whether
+       or not member is a full member and therefore able to have postings
+    2) Efficiency improvements in Community_Posting::_get_records_get_sql()
+    3) Fixed hash selection of initial section based on entry URL
+  1.0.55 (2012-07-21)
+    1) New class Community_Component_Collection_Viewer to override regular one
+       with correct context menus for community podcast postings
+    2) Community_Calendar_Large class renamed Community_Component_Calendar_Large
+       to more clearly indicate inheritance
+    3) New cps for footer and header for each section
+  1.0.54 (2012-07-21)
+    1) Objects of class Community_Article, Community_Event, Community_News_Item and
+       Community_Podcast now all override context_menu_ID in their constructors
+  1.0.53 (2012-07-16)
+    1) Added Community::_check_dropbox() which is invoked via AJAX and delivers
+       JSON status package for all member dropboxes in community once every 5 minutes
+       maximum.
+  1.0.52 (2012-07-06)
+    1) Now uses htmlentities to handle ampersands in member titles
+  1.0.51 (2012-07-05)
+    1) New method Community::on_action_setup_dropbox() used to gain API access
+       to a community master dropbox account
+    2) Community::_draw_listings_draw_add_button() now sets primary_communityID
+    3) New method Community::_check_dropbox_content_pending() checks for pending
+       content in dropbox (ideally these checks should be carried out by a cron job)
+  1.0.50 (2012-07-03)
+    1) Now overrides context menu and 'add new' icon link in large format calendar
+    2) Now overrides context menu in events listing
+  1.0.49 (2012-07-03)
+    1) Now specifies 'Community Posting Category' as category to use in large
+       events calendar
+    2) Styling of shared source link in calendar to make it smaller
+  1.0.48 (2012-06-29)
+    1) Now extends Displayable_Item class not Record
+    2) Broke gallery display into smaller functions and enabled for context-menu
+       support
+  1.0.47 (2012-06-22)
+    1) Changes to tab label defaults to more clearly indicate their intent
+  1.0.46 (2012-06-04)
+    1) Added cps for 'label_about' and 'show_about'
+    2) Now includes 'About' statement and indicates which members are full members
+    3) Now includes disclaimers in each shared content section
+  1.0.45 (2012-05-22)
+    1) Now displays service times for whole community
+    2) Added cps for 'label_services' and 'show_services'
+    3) Community_Posting::_get_records_get_sql() now includes shortform_name
+    4) Community_posting::BL_shared_source_link() and BL_mini_shared_source_link()
+       now both use shortform_name
+  1.0.44 (2012-05-22)
+    1) Changes to Community::_draw_listings_draw_gallery() for missing photo
+    2) Changes to Community::_draw_listings_draw_map() for missing photo
+  1.0.43 (2012-05-20)
+    1) Community::_draw_listings_draw_gallery() corrected avatar image paths to
+       keep both width and height and to allow for aspect to be kept or not
+       depending on new CP setting 'gallery_member_photo_lock_aspect'.
+    2) Community_Calendar_Large::get_events() renamed to _setup_load_events()
+       and modified to work with revised code from Component_Calendar_Large
+    3) Community_Calendar_Large::BL_shared_source_link() renamed to
+       Community_Calendar_Large::_shared_source_link()
+    4) Tweak for CSS class member_gallery_entry_photo_area .member_gallery_entry_icons
+       to set max-width for IE8 and below to 52px
+    5) New method Community_Posting::BL_mini_shared_source_link()
+  1.0.42 (2012-05-03)
+    1) Community::_draw_listings_setup_load_piwik_stats() now exits early if
+       site is prefixed either laptop. or desktop.
+    2) Community::_draw_listings_draw_stats() now exits early if
+       site is prefixed either laptop. or desktop.
+    3) Community::_draw_listings_setup_tabs() now omits 'Stats' tab if
+       site is prefixed either laptop. or desktop.
+  1.0.41 (2012-04-24)
+    1) Community::_draw_listings_draw_map() now sets title for map points and
+       opens info window if there is only one point to show (unlikely but possible)
+  1.0.40 (2012-04-17)
+    1) Community::_draw_listings_draw_map() now also handles map save for
+       member detail map mode - submode 'google_map_community_member_map_save'
+       This has been broken possibly forever.
+    2) Community::_draw_listings_draw_map() no longer calls $Obj_Map->map_load() -
+       this function is now empty
+  1.0.39 (2011-10-19)
+    1) Changes in Community_Member::_draw_listings_draw_gallery() to use new
+       simpler URL format for /img/resize/image-path-here format
+  1.0.38 (2011-10-11)
+    1) Call to Community_Member::draw_member) is now Community_Member::draw()
+  1.0.37 (2011-09-30)
+    1) Archived some old version history and added member signup form and report
+       to installer script
+  1.0.36 (2011-09-25)
+    1) Changes to Community::_draw_listings_draw_gallery() to eliminate javascript
+       URLs and conform better to XHTML strict
+    2) Added summary to table used in stats display to conform to XHTML strict
+  1.0.35 (2011-09-13)
+    1) Added help for icons in member gallery
+  1.0.34 (2011-09-12)
+    1) Shortened function names
+    2) Added display of Piwik statistics for Profile and Site hits and visits
+  1.0.33 (2011-09-09)
+    1) Installer and uninstaller sql now in external files to speed up editing
+    2) Bug fix for map link in community member gallery - now shown as an icon
+    3) Added telephone number and website links for gallery member listings
+  1.0.32 (2011-09-03)
+    1) Installer / uninstaller refreshed and now includes all community reports
+  1.0.31 (2011-08-28)
+    1) Made module more resilient to invalid community names by adding exception
+       and try / catch controls
+    2) Greatly simplified all types of Community_Posting by moving all common code
+       into Community_Posting class and passing object as a parameter
+  1.0.30 (2011-07-18)
+    1) Changed two references from Component::function_name() to
+       Component_Base::function_name() in Community::_draw_community_setup()
+  1.0.29 (2011-07-16)
+    1) Community::_draw_community_listing_draw_section_tabs() now uses HTML class
+       static call to draw section tabs
+  1.0.28 (2011-06-17)
+    1) Replaced references to type_short with type
+  1.0.27 (2011-01-24)
+    1) Changes to replace deprecated function calls in following classes:
+       Community_Article
+       Community_Event
+       Community_News_Item
+       Community_Podcast
+  1.0.26 (2010-11-06)
+    1) Changes to eliminate deprecated function calls
+  1.0.25 (2010-07-09)
+    1) Added new class Community_Calendar_Large extending Component_Calendar_Large
+       to allow it to work for communities
+    2) Community::_draw_community_listing_draw_shared_events() now includes a large
+       calendar
+    3) Community::_draw_community_listing_draw_section_tabs() now sets an anchor
+       when tabs are clicked to allow calendar to maintain selected tab when month
+       is changed
+    4) Community::_draw_community_listing_setup_tabs() now looks for the anchor
+       when reloading - shared events calendar returns to events tab on month change
+  1.0.24 (2010-03-25)
+    1) Added AWeb to members form / report on installer
+    2) Bug fix for maps save following changes to ident for google_map objects
+  1.0.23 (2010-03-18)
+    1) Members map list link now recorded for modified google maps ID
+  1.0.22 (2010-03-06)
+    1) Added ability to move, reset and save map markers using Ajax postback
+    2) Map icons now customised to look like churches
+  1.0.21 (2010-03-03)
+    1) Community::_draw_community_listing_setup() now loads community record
+    2) All postings panels now implement their own community-aware classes
+  1.0.20 (2010-02-25)
+    1) Community Map map entries now link directly to member profiles
+  1.0.19 (2010-02-20)
+    1) Completely refactored code to split draw_community functionality across
+       multiple helper functions - all variables are now referenced via base object
+  1.0.18 (2010-02-16)
+    1) Added new CPs for dealing with member profile rendering
+    2) Added code to Community::draw_community() to switch execution to
+       member profile if path_extension is detected
+  1.0.17 (2010-02-14)
+    1) Added new module file community_member and moved dashboard functions into there
+  1.0.16 (2010-02-09)
+    1) Added ecl tags to handle events, news, podcasts and articles for community
+  1.0.15 (2010-01-09)
+    1) Community::draw_member_gallery() now called draw_community() and extended to
+       have tab controls, map and shared media as configured.
+  1.0.14 (2010-01-01)
+    1) Community settings now saved in XML datagram to allow much greater flexibility
+       (support for this was completed in 2.4.13.1364 with ability to filter by XML)
+    2) Worked on Community::draw_member_gallery()
+  1.0.13 (2009-11-05)
+    1) Changes to Community Members report to add tooltips as added in sql build 1342.sql
+    2) Changes to installer / uninstaller to reference db_split_sql() now living in
+       Backup class
+  1.0.12 (2009-10-15)
+    1) Changes to installer script for report 'module.community.members' to include manage in title and address blank sort order
+  1.0.11 (2009-10-06)
+    1) Changes to installer script for report 'module.community.members' to fix SQL error on site column
+  1.0.10 (2009-05-30)
+    1) More improvements to status message handling
+  1.0.9 (2009-05-29)
+    1) Changes to improve avatar upload and error messaging
+  1.0.8 (2009-04-22)
+    1) Changes to deal with events table being renamed to postings
+    2) Better error message if person doesn't have a member account associated with their profile
+  1.0.7 (2009-04-11)
+    1) Removed mockup version of 'update settings' panel - now real, including iframe
+       to handle image upload (not otherwise possible with ajax methods)
+  1.0.6 (2009-03-23)
+    1) Changes to installer for community members report and started on draw_dashboard_settings()
+       as a separate function
+  1.0.5 (2009-03-04)
+  1.0.4 (2009-02-23)
+    1) Now includes news and podcasts reports and forms
+    2) Community.members avatar data now stored in /UserFiles/Image/member_photos/xxx.yyy
+  1.0.3 (2009-02-20)
+    1) Calls to embedded reports now include full url path for ajax submissions, including selected tab
+    2) Community::draw_dashboard() now accepts optional selected_tab parameter to initialise in preset position
+  1.0.2 (2009-02-18)
+    1) More efficient query for events report included in installer - subselects used
+    2) More efficient query for community members report included in installer - subselects and truncated avatar used
+  1.0.1 (2009-02-17)
+    1) Fully compatible with IE5.5, 6, 7, FF1.5+, Chrome, Safari 3+, Opera 9+
+    2) Now uses streamed CSS object to set dashboard styles
+    3) Control tabs now actually work
+    4 Includes module installer and uninstaller handler code for embedded events report
+    5) Added support for copying and exporting community members
+  1.0.0 (2009-02-12)
+    Initial Release

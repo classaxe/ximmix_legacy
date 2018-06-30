@@ -1,0 +1,7 @@
+  1.0.1 (2014-02-10)
+    1) Now init() takes an associative array of parameters instead of sequential
+       as before
+    2) Split code into smaller blocks to handle display of each element
+  1.0.0 (2014-02-06)
+    1) Code moved in from Report_Column::draw_form_field_lookup()
+    2) Now callback is done without original sajax infrastructure

@@ -1,0 +1,56 @@
+  1.0.22 (2013-05-17)
+    1) Added cp for listings mode for 'filter_important'
+  1.0.21 (2013-03-30)
+    1) New CP 'thumbnail_show' and set default value for 'thumbnail_image' to 's'
+  1.0.20 (2012-07-15)
+    1) CP defaults for filter_memberID and filter_personID now '' not 0
+  1.0.19 (2012-06-01)
+    1) Added CPs for 'links_open_image' and 'thumbnail_link'
+  1.0.18 (2012-01-04)
+    1) CP 'block_layout_for_related' now called 'block_layout_for_associated'
+  1.0.17 (2011-11-25)
+    1) Now allows value of 'name' for CP 'filter_order_by' in listing mode
+  1.0.16 (2011-10-19)
+    1) Added cp for 'show_watermark' for detail view
+  1.0.15 (2011-09-27)
+    1) Added Gallery_Image::BL_prev_next_buttons() as empty overridable method,
+       implemented by Component_Gallery_Album_Gallery_Image class
+  1.0.14 (2011-09-26)
+    1) Changed defaults for details view to fix image to 's' and to provide default
+       max width and height of 400px so that SOMETHING shows when one views an image
+  1.0.13 (2011-09-14)
+    1) Moved Gallery_Image::get_related_products() to Posting::get_related_products()
+       and then implemented modified tree-walker variant for Posting_Contained class
+  1.0.12 (2011-09-12)
+    1) Added Gallery_Image::get_related_products()
+  1.0.11 (2011-09-02)
+    1) Added cp for 'block_layout_for_related' in listings mode
+  1.0.10 (2011-07-07)
+    1) Added cps for thumbnail image to details control definition
+  1.0.9 (2011-06-17)
+    1) Removed constructor call to _set_type_short()
+    2) Removed constructor calls to _set_search_type() and _set_path_prefix() -
+       Both are now called automatically when setting calling _set_type()
+  1.0.8 (2011-06-03)
+    1) Added cp for listings mode to set background colour
+  1.0.7 (2011-04-21)
+    1) Correction to path prefix in constructor and icons for single-item mode
+  1.0.6 (2011-04-15)
+    1) Added match clauses for cps in listings mode
+  1.0.5 (2011-04-14)
+    1) Now that this item is listable using draw_listings() amd block layouts
+       tailored CPs (formerly there as placeholder code) for deployment
+  1.0.4 (2011-01-24)
+    1) Now extends Posting_Contained() and specifies container_object_type in
+       constructor
+    2) Removed class-specific Gallery_Image::get_URL() and implemented
+       localised set_path() function directly (much clearer).
+  1.0.3 (2011-01-21)
+    1) Implemented class-specific Gallery_Image::get_URL() to allow
+       nesting within parent folder
+  1.0.2 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.1 (2010-08-16)
+    1) Added Gallery_Image::handle_report_copy()
+  1.0.0 (2010-07-28)
+    Initial release

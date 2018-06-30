@@ -1,0 +1,4 @@
+  1.0.1 (2014-04-18)
+    1) Completely rewritten for CKEditor 4.3.4
+  1.0.0 (2012-12-10)
+    1) Initial release

@@ -1,0 +1,355 @@
+  1.0.117 (2014-08-09)
+    1) Page cloning now allows use of reserved names and language codes BUT ONLY when
+       the page itself is not a root-level page.
+    2) Page cloning now allows for naming a page with the same name as another page on the
+       same site if the copied page has a different parent than the other one.
+  1.0.116 (2014-06-22)
+    1) Added support in Page::draw_detail() for automatic substitution of 'email-opt-in'
+       and 'email-opt-out'
+  1.0.115 (2014-05-19)
+    1) Page::prepare_html_head() now sets JS variable to enable fonts and colour settings
+       in postings if 'Postings-allow-fonts-and-sizes' setting is enabled
+  1.0.114 (2014-04-02)
+    1) Added Page::draw_html_content() - moved in here from codebase.php
+  1.0.113 (2014-02-18)
+    1) Refreshed fields list - now declared as a class constant
+  1.0.112 (2014-01-29)
+    1) Moved invokation of JS onload and unload to javascript_bottom
+  1.0.111 (2014-01-28)
+    1) Page::pop_content() no longer adds in extra CRLFs between each item
+    2) Page::prepare_html_head() now has manually included newline in js block
+  1.0.110 (2014-01-23)
+    1) Page::prepare_html_head() slight CSS efficiency for PIE library inclusion
+  1.0.109 (2014-01-13)
+    1) Page now has its own specific version of count_named() that does NOT try
+       to examine `type` field to get matching records count
+  1.0.108 (2013-11-12)
+    1) Page::prepare_html_head() now has revised Google Analytics code based on
+       analytics.js instead of ga.js as previously
+  1.0.107 (2013-10-31)
+    1) Page::draw_detail() removed support for ECL tag component_signin_context
+    2) Page::get_page_disambiguation() removed support for component_signin_context
+  1.0.106 (2013-10-24)
+    1) Changes to Page::prepare_html_head() to remove automatic support for maps
+       This only supported one map at a time and was a very blunt instrument
+  1.0.105 (2013-10-04)
+    1) Now Page::draw_detail() handles substitution of email-unsubscribe
+  1.0.104 (2013-10-01)
+    1) Security fix to Page::get_page_by_extended_path() to prevent sql error
+       if one looks for a nested page whose extended path includes an apostrophe
+  1.0.103 (2013-09-12)
+    1) Tweak to Page::prepare_html_head() to include lang along with xml:lang
+       which was already present to comply with ODA guidelines
+  1.0.102 (2013-07-31)
+    1) Tweak to Page::prepare_html_head() to use new images streamer method to
+       stream favicon if given, not query string asbefore
+  1.0.101 (2013-06-25)
+    1) Page::draw_search_results() now performs entity conversion earlier, so
+       no longer mangles span used to highlight matched terms
+  1.0.100 (2013-06-17)
+    1) Page::prepare_html_head() now splits some content into html_top
+    2) Added html_top and head_include to static content list
+  1.0.99 (2013-06-03)
+    1) Page::draw_detail() for substitution on case 'manage_profile' now
+       uses ECL tag to handle rendering - previously broke when named comonent
+       was removed from the system
+    2) Page::draw_detail() for substitution on case 'your_registered_events' now
+       uses ECL tag to handle rendering - previously broke when named comonent
+       was removed from the system
+  1.0.98 (2012-12-13)
+    1) Page::draw_search_results() now performs language switching on title and
+       matched content
+  1.0.97 (2012-12-10)
+    1) Page::draw_detail_content() now writes $page_vars['content_zones'][0]
+       to output, not full $page_vars['content'] as before to allow for zones
+       support
+  1.0.96 (2012-12-08)
+    1) Page::prepare_html_head() now sets JS variable currentLanguage
+  1.0.95 (2012-12-03)
+    1) Page::pop_content() now declared as public static
+    2) Page::push_content() now declared as public static
+  1.0.94 (2012-11-28)
+    1) Page::draw_detail_content() now uses System::get_item_version() not
+       System::get_version() as before
+    2) Page::prepare_html_head now uses System::get_item_version() not
+       System::get_version() as before
+  1.0.93 (2012-10-28)
+    1) Page::draw_http_error() now uses onclick for history back link
+  1.0.92 (2012-10-26)
+    1) Page::prepare_html_head() now includes shorthand alias $J for jquery
+  1.0.91 (2012-10-17)
+    1) Added Page::get_ID_by_path()
+  1.0.90 (2012-10-10)
+    1) Page::get_selector_sql_parents() now uses string concat for sql statement,
+       and indicates 'Pages from' before each site name section.
+       'Other choices' option group (which was empty therefore invalid XHTML) has
+       been removed.
+  1.0.89 (2012-10-02)
+    1) Change to Page::get_field() to operate in normal way if only one parameter
+       is given - two parameter mode is now deprecated
+  1.0.88 (2012-09-25)
+    1) Tweak to accessibility link in Page::prepare_html_head() to include width
+       and height attributes to improve SEO score
+  1.0.87 (2012-09-18)
+    1) Now uses anchor ID of (system-family)_main_content to mark start of content
+  1.0.86 (2012-09-17)
+    1) Page::hasDynamicTags() now identifies an ECL tag at very start of content
+  1.0.85 (2012-09-15)
+    1) Page::prepare_html_head() - wrapped try... catch block around google
+       mapload code since this often has bugs in it
+  1.0.84 (2012-08-16)
+    1) Page::prepare_html_head() now pushes opening Body tag to body_top
+  1.0.83 (2012-04-05)
+    1) Changes to Page::prepare_html_head() to NOT try and load piwik or google
+       analytics or bible links when running in debug_no_internet mode.
+    2) Changes to Page::prepare_html_head() to try and load piwik or google
+       analytics or bible links in details or report mode
+  1.0.82 (2012-03-15)
+    1) Added full list of content streams used in Page::push_content() to constructor
+       and noted these under defn for Page::push_content()
+  1.0.81 (2012-03-14)
+    1) Changes to Page::serve_content() to only allow pages which have no password
+       to be streamed
+  1.0.80 (2012-03-14)
+    1) Added `password` to fields list
+  1.0.79 (2012-03-03)
+    1) Moved Page::draw_treeview_js() into Treenode class
+  1.0.78 (2012-02-03)
+    1) Changes to Page::prepare_html_head() to have meta-equiv tags conform to
+       HTML dtd type if used for youtube html5 embed code
+    2) Changes to Page::prepare_html_head() to allow for local sourcing of DTD
+       mapped to actual site in use
+  1.0.77 (2012-01-26)
+    1) Removed visibility check for Page::get_page_by_path() otherwise no 403 would
+       ever be shown - we might need that
+    2) Tweak to Page::get_page_disambiguation() to only allow non-visible pages
+       having ECL tag of type 'component_context_signin' IF person is NOT signed in
+       already
+  1.0.76 (2012-01-25)
+    1) Tweak to Page::get_page_by_path() and Page::get_page_disambiguation() to
+       allow non-visible page IF it has an ECL tag of type 'component_context_signin'
+  1.0.75 (2012-01-19)
+    1) Big changes to Page::get_page_by_path() to automatically create a
+       disambiguation page where there is no exact match and more than one possible
+       ones
+  1.0.74 (2012-01-01)
+    1) Page::draw_detail() now uses Component_Signin::draw() for substituted
+       pages 'signin' and 'emergency_signin'
+  1.0.73 (2011-12-29)
+    1) Change to Page::draw_detail() to not use old inline draw_html_sitemap()
+  1.0.72 (2011-12-24)
+    1) Page::get_page_by_path() - removed redundant global
+  1.0.71 (2011-12-13)
+    1) Page::get_search_results() now includes meta keywords and description
+       in search clause for finding text
+  1.0.70 (2011-11-24)
+    1) Bug fix for cloning pages to another system - was not seeing new systemID
+  1.0.69 (2011-11-17)
+    1) Constructor now sets a 'type' for pages -
+       this is used in search results paging and will replace assign_type later
+  1.0.68 (2011-10-26)
+    1) Reference to $this->draw_keywords_block() changed to draw_related_block()
+    2) Changed assign_type to 'page' instead of 'pages'
+    3) Changes in Page::get_search_results() to handle new assign type
+  1.0.67 (2011-10-21)
+    1) Page::prepare_html_head() now includes JS setting for defaultTimeFormat,
+       defaultDateFormat and systemTitle
+  1.0.66 (2011-09-19)
+    1) Split out in-page clone function to new method Page::do_clone() and
+       implemented fields that were missing, and made Theme and Layout set to
+       'site default' if these have those values, instead of fixing page permanently
+       to the values presented by the current context.
+    2) Moved the codebase function draw_toolbar_page_edit() into this class as
+       Page::draw_toolbar_page_edit()
+  1.0.65 (2011-09-03)
+    1) Page::prepare_html_head() removed hidden field memberID - used in forms also
+  1.0.64 (2011-09-02)
+    1) Page::draw_detail_content() small tweak to message for 'posting_deleted'
+  1.0.63 (2011-08-23)
+    1) Page::prepare_html_head() removed refs to permGROUPAPPROVER and permGROUPEDITOR
+  1.0.62 (2011-08-05)
+    1) Changes to Page::draw_detail() for missing page 'forgotten_password' to
+       use Person class to draw dialog rather than old codebase function
+  1.0.61 (2011-08-05)
+    1) Removed hidden field eventID in Page::prepare_html_head()
+  1.0.60 (2011-08-02)
+    1) Changes to Page::draw_detail() to place 'New Title' before 'New name'
+       clone page controls to be more consistent.
+       Changed functionality to have 'New name' automatically set from 'New Title'
+  1.0.59 (2011-07-31)
+    1) Removed js definition for 'fck_version' in Page::prepare_html_head()
+  1.0.58 (2011-07-01)
+    1) Changes to Page::prepare_html_head() to include support for piwik tracking
+  1.0.57 (2011-06-17)
+    1) Changed path_prefix to page instead of pages -
+       now consistent with other objects that can be viewed by type and ID or
+       searched for where ID is not given
+  1.0.56 (2011-06-11)
+    1) prepare_html_head() now includes output from Church module bible_links()
+       to allow version to be set in control panel when rendered.
+  1.0.55 (2011-06-05)
+    1) Renamed fields navbarX_suiteID to navsuiteXID in constructor field list
+    2) Renamed field saved when a page is cloned in Page::draw_detail() from
+       navbarX_suiteID to navsuiteXID
+  1.0.54 (2011-06-02)
+    1) Page::get_selector_sql_parents() now shows '(None)' - was '[None]'
+  1.0.53 (2011-05-23)
+    1) Page::prepare_html_head() now includes .css3 class beghavior for IE
+  1.0.52 (2011-05-23)
+    1) Page::prepare_html_head() now calls initialise_constraints() in _onload()
+       and includes .form_box and .shadow attachmnets to pie when called in IE
+  1.0.51 (2011-05-17)
+    1) Page::prepare_html_head() now checks for presence of an installed 'Church'
+       module. If found this module is used and bible_links() method is invoked
+  1.0.50 (2011-05-01)
+    1) Moved Page::edit to new subclass Page_Edit::draw()
+    2) Removed Page::get_javascript() - unused
+  1.0.49 (2011-04-30)
+    1) Page::prepare_html_head() now includes hidden field 'source'
+  1.0.48 (2011-04-25)
+    1) References to do_tracking() now act on page object not System
+    2) Page::draw_detail_content() now only tracks activity if enabled for site
+  1.0.47 (2011-04-21)
+    1) Calls to old draw_signin() function now use Component::signin()
+  1.0.46 (2011-04-04)
+    1) Page::prepare_html_head() now uses system default language for language
+       attribute in html tag
+  1.0.45 (2011-03-20)
+    1) Page::prepare_html_head() - removed reference to global_active_btns
+  1.0.44 (2011-03-18)
+    1) Tiny tweak to Page::prepare_html_head() for inline JS to conform to JSLINT
+  1.0.43 (2011-03-07)
+    1) Page::get_search_results() now calls site URL siteURL (was 'URL') and
+       includes path field, not just `page`, provides for full nested resolution
+  1.0.42 (2011-02-09)
+    1) Page::save_css_system() now handles system URLs without trailing slash
+    2) Page::save_pages() correction for out being a string not array
+  1.0.41 (2011-01-24)
+    1) Tweak to Page::get_search_results() to use double quotes in all tests -
+       Prevents a horrible error if someone searches for something with apostrophes
+  1.0.40 (2011-01-08)
+    1) Page::draw_detail() now uses Report_Column::draw_form_field() for html
+       editing to allow multi-language editing capability using in-page editor
+    2) Page::edit() now calls Language::prepare_field() to assemble multi-language
+       content into a single value
+  1.0.39 (2011-01-04)
+    1) Moved Page::get_vars() out into its own class
+  1.0.38 (2010-12-30)
+    1) Change to Page::get_vars() to have object_name set for report
+  1.0.37 (2010-12-29)
+    1) Changes to Page::draw_detail() to have test for reserved page name performed
+       by a new helper function, and to have it also check for language codes
+  1.0.36 (2010-12-21)
+    1) Changes to Page::edit() now that 'page_nesting' feature is assumed
+  1.0.35 (2010-12-16)
+    1) Page::prepare_html_head() now assigns a classname of zom_big or zoom_small
+       to body tag, depending on loaded setting of text size. This is changed
+       dynamically by text sizer control
+  1.0.34 (2010-12-11)
+    1) Page::get_vars() now handles selection of layout for print friendly and
+       report modes
+  1.0.33 (2010-10-19)
+    1) Page::draw_detail() now calls insert() method when cloning new page
+  1.0.32 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.31 (2010-09-14)
+    1) Page::draw_search_results() now uses system date format for display
+  1.0.30 (2010-08-18)
+    1) Page::get_vars() now extends path itself IF page is a URL extender
+       WITHOUT a pre-operation component given
+  1.0.29 (2010-08-14)
+    1) Page::draw_detail() now invokes FCKEditor object directly and allows
+       in-page editor to grow to 100% of available width rather than a fixed
+       500 pixels as previously
+    2) Page::isInPageEditSafe() renamed to Page::hasDynamicTags()
+  1.0.28 (2010-08-13)
+    1) Page::prepare_html_head() now doesn't include layout CSS for detail view
+  1.0.27 (2010-06-17)
+    1) Removed all support for aggregate filters
+  1.0.26 (2010-06-16)
+    1) Tweak to Page::get_vars() to set path to URL for reports and forms
+  1.0.25 (2010-06-07)
+    1) Added switcher detection for virtual page 'email-view' and removed that
+       for colour_picker which is now handled via mode switching
+  1.0.24 (2010-05-26)
+    1) Change to Page::get_vars() to set object_type for pages to 'Page' not 'page'
+  1.0.23 (2010-04-01)
+    1) Change to Page::get_search_results()
+       Query now optionally bound by memberID as arg
+    2) Page::draw_detail() catch clause for admins to create a new page no longer
+       writes '(A default version has been substituted.)' when it wasn't.
+  1.0.22 (2010-03-19)
+    1) Change to Page::prepare_html_head() to include definition of currency
+       symbol in in-line JS code
+  1.0.21 (2010-03-10)
+    1) Change to Page::draw_detail() for submode copy to replace componentID
+       with componentID_pre and to add reference to componentID_post
+  1.0.20 (2010-02-16)
+    1) Changes to Page::get_vars() to deal with renaming of componentID to
+       componentID_post and to include componentID_pre for pre-render changes
+  1.0.19 (2010-02-10)
+    1) Moved 'Success - page was deleted' handler into Page::draw_detail
+       (was in HTML::draw_toolbar() for page_create - a bit convoluted)
+  1.0.18 (2010-01-27)
+    1) Removed google analytics code from prepare_html_foot()
+    2) Added new asynchronous google analytics code to prepare_html_head()
+  1.0.17 (2010-01-12)
+    1) Added path_extender to field list in Page::__construct()
+    2) Added support for path_extender flag to Page::edit()
+    3) Page::get_page_by_path() now looks for a match higher up which is defined as
+       a 'path_extender' if an exact match not found
+  1.0.16 (2010-01-05)
+    1) Page::edit() now allows setting of associated memberID if community members
+       module is enabled and operational
+  1.0.15 (2010-01-02)
+    1) Change to Page::get_field() to modernise and allow path for page determination
+    2) Change to Page::prepare_html_head() to handle page_title directly and to
+       allow it to be set using ECL tags by using convert_safe_to_php()
+  1.0.14 (2009-12-31)
+    1) Change to Page::edit() to set ID to targetID if bulk update is active
+       to deal with Ajax implementation of this feature since last build
+    2) Change to Page::edit() to NOT load in item data if in bulk update mode
+       (now acts same as other reports)
+  1.0.13 (2009-12-25)
+    1) Removed support in JS for non-friendly URLs
+  1.0.12 (2009-11-23)
+    1) Page::prepare_html_head() now sets js variable for option_separator
+    2) Removed support for zoom_help css setting
+    3) Feed discovery mechanisms overhauled to use system features not CPs for
+       various components as before - and now extended to include all postings
+    4) Change to Page::serve_content() to show content from home page if not given
+  1.0.11 (2009-11-13)
+    1) Changes to Page::draw_detail() to access Order::manage() directly when
+       substituting for page 'your_order_history'
+  1.0.10 (2009-10-10)
+    1) Changes to Page::edit() for consistency in naming 'Parameters' field
+  1.0.9 (2009-10-09)
+    1) Change to Page::draw_detail() so that copied pages set navsuites to
+       'layout default' if the page is currently viewed with the same nav as the layout
+  1.0.8 (2009-10-05)
+    1) Change to Page::draw_detail() to reference Checkout object directly when
+       performing an automated page substitution
+    2) Change to Page::get_vars() to set assign_type to 'page' when a 404 is encountered
+  1.0.7 (2009-09-24)
+    1) Change to Page::get_vars() to set absolute_URL and object_type for missing pages
+  1.0.6 (2009-09-23)
+    1) Change to Page::prepare_html_foot() to not try and do google analytics
+       tracking if GA script failed to initialise
+  1.0.5 (2009-08-20)
+    1) Changes path_posting_prefix to 'pages' to match that for 'assign_type' which
+       fixes problem wih rating pages
+  1.0.4 (2009-08-14)
+    1) Added dynamic substitution of pages 'paypal_return' and 'paypal_cancel'
+  1.0.3 (2009-08-08)
+    1) Changes to Page::prepare_html_head() to alter content streams and allow for
+       separate style_include stream for all linked CSS files
+  1.0.2 (2009-08-02)
+    1) Now extends Displayable_Item instead of Record
+  1.0.1 (2009-07-12)
+    1) Changes to Page::prepare_head():
+         Removed pointless invokation of context_menu
+         Now only invokes navsuite for drawing preload JS code if print!=1 and the
+         layout requires navsuites - further reduces memory footprint
+    2) Page::get_vars() now reads layoutID for postings too - allows override for Darlene
+  1.0.0 (2009-07-02)
+    Initial release

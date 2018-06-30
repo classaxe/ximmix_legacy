@@ -1,0 +1,26 @@
+  1.0.5 (2011-08-23)
+    1) Changes to the following to remove permissions permGROUPAPPROVER and
+       permGROUPADMIN and to add permUSERADMIN:
+         Report_Config::_draw_config_for_type()
+         Report_Config::get_config_all()
+         Report_Config::_get_config_report_columns()
+         Report_Config::get_overview_global()
+  1.0.4 (2010-11-01)
+    1) Report_Config::_draw_config_for_type() no longer includes dedicated
+       count query fields (no longer exist)
+    2) Report_Config::get_config_all() no longer includes count fields
+  1.0.3 (2010-09-25)
+    1) Simplified sql for several functions by use of CONCAT_WS and
+       elimination of COALESCE when not required
+       Also scrapped setting of sql variables for packet size -
+       Not needed since class version 1.0.1
+    2) Added new function get_overview_global() to get all checksums for global
+       reports as used in extended System_Config::draw()
+  1.0.2 (2010-09-23)
+    1) Added Report_Config::_get_config_report_filter_presets()
+  1.0.1 (2010-09-23)
+    1) Mysql 5.0.27 having problems with query used -
+       now uses several much simpler queries to perform all actions and
+       gives consistent repeatable results
+  1.0.0 (2010-09-20)
+    Initial release

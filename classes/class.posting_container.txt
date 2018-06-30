@@ -1,0 +1,13 @@
+  1.0.3 (2012-03-06)
+    1) Added Posting_Container::set_default_enclosure_folder() and
+       Posting_Container::on_action_set_default_enclosure_folder()
+  1.0.2 (2011-04-02)
+    1) Now extends Posting_Contaiend - Gallery and Podcast Albums themselves
+       may be contained
+    2) No longer requires its own implementation of on_action_set_path() -
+       uses the one from its new parent
+  1.0.1 (2011-01-24)
+    1) Added Posting_Container::set_path()
+    2) Moved get_selector_sql() into here - common to all nested posting types
+  1.0.0 (2011-01-24)
+    1) Initial release

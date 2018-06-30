@@ -1,0 +1,7 @@
+  1.0.2 (2014-12-29)
+    1) Added Crawl-delay parameter to robots.txt output
+  1.0.1 (2012-11-28)
+    1) XML_Sitemap::get_robots_txt() and XML_Sitemap::_get_xml_head() now use
+       System::get_item_version() not System::get_version() as before
+  1.0.0 (2010-10-26)
+    1) Initial release

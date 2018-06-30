@@ -1,0 +1,13 @@
+  1.0.3 (2011-10-19)
+    1) Changes to Component_Breadcrumbs::draw() to use effective_date_start if
+       registering for an event
+  1.0.2 (2011-08-04)
+    1) Changes to Component_Breadcrumbs::draw() to recognise $selectID as a mode
+       qualifier for event registration, not $eventID
+  1.0.1
+    1) Removed hard-coded prefix for gallery-image in draw() -
+       better handled by getting it right in page_vars
+  1.0.0 (2010-07-07)
+    1) Moved Component::breadcrumbs() into here
+    2) Changes to prevent 'home' showing twice if a component that extends path
+       (such as gallery album) is on homepage

@@ -1,0 +1,5 @@
+  1.0.1 (2013-09-20)
+    1) Added new stub to allow BL_category() to invoke Community_Posting::BL_category()
+    2) Anchor for mini link changed to '#calendar'
+  1.0.0 (2013-07-23)
+    1) Moved Community_Event out of Community class file into its own file

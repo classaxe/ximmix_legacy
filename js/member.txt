@@ -1,0 +1,416 @@
+  1.0.141 (2014-07-20)
+    1) Function gallery_album_sortable_setup() now checks that images can be seen before
+       attempting to attach listener events to them -
+       This odd situation can occur if the component is placed in HTML comment tags
+  1.0.140 (2014-06-22)
+    1) Added functionality for 'selected_set_email_opt_in' and 'selected_set_email_opt_out'
+       to function selected_operation()
+  1.0.139 (2014-03-29)
+    1) Function report() now provides for additional optional URI parameters
+  1.0.138 (2014-03-11)
+    1) emailwizard_preview() now URL encodes all content prior to sending it back
+       to the system to be shown in preview mode
+  1.0.137 (2014-02-20)
+    1) Function selected_operation() now supports operation 'selected_process_maps'
+  1.0.136 (2014-02-07)
+    1) ajax_config_display() and ajax_config_display_colour() both moved into sajax
+       namespace as sajax.display_config() and sajax.display_config_color()
+  1.0.135 (2014-01-29)
+    1) History now in member.txt, not member_changelog.txt as before
+  1.0.134 (2014-01-28)
+    1) Removed support for color_picker()
+  1.0.133 (2013-12-10)
+    1) Added support for 'selected_merge_profiles' to selected_operation()
+    2) New function merge_profiles()
+    3) New method merge_profiles_select_destination()
+  1.0.132 (2013-10-09)
+    1) export_sql() window now bigger
+  1.0.131 (2013-05-29)
+    1) selected_show_on_map() no longer specifies fields to show
+  1.0.130 (2013-01-02)
+    1) Now we're using JQuery ajax we don't need to pre-encode content so all
+       manual urlencoding for this use has been removed in the following:
+       a) emailwizard_preview()
+       b) gallery_image_edit_blur()
+  1.0.129 (2012-12-26)
+    1) Changes to replace prototypeJS with JQuery for these functions and objects:
+         Ajax, Element, $(), $$()
+         .cumulativeOffset(), .cumulativeScrollOffset(), .getHeight(), .getWidth()
+       Changes to the following:
+         1) community_dropbox_check() replaced Ajax invokation
+         2) gallery_image_edit_click() replaced .activate() call with .focus().select()
+         3) gallery_image_edit_blur() replaced Ajax invokation
+         4) cp_matrix_dosave() now uses JSON plugin for jquery
+  1.0.128 (2012-11-01)
+    1) gallery_album_sortable_setup_onmouseover() now sets _CM.enabled from item
+  1.0.127 (2012-11-01)
+    1) Bug fix for gallery_album_sortable_setup() for posting sorted changes to
+       correct URL now that jquery is used for ajax post
+  1.0.126 (2012-10-30)
+    1) CM_label() and CM_show() now handle issues with addressed element being
+       absent correctly
+  1.0.125 (2012-10-27)
+    Replaced all code referencing prototypejs and scriptaculous with jquery and
+    jqueryui:
+    1) gallery_album_sortable_setup() - replaced Sortable with jqueryui sortable
+    2) gallery_image_edit_click() now uses jquery for selectors
+    3) CM_label() and CM_show() now use jquery for selectors
+  1.0.124 (2012-10-10)
+    1) Change to option transfer code to remove options having value of
+       'dummy-value-for-xhtml-strict' when init() method is called
+  1.0.123 (2012-10-01)
+    1) Bug fix for option transfer support function sortSelect() to retain
+       classnames after a sort operation -
+       we can now colour code groups for the first time for master admins
+  1.0.122 (2012-09-14)
+    1) Size tweaks for textarea in gallery_image_edit_click() and now trims
+       string before displaying
+  1.0.121 (2012-07-20)
+    1) Added CM_Show() to simplify and reduce CM code for hiding sections
+  1.0.120 (2012-07-16)
+    1) Added community_dropbox_check()
+  1.0.119 (2012-06-29)
+    1) Tweak to CM_visible() to report if a content menu is called but not defined
+    2) Change to details() to only include bulk_update uri variable if set to 1
+    3) Added CM_label() to reduce CM code for setting label text
+    4) Removed old support for moving button up and down from CM_SDMenu_Over()
+  1.0.118 (2012-04-24)
+    1) Changes to selected_operation() to handle operation 'selected_show_on_map'
+  1.0.117 (2012-02-17)
+    1) Colur coding of result for 'config_status' in ajax_config_display()
+  1.0.116 (2011-12-22)
+    1) Removed warning for repeat_settings_onsubmit() since routine now only removes
+       events not appearing in new date sequence.
+  1.0.115 (2011-12-07)
+    1) Changes to gallery_image_edit_click(), gallery_image_edit_keydown() and
+       gallery_image_edit_blur() to allow size of editing textareas to be determined
+       by height assigned for caption and title in coponent parameters
+  1.0.114 (2011-11-14)
+    1) Added warning to repeat_settings_onsubmit() that old events will be removed
+  1.0.113 (2011-11-07)
+    1) Removed repeat_settings_day_mode()
+    2) Tweak to repeat_settings_mode() to preset repeat_range_mode
+  1.0.112 (2011-11-06)
+    1) Changes to repeat_settings_mode() to hide recurrence range block if mode
+       is '(None)'
+  1.0.111 (2011-11-04)
+    1) Added function repeat_settings_day_mode()
+    2) Changes to repeat_settings_mode() to have it detect if mode was actually
+       changed, and if so, to set up the new setting defaults based on event date
+    3) Added field_csv_set() to set a csv checkbox array and hidden field to a
+       given value
+    4) repeat_settings_dialog() dialog window now bigger
+  1.0.110 (2011-10-30)
+    1) Renamed onclick_recurrence_settings() to repeat_settings_dialog() and set
+       dialog box title to 'Repeating Event Settings'
+    2) Renamed onclick_recurrence_onsubmit() to repeat_settings_submit()
+  1.0.109 (2011-10-25)
+    1) onclick_recurrence_settings() now propagates given ID as targetID in request
+  1.0.108 (2011-10-25)
+    1) Gentle tweak to onclick_alldayevent() to have it not clear time settings
+       when it disables the fields - this lets user uncheck box to restore settings
+  1.0.107 (2011-10-25)
+    1) Added onclick_recurrence_settings() to bring up ajax dialog for modifying
+       recurrence settings for an event
+  1.0.106 (2011-10-24)
+    1) Added onclick_alldayevent()
+  1.0.105 (2011-10-13)
+    1) Changes to gallery_album_sortable_setup_onmouseover() to change
+       _CM_ID[0] to _CM.ID and to remove duplicate ref to _CM_ID[1] which is
+       now _CM.category in that context
+  1.0.104 (2011-09-22)
+    1) Added call to gallery_album_image_mouseout() for dragstart event in
+       gallery_album_sortable_setup()
+  1.0.103 (2011-09-08)
+    1) Added new functions set_product_relationship_options() and
+       set_product_relationship_options_populate_options()
+  1.0.102 (2011-08-20)
+    1) Removed support for groupAPPROVER and groupEDITOR in group_wizard code
+  1.0.101 (2011-08-19)
+    1) Bug fix for email wizard preview - caused by new ckeditor upgrade
+  1.0.100 (2011-08-18)
+    1) Changes to set_action_operation_options() to dramatically speed up use
+       in IE when listing 6000 events from 52 seconds to just 3.
+       References:
+         http://siderite.blogspot.com/2008/06/very-slow-updatepanel-refresh-when.html
+         http://elmicoxcodes.blogspot.com/2007/02/innerhtml-and-select-option-in-ie.html
+    2) Now limits trigger types for Event Register to just product_pay
+  1.0.99 (2011-08-11)
+    1) Removed references to eventID in export_excel()
+  1.0.98 (2011-07-31)
+    1) Removed FCKeditor_plugin_field() - not needed
+    2) Removed FCKeditor_OnComplete() - not needed
+    3) Removed reference to external declaration of gFckEditorsLoading - not needed
+  1.0.97 (2011-07-13)
+    1) Removed support for selected_clear_visits in selected_operation()
+  1.0.96 (2011-06-16)
+    1) Simplified functions column_select(), row_select_count(), row_select_list()
+       and moved them to functions.js to support checkbox operations for Blackstone
+  1.0.95 (2011-06-13)
+    1) Changed internal references in cp_matrix from 'system' to 'site' and
+       'page' to 'item'
+  1.0.94 (2011-06-09)
+    1) Added email_addresses() function to simplify code for email address
+       show / hide
+    2) Added 'with selected' support for 'view email addresses'
+  1.0.93 (2011-05-13)
+    1) selected_operation() extended to support selected_set_important_on / off
+  1.0.92 (2011-05-12)
+    1) gallery_album_sortable_setup() now causes source to be sent during post
+       to ensure that request is appropriately handled
+  1.0.91 (2011-05-12)
+    1) gallery_image_edit_click() now includes a name attribute for the dynamically
+       created field so that safari won't get confused if someone hits the 'back'
+       button then clicks a field - and safari tries to 'help' by putting the last
+       saved value into that field - even if it's the wrong one.
+       This build also implements outerHTML for FF with new code in functions.js
+  1.0.90 (2011-05-12)
+    1) Added gallery_image_edit_click(), gallery_image_edit_keydown() and
+       gallery_image_edit_blur()
+  1.0.89 (2011-05-05)
+    1) Moved more unchanging functions from context_menu into here
+  1.0.88 (2011-05-04)
+    1) Moved two functions into here from context_menu code:
+       CM_Navbutton_Over() and CM_SDMenu_Over()
+    2) gallery_album_sortable_setup_onmouseover() now sets _CM.category and
+       both this and gallery_album_sortable_setup_onmouseout() now set _CM.type
+       not _CM_type
+  1.0.87 (2011-05-02)
+    1) gallery_album_sortable_setup_onmouseover() now sets CM['source'] to safe_ID
+       of associated component
+  1.0.86 (2011-04-27)
+    1) gallery_album_sortable_setup_onmouseover() now wraps CM text for container
+      in quotations
+  1.0.85 (2011-04-27)
+    1) gallery_album_sortable_setup_onmouseover() now sets CM text for container
+  1.0.84 (2011-04-14)
+    1) gallery_album_sortable_setup_onmouseover() now sets context menu type by
+       looking at subtype of image to determine which context-menu to display
+  1.0.83 (2011-04-02)
+    1) gallery_album_sortable_setup() now uses dragStart and dragEnd callbacks
+       to determine whether to follow a link in a draggable item or not
+  1.0.82 (2011-03-31)
+    1) Removed gallery_album_sortable_setup_onclick() - no longer needed
+  1.0.81 (2011-03-28)
+    1) Clarified explanation about requirement for double click link conversion in
+       convert_links_to_drag_friendly()
+  1.0.80 (2011-03-27)
+    1) Renamed gallery_album_sortable_setup_onclick() to convert_links_to_drag_friendly()
+       to allow this to be used with other draggable objects such as navbuttons
+  1.0.79 (2011-03-18)
+    1) Extended gallery_album_sortable_setup() to include setting of CM actions
+       and to move href action for contained anchor to the dragable object itself
+       so that scriptaculous can safely ignore it when dragging the image -
+       prevents premature firing during drag and drop sort operations without
+       uglifying HTML code
+  1.0.78 (2011-03-15)
+    1) gallery_album_sortable_setup() now sets onchange event as given by caller
+       (if any) - for greater flexibility in use
+  1.0.77 (2011-03-09)
+    1) Added gallery_album_sortable_setup()
+  1.0.76 (2011-02-16)
+    1) Bug fix for group_selector_advanced_click() to change permADMINISTRATOR
+       to permADMIN fr field name correction
+  1.0.75 (2011-02-01)
+    1) New function download_record_pdf()
+  1.0.74 (2010-12-29)
+    1) color_picker() now uses command instead of mode
+  1.0.73 (2010-09-30)
+    1) Extension to ajax_config_display() to include Bugtracker status
+  1.0.72 (2010-10-15)
+    1) Bug fix for validate_at_w3c() - wasn't passing targetID
+  1.0.71 (2010-10-08)
+    1) Wording change to emailwizard_send() to indicate 'Queue for delivery right now?'
+  1.0.70 (2010-09-30)
+    1) Extension to ajax_config_display() to include report and heartbeat status
+  1.0.69 (2010-09-26)
+    1) Changes to ajax_config_display() to include report monitoring
+  1.0.68 (2010-09-02)
+    1) Removed all remaining Context Menu code into class.context_menu.php
+  1.0.67 (2010-08-11)
+    1) Changes to export_excel() to include sortBy to allow results to be sorted
+  1.0.66 (2010-08-11)
+    1) Changes to export_excel() to use geid_val and avoid using '(Search for...)'
+    2) Changes to selected_operation() to support 'selected_export_excel'
+  1.0.65 (2010-07-29)
+    1) Change to selected_operation() to apply popup size in 'selected_update'
+  1.0.64 (2010-07-28)
+    1) Added 'selected_set_as_hidden' operation in selected_operation()
+  1.0.63 (2010-06-16)
+    1) ajax_config_display() now gives all systems matching source a green background
+  1.0.62 (2010-05-31)
+    1) Bug fix for cp_matrix_dosave() to handle saving when Page parameters are not set
+  1.0.61 (2010-05-26)
+    1) Changes to cp_matrix.draw() to gray out page settings when cp[page]==false
+       (i.e. when viewed object is NOT a page - e.g. an event or product)
+  1.0.60 (2010-05-06)
+    1) Moved ajax_config_display() in here from functions.js
+    2) Now completely passes JSLINT 100%!
+  1.0.59 (2010-04-26)
+    1) Bug fix for option transfer code to deal with lists without classnames set for
+       options - specifically those used for group assignment dialog
+       Also set this to sort case-insensitively after a refresh (a very old undetected bug)
+  1.0.58 (2010-04-13)
+    1) Changes to order_item_refund_calculate() to handle variable number of tax fields
+       AND now to display correct total based on actual quantity of items included
+       (Fixes bug XIM-77)
+  1.0.57 (2010-03-26)
+    1) Tweak to order_issue_credit_memo() to include padding for popup dialog
+    2) Changes to Matt Kruse's Option Transfer functions to include copying of classnames
+  1.0.56 (2010-03-10)
+    1) Change to cp_popup() to prevent operation for IE8 in Compatibility mode
+       which does NOT work (a real mess) and to provide info message instead.
+    2) Change to cp_matrix() to make header cell 150px width, not 110px
+  1.0.55 (2010-01-02)
+    1) Fix for details() to include ID again in window name for single items to allow
+       multiple windows to be open at once
+  1.0.54 (2009-12-27)
+    1) Changes to CM_InitContext() to attach actions by classname
+  1.0.53 (2009-12-23)
+    1) Changes to add_to_group() to eliminate 200 item limit - now uses new popWin_Post()
+    2) Moved selected_operation() from functions.js into here and simplified
+    3) Eliminated last of support for non-friendly urls
+    4) Changes to export_sql() to eliminate 200 item limit - now uses new popWin_Post()
+  1.0.52 (2009-12-15)
+    1) Extended with of Parameter column in CP matrix to 110px
+  1.0.51 (2009-12-13)
+    1) Bug fix for add_to_group() to get filter value to popup
+    2) Added export_excel() to apply filters in same way as add_to_group()
+  1.0.50 (2009-12-09)
+    1) Added support for emailwizard
+  1.0.49 (2009-12-05)
+    1) Change to CP Matrix to change dialog title from 'CP' to 'Component Settings'
+  1.0.48 (2009-11-23)
+    1) Overhauled CP matrix code and added function to perform serialised ajax save
+  1.0.47 (2009-11-15)
+    1) Removed hard-coded demo array for component matrix
+    2) CP Matrix now capable of compiling arrays of values set for system, layout and page - very close!
+  1.0.46 (2009-09-24)
+    1) Added Context Menu support for products
+  1.0.45 (2009-09-22)
+    1) Added support in CM_ContextShow) for block layout editing for articles
+  1.0.44 (2009-09-08)
+    1) Changes to open_textdoc() to allow URI safe path to be given then converted before calling
+    2) CP Matrix demo now initialises args using 'var'
+    3) function selected_operation_enable() now always returns a value (prevents FF warnings)
+  1.0.43 (2009-08-13)
+    1) Added experimental code for CP matrix
+       eg: javascript:cp_popup();var a=new cp_matrix('cp_config',args)
+  1.0.42 (2009-08-08)
+    1) Added support in Context Menu for Block Layouts
+  1.0.41 (2009-06-30)
+    1) Added selected_operation_enable() to safely try to enable selector without error if there isn't one
+    2) Changes to column_select() to handle no 'with selected' operations available
+  1.0.40 (2009-06-04)
+    1) Minor tweak for default false return value on  FCKeditor_plugin_field()
+    2) pwd_len_min now set in inline code
+  1.0.39 (2009-05-21)
+    1) Change to popup_password_change(), order_item_refund_flag_set(), order_item_refund_flag_clear()
+       to include padding inside dialog
+  1.0.38 (2009-03-23)
+    1) Added FCKeditor_plugin_field() for dynamic field creation in FCK plugins complete with language-translatable labels
+  1.0.37 (2009-03-18)
+    1) Callback function for color picker now uses url-friendly path for colour swatch source
+  1.0.36 (2009-02-16)
+    1) Changes to details() and report() to simplify and remove unfriendly url support
+  1.0.35 (2009-02-10)
+    1) Minimum pw length now set by pw_len_min - can be overridden in code later if desired
+  1.0.34 (2009-01-08)
+    1) Changes to export_sql() to include show_fields parameter
+  1.0.33 (2008-12-13)
+    1) Changes to rate better with jslint while (hopefully) not breaking anything
+    2) Improvements to group permissions setting for selected users -
+       better setting of advanced properties with basic controls
+    3) order_items_refund_total() bug fix - used 'for in' on an array - breaks with prototype.js
+  1.0.32 (2008-12-04)
+    1) Changes to details() to include a random portion to help cache busting with reloading popup form in case
+       changes are not reflected.
+  1.0.31 (2008-11-06)
+    1) Changes to details() and report() to allow URLs to contain a '.' - this is important as some
+       forms and reports are renamed to 'module.name.report-name' type formats to identify them as belonging to modules
+  1.0.30 (2008-10-28)
+    1) Support added in context menu for righ-clicking on menu items NOT rendered as images
+    2) Extra parameter for details to allow passing of preset values when creating a new item (2008-10-28)
+  1.0.29 (2008-10-02)
+    1) Added selected_send_email()
+  1.0.28 (2008-08-06)
+    1) Added specific support added in context_menu for theme banner and each individual theme accent
+  1.0.27 (2008-07-26)
+    1) Changes to context menu - no longer assumes edit buttonstyle is available, degrades gracefully if not
+    2) Provision added where required for export navbutton, export navsuite, export navstyle and export content_block
+    3) Provision added for Theme editing in context menu
+  1.0.26 (2008-07-02)
+    1) Removed report_filter_save(reportID) - now in functions.js and renamed filterbar_save_onclick()
+  1.0.25 (2008-05-10)
+    1) Inline context menu variable settings now in this file
+    2) New function new_page() to generate new pages with a given layoutID
+  1.0.24 (2008-04-24)
+    1) Big changes to credit memo functions for cicbv
+  1.0.23 (2008-04-11)
+    1) Bug fix for color_picker path mode
+    2) Changes to details() to better apply optional fields only where needed
+  1.0.22 (2008-04-08)
+    1) Now checks use_friendly_urls to determine path for the following functions:
+         details()
+         report()
+         popup_group_assign() (is this still used?)
+         export_sql()
+  1.0.21 (2008-04-04)
+    1) Changed references to ./ to use base_url variable instead
+    2) New function popup_fileviewer()
+  1.0.20 (2008-04-03)
+    1) Changes to order_issue_credit_memo() to warn if refund amount differs from suggested,
+       largely to prevent zero-value refunds (Thanks James)
+  1.0.19 (2008-03-12)
+    1) Changed all popup dialogs which call popup_dialog() to use a table (YES A TABLE) for compatibility
+       with IE6 which fails to display popup layer-based content with floated divs:
+       report_filter_save(), order_item_refund_flag_set() and popup_password_change() all changed
+  1.0.18 (2008-02-11)
+    1) Added Context Menu support 'View' on all posting types
+  1.0.17 (2008-01-28)
+    1) Removed my colour picker and replaced with John Dyer's
+  1.0.16 (2008-01-16)
+    1) Added field_csv_toggle()
+  1.0.15 (2008-01-13)
+    1) Added Context Menu support for Podcasts
+  1.0.14 (2008-01-08)
+    1) Changes to popup_password_change() and popup_password_change_set() to pass in
+       targetFieldID for permissions checking post submission
+  1.0.13 (2007-12-20)
+    1) Removed price_non_refundable prompt in order_item_refund_flag_set() - now set later
+  1.0.12 (2007-12-17)
+    1) order_item_refund_flag_set() now has additional parameter price_non_refundable and
+       prompts for that amount
+  1.0.11 (2007-12-15)
+    1) Added order_issue_credit_memo(), order_item_refund_flag_set() and
+       order_item_refund_flag_clear()
+    2) Added popup_change_password() for scriptless password changes 
+    3) Added report_filter_save()
+  1.0.10 (2007-12-10)
+    1) Added support for Article editing in Context Menu
+  1.0.9 (2007-12-05)
+    1) Added support for Content Block editing in Context Menu
+  1.0.8 (2007-11-29)
+    1) Moved include() back into functions.js - used for daily_bible_verse
+  1.0.7 (2007-11-26)
+    1) Added support for Job editing in Context Menu
+  1.0.6 (2007-11-15)
+    1) Added download_order_pdf()
+  1.0.5 (2007-11-14)
+    1) Moved submodal popup code into functions.js
+  1.0.4 (2007-11-09)
+    1) CM_ContextShow() now correctly differentiates between locally and globally shared report filters
+       and allows master admins to make local ones global and visa versa
+  1.0.3 (2007-10-22)
+    1) Added CM_Navbutton_Over() to reduce code for context menu behaviour for buttons
+       (from 91250 bytes to 84056 bytes - 9% reduction)
+    2) Changes to CM_ContextShow() for new function CM_Navbutton_Over() described above
+       and to remove 'font' from Report Filter contexts 
+  1.0.2 (2007-10-17)
+    1) Added CM_Attach_Events() to reduce html for adding CM mouseover behaviours
+    2) CM_InitContext() no longer uses addEvent to invoke methods - firefox fired its own CM too
+  1.0.1  (2007-10-15)
+    1) Function dec2hex() now reinstated in functions.js
+    2) CM_InitContext() now uses addEvent to invoke methods
+  1.0.0  (2007-10-10)
+    1) Created member.js to contain functions used by admins or signed in users

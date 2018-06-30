@@ -1,0 +1,65 @@
+  1.0.22 (2014-02-10)
+    1) Made several helper functions protected
+    2) Big changes to Ajax::get_report() to reduce code and allow for multiple
+       query selection
+  1.0.21 (2014-02-06)
+    1) Ajax::serve_lookup_report() now returns true number for record count,
+       not a string
+    2) Big served HTML code reductions as a result of refactoring code in
+       Ajax::get_report()
+    3) Ajax::get_shipping() now calls functions in the sajax namespace to handle
+       lookups and callbacks
+  1.0.20 (2014-01-28)
+    1) Eliminated support for formwizard
+  1.0.19 (2013-11-29)
+    1) Slight earranging of functions
+    2) Ajax::generate_control_num is now declared as static
+  1.0.18 (2013-01-02)
+    1) Ajax::get_config() no longer URI encodes URL - this step is performed
+       by JQuery Ajax for us.
+  1.0.17 (2012-11-28)
+    1) Ajax::get_config() now uses System::get_item_version() not
+       System::get_version() as before
+  1.0.16 (2012-04-02)
+    1) Tweak to Ajax::get_shipping() for more consistent layout
+  1.0.15 (2011-08-21)
+    1) Changes to ajax::get_report_heads() to eliminate array for string building
+    2) Changes to ajax::get_report_data() to eliminate array for string building
+  1.0.14 (2010-10-29)
+    1) Renamed Ajax::serve_report() to Ajax::serve_lookup_report() to clarify
+       use and replaced all internals with better methods from Report class
+       - no longer requires count query to operate AND sorts results!
+    2) Changes in Ajax::serve() to register renamed serve_lookup_report()
+       (in ajax.php stub) as callable
+  1.0.13 (2010-10-18)
+    1) Change to Ajax::serve() - formwizard code now inclyded automagically
+  1.0.12 (2010-10-14)
+    1) Now passes CPs through from Ajax::get_shipping() to
+  1.0.11 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.10 (2010-09-26)
+    1) Changes to ignore list in Ajax::get_config_rows() to include report checks
+  1.0.9 (2010-06-16)
+    1) Changes to Ajax::get_config() to allow for colouring of results to give
+       those matching monitor system a green background
+  1.0.8 (2010-05-26)
+    1) changes to Ajax::get_report(), Ajax::get_report_heads() and
+       Ajax::get_report_data() to properly escape JS strings for closing cell tags
+  1.0.7 (2010-05-14)
+    1) Moved inline switching for ajax mode into here as Ajax::serve()
+       the /ajax/ajax.php now contains just one tiny stub function.
+  1.0.6 (2010-05-13)
+    1) Removed inline creation of json_encode() - this is in codebase already
+  1.0.5 (2010-05-03)
+    1) Change to constructor - $sajax_remote_uri now includes trailing slash
+  1.0.4 (2009-10-26)
+    1) References to inline function get_sql_filter() now Report::get_filter()
+  1.0.3 (2009-10-17)
+    1) Change to Ajax::get_config_rows() to extend list of non-displayable fields
+  1.0.2 (2009-10-05)
+    1) Minor formatting changes to Ajax::get_shipping() to keep assigned width
+       even when there is no result shown
+  1.0.1 (2009-07-11)
+    Changes to Ajax::serve_config() to prevent streaming of detail for tables and classes
+  1.0.0 (2009-07-02)
+    Initial release

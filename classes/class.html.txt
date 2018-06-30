@@ -1,0 +1,264 @@
+  1.0.86 (2014-06-22)
+    1) Added support for page creation defaults for 'email-opt-in' and 'email-opt-out'
+  1.0.85 (2014-03-29)
+    1) HTML::_draw_toolbar_type_report() now sets communityID when adding new posting, if
+       available
+  1.0.84 (2014-02-20)
+    1) HTML::_draw_toolbar_type_report() no longer needs to make a premptive cache
+       fetch for all types of features as this is now handled by the report
+  1.0.83 (2014-02-11)
+    1) Extra newline added after JS in HTML::draw_section_tabs() and
+       HTML::draw_section_tab_buttons()
+  1.0.82 (2014-01-28)
+    1) Newline and indentation for JS code in HTML::draw_status()
+  1.0.81 (2013-12-05)
+    1) Tweak to HTML::_draw_toolbar_type_admin() to have personal toolbar alternative
+       available to User Admins
+  1.0.80 (2013-10-31)
+    1) Tiny tweak to HTML::draw_status() to escape forward slashes for JS string
+  1.0.79 (2013-10-18)
+    1) HTML::_draw_toolbar_type_admin() now includes personal toolbar entries IF
+       the personal toolbar was disabled for whatever reason
+    2) HTML::_draw_toolbar_type_personal() - moved signouit to the end and added
+       some toolbar separators for clearer delinieation of functions
+  1.0.78 (2013-10-04)
+    1) HTML::_draw_toolbar_type_page_create() fix to indicate path of page to
+       be created anchored at base path
+    2) HTML::draw_status() now automatically colour codes for Warning and Notice
+  1.0.77 (2013-08-18)
+    1) Bug fix for sitemap icon for correct placement of height and width attributes
+       on image
+  1.0.76 (2013-07-30)
+    1) Multiple changes to HTML:draw_icon() for SEO improvements by having
+       height and width attributes old-school on all images instead of using
+       inline or external CSS
+  1.0.75 (2013-05-24)
+    1) HTML::draw_form_box() now accepts footer parameter
+  1.0.74 (2012-12-28)
+    1 Changes to have all images have an alt value
+  1.0.73 (2012-12-08)
+    1) Removed support in HTML::draw_icon() for 'language' -
+       now handled in its own component sub-class
+  1.0.72 (2012-11-28)
+    1) HTML::_draw_toolbar_type_personal() now uses static invokations of System
+       class for System::has_feature() and now uses System::get_item_version() not
+       System::get_version() as before
+  1.0.71 (2012-11-23)
+    1) HTML::_draw_toolbar_type_admin() now uses a label, not h1 heading for menu
+       category headings. Wopn't really affetct SEO since search engines spider
+       as public, but will help admins debug seo issues when logged in.
+  1.0.70 (2012-10-28)
+    1) HTML::_draw_toolbar_type_custom_form() now uses onclick for edit link
+    2) HTML::_draw_toolbar_type_report() now uses onclick for icon links
+  1.0.69 (2012-09-20)
+    1) Tweak to HTML::_draw_toolbar_type_personal() to shorten 'Signed in as...'
+       message if the signed-in user has no name set in their profile.
+  1.0.68 (2012-09-16)
+    1) Tweak to HTML::draw_section_tabs() to eliminate an extra space in section
+       tab tag
+  1.0.67 (2012-08-23)
+    1) HTML::_draw_toolbar_type_posting_edit() now uses posting-type specific command
+       to delete postings when viewed in context
+  1.0.66 (2012-07-09)
+    1) Bug fix in HTML::_draw_toolbar_type_report() now that js function email_addresses()
+       has been renamed to selected_view_email_addresses()
+  1.0.65 (2012-06-20)
+    1) Major refactoring of code to make things more modular
+    2) Changes to HTML::_draw_toolbar_type_personal() to eliminate personal dashboard
+       for non-admins - just confusing
+  1.0.64 (2012-05-22)
+    1) Changes to HTML::_draw_toolbar_type_personal() for dialog width determined by
+       Community Module settings
+  1.0.63 (2012-03-28)
+    1) Change to HTML::_draw_toolbar_type_admin() to close img tag used for toolbar
+       end graphic
+  1.0.62 (2012-03-16)
+    1) Changes to HTML::_draw_toolbar_type_admin() to only draw frame IF user
+       has any options to administer
+  1.0.61 (2012-03-14)
+    1) Changes to HTML::_draw_toolbar_type_personal() now that 'module.community'
+       feature is 'module-community'
+  1.0.60 (2012-03-03)
+    1) Removed commented out section in HTML::_draw_toolbar_type_admin() for old
+       icon-type toolbar
+  1.0.59 (2012-02-22)
+    1) Changes to HTML::_draw_toolbar_type_admin() to display in toolbar-style
+       container
+  1.0.58 (2012-02-18)
+    1) Changes to HTML::_draw_toolbar_type_admin() to generate dropdown menu
+  1.0.57 (2012-02-16)
+    1) Changes to HTML::_draw_toolbar_type_admin() to insert toolbar separators
+       when menu group changes, not when sequence advances by 10
+  1.0.56 (2012-02-15)
+    1) Changes to HTML::_draw_toolbar_type_admin() to handle renaming of
+       `adminLinkPosition` to `seq`, and `adminLink` to `icon`
+  1.0.55 (2012-02-06)
+    1) HTML::_draw_toolbar_load_user_rights() now regards UserAdmin as approved
+  1.0.54 (2012-01-19)
+    1) HTML::_draw_toolbar_type_personal() now checks to see if a specific checkout
+       page has been set, and if so it uses it for the link
+  1.0.53 (2011-12-22)
+    1) HTML::draw_status() renamed parameter $noshow to $noclose to better indicate
+       purpose
+  1.0.52 (2011-12-04)
+    1) HTML::draw_status() now propages 'noclose' parameter to allow it to show
+       without close button
+  1.0.51 (2011-12-02)
+    1) Changes to grouping of some context toolbar items to better convey meaning
+  1.0.50 (2011-10-13)
+    1) Changed references of _CM_ID[0] to _CM.ID in context menu for
+       HTML::_draw_toolbar_type_admin()
+  1.0.49 (2011-09-09)
+    1) Tweak for HTML::draw_icon() for 'print_calendar' to use a different image ID
+       than regular print icon
+  1.0.48 (2011-08-19)
+    1) Changes to HTML::_draw_toolbar_type_personal() to use cart methods to
+       establish whether there are items in the cart or not
+  1.0.47 (2011-08-05)
+    1) Converted several javascript: type hrefs to onclick to pass XHTML strict
+  1.0.46 (2011-07-18)
+    1) Changed reference from Component::get_parameter_defaults_and_values()
+       to Component_Base::get_parameter_defaults_and_values()
+  1.0.45 (2011-07-15)
+    1) Brought in new method draw_section_tabs() - was in codebase - and changes
+       to convert breaks to spaces in tooltips
+  1.0.44 (2011-07-13)
+    1) Removed support for 'selected_clear_visits'
+  1.0.43 (2011-06-25)
+    1) HTML::draw_icon() for 'bookmark' now escapes page title string so that
+       apostrophes in page name - e.g. St John's Church - don't cause JS errors
+  1.0.42 (2011-06-09)
+    1) HTML::draw_toolbar() for type 'report' now uses JS for 'view email addresses'
+       operation - this allows for use of 'with selected' integration
+    2) Changed references to 'button_add_to_group' to 'selected_add_to_group',
+       'button_export_excel' to 'selected_export_excel' and
+       'button_view_email_addresses' to 'selected_view_email_addresses'
+  1.0.41 (2011-05-23)
+    1) HTML::draw_form_box() now sets 'constrain' css style to enable IE6-7 to
+       have JS fix the width to prevent it taking all the space
+  1.0.40 (2011-05-13)
+    1) Added pre-check of 'selected_set_importance' for draw_toolbar()
+  1.0.39 (2011-05-05)
+    1) Extra check in HTML::draw_toolbar() for 'posting_edit' to make sure that
+       block_layout variables were loaded before attempting to provide the ability
+       to edit a block layout
+  1.0.38 (2011-05-04)
+    1) Replaced all references of _CM_type to _CM.type
+  1.0.37 (2011-04-25)
+    1) HTML::draw_icon() and HTML::draw_toolbar() now use $page_vars['object_name']
+       to display tooltip info on object being viewed, not $page_vars['object_type']
+       which is now the real classname of the object, not friendly human name
+  1.0.36 (2011-03-25)
+    1) HTML::draw_toolbar_text() now wraps within outer div to get correct borders
+    2) Added HTML::_draw_toolbar_type_custom_form_new() to handle creation of
+       referenced custom forms if they don't already exist
+  1.0.35 (2011-02-05)
+    1) Changes to HTML::draw_toolbar_end() and HTML::draw_toolbar_separator()
+       to reference strict CSS rules in css rather than applying inline style
+  1.0.34 (2011-01-06)
+    1) Change to HTML::draw_toolbar() for mode 'page_edit' to have layout usage
+       determined directly by layout in page_vars (since this changes on substition)
+       and to have no errant warning shown if the layout had NO pages directly
+       using it.
+  1.0.33 (2010-12-30)
+    1) Tweak to 'clone report' icon in HTML::draw_toolbar() for 'report'
+       to use 'onclick' for action, not href
+  1.0.32 (2010-12-23)
+    1) Change to HTML::draw_toolbar_frame() to remove no-wrap clause -
+       was messing up proper breaking of toolbar in IE9, Safari and Chrome
+    2) Changes to HTML::draw_icon() positions of some icons and to add new
+       clause for 'language'
+  1.0.31 (2010-12-21)
+    1) Moved some icons on icon strip to reuse abandoned icon space
+  1.0.30 (2010-12-21)
+    1) Eliminated support for 'screen_resizer' in HTML::draw_icon()
+  1.0.29 (2010-12-20)
+    1) HTML::draw_icon() for 'text_sizer' now has mouseover state
+  1.0.28 (2010-12-18)
+    1) HTML::draw_icon() for 'print_friendly', 'screen_sizer' and  'text_sizer'
+       now include all CPs for optional labels
+    2) HTML::draw_icon() support added for 'sitemap' and 'bookmark'
+  1.0.27 (2010-12-11)
+    1) HTML::draw_icon() changes to improve XHTML - eliminated javascript hrefs
+  1.0.26 (2010-10-25)
+    1) HTML::draw_form_box() now has provision for setting of width
+  1.0.25 (2010-10-14)
+    1) Tweak to HTML::draw_toolbar() for custom_form to pass just targetID
+  1.0.24 (2010-10-12)
+    1) New function draw_form_box() to do job of drawing curvy heading boxes
+       using divs not tables
+  1.0.23 (2010-08-14)
+    1) Changes to HTML::draw_toolbar() to emiminate test for allowInpageEdit
+       since ALL content may now be safely editied in FCKEditor
+  1.0.22 (2010-08-11)
+    1) Change to HTML::draw_toolbar() for type 'report' to not include popup size
+       in export_excel operation - now set in JS function directly
+  1.0.21 (2010-07-28)
+    1) Added pre-caching of 'selected_set_as_hidden' to HTML::draw_toolbar() when
+       drawing 'with selected' control
+  1.0.20 (2010-07-15)
+    1) Now references Component_Base:: where needed not Component::
+  1.0.19 (2010-05-28)
+    1) HTML::draw_icon() now handles 'buy_event'
+  1.0.18 (2010-05-07)
+    1) HTML::draw_status() now includes trailing ';' in JS to make concatenation
+       more fault tolerant -
+       fixes broken Status bar for dashboard, broken since at least 2.1.8.1324
+    2) Tweak to HTML::draw_toolbar() to prevent 'edit_component' icon showing up
+       if page_vars are not set (as in Dashboard as masteradmin -
+       broken forever but critically broken since version 2.5.18.1386)
+  1.0.17 (2010-03-10)
+    1) Changes to HTML::draw_toolbar() and HTML::_draw_toolbar_type_personal() to
+       eliminate 'javascript:' type URLs for anchors - remapped to onclick to
+       prevent XHTML warnings in validators
+  1.0.16 (2010-02-16)
+    1) Changes to HTML::draw_toolbar() to deal with renaming of page_var componentID
+       to componentID_post (as distinct from new componentID_pre)
+  1.0.15 (2010-02-13)
+    1) Community Dashboard now called Community Member dashboard and references
+       commmunity_member_dashboard now, not community_dashboard
+  1.0.14 (2010-02-12)
+    1) Added delete posting functionality to HTML::draw_toolbar() for 'posting_edit'
+  1.0.13 (2010-01-02)
+    1) Change to HTML::draw_toolbar() for page_create since popWin() now returns
+       a window handle - JS link now voids return in this case
+  1.0.12 (2009-12-27)
+    1) Tidied up HTML::draw_toolbar() for 'report' and modernised JS in same for
+       'show email addresses'
+  1.0.11 (2009-12-25)
+    1) Change to Report::draw_report() for 'with_selected' to return nothing
+       if no features present - no longer require records to make this available
+       (eliminates 'no with selected functions avalable bug after previous criteria
+       matches no records but this one returns some.
+  1.0.10 (2009-12-13)
+    1) HTML::draw_toolbar() for 'report' now uses new method for excel export that
+       allows for filtering of results
+  1.0.9 (2009-11-21)
+    1) Changes to Help::page_edit() to reflect change in meaning of Component Help
+  1.0.8 (2009-11-17)
+    1) Removed unused CP support in HTML::draw_icon() for draw_print_button_disable
+    2) Modernised HTML::draw_icon() for 'print_friendly' for separate ident
+    3) Modernised HTML::draw_icon() for 'screen_resizer' for separate ident
+    4) Modernised HTML::draw_icon() for 'text_sizer' for separate ident
+  1.0.7 (2009-10-20)
+    1) Added HTML::draw_icon() support for bugtracker
+    2) Added HTML::_draw_toolbar_type_personal() support for bugtracker
+    3) Added HTML::_draw_toolbar_type_admin() support for bugtracker
+  1.0.6 (2009-09-24)
+    1) Added support for 'Popup Edit Product' to HTML::draw_icon()
+  1.0.5 (2009-09-05)
+    1) Changes to HTML methods to use static calls where possible
+    2) Change to HTML::draw_toolbar() to move code for custom_form toolbar into
+       its own private method
+    3) Changes to HTML::draw_toolbar() for report to have export to excel use URI-safe path
+  1.0.4 (2009-09-03)
+    1) Removed personal toolbar disable kludge originally added for CICBV
+  1.0.3 (2009-08-21)
+    1) Now respects 'no-personal-toolbar' feature
+    2) Started to rewrite draw_toolbar() to simplify and conform to best practices
+  1.0.2 (2009-08-17)
+    1) Changed references for 'System' to 'Site'
+  1.0.1 (2009-08-08)
+    1) Implemented Block Layout editing for Postings
+  1.0.0 (2009-07-02)
+    Initial release

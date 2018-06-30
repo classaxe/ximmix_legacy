@@ -1,0 +1,20 @@
+  1.0.6 (2012-09-03)
+    1) Listtype::get_record_by_name() now uses Record::get_record_for_sql() to access
+       count result
+  1.0.5 (2011-08-24)
+    1) Changes to Listtype::manage_data() to simplify it, remove global variables
+       and avoid use of unconventional use of extra parameters in draw_auto_report()
+  1.0.4 (2011-08-18)
+    1) Listtype::get_sql_options() now has optional filter parameter -
+       used in Action::draw_operation_selector()
+  1.0.3 (2010-10-19)
+    1) Added constructor setter to allow for cloning of listtypes
+    2) Major changes to make ListType::copy() work properly (never did before)
+    3) Added fields list to constructor
+    4) Implemented delete() method to clean up listdata also - was never present
+  1.0.2 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.1 (2009-11-04)
+    1) Changes to Listtype::getListData() to clean up code and interface
+  1.0.0 (2009-07-02)
+    Initial release

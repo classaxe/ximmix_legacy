@@ -1,0 +1,189 @@
+  1.0.49 (2015-01-31)
+    1) Changes to internally used parameters in Component_Collection_Viewer::_load_podcast_albums():
+         Old: order_by
+         New: results_order
+    2) Changes to internally used parameters in Component_Collection_Viewer::_load_podcasts():
+         Old: order_by
+         New: results_order
+    3) Now PSR-2 Compliant
+  1.0.48 (2014-03-21)
+    1) Now reports if an invalid author or album is selected and issues a 404
+  1.0.47 (2014-01-28)
+    1) Newline and ; after JS in Component_Collection_Viewer::_draw_navigation()
+  1.0.46 (2013-11-12)
+    1) Component_Collection_Viewer::_draw_podcast_selected() bug fix -
+       now ensures that the chosen named podcast is from the correct album
+  1.0.45 (2013-11-01)
+    1) Removed audioplayer_height - not supported
+    2) Set default audioplayer_width to 320
+    3) Now includes audio player replacement code when paging controls load
+  1.0.44 (2013-10-29)
+    1) New CP 'subtitle_show'
+  1.0.43 (2013-07-25)
+    1) New CP 'text_prompt_to_choose' to allow prompt to be changed
+    2) Fine tuning of CSS for slightly better layout
+  1.0.42 (2013-07-19)
+    1) Changes to Component_Collection_Viewer::_podcast_add() to set
+       memberID and communityID as per container folder
+  1.0.41 (2013-07-15)
+    1) Added support for controls_albums_url and controls_authors_url to include
+       slashes, as required for embedding support within Community interface
+  1.0.40 (2013-06-07)
+    1) Internal changes in support of CP changes to replace the following
+       deprecated parameters with their new equivalents:
+         Old: 'grouping_tabs',    'filter_limit',  'filter_order_by', 'paging_controls'
+         New: 'results_grouping', 'results_limit', 'results_order',   'results_paging'
+  1.0.39 (2013-05-17)
+    1) Added support for toggling of 'important' flag in Podcast Albums within
+       Component_Collection_Viewer::_draw_navigation_podcast_album()
+  1.0.38 (2013-04-01)
+    1) New CPs for video display in both listing and selected item modes:
+        'video_height', 'video_width', 'video_show'
+        'selected_video_height', 'selected_video_width', 'selected_video_show'
+  1.0.37 (2012-11-24)
+    1) Changed reference in Component_Collection_Viewer::_draw_podcast_selected()
+       from $Obj_Podcast::_draw_detail_include_facebook_sharer_thumbnail_support()
+       to $Obj_Podcast::_draw_detail_include_og_support()
+  1.0.36 (2012-11-09)
+    1) Component_Collection_Viewer::_podcast_add() now sets enabled flag
+  1.0.35 (2012-10-28)
+    1) Changes to Component_Collection_Viewer::_draw_listings_load_paging_controls()
+       for bible ref tagger to use jquery for target element selection
+  1.0.34 (2012-09-18)
+    1) Removed extra anchor for 'main_content' - not required
+  1.0.33 (2012-09-18)
+    1) New method Component_Collection_Viewer::_setup_get_computed_sequence_numbers()
+       that works in both directions, depending on setting for 'filter_podcast_order'
+       Thanks Margaret for the bug report
+    2) Bug fix - inclusion of BL zones for listings_group_separator and
+       listings_item_separator were reversed - this is now fixed
+  1.0.32 (2012-09-17)
+    1) Changes to have Component_Collection_Viewer::_setup_load_block_layout()
+       use new code in parent - Component_Base::_setup_load_block_layout(), and
+       to exclusively use Component_Base::_setup_load_user_rights() for getting
+       user rights without code duplication
+  1.0.31 (2012-09-11)
+    1) Changes in Component_Collection_Viewer::_draw_podcasts() and
+       Component_Collection_Viewer_draw_podcast_selected() to use new multiple
+       property setter Record::_set_multiple()
+    2) Now sets 'canPublish' in Component_Collection_Viewer::_setup_load_user_rights()
+  1.0.30 (2012-08-01)
+    1) Component_Collection_Viewer::_load_podcasts() now displays podcasts in either
+       ascending (default) or descending order, according to new cp 'filter_podcast_order'
+    2) Component_Collection_Viewer::_draw_podcasts() now specifies either
+       'showing earliest first' or 'showing latest first' depending on cp setting
+       for 'filter_podcast_order'
+  1.0.29 (2012-07-23)
+    1) Component_Collection_Viewer::_podcast_add() now checks container folder and
+       sets memberID of uploaded item to same as that of the container
+    2) Component_Collection_Viewer::_load_podcast_album() now gets memberID
+  1.0.28 (2012-07-21)
+    1) Bug fix in Component_Collection_Viewer::_draw_navigation_podcast_albums()
+       to only show 'important' grouping if enabled and if there are albums marked
+       as 'important'
+    2) Context menus used are now given as overrideable properties in constructor
+    3) Component_Collection_Viewer::_podcast_add() now has code to set publish date
+       without simply defaulting to uploaded date if given as part of file name
+    4) New cp 'filter_album_order_by' which allows ordering of albums either by date
+       (as previously) or title
+  1.0.27 (2012-07-15)
+    1) CP defaults for filter_memberID and filter_personID now '' not 0
+  1.0.26 (2012-07-14)
+    1) Calls in both Component_Collection_Viewer::_load_podcast_albums() and
+       Component_Collection_Viewer::_load_podcasts() to Podcast_Album::get_records()
+       now use arguments array
+  1.0.25 (2012-06-30)
+    1) Access to recently protected properies for Podcast and Podcast Album now
+       via newly added universal getter and setter in Record class
+  1.0.24 (2012-06-11)
+    1) Added cp for 'controls_important_heading'
+  1.0.23 (2012-03-06)
+    1) Changes to Component_Collection_Viewer::_load_podcast_albums) to include
+       enclosure_url as default folder
+    2) Changes to Component_Collection_Viewer::_add_podcast() to respect
+       default folder
+    3) Tweak inside Component_Collection_Viewer::_draw_css() to ensure that
+       list item margin is zero, regardless of a layout override
+  1.0.22 (2012-01-23)
+    1) Changes to _setup() to harness protected method in Component_Base class
+    2) Removed local implementation of _setup_load_parameters()
+  1.0.21 (2012-01-23)
+    1) Removed _draw_control_panel() - inherits instead
+  1.0.20 (2011-10-13)
+    1) Changed references of _CM_ID[0] to _CM.ID in context menu for
+       Component_Collection_Viewer::_draw_navigation_podcast_albums()
+    2) Changed references of _CM_ID[1] to _CM.can_delete in context menu for
+       Component_Collection_Viewer::_draw_navigation_podcast_albums()
+  1.0.19 (2011-08-04)
+    1) Tweak to Component_Collection_Viewer::_render() to use new shadow method
+       provided within Podcast::draw_panel_box() instead of table based variant
+  1.0.18 (2011-07-21)
+    1) Component_Collection_Viewer::_setup_load_block_layout() now issues call to
+       Block_Layour::draw_css_include() instead Component_Collection_Viewer::draw()
+       and Component_Collection_Viewer::_draw_podcast_selected() having to do this
+       manually
+  1.0.17 (2011-07-01)
+    1) Replaced reference to short type in Component_Collection_Viewer::_podcast_add()
+  1.0.16 (2011-05-26)
+    1) Component_Collection_Viewer::_draw_podcasts() now omits words 'Podcasts in'
+       or 'Podcasts by' but includes item count instead
+    2) Component_Collection_Viewer::_draw_podcasts() now tracks activity for
+       Podcast Album if selected AND activity tracking is enabled
+    3) Component_Collection_Viewer::_draw_podcast_selected() now tracks activity
+       for Podcast if activity tracking is enabled
+  1.0.15 (2011-05-17)
+    1) Component_Collection_Viewer::_draw_listings_load_paging_controls() now
+       checks for installation of Church module before attempting to invoke the
+       Ref Tagger
+  1.0.14 (2011-05-15)
+    1) Added Component_Collection_Viewer::_load_podcast_selected() and
+       Component_Collection_Viewer::_draw_podcast_selected() to allow the
+       path to extend to a specific podcast and allow it to be viewed
+    2) Changes to Component_Collection::_draw_podcasts() to allow Context Menu
+       for selected album if chosen using brand new 'Podcast Album' block layout
+       and to replace paths for linked podcast titles to those that indicate the
+       collection viewer podcast path extension address to preserve viewing context
+  1.0.13 (2011-05-07)
+    1) Component_Collection_Viewer::_draw_listings_load_paging_controls() now
+       reapplies externalLinks() to make external anchor references open in popup
+  1.0.12 (2011-05-06)
+    1) Component_Collection_Viewer::_draw_listings_load_paging_controls() now
+       reapplies Reftagging if this is loaded
+  1.0.11 (2011-05-06)
+    1) Component_Collection_Viewer::_podcast_add() now tries metadata first for
+       name and title, then falls back to filename if these are not available
+    2) Component_Collection_Viewer::_draw_podcasts() now sets record
+      'computed_sequence_value' value to the sequence within the collection
+      in which it is displayed for use by new BL tag 'sequence'
+    3) Added status message for deleted items
+  1.0.10 (2011-05-05)
+    1) Added jumploader to allow for uploading of podcasts to selected album
+  1.0.9 (2011-05-04)
+    1) Replaced all references of _CM_type to _CM.type
+  1.0.8 (2011-05-01)
+    1) Fix to Component_Collection_Viewer::_draw_podcasts() to ensure that
+       _safe_ID is propagated from this object to Podcast object before
+       rendering
+  1.0.7 (2011-04-29)
+    1) More cps for controls and now respects category selection if given for
+       albums and all items cobtained within
+  1.0.6 (2011-04-28)
+    1) _load_podcasts() now does a second pass of results to populate a second
+       list of podcasts_selected, gets records in ascending date order and
+       establishes parent album for any items that are in current selection
+  1.0.5 (2011-04-24)
+    1) Now uses block layouts for items display and suports context-menu editing
+  1.0.4 (2011-04-21)
+    1) More work on collection viewer - now generates its own css and selects
+       podcasts by the chosen album or author... getting closer!
+  1.0.3 (2011-04-02)
+    1) More work on collection_viewer - now limits listed albums and podcasts
+       to those indicated by CP filters
+  1.0.2 (2011-03-06)
+    1) Now includes authors listing
+  1.0.1 (2011-03-04)
+    1) More work to allow better styling of nav controls
+  1.0.0 (2011-02-23)
+    1) Initial release -
+       designed to allow podcasts to be viewed like this, but one at a time:
+       http://www.themeetinghouse.ca/index.php?option=com_content&view=article&id=121&Itemid=3

@@ -1,0 +1,267 @@
+  1.0.70 (2014-03-20)
+    1) Changes to exit cleanly if specified root album doesn't exist and to issue
+       404 if root album or extended path fail to find a valid match to keep
+       bots from straying through a hall of mirrors
+  1.0.69 (2014-01-28)
+    1) Newline after JS code in Component_Gallery_Album::_draw_gallery_js()
+  1.0.68 (2013-08-04)
+    1) Component_Gallery_Album::_do_submode()
+  1.0.67 (2013-07-26)
+    1) New CP 'text_no_such_album'
+    2) New CP 'path_prefix' - used when integrating with a module that already
+       extends paths, such as community module
+  1.0.66 (2013-07-19)
+    1) Changes to Component_Gallery_Album::_do_gallery_image_add() to set
+       memberID and communityID as per container folder
+  1.0.65 (2013-07-13)
+    1) New CP added to allow for sizing of navigation panel width
+  1.0.64 (2013-07-08)
+    1) Changes to Component_Gallery_Album::_draw_gallery_css() and
+       Component_Gallery_Album::_draw_gallery_image_thumbs() to better support
+       drag and drop rearrangement of entries by making bounding boxes consistent
+  1.0.63 (2012-12-24)
+    1) Changes to Component_Gallery_Album::_draw_gallery_js() to escape regular
+       quotes too -
+       may appear unencoded in HTML tag attributs within caption source
+       Thanks Werner for the bug report.
+    2) Changes to Component_Gallery_Album::_do_slideshow() to ensure that popup
+       slideshow viewer contains status and overlay divs to make compatible with
+       slideshow JS used in Component_Gallery_Fader.  Also closed an open div.
+    3) Now added a dynamic css block to eliminate inline style use in this component
+       and make experience less prone to accidental css overides from layout changes
+  1.0.62 (2012-12-03)
+    1) Component_Gallery_Album::_get_is_new() now uses time() not mktime() as per
+       strict standards
+    2) Mae all private methods protected to allow for override by developers
+  1.0.61 (2012-11-09)
+    1) Component_Gallery_Album::_do_add_sub_album() now sets enabled flag
+    2) Component_Gallery_Album::_do_gallery_image_add() now sets enabled flag
+  1.0.60 (2012-11-03)
+    1) Component_Gallery_Album::_draw_gallery_js() now includes enabled flag
+  1.0.59 (2012-11-03)
+    1) Component_Gallery_Album::_get_images_visible_in_album() renamed to
+       Component_Gallery_Album::_get_images_available_in_album()
+  1.0.58 (2012-11-01)
+    1) Changes to Component_Gallery_Album::_setup_load_structure() for when
+       'Indicated Root Folder' is given so that password and folderID used is
+       that of the real root folder -
+       this way content (folders or images) can be added using an aliased path
+  1.0.57 (2012-03-29)
+    1) Fix to Component_Gallery_Album::_draw_gallery() to display protected album
+       contents for admins
+    2) Tweak to Component_Gallery_Album::_draw_gallery_album_cover() to show paddlock
+       even if date is NOT shown
+  1.0.56 (2012-03-28)
+    1) Changes to Component_Gallery_Album::_draw_gallery_album_cover() -
+       [New] now has title stating that item was published within the last (n) days
+       Item shows password icon if item is password protected
+    2) Component_Gallery_Album::_setup_load_album_details() now gets details for
+       current album if one is selected
+    3) Changes to Component_Gallery_Album::_draw_gallery() to provide password
+       challenge when entering a password-protected gallery
+  1.0.55 (2012-03-06)
+    1) Changes to Component_Gallery_Album::_do_add_sub_album() to have it set
+       enclosure_url to act as default posting container
+  1.0.54 (2012-01-23)
+    1) Changes to _setup() to harness protected method in Component_Base class
+    2) Removed local implementation of _setup_load_parameters()
+  1.0.53 (2012-01-23)
+    1) Removed _draw_control_panel() - inherits instead
+  1.0.52 (2011-12-02)
+    1) Bug fix for displayed title which showed 'newest first' regardless of actual
+       display order in some cases
+  1.0.51 (2011-11-27)
+    1) Component_Gallery_Album::_setup_load_mode() now sets $page_vars variables
+       'proxied_object' and 'proxied_record' if request was was a contained
+       Gallery_Image.
+  1.0.50 (2011-10-21)
+    1) No longer loads popup sizes - unused now we have CM
+  1.0.49 (2011-10-19)
+    1) Bug fix for hover image path if watermark mode is engaged
+  1.0.48 (2011-10-18)
+    1) New cp for 'show_watermark' and changes in Component_Gallery_Album::_draw_gallery_js()
+       to use 'wm' instead of 'max' if image requires a watermark
+    2) _do_slideshow() now uses simpler URL for main image display
+  1.0.47 (2011-10-13)
+    1) Changed references of _CM_ID[0] to _CM.ID in context menu for
+       Component_Gallery_Album::_draw_gallery_album_cover() and
+       Component_Gallery_Album::_draw_gallery_folders_branch()
+    2) Changed references of _CM_ID[1] to _CM.can_delete in
+       Component_Gallery_Album::_draw_gallery_album_cover() and
+       Component_Gallery_Album::_draw_gallery_folders_branch()
+  1.0.46 (2011-09-27)
+    1) Changes to Component_Gallery_Album::_draw_image() to preload rendered object
+       with full compliment of imags at the same hierarchical level for 'Previous'
+       and 'Next' implementation
+  1.0.45 (2011-09-26)
+    1) Major changes - now allows for use of a virtual 'root folder' within which
+       contents are 'contained' (meaning new folders can be added at root-level),
+       and also allows for contents to be selected from a given folder path only
+    2) Component_Gallery_Album::_setup_load_cart_quantities() now marks related
+       objects of types 'Gallery_Image' and 'Component_Gallery_Album_Gallery_Image'
+    3) Moved parameter stack and ident into constructor
+  1.0.44 (2011-09-22)
+    1) Bug fix to Component_Gallery_Album::_draw_gallery_js() to use correct
+       image checksums for each image - was set using first image only!
+  1.0.43 (2011-09-21)
+    1) Removed all support for image_main - never used
+    2) Fixed slideshow mode to respect given max width and height and fit much better
+    2) Change to Component_Gallery_Album::_draw_gallery_image_thumbs() to
+       include image checksum if set for an image
+  1.0.42 (2011-09-19)
+    1) Added new class Component_Gallery_Album_Image
+  1.0.41 (2011-09-19)
+    1) People are now 'locked in' to the gallery and view posted images within
+       the context of the gallery itself -
+       this ensures that breadcrumbs always reflect the way that the image was
+       initially encountered since there may be SEVERAL album pages on a site
+    2) Changes to only reload structure for admins if an operation happened and
+       then to ensure that cart counts are preserved so that admins can also place
+       items in a cart
+    3) Comprehensive method renaming and reordering to clarify operation
+  1.0.40 (2011-09-16)
+    1) Component_Gallery_Album::_draw_controls() now shows checkout button if
+       cp is set and the cart has items in it
+  1.0.39 (2011-08-17)
+    1) Added method Component_Gallery_Album::_get_images_visible_in_album() used
+       to get correct image count beside album names in folder view
+  1.0.38 (2011-08-02)
+    1) Tweak to Component_Gallery_Album::_draw_album_cover() to only try and
+       show a rescaled cover image for an album when there actually IS one
+  1.0.37 (2011-07-21)
+    1) Now provides the ability to choose different image for folder and album
+  1.0.36 (2011-07-18)
+    1) Changes to Component_Gallery_Album::_setup_load_album_details() and
+       Component_Gallery_Album::_setup_load_album_details_branch() to fix issue
+       where less depply nested folders that appear after more deeply nested ones
+       come back with 'Sorry! The specified album doesn't exist.'
+  1.0.35 (2011-07-06)
+    1) Now allows images when clicked to go to image in single-item mode if the
+       Main image is not displayed - otherwise a click changes the main image
+  1.0.34 (2011-07-06)
+    1) Added extra cp to allow main image to be turned off
+    2) Controls now rendered independently of Main Image allowing main image
+       to be turned off without loosing the controls
+    3) Now supports floating image enlargements
+  1.0.33 (2011-07-04)
+    1) Component_Gallery_Album::draw() now has extra option to set expanded
+       speed from 0-2 seconds
+    1) Component_Gallery_Album::_setup_load_album_details() now uses
+       Gallery_Album::getID_by_path() inherrited from parent instead of
+       buggy Gallery_Album::getID_for_path() previously in that class
+  1.0.32 (2011-05-06)
+    1) Component_Gallery_Album::_draw_status() now sends unadorned safeID
+       to HTML::draw_status - extra suffix was not needed
+  1.0.31 (2011-05-05)
+    1) Component_Gallery_Album::_add_image() - bug fix for initial path setting
+  1.0.30 (2011-05-04)
+    1) Replaced all references of _CM_type to _CM.type
+  1.0.29 (2011-04-29)
+    1) Bug fix for CM deselection on Component_Gallery_Album::_draw_album_cover()
+    2) Bug fix for CM deselection on Component_Gallery_Album::_draw_folders_branch()
+  1.0.28 (2011-04-27)
+    1) Component_Gallery_Album::_do_submode() now uses Gallery_Image::do_submode()
+       for most operations
+  1.0.27 (2011-04-27)
+    1) Component_Gallery_Album::_setup_draw_js() now includes parentTitle in JS
+       list to allow context menu editing of album from contained image
+  1.0.26 (2011-04-14)
+    1) Component_Gallery_Album::_setup_draw_js() now includes subtype in js list
+       to allow context menu to change with type
+  1.0.25 (2011-04-13)
+    1) Component_Gallery_Album::_do_submode() for 'gallery_image_feature'
+       now sets the childID_featured value for the affected parent
+  1.0.24 (2011-03-31)
+    1) Component_Gallery_Album::_setup_draw_js() tidied up js generated for onload
+  1.0.23 (2011-03-31)
+    1) Component_Gallery_Album::_add_sub_album() now sets todays date for album
+       if feature for system is set
+  1.0.22 (2011-03-25)
+    1) Jumploader now shows even if folders view is turned off
+  1.0.21 (2011-03-24)
+    1) Changes to Component_Gallery_Album::_draw_admin_uploader() to handle
+       new way of setting up jumploader that allows data on uploaded items to
+       be collected and retrieved
+    2) Changes to Component_Gallery_Album::draw() to show number of items uploaded
+  1.0.20 (2011-03-18)
+    1) Tiny tweak to Component_Gallery_Album::_draw_folders() to add semicolon
+       in JS to conform to JSLINT
+  1.0.19 (2011-03-15)
+    1) Renamed method Component_Gallery_Album::_setup_draw_js_image_list() to
+       Component_Gallery_Album::_setup_draw_js() (more accurate) and changed
+       parameters for js call to gallery_album_sortable_setup() to include
+       callback function for onchange event for sortable container
+  1.0.18 (2011-03-08)
+    1) Implemented drag and drop to allow sort order to be changed and rewrote
+       onlick and back / forward functions to handle this with minimal code
+       support
+    2) Component_Gallery_Album::_do_submode() now handles mode 'gallery_sequence'
+    3) JS slideshow() now in functions.js as gallery_album_slideshow_loader()
+  1.0.17 (2011-03-03)
+    1) Component_Gallery_Album::_draw_image_thumbs() now correctly sets
+       parentID and category for new image based on the image hovered over
+       at the time of the right-click
+    2) Now writes to log when a new image is uploaded
+    3) Changes to slideshow mode to deal with the fact that images now have
+       caption rather than content
+  1.0.16 (2011-03-02)
+    1) Component_Gallery_Album::_gallery_image_add() now sets path and
+       container path, and initialises name and title based on filename of
+       image uploaded through jumploader.
+       Closes bug ECC-65
+  1.0.15 (2011-02-10)
+    1) Component_Gallery_Album::_draw_album_title_and_counts() now has extra
+       div container and h1 and h2 tags around main title and counts
+  1.0.14 (2011-01-27)
+    1) Component_Gallery_Album::_setup_load_parameters() now includes cps for
+       filter_container_path and filter_container_subs
+    2) Component_Gallery_Album::_setup_load_structure() now passes cps for
+       filter_container_path and filter_container_subs to
+       Gallery_Album::get_structure()
+  1.0.13 (2010-12-07)
+    1) Component_Gallery_Album::_draw_admin_uploader() now gets jumploader code
+       from new centralised Jumploader class
+  1.0.12 (2010-10-28)
+    1) Added CP for slideshow_width
+    2) Enabled context-menu editing in slideshow
+  1.0.11 (2010-10-19)
+    1) Component_Gallery_Album::_add_sub_album() now calls insert() method
+    2) Component_Gallery_Album::_gallery_image_add() now calls insert() method
+  1.0.10 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.9 (2010-09-21)
+    1) Component_Gallery_Album::draw() now uses safe_ID to set ID of container
+       - was breaking if any uppercase letters were present in instance name
+    2) Tweak to Component_Gallery_Album::_draw_control_panel() to push java
+       applet down a line if component control panel is shown (was being obscured)
+  1.0.8 (2010-09-16)
+    1) Added ability to see captions for images beneath main image
+  1.0.7 (2010-09-14)
+    1) Added ability to sort results by date, title or name with CP
+    2) Added ability to show dates for albums
+  1.0.6 (2010-09-08)
+    1) Added slideshow capability to albums - floating layer used with AJAX
+  1.0.5 (2010-09-06)
+    1) Album now completely recusrive and allows for unlimited nesting
+    2) Deleting Gallery Images now removes the asset from the images folder
+    3) Added ability to delete folders IF the folders are empty
+  1.0.4 (2010-09-03)
+    1) Album uploader now constrains files to images only and has option to place
+       images in folder that contains only images for each album
+    2) Added support for Gallery Image Deletion and Gallery Image Featuring
+    3) Added status message block
+    4) Changes to album folders to allow them to be selected or expanded
+       independently
+    5) Rewrote Component_Gallery_Album::_draw_folders() and added helper method
+       Component_Gallery_Album::_draw_folders_branch() to support fully recursive
+       tree building
+    5) Added context menu support for 'New Album' for existing albums
+  1.0.3 (2010-09-02)
+    1) Album uploader now only for admins (doh!)
+    2) Album uploader now reports error through tooltip on affected file in jumploader
+  1.0.2 (2010-08-30)
+    1) Album cover title now links to popup album editor for admins
+  1.0.1 (2010-08-23)
+    1) Initial release - code split from component_gallery and draw_album()
+       now renamed draw()
+    2) Album names now always toggle folder open / shut

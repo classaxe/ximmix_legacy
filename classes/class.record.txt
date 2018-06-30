@@ -1,0 +1,327 @@
+  1.0.87 (2015-01-01)
+    1) Record::get_validation_fields() now looks first for class constant called FIELDS, then fields as before
+    2) Now PSR-2 Compliant
+  1.0.86 (2014-02-17)
+    1) New method Record::get_validation_fields() that looks for table validation
+       fields first as class constant, then static variable, then member variable
+    1) Changes to Record::insert(), Record::matched() and Record::update() to
+       allow for statically declared class-defined fields array for field validation
+  1.0.85 (2013-12-14)
+    1) New method Record::_set_edit_param() to override a single value set by
+       parent class in a child, e.g. in community_posting types to set correct
+       report to use for 'Add New...' icons
+  1.0.84 (2013-12-11)
+    1) Record::set_field_on_value() now accepts a csv list of values to search
+       for and replace with the new value
+    2) Record::get_affected_rows() now always returns a number -
+       Returns 0 if there were no affected rows
+  1.0.83 (2013-10-27)
+    1) New method set_group_concat_max_len()
+  1.0.82 (2013-10-08)
+    1) Added support for 'has_languages' in:
+       a) Getter, Setter and private member variable
+       b) Record::sql_export_delete()
+       c) Record::sql_export_select()
+       d) Record::language_assign()
+       e) Record::language_unassign()
+  1.0.81 (2013-08-16)
+    1) Record::sql_export_delete() now puts 'extra' clause first so that primary
+       target record is still available for use in associated record selection
+       deletion statements and only removed at the last moment
+  1.0.80 (2013-06-11)
+    1) Record::get_children() now accepts CSV list of idents
+  1.0.79 (2013-02-20)
+    1) Record::copy() now clears out max_sequence value if present
+  1.0.78 (2012-12-03)
+    1) Record::sql_header() now uses time() not mktime() as per strict standards:
+  1.0.77 (2012-11-23)
+    1) Added new method _push_fixed_field() that can add single fixed field to
+       internal _fixed_fields_array
+  1.0.76 (2012-11-08))
+    1) Big changes to Record::count_named() to apply type clause if type is set,
+       and to use simpler query if name doesn't contain html entities
+  1.0.75 (2012-10-02)
+    1) Changes to four assignment functions to get their systemID value field
+       from the instantiating object, not system administrator is logged in to
+       so that systemID for the record is tied to correct site, even if multiple
+       records from different sites had their assignments made at the same time
+       in bulk-update mode.
+       Affected functions:
+         Record::category_assign()
+         Record::group_assign()
+         Record::keyword_assign()
+         Record::push_product_assign()
+  1.0.74 (2012-09-14)
+    1) All code upgraded to use mysqli
+  1.0.73 (2012-09-11)
+    1) New setter _set_multiple() to set a whole array of properties at once
+  1.0.72 (2012-09-10)
+    1) Record::get_record_for_sql() may be called statically, so internals need
+       to support that
+  1.0.71 (2012-09-10)
+    1) Bug fix - get_record_for_sql() may not return anything, in which case
+       trying to read $record[0] will fail
+  1.0.70 (2012-09-10)
+    1) Bug fix - get_field_for_sql() may be called statically so cannot reference
+       itself as $this
+  1.0.69 (2012-09-10)
+    1) New static methods Record::get_last_db_error_num(),
+       Record::get_last_db_error_msg() and also Record::get_last_db_error_msg_generic()
+       to allow for tests like 'record exists' in a database agnostic manner
+    2) Split Record::do_sql_query() into three bits and made static
+    3) Record::copy() now uses non-specific DB code
+    4) Removed Record::getUniqueId() - unused
+    5) Record::matched() no longer access DB directly
+    6) Record::get_csv_for_sql() no longer access DB directly
+    7) Record::get_group_assign_csv() no longer access DB directly
+    8) Record::get_field_for_sql() no longer access DB directly
+    9) Record::get_IDs_by_system() no longer accesses db directly
+   10) Record::get_record_for_sql() no longer accesses db directly
+   11) Record::get_arrays_for_sql() is now deprecated -
+       functionally identical to get_rows_for_sql()
+  1.0.68 (2012-09-07)
+    1) New static method Record::escape_string()
+  1.0.67 (2012-09-05)
+    1) New static method Record::get_affected_rows()
+    2) Record::set_field_for_all() now uses Record::get_affected_rows() not
+       mysql_affected_rows() as before
+    3) Record::set_field_on_value() now uses Record::get_affected_rows() not
+       mysql_affected_rows() as before
+  1.0.66 (2012-09-05)
+    1) MySQLi operations now written OO-style and $mysqli global variable renamed
+       $Obj_MySQLi
+  1.0.65 (2012-09-03)
+    1) Constructor now sets Record::_mysqli from mysqli connection
+    2) Record::getUniqueId() now uses mysqli
+    3) mysql_fetch_array($row, MYSQL_ASSOC) statements changed to mysql_fetch_assoc()
+    4) mysql_fetch_array($row, MYSQL_NUM) statements changed to mysql_fetch_row()
+  1.0.64 (2012-08-29)
+    1) Added Record::count_parents()
+  1.0.63 (2012-08-23)
+    1) Record::set_edit_params() now includes 'command_for_delete'
+  1.0.62 (2012-08-23)
+    1) New (long-overdue) method Record::get_children()
+  1.0.61 (2012-07-13)
+    1) Now extends Portal, not Base
+  1.0.60 (2012-06-30)
+    1) Added universal getter and setter for accessing protected properties outside
+       object - used in component_collection_viewer
+       _get($property) and _set($property,$value)
+  1.0.59 (2012-05-30)
+    1) Changes to Record::copy() to have it clear out `qb_ident` field
+  1.0.58 (2012-02-14)
+    1) Record::get_records_since() now has systemID parameter
+  1.0.57 (2011-11-18)
+    1) Added Record::copy_category_assign() - mysteriously absent!
+    2) Fix to Record::copy() to include copying of category assignments
+    3) New private property $_has_push_products, with setter and getter methods
+    4) Added methods Record::Push_Product_Assign() and Record::Push_Product_Unassign()
+    5) Record::delete() now calls push_product_unassign() method
+    6) Record::category_assign() now sorts csv list before saving it
+    7) Record::keyword_assign() now sorts csv list before saving it
+    8) Added Record::get_category_assign() to simplify Record::copy_category_assign()
+  1.0.56 (2011-10-26)
+    1) Moved Record::get_keywords() to Displayable_Item::get_keywords()
+  1.0.55 (2011-10-07)
+    1) Added Record::get_records_since()
+    2) and overrideable stub Record::_get_type()
+  1.0.54 (2011-09-14)
+    1) Moved methods Record::_get_object_name() and Record::_set_object_name()
+       down into Base class
+  1.0.53 (2011-08-24)
+    1) Rewrote Record::manage_actions() to simplify it, remove global variables
+       and avoid use of unconventional use of extra parameters in draw_auto_report()
+  1.0.52 (2011-08-23)
+    1) Eliminated unused references to permGROUPMEMBER in Record::is_visible()
+  1.0.51 (2011-08-22)
+    1) Changes in Record::is_visible() to eliminate permGROUPAPPROVER and
+       permGROUPADMIN and to add permUSERADMIN
+  1.0.50 (2011-07-03)
+    1) Record::set_edit_params() now maintains 'report_related_products'
+  1.0.49 (2011-06-22)
+    1) Renamed Record::onUpdate_warn_if_invisible() to on_action_warn_if_invisible()
+       and made to handle multiple items correctly for bulk-update mode
+  1.0.48 (2011-06-17)
+    1) Record::get_record() now performs sanitize on ID as given
+    2) Record::get_field() now performs sanitize on ID as given
+    3) Record::get_children_by_parentID now performs sanitize on ID as given
+  1.0.47 (2011-06-17)
+    1) Added new private property '$_fixed_fields_array - an array of zero or more
+       field names and their associated fixed values, along with getter and setter
+    2) Record::insert now checks _fixed_fields() to include fields whose values
+       are fixed by the objects type.   This means that fixed fields are no longer
+       required in forms for postings, users or contacts for setting the 'type' field
+    3) Replaced direct access with getters and setters and renamed internal variables
+       to prevent their direct access for the following properties:
+       has_actions, has_activity, has_archive, has_categories, has_groups, has_keywords
+  1.0.46 (2011-06-05)
+    1) Changes to Record::try_copy() to have checks for items with same name
+       get source name by reference to ID for system table instead of systemID
+       which is used for all other types of object but will, of course,
+       produce an error if used on an actual system.
+  1.0.45 (2011-05-06)
+    1) sort_records_function() now decodes xml fields prior to comparison to
+       allow xml virtual fields to be used in sorting
+  1.0.44 (2011-04-25)
+    1) Moved Record::get_URL() into Displayable_Item class
+  1.0.43 (2011-04-18)
+    1) Renamed Record::onupdate_set_map_location() to
+       Record::on_action_set_map_location() and changed to avoid passing parameters
+  1.0.42 (2011-03-31)
+    1) Record::get_records() now respects listTypeID if given
+    2) Added Record::get_records_by_parentID()
+  1.0.41 (2011-03-26)
+    1) Added onUpdate_warn_if_invisible() to handle admin warnings where no
+       permissions have been set for an item
+  1.0.40 (2011-03-22)
+    1) Added Record::count_children()
+  1.0.39 (2011-03-16)
+    1) Updated Record::count_all_for_system() to cast result to int and to accept
+       a csv list of system IDs
+  1.0.38 (2011-03-07)
+    1) Change to Record::get_URL() to ensure that if a path is given for an item
+       and shortcut is taken to establish path, site URL is included when item
+       originates on another site - closes bug ECC-61
+  1.0.37 (2011-02-15)
+    1) Tweak to Record::get_field() to have it exit cleanly if ID not given for
+       record under inspection
+  1.0.36 (2011-02-10)
+    1) Enhancements to Record::get_field() to make it work with XML virtual fields
+  1.0.35 (2011-02-03)
+    1) Added back Record() constructor which now calls deprecated() before
+       returning a new instance of itself via __construct()
+  1.0.34 (2011-02-01)
+    1) Moved setter / getter for $listType into here from lst_named_type
+    2) Remmed out all old setters and getters (still here just not active)
+  1.0.33 (2011-01-28)
+    1) Tracked down and replaced 8(!) _get_table() calls to _get_table_name()
+    2) Added in deprecated function _get_table() so that operation still occurs
+       evem if wrong name is used
+  1.0.32 (2011-01-26)
+    1) Improvements to error logging to ensure all relevant data is included
+    2) Removed references to unrequired property LastErr
+    3) Record::add() now logs use as deprecated
+  1.0.31 (2011-01-04)
+    1) Record::get_URL() now checks if fallback event_id is set before using it
+  1.0.30 (2010-11-13)
+    1) Record::export_sql() now takes same parameters as overridden classes to
+       prevent warnings in strict php mode
+  1.0.29 (2010-11-06)
+    1) Deprecated methods now invoke deprecated() function to track and log calls
+  1.0.28 (2010-10-19)
+    1) Record::add() is now deprecated in favour of Record::insert() included
+       in this build for the first time.
+    2) Record::copy_group_assign() now calls insert() method
+    3) Record::copy_keyword_assign() now calls insert() method
+    4) Simplified Record::uniqID() and eliminated '0' as possible result
+  1.0.27 (2010-10-03)
+    1) Added full set of simple getter methods and setter methods,
+       all prefixed with _ to make it clear they will act on object directly
+    2) Remapped many functions inside Record class to use new setters and getters
+    3) Bug fix for Record::get_records() on optional 'sortBy' clause
+    4) Bug fix for Record::getUniqueId() - acceptable range should NOT include '0'
+    5) Removed Record::pget() and Record::pset() - unsused anywhere
+  1.0.26 (2010-08-12)
+    1) get_YYYYMMDD_to_format() now reports 'Unexpected Date Format' if format is unknown
+  1.0.25 (2010-08-11)
+    1) Change to Record::add()so that when a lst_named_type data entry is added,
+       the listTypeID is set for the data entry automatically
+  1.0.24 (2010-07-01)
+    1) Record::get_URL() updated to set paths for events based on effective_date
+  1.0.23 (2010-03-30)
+    1) Record::get_URL() now short-circuits calculations to establish posting
+       path if the record HAS a posting path.
+       In addition, method also tests that the calling object HAS a get_type()
+       method before attempting to call it.
+  1.0.22 (2010-03-18)
+    1) Added Record::get_records_by_ID() to get matches for ID / ID CSV list
+  1.0.21 (2010-02-12)
+    1) Added clause for icon_delete in Record::set_edit_params()
+    2) Bug fix for Record::get_actions() - used when deleting custom forms
+       Bug occured when more than one custom form was selected for deletion
+       Fix means IN() clause now used, not = clause
+  1.0.20 (2010-02-04)
+    1) Added Record::set_ID_by_name()
+  1.0.19 (2010-01-27)
+    1) Record::copy() now zeros comments_count
+  1.0.18 (2010-01-09)
+    1) Added Record::onupdate_set_map_location()
+  1.0.17 (2009-11-20)
+    1) Change to Record::update to fix bug where updating a value nested in an
+       xml tree duplicated the value -
+       eliminated xmlfields_colon_to_slash_delimiter() operation on old data and
+       instead performs xmlfields_slash_to_colon_delimiter() on new new data
+  1.0.16 (2009-11-16)
+    1) Change to Record::get_records_for_sql() to eliminate references to $this()
+       in error reporting code to allow it to complete and report the error
+       (if any) when called in static mode
+  1.0.15 (2009-11-12)
+    1) Another change to Record::update() to correctly detect when XML fields are
+       being used - I think its right this time.
+  1.0.14 (2009-11-09)
+    1) Tweak to Record::update() to prevent the XML retrieval and merge sequence
+       from happening unless the new data actually contained XML data -
+       this results in efficiency improvements and eliminates error messages being
+       written to the log when updating tables that do not have the XML_data column
+  1.0.13 (2009-11-02)
+    1) Tweak to Record::update() to deal with the fact that the get_field() method
+       for Page is different than for the others -
+       a bug was introduced with XML field set merging added recently that caused
+       save page to display some ugly errors
+  1.0.12 (2009-10-27)
+    1) Removed my xml_fields_get() and xml_fields_set() and added in James three functions
+       xmlfields_encode(), xmlfields_decode() and xmlfields_decodeRecursive()
+    2) Implemented xml virtual fields for add() and now update() -
+       special provision made in update() to deal with bulk updates
+  1.0.11 (2009-10-09)
+    1 Change to Record::try_copy() to provide for cloning of a global item to the local system
+      if admin is less than MASTERADMIN
+  1.0.10 (2009-10-02)
+    1) Change to Record::get_URL() to deal with requests from RSS feeds which
+       do not have a 'name_field' as such - 'name' is used if name_field is null
+  1.0.9 (2009-09-24)
+    1) Changes to Record::get_URL() to respect objects name-field to set path
+       and to apply a special case for products that uses the object's own calculation
+       for relative_URL
+    2) Change to Record::get_field_for_sql() to work in static context
+  1.0.8 (2009-09-17)
+    1) Changes to Record::update() to change 'new_date' parameter to
+      'reveal_modification' to better describe its intent
+    2) Record::set_field() now implements 'reveal_modification' to make this optional
+  1.0.7 (2009-09-09)
+    1) Changes to Record::get_ID_by_name() to remove extra test field - not needed
+  1.0.6 (2009-09-01)
+    1) Change to Record::update() to include option to NOT update date -
+       used by Record::archive() to link copy to original without modifying it.
+    2) Change to Record::archive() to NOT trash old modified date on copy when
+       forward linking to original record.
+    3) Change to Record::copy() to include option to NOT update date -
+       used by Record::archive() to link copy to original without modifying it.
+    4) Renamed assemble_xml_fields() to xml_fields_set()
+    5) Archive now resets this->ID to old value after making archive copy and works in bulk mode
+  1.0.5 (2009-08-25)
+    1) Record::load() now sets object's ID property as well as the record property as before
+       (provided that the ID was given)
+    2) Added assemble_xml_fields() to write XML fields into XML document container
+    3) Change to add() to have query NOT try to use db_name if not set -
+       this allows their use in Reports that deal with media database
+  1.0.4 (2009-08-11)
+    1) Rationalised increment() function - now uses update() which records
+       modification time, person and IP
+    2) Added decrement() function
+  1.0.3 (2009-08-02)
+    1) Moved a number of functions out of Record and into Displayable_Item:
+         Record::draw_comments_block()
+         Record::draw_keywords_block()
+         Record::draw_ratings_block()
+         Record::draw_search_results_paging_nav()
+         Record::truncate_more()
+         Record::truncate_text()
+    2) Removed lock() and unlock() - not used
+  1.0.2 (2009-07-14)
+    1) Replaced ereg() statement in Record::get_table_fields() - deprecated in PHP 5.3
+  1.0.1 (2009-07-10)
+    1) Added protected var 'record' and load() method to get record into object instance
+    2) Record::get_URL() now uses record member variable if record not passed to it
+  1.0.0 (2009-07-02)
+    Initial release

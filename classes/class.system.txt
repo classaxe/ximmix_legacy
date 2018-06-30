@@ -1,0 +1,451 @@
+  1.0.156 (2014-11-16)
+    1) Added support for command 'customise_colours' for setting colour presets
+  1.0.155 (2014-04-18)
+    1) Added support for ckeditor versioning and plugins
+    2) Version codes for ckeditor_config and ckeditor_config_cs now renamed
+       to js_cke_config and js_cke_config_cs
+    3) All calls to FileSystem::get_file_version() and FileSystem::get_line() are now
+       static
+  1.0.154 (2014-03-30)
+    1) System::draw_js_include() now specifies new version of JQuery and JQuery UI
+  1.0.153 (2014-02-19)
+    1) Refreshed tables list - included some custom tables, should not have done
+  1.0.152 (2014-02-17)
+    1) Refreshed fields list - now declared as a class constant
+    2) Refreshed tables list - now declared as a class constant
+    3) Now accesses System::tables constant instead of static for System::delete()
+  1.0.151 (2014-02-07)
+    1) Removed support for sajax library version control -
+       the old sajax2 code has now completely gone!
+  1.0.150 (2014-01-28)
+    1) System::draw_js_include() no longer supports inclusion of old colour picker
+       JS and prototypeJS as used formerly
+    2) Added version tracking code for js_spectrum and css_spectrum colour picker
+    3) Eliminated version tracking code for js_prototype and js_scriptaculous
+    4) Eliminated version tracking for js_colorpicker
+    5) Removed command support for 'color_picker'
+  1.0.149 (2014-01-23)
+    1) Added support for 'css_community' in System::get_item_version()
+  1.0.148 (2014-01-06)
+    1) System::do_commands() for 'get_person_for_signin' (gets XML person data)
+       now invokes User::get_person_for_signin() since contacts cannot signin
+  1.0.147 (2013-12-13)
+    1) System::do_commands() for 'command=ssi' now invokes User::single_signin()
+       not Person::single_signin() as before
+  1.0.146 (2013-12-10)
+    1) System::do_commands() now supports 'merge_profiles'
+    2) Removed System::draw_admin_tools() -
+       Replaced by new 'with selected' implemented in Person_Merge_Profiles::draw()
+  1.0.145 (2013-12-03)
+    1) System::has_feature() now uses static property to speed up successive calls
+  1.0.144 (2013-11-30)
+    1) Added support in System::get_item_version() for icons_big
+  1.0.143 (2013-11-28)
+    1) Added version control for JQuery and JQueryUI (long overdue)
+  1.0.142 (2013-11-11)
+    1) Added `geocode_cache` table to tables list
+  1.0.141 (2013-11-02)
+    1) System::get_item_version() now has support for jdplayer and js_jdplayer_cs
+  1.0.140 (2013-10-09)
+    1) Refreshed tables list
+  1.0.139 (2013-05-17)
+    1) Added support for product_toggle_important in System::do_commands()
+  1.0.138 (2013-02-16)
+    1) Added support for toggling of shared flag in System::do_commands()
+    2) Added support for toggling of important flag in System::do_commands()
+  1.0.137 (2012-12-24)
+    1) System::draw_js_include() small tidy up to facilitate eventual removal of
+       prototypejs library
+  1.0.136 (2012-11-30)
+    1) System::copy() now has same signature as Record::copy()
+    2) System::has_feature() now declared to be static
+  1.0.135 (2012-11-28)
+    1) New static method System::get_item_version() to replace non-standard
+       implementation of System::get_version() which everywhere else takes no
+       parameters
+    2) System::get_css_checksum(), System::draw_css_include(), System::draw_js_include()
+       and System::upgrade() now all use System::get_item_version() not
+       System::get_version() as before
+  1.0.134 (2012-11-26)
+    1) Added qbwc_export_orders_billing_address and qwbc_export_orders_product_descriptions
+       to fields list
+  1.0.133 (2012-11-23)
+    1) Changes to System::draw_visitor_stats() to be XHTML Strict
+  1.0.132 (2012-11-19)
+    1) Added 'qbwc_export_orders_taxcodes' to fields list
+  1.0.131 (2012-11-16)
+    1) System::do_commands() for 'paypal_ipn' now invokes Paypal_Gateway statically
+       since there's nothing useful in the defaults of a constructed object that
+       can help us perform IPN corectly
+  1.0.130 (2012-11-09)
+    1) Removed 'community_sponsor_plan' from tables list
+  1.0.129 (2012-11-06)
+    1) Added 'community_sponsor_plan' to tables list
+  1.0.128 (2012-11-05)
+    1) Refreshed fields list
+  1.0.127 (2012-11-03)
+    1) Implemented support for commands to toggle enabled flag
+  1.0.126 (2012-10-31)
+    1) Added tax_code to tables list
+  1.0.125 (2012-10-30)
+    1) System::draw_js_include() now sources local copy of jquery and jqueryui
+       libraries if 'debug_no_internet' is set to true
+  1.0.124 (2012-10-28)
+    1) System::draw_remote_config() now uses onclick for edit component link action
+  1.0.123 (2012-10-26)
+    1) System::draw_js_include() now includes jquery and jqueryui library
+    2) System::draw_js_include() no longer includes scriptaculous library
+  1.0.122 (2012-09-11)
+    1) System::get_version() now handles db_connect and db_connect_cs
+  1.0.121 (2012-09-10)
+    1) System::get_version() now handles 'ckfinder_cs' and 'ckfinder_config_cs'
+       for more resilient version control in ckfinder
+  1.0.120 (2012-09-09)
+    1) Change to System::get_version for mysql version test to use Record class
+       for query processing
+  1.0.119 (2012-08-31)
+    1) Removed System::get_all_cron_daily_elapsed() -
+       now the activity_decay job is performed using the VCRON system
+    2) Removed `cron_job_daily_last_run` from field list
+  1.0.118 (2012-08-29)
+    1) System::do_commands() for posting and product delete operations now calls
+       Obj::try_delete_item() rather than Obj::delete() as before
+  1.0.117 (2012-08-28)
+    1) Now only performs redirect with posting deleted message IF the object's
+       delete() method returns true and no submode value was set (which would
+       indicate handling of the deletion involving an additional dialog)
+  1.0.116 (2012-08-23)
+    1) Now performs redirect with correct msg value after performing a delete of
+       a posting in System::do_commands()
+  1.0.115 (2012-07-11)
+    1) Removed treenode from tables list
+  1.0.114 (2012-05-30)
+    1) Fields list now includes 'qbwc_export_orders', 'qbwc_export_people' and
+       'qbwc_export_products'
+  1.0.113 (2012-05-23)
+    1) Updated fields list to include new qbwc support
+  1.0.112 (2012-05-08)
+    1) System::draw_css_include() now uses correct version for labels -
+       was using version derived from system build version instead
+  1.0.111 (2012-04-18)
+    1) Removed google_maps_key from fields list
+    2) Removed support for retrieval of google_maps_key and google_maps_status
+       in System::get_version()
+  1.0.110 (2012-04-05)
+    1) Refreshed field list in constructor and included new debug_no_internet field
+    2) Changes to System::get_version() to use new system_var `debug_no_internet`
+       instead of defined constant as earlier
+  1.0.109 (2012-03-03)
+    1) Added support for version control of treeview.js
+  1.0.108 (2012-01-16)
+    1) Shortened all chasepaymentech-prefixed command modes to cpt prefix:
+       cpt_cancel, cpt_notify and cpt_receipt
+  1.0.107 (2012-01-16)
+    1) Added new command 'chasepaymentech_cancel'
+  1.0.106 (2012-01-12)
+    1) Added new command 'chasepaymentech_ipn'
+  1.0.105 (2011-12-28)
+    1) Removed clause for 'cal_picker' in System::do_commands()
+    2) System::do_commands() for clause 'email_to_friend' now invokes new class
+  1.0.104 (2011-11-18)
+    1) Added `push_product_assign` table to tables list
+  1.0.103 (2011-11-10)
+    1) System::get_IDs_for_URLs() now static
+  1.0.102 (2011-11-01)
+    1) Changed called class for 'recurrence_settings' in System::do_commands()
+  1.0.101 (2011-10-25)
+    1) Added clause for 'recurrence_settings' in System::do_commands()
+  1.0.100 (2011-10-24)
+    1) Removed clause for tcal.css in System::draw_css_include()
+  1.0.99 (2011-10-19)
+    1) Changes to System::get_global_date_YYYY_MM() to reference effective_date_start
+  1.0.98 (2011-10-05)
+    1) New fields `notify_email` and `notify_triggers` added to fields list
+  1.0.97 (2011-09-18)
+    1) System::draw_css_include() now includes tcal css
+  1.0.96 (2011-09-07)
+    1) Added table `product_relationship` to tables list
+  1.0.95 (2011-08-30)
+    1) Now get_version() handles js_ecc and js_ecc_cs
+  1.0.94 (2011-08-26)
+    1) Changed table name in tables list from product_category to product_grouping
+  1.0.93 (2011-08-19)
+    1) System::get_display_title() simplified since never operated in debug mode
+  1.0.92 (2011-08-19)
+    1) Now get_version() handles ckeditor_config and ckeditor_config_cs
+  1.0.91 (2011-08-18)
+    1) System::do_commands() for 'cart' and 'empty_cart' now handled by new Cart class
+  1.0.90 (2011-08-18)
+    1) System::do_commands() for 'cart' now handled by Product_Catalogue::update_cart()
+  1.0.89 (2011-07-31)
+    1) System::get_version() for case 'ckfinder' now checks new location
+       (was previously inside client fckeditor folder - now standalone)
+    2) System::get_version() for case 'ckfinder_config' now checks new location
+       (was previously inside client fckeditor folder - now standalone)
+    3) System::get_version() Removed clauses for fckeditor and fckeditor_config
+  1.0.88 (2011-07-16)
+    1) System::draw_admin_tools() now calls HTML class for section tabs
+  1.0.87 (2011-07-13)
+    1) System::draw_visitor_stats() now automatically opens piwik if popup
+       blockers are not enabled.
+    2) System::get_last_loggedin_access() now draws from serialised data in system
+       field `last_user_access` instead of visitor stats database and table
+    3) Added `last_user_access` to fields list
+  1.0.86 (2011-07-01)
+    1) Replaced guts of System::draw_visitor_stats() with link to Piwik
+  1.0.85 (2011-06-27)
+    1) System_Copy::draw() call changed to System_Copy::copy()
+    2) Removed subscriber and subscription from tables list.
+  1.0.84 (2011-06-23)
+    1) Moved guts of system export into its own class for better modularisation
+    2) Updated tables list
+  1.0.83 (2011-06-22)
+    1) Added support for css_breadcrumbs - checks breadcrumbs.css
+  1.0.82 (2011-06-16)
+    1) Removed 'contact' table from tables list
+  1.0.81 (2011-05-06)
+    1) System::copy() now remaps navsuiteXID fields for pages not navbarX_suiteID
+  1.0.80 (2011-06-05)
+    1) Changes to System::copy() to maintain sequence of clioned buttons in suite
+       as original
+  1.0.79 (2011-05-25)
+    1) Added clause for 'system_family_url' to System::get_version()
+  1.0.78 (2011-05-24)
+    1) Removed remaining references to campaign and campaign_pages tables from
+       tables list and exporter
+  1.0.77 (2011-05-23)
+    1) Added support for 'pie' the css3 library for IE6-8 in System::get_version()
+  1.0.76 (2011-05-09)
+    1) System::get_global_date_YYYY_MM() now uses long-form type for events
+    1) System::get_global_date_range() now uses long-form type for events
+  1.0.75 (2011-05-05)
+    1) System::do_submode() for 'set_parameters' now invokes Component_Base not
+       Component to do the job
+  1.0.74 (2011-04-30)
+    1) Added scriptaculous version number in js call in System::draw_js_include()
+  1.0.73 (2011-04-25)
+    1) System::do_tracking() now moved to Displayable_Item class
+  1.0.72 (2011-04-25)
+    1) System::do_commands() now uses Page::get_URL() not $this->get_URL()
+  1.0.71 (2011-04-07)
+    1) Removed archane reference to NICE_URLS and a redundant test to see if
+       the required feature for that was set
+  1.0.70 (2011-03-28)
+    1) Added clause for 'navsuite_seq'
+    2) Removed clause for 'navbutton_seq'
+  1.0.69 (2011-02-15)
+    1) System::draw_admin_tools() slight tidy up
+  1.0.68 (2011-02-11)
+    1) Removed permission_assign and permission_type tables from tables list
+    2) System::do_commands() added clause for 'ssi'
+  1.0.67 (2011-02-09)
+    1) System::do_commands() added clause for 'paypal_ipn'
+  1.0.66 (2011-02-02)
+    1) System::do_commands() for 'report' now calls Report_Report::do_commands()
+  1.0.65 (2011-01-31)
+    1) Added clause for 'command=download_record_pdf' in System::do_commands()
+  1.0.64 (2011-01-25)
+    1) Now able to check version and checksum for getid3 file
+  1.0.63 (2011-01-24)
+    1) Removed log_prefix and log_level fields
+  1.0.62 (2011-01-18)
+    1) No longer handles command=audioplayer - now URL resource via streamer
+    2) No longer handles command=jwplayer - now URL resource via streamer
+  1.0.61 (2011-01-06)
+    1) System::do_commands() now handles set_language
+  1.0.60 (2010-01-03)
+    1) System::get_version() now includes css_labels and css_labels_cs
+  1.0.59 (2011-01-01)
+    1) System::draw_css_include() now includes css for labels.css
+  1.0.58 (2010-12-29)
+    1) System::do_commands() now handles color_picker (was a mode switch)
+  1.0.57 (2010-12-23)
+    1) Added new fields 'defaultLanguage' and 'languages' to fields list
+  1.0.56 (2010-11-16)
+    1) Various changes to reduce 'strict' PHP warnings
+  1.0.55 (2010-10-22)
+    1) System::copy() now sets `cron_job_heartbeat_last_run` to never on clone
+    2) System::export_sql() now includes `scheduled_task`
+    3) System::edit() now calls renamed method System_Edit::draw()
+    4) System::get_version() now handles 'bugtracker_status'
+  1.0.54 (2010-10-18)
+    1) Now DOESN'T check formwizard.php version and cs in System::get_version()
+       This class is now in standard classes folder for automigical inclusion
+  1.0.53 (2010-10-15)
+    1) Now checks formwizard.php version and cs in System::get_version()
+  1.0.52 (2010-10-08)
+    1) Removed system fields dealing with mail_queue - now handled by scheduler
+  1.0.51 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.50 (2010-10-01)
+    1) Removed internals of System::edit() into System_Edit class to drop
+       footprint for public and CRON type operations
+  1.0.49 (2010-09-27)
+    1) Updated fields list following last build
+    2) Added subscriber and subscription tables to tables list and export function
+    3) Akismet key test updated to show 'Pass' as green instead of 'Valid'
+  1.0.48 (2010-09-25)
+    1) Split out functions dealing with system health into System_Health class
+  1.0.47 (2010-09-21)
+    1) System::do_commands() for command=report_config now operates via
+      Report_Config::draw(), not Report::draw_config()
+  1.0.46 (2010-09-17)
+    1) Added clause in System::do_commands() for command=report_config
+  1.0.45 (2010-09-16)
+    1) Changes to System::export_sql() to include report_settings table
+  1.0.44 (2010-09-15)
+    1) Aded clause for command=report_filter_seq in System::do_commands()
+  1.0.43 (2010-08-13)
+    1) System::draw_css_include() no longer includes layout css - not everything
+       needs nor wants it, e.g. podcast miniplayer
+  1.0.42 (2010-08-12)
+    1) Fix for System::get_global_date_range() to use publish date for postings
+       except for events where effective date is used instead - gives results
+       that match search results (previously didn't)
+    1) Fix for System::get_global_date_YYYY_MM() to use publish date for postings
+       except for events where effective date is used instead - gives results
+       that match search results (previously didn't)
+  1.0.41 (2010-07-29)
+    1) Bug fix for System::export_sql() to deal with navbutton changes
+  1.0.40 (2010-07-27)
+    1) Removed System::clear_upgrade_flag() - now handled in Portal class directly
+  1.0.39 (2010-07-17)
+    1) System::do_commands() for navbutton_delete now handled entirely by
+       Navbutton::delete() - and no longer regenerates parent
+       since all buttons now include dropdown indicators anyway.
+  1.0.38 (2010-06-29)
+    1) Moved System::search_results() to Search::draw() and added more cps
+    2) Moved System::draw_search_controls() to Search::_draw_controls()
+    3) Moved System::draw_search_results() to Search::_draw_results()
+    4) Moved System::get_search_results() to Search::get_results()
+  1.0.37 (2010-06-09)
+    1) Updated field list in constructor
+    2) Changes to System::edit() to include smtp_port and bounce_email
+  1.0.36 (2010-06-03)
+    1) Bug fix for System::copy() to address change of `pages`.`componentID` to
+       `pages`.`componentID_post`
+  1.0.35 (2010-05-31)
+    1) Change to System::do_commands() for 'cart' to perform action then
+       redirect to original location, preserving anchor if set
+  1.0.34 (2010-05-18)
+    1) Changes to System::do_commands() -
+       a) Moved swf for audioplayer into new swf directory
+       b) Added new clause for jwplayer
+    2) Bug fix for System::edit() to save favicon and to make this field a
+       server_file type field to allow browsing for the file
+  1.0.33 (2010-05-12)
+    1) Added support for versioning of CSS and JS for formwizard
+  1.0.32 (2010-04-19)
+    1) Added handler for command='get_user_for_signin' in System::do_commands()
+  1.0.31 (2010-04-15)
+    1) Removed taxN_name, taxN_rate(1-4) and textFrench from constructorfield list
+    2) Removed System::get_taxes()
+  1.0.30 (2010-04-10)
+    1) Tweak to System::edit() to have striking enter from 'Remote URL' field
+       transfer click to 'Go' button for remote system test
+  1.0.29 (2010-03-30)
+    1) System::search_results() now passes search_memberID=0 to its helper
+       System::get_search_results()
+    2) System::get_search_results() now passes search_memberID if given to its
+       own helpers
+  1.0.28 (2010-03-18)
+    1) Changes to System::export_sql() to include new tax tables
+  1.0.27 (2010-03-18)
+    1) Added support for /js/rss_reader.js version for System::get_version()
+    2) Tax names and rates no longer set in System::edit()
+    3) Tax System in System::edit now sets defaultTaxZoneID from tax_zone table
+  1.0.26 (2010-03-12)
+    1) System::edit() - simplified various dropdown selectors that use listdata and
+       changed defaultTaxRegime to defaultTaxZone and set to have more than one option
+  1.0.25 (2010-02-17)
+    1) Updated System::export_sql() to include `membership_rule` and `report_defaults`
+       and more seriously to include select clause for
+       `community`, `community_membership` and `payment_methods` - only delete
+       was present
+  1.0.24 (2010-02-13)
+    1) Revised tables list to include new community and community_membership tables
+    2) Changes to System::export_sql() to include new comunity tables
+    3) System::draw_popup_layer() now responds to mode community_member_dashboard
+       and invokes new Community_Member object (not Community)
+  1.0.23 (2010-02-01)
+    1) Revised tables list used to determine from where data is deleted when a
+       system is removed
+  1.0.22 (2010-01-04)
+    1) Change to System::edit() to make membership rules controls available for
+       site admins IF Membership-Renewal feature is enabled for the site
+       (for CICBV)
+  1.0.21 (2009-12-02)
+    1) Tweak to System::_draw_config_code_documentation_button() to exclude
+       icons.gif and labels.gif
+    2) Bug fix for System::_draw_config_code_documentation_button() to return
+       correct CS for library files - was returning CS for widget!
+  1.0.20 (2009-11-28)
+    1) Changes to System::_draw_config_code_documentation_button() -
+       system now gets build history from changelog at the the top of each file
+       provided that they are consistently formatted with the latest changes at
+       the top of each file.
+  1.0.19 (2009-11-20)
+    1) Added case for 'set_parameters' to System::do_commands() - triggers
+       Component->set_parameters(values). Also re-alphabetised cases.
+    2) Tweaks to Code header code to omit leading / in libraries list
+    3) Major changes to whole search system to deal with rationalised parameters
+    4) System::do_commands() for 'email_to_friend' uses renamed method
+  1.0.18 (2009-11-17)
+    1) Small change to System::_draw_config_code_documentation_button() to
+       prevent class listing showing if no classes were changed
+  1.0.17 (2009-11-17)
+    1) System::_draw_config_build_info_button() now expanded and renamed to
+       System::_draw_config_code_documentation_button()
+       Now class_build button handles all changed classes and library files
+       This now provides full build documentation notes to speed up build packaging
+  1.0.16 (2009-11-05)
+    1) Was failing to update values for google_analytics_key and google_maps_key
+  1.0.15 (2009-10-21)
+    1) Change to System::__constructor to add in new bugtracker fields
+    2) Change to System::edit() to save bugtracker fields under 'Advanced' tab
+       and provide connection test for account details where given
+  1.0.14 (2009-10-17)
+    1) Change to System::edit() to bypass akismet status test only if
+       DEBUG_NO_INTERNET is both defined AND set to a value of 1
+    2) Many other changes to provide for CS on library files and for the display
+       of this in RSS feeds and System Edit panel
+  1.0.13 (2009-10-13)
+    1) Changes to System::edit()
+       a) to remove setting of custom_1 - custom_10 (never used)
+       b) to move email functions onto a new Email tab and
+       c) change permissions for some settings (e.g. google analytics key)
+  1.0.12 (2009-10-02)
+    1) Change to System::do_commands() to handle 'product_delete'
+  1.0.11 (2009-10-01)
+    1) Changes to System::draw_search_results() to deal with products if E-Commerce is enabled
+    2) Changes to System::draw_search_controls() to deal with products if E-Commerce is enabled
+    3) Changes to System::get_search_results() to include product search
+  1.0.10 (2009-09-30)
+    1) Change for export system to correct product_category display sort order
+  1.0.9 (2009-09-13)
+    1) Change to System::get_IDs_for_URLs() to return '' if URL_csv==''
+  1.0.8 (2009-08-17)
+    1) Working towards having all end-user viewable references to 'system'
+       changed to 'site' -
+    2) Removed redundant 'name' parameter for System::get_gateway()
+  1.0.7 (2009-08-08)
+    1) Minor changes to System::draw_css_include() to better format HTML for
+       Block_Layout includes
+  1.0.6 (2009-08-01)
+    1) System::_draw_config_classes_table() and System::_draw_config_tables_table()
+       now each include count of entries listed in title line
+  1.0.5 (2009-07-17)
+    1) System::_draw_config_code_build_info_button() now generates group formatting
+  1.0.4 (2009-07-15)
+    1) System::export_sql() now includes block_layouts
+    2) System::do_commands() now includes case for ecl_tags_get_js_options
+  1.0.3 (2009-07-11)
+    1) Removed separate version support for cpdf and ezpdf - now in classes library
+  1.0.2 (2009-07-10)
+    1) System::_draw_config_sql_build_info_button() now uses copy_clip() function to allow FF copy
+    2) System edit panel now includes link for button showing changes to classes
+  1.0.1 (2009-07-09)
+    1) Big changes to highlight differences in expected versus actual checksums for classes
+    2) Split system monitoring into sections with health at top
+  1.0.0 (2009-07-02)
+    Initial release

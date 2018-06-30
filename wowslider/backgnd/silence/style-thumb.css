@@ -1,0 +1,17 @@
+#wowslider-container$GallerySuffix$ .ws_thumbs .ws_selthumb img{
+    -moz-box-shadow: 0 0 5px #000000;
+    box-shadow: 0 0 5px #000000;
+	border:none;
+	opacity: 1;
+}
+
+#wowslider-container$GallerySuffix$ .ws_thumbs  a img{
+	margin:3px;
+	text-indent:0;
+    -moz-box-shadow: 0 0 5px #000000;
+    box-shadow: 0 0 5px #000000;
+	border:none;
+	max-width:none;
+	opacity: 0.6;
+}
+

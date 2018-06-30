@@ -1,0 +1,202 @@
+  1.0.59 (2014-02-19)
+    1) Removed direct setting of lat / lon fields in Report_Form::_prepare_fields()
+  1.0.58 (2014-01-28)
+    1) Eliminated all support for formwizard
+  1.0.57 (2014-01-04)
+    1) Changes to Report_Form::_get_js_form_code() to have popup contents enclosed
+       within a scrollable box area
+  1.0.56 (2013-10-25)
+    1) Added support for report_column_type 'fieldset_text_text_date'
+  1.0.55 (2013-10-08)
+    1) Added support for languages assignment
+  1.0.54 (2013-08-10)
+    1) Added support for type 'fieldset_map_loc_lat_lon' in Report_Form::_prepare_fields()
+    2) Added support for type 'fieldset_name_email' in Report_Form::_prepare_fields()
+    3) Added support for type 'fieldset_name_number' in Report_Form::_prepare_fields()
+  1.0.53 (2013-06-03)
+    1) New optional parameter allows for overriding of form width - used by
+       new class Component_Edit_Your_Profile to implement cp for form width
+  1.0.52 (2013-05-24)
+    1) New parameter for Report_Form::draw() - show_header (default=true)
+       Used to allow for custom header in wrapped package, e.g. in
+       Component_Signup
+  1.0.51 (2013-03-29)
+    1) Hidden fields were being displayed in between table rows - invalid XHTML
+       Changes to preparse these and display them at top instead
+  1.0.50 (2013-03-22)
+    1) Change to Report_Form::_prepare_fields() to handle 'media_information'
+  1.0.49 (2013-02-25)
+    1) Change to Report_Form::_prepare_field() on update operations to skip update
+       on any field where access is set to Report::COLUMN_NO_ACCESS -
+       This fixes bug where systems without multi-language feature were blanking
+       out language parent field when layouts were saved by regular admins
+  1.0.48 (2013-01-11)
+    1) Report_Form::_draw_form_field() tweak to not have labels directly connected
+       to fields of type 'iframe' or 'event_recurrence_settings' for XHTML strict
+  1.0.47 (2012-12-03)
+    1) Report_Form::_set_default_settings() now uses time() not mktime() as per
+       strict standards
+  1.0.46 (2012-10-09)
+    1) Tweaks to label width and field size now that table nesting is reduced
+  1.0.45 (2012-10-08)
+    1) Changes to correct case capitalisation for selectID and listTypeID now
+       that types are not pre-converted to lowercase before making comparisons
+       following last build
+    2) Now closes table for previous row before starting Section Tabs control
+       IF there have already been rows displayed - XHTML now strict compliance
+  1.0.44 (2012-10-08)
+    1) More use of member variables to reduce passed parameter count
+    2) Removed support for Handler operations in Report Form context -
+       Only used in form context in old HS site (abandoned years ago)
+  1.0.43 (2012-10-02)
+    1) Performed some tidy up to reduce number of globals used and to modularise
+       setup code and reduce number of parameters that need to be passed between
+       member methods
+  1.0.42 (2012-09-29)
+    1) Change in Report::draw() to pass 'readonly' value to  Report_Column::draw_label()
+       so that label won't have reference to non-existant ID when linked to read-only
+       'fields' (which are not actually fields at all)
+  1.0.41 (2012-09-14)
+    1) Report_Form::seq() now uses $this->do_sql_query() to perform query
+  1.0.40 (2012-08-03)
+    1) Added support in Report_Form::seq() for reports themselves
+  1.0.39 (2012-07-13)
+    1) Tweak to Report_Form::seq() for non-master admins, where systemID is not
+       given as a form post variable to use the current systemID instead.
+  1.0.38 (2012-07-12)
+    1) Major changes to seq() -
+         Now only affects items belonging to the same system
+         Now includes a switch clause that provides the following limitations:
+           for actions only affects those with the same sourceID and sourceType
+           for case_tasks only affects those with the same caseID
+           for poll_choice only affects those with the same pollID
+           for products only affects those with the same parent product
+           for tax_regimes only affects thise within the same tax zone
+           for tax_rules only affects those within the same tax_regime
+           for widgets - no extra limit is provided
+         Any other types attempting a seq opertation raise an error
+  1.0.37 (2012-07-11)
+    1) Moved Report::seq() into here as Report_Form::seq()
+  1.0.36 (2012-05-22)
+    1) Changes to Report::_prepare_field() for clause file_upload_to_userfile_folder
+       now uses get_path_safe_filename() added to codebase
+  1.0.35 (2012-05-19)
+    1) Changes to Report::_prepare_field() for clause file_upload_to_userfile_folder
+       to have the uploaded asset renamed to end up with a very web-safe filename
+  1.0.34 (2012-05-14)
+    1) Change to Report_Form::draw() to have Obj_Primary's ID set to the record ID
+       NOT the form ID as before.
+  1.0.33 (2012-05-03)
+    1) Tweak to Report_Form::_prepare_field() for type file_upload_to_userfile_folder
+       to have system check if the field was given before attempting to check further
+  1.0.32 (2012-04-20)
+    1) Change to Report_Form::draw() to have effective_date_start for notes
+       preset to today's date
+  1.0.31 (2012-03-12)
+    1) Changes to Report_Form::draw() to set values for permission fields
+       permGROUPVIEWER, permGROUPEDITOR, permCOMMUNITYADMIN and permUSERADMIN
+       when 'Posting-default-all-user-perms' feature is enabled.
+  1.0.30 (2011-12-11)
+    1) Changes in Report_Form::draw() and Report_Form::_prepare_field() to
+       use Report:: class constants to describe state of 'access' for report
+       columns to clarify code
+  1.0.29 (2011-11-21)
+    1) Report_Form::_do_post_operation_assignments() now handles 'push_products_assign'
+  1.0.28 (2011-11-18)
+    1) Report_Form::_do_post_operation_assignments() previously attempted (and failed)
+       to sort keywords before assigning them.   This is now handled in Record class.
+    2) Report_Form::_do_post_operation_assignments() now performs push-product assignments
+  1.0.27 (2011-10-27)
+    1) Report_Form::draw() now sets `effective_date_end` value to today if not given
+  1.0.26 (2011-10-25)
+    1) Added clause for 'event_recurrence_settings' in Report_Form::_prepare_fields()
+    2) Made Report_Form::_get_js_form_code() a static function
+  1.0.25 (2011-10-22)
+    1) Moved Report::get_js_form_code() into Report_Form class
+    2) Moved all code common to _do_insert() and _do_update() into a common
+       method Report_Form::_prepare_fields() to prevent duplication when defining
+       code to support combination field groups
+    3) Added clause to support 'event_dates_and_times' field set
+  1.0.24 (2011-10-19)
+    1) Changes to Report_Form::draw() to reference `effective_date_start`
+  1.0.23 (2011-09-08)
+    1) Report_Form::draw() reference to 'selector_action_operation' now
+       'combo_action_operation' and eliminated gratuatous use of global variables
+    2) Report_Form::draw() reference to 'selector_action_value' now 'combo_value'
+    3) Report_Form::draw() added clause for type 'combo_product_relationship'
+  1.0.22 (2011-09-03)
+    1) Report_Form::_prepare_field() changes:
+         Sets value for insert readonly to default
+         Exits if update readonly
+  1.0.21 (2011-08-18)
+    1) Report_Form::draw() for column type 'selector_action_operation' now also
+       passes report_name to Action::draw_operation_selector()
+  1.0.20 (2011-08-05)
+    1) Report_Form::_prepare_field() for 'html_multi_block' no longer filters
+       value through strip_nbsp_divs() - was a throwback to fckeditor days
+  1.0.19 (2011-08-04)
+    1) Removed support for report_column type 'embed_event_registrants'
+  1.0.18 (2011-07-17)
+    1) Tweak to change made in 1.0.16 for presetting initial value of field to
+       default to ONLY do this if a value was not provided in access URL -
+       was messing up preset date for new calendar events
+  1.0.17 (2011-07-16)
+    1) Report_Form::draw() now calls HTML class for section tabs
+  1.0.16 (2011-07-13)
+    1) Change to Report_Form::draw() to set initial value for new records to the
+       default value - this allows for elimination of an ugly per-report switch
+  1.0.15 (2011-06-17)
+    1) Report_Form::_do_insert() now instantiates an associated object to do insert
+       to allow properties associated with that object to affect the insert process
+  1.0.14 (2011-06-11)
+    1) Further refinements to Report_Form::_prepare_field() to
+       ensure that fixed-value fields apply their value -
+       was causing listdata items to be orphaned.
+  1.0.13 (2011-06-07)
+    1) Changes to Report_Form::_prepare_field() to ensure that disabled feature
+       fields apply their default values to new records
+  1.0.12 (2011-06-01)
+    1) Removed support for type 'combo_sp_value' in Report_Form::draw() -
+       now obsolete
+  1.0.11 (2011-04-13)
+    1) Report_Form::draw() now uses the parent method Report::get_ObjPrimary()
+       to load in the primary object - was trying to figure this out by itself
+  1.0.10 (2011-04-08)
+    1) Report_Form::draw() now loads modules based on the report name -
+       e.g. module.treb.php will load module.treb.php
+       The actual Object invoked may now be a different class in the same module
+  1.0.9 (2011-02-10)
+    1) Report_Form::_prepare_field() for types 'file_upload', 'media_file_upload'
+       and 'file_upload_to_userfile_folder' to work with XML virtual fields
+  1.0.8 (2011-01-10)
+    1) Added support for 'html_multi_language' in Report_Form::draw() so that
+       label is place online above rather than inline with control
+  1.0.7 (2011-01-08)
+    1) Added support for 'html_multi_language' in Report_Form::_prepare_field()
+  1.0.6 (2010-12-21)
+    1) Removed support for html_multi_resolution in Report_Form::_prepare_field()
+  1.0.5 (2010-12-13)
+    1) Changes to Report_Form::_do_insert() to handle combo fields used in
+       button style form for each button state. Closes bug ECC-54
+  1.0.4 (2010-10-19)
+    1) Report_Form::_do_insert() now calls insert() method
+  1.0.3 (2010-10-04)
+    1) Changes to setter and getter names for parent-based object properties
+  1.0.2 (2010-08-09)
+    1) Bug fix for setting correct value for fields of type selectID -
+       was messing up additions to the following forms:
+         actions_for_product, custom_treb_view_room_listings, campaign_pages
+         CUSTOM: CICBV: Marks Editor, person_groups, media_for_person
+         actions_for_custom_form, actions_for_report, group_members
+  1.0.1 (2010-07-28)
+    1) Moved Report_Form::_get_js_form_code() back into Report class
+    2) Bug fix in Report_Form::_field_type_skip_check() - was failing to set
+       critical preset fields (like type!) on insert operations
+    3) Bug fix in Report_Form::_prepare_field() - was't applying sql_constants
+  1.0.0 (2010-07-27)
+    1) Initial release - moved code from Report::draw_form() into here
+       and renamed as required
+    2) Parameter stacks simplified - more use made of the object instance to carry
+       member properties
+    3) Properly handles bulk update settings for individual fields in a combination
+       field block - e.g. individual swatches in a 'button_state_swatches' block
