@@ -1,8 +1,10 @@
 <?php
-define('VERSION_SYSTEM_EDIT', '1.0.31');
+define('VERSION_SYSTEM_EDIT', '1.0.31b');
 
 /*
 Version History:
+  1.0.31b (2018-06-30)
+    1) Removed a 'magic this' infraction
   1.0.31 (2014-12-31)
     1) Now uses OPTION_SEPARATOR constant not option_separator in System_Edit::_do_save()
 
@@ -1428,7 +1430,8 @@ class System_Edit extends System
 
     private function _setup_colour_schemeID()
     {
-        $this->_colour_schemeID =       Colour_Scheme::get_match($this->_get_ID());
+        $cs = new Colour_Scheme;
+        $this->_colour_schemeID =       $cs->get_match($this->_get_ID());
     }
 
     private function _setup_section_tabs()

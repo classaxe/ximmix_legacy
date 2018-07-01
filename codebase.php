@@ -16,56 +16,32 @@ define(
 //define("DOCTYPE", '<!DOCTYPE html SYSTEM "%HOST%/xhtml1-strict-with-iframe.dtd">');
 /*
 --------------------------------------------------------------------------------
-3.2.0.b.2364b (2018-06-30)
+3.2.0.c.2364c (2018-07-01)
 Summary:
-  1) Special release that adds CVV to beanstream for legacy 3.2.0.2364 build
+  1) Special release with essential fixes for PHP 7
 
 Final Checksums:
-  Classes     CS:27ac1f33
+  Classes     CS:568192b9
   Database    CS:48ba81d8
-  Libraries   CS:99d06fbd
+  Libraries   CS:65a013be
   Reports     CS:e64d2f5c
 
 Code Changes:
-  codebase.php                                                                                   3.2.0.b   (2018-06-30)
+  codebase.php                                                                                   3.2.0.b   (2018-07-01)
     1) Updated version information
-  classes/class.beanstream_gateway.php                                                           1.0.4     (2014-01-06)
-    1) Beanstream_Gateway::_setup_get_customer_name() now uses User class to
-       load name of customer - contacts cannot place orders
-  classes/class.component_collection_viewer.php                                                  1.0.50    (2015-02-11)
-    1) Now serves 404 when visitor attempts to select an invalid podcast.
-       This should dramatically reduce network traffic by search bots following invalid search paths.
-  classes/class.page.php                                                                         1.0.118   (2015-01-01)
-    1) Now uses globals contant for option_separator tag in Page::prepare_html_head() JS code
-    2) Fixed print form functionality - broken for a while I suspect
-    3) Now PSR-2 Compliant - except for line-length warning on Community::FIELDS
-  classes/class.payment_method.php                                                               1.0.10    (2014-01-29)
-    1) Payment_Method::draw_selector() changes to JS for loadTotalCost() to add extra newline
-  classes/class.report_form.php                                                                  1.0.60    (2015-01-06)
-    1) Report_Form::_do_update() now uses correct object to perform update and validates fields where possible
-    2) Now uses OPTION_SEPARATOR constant not option_separator in Report_Form::_prepare_field() for 'option_list'
-    3) Now PSR-2 Compliant
-  js/ckeditor/plugins/more/plugin.js                                                             1.0.3     (2015-02-02)
-    1) Now with unix-style line endings
-  js/ckeditor/plugins/zonebreak/plugin.js                                                        1.0.2     (2015-02-02)
-    1) Now with unix-style line endings
-  js/functions.js                                                                                1.0.267   (2015-02-02)
-    1) Now with unix-style line endings
+  classes/class.system_edit.php                                                                  1.0.31b   (2018-06-30)
+    1) Removed a 'magic this' infraction
+  db_connect.php                                                                                 1.0.3     (2018-06-30)
+    1) Removed references to mysql functions not supported in PHP 7
 
 2364.sql
   1) Set version information
 
 Promote:
   codebase.php                                        3.2.0.b
-  classes/  (5 files changed)
-    class.beanstream_gateway.php                    * 1.0.4     CS:a5c00f6a   * PROBLEM - VERSION NUMBER DID NOT CHANGE
-    class.component_collection_viewer.php             1.0.50    CS:bc06b2d6
-    class.page.php                                    1.0.118   CS:2656006d
-    class.payment_method.php                        * 1.0.10    CS:a227bebf   * PROBLEM - VERSION NUMBER DID NOT CHANGE
-    class.report_form.php                             1.0.60    CS:7f043c77
-  js/ckeditor/plugins/more/plugin.js                  1.0.3     CS:f8a47aed
-  js/ckeditor/plugins/zonebreak/plugin.js             1.0.2     CS:6fc05eb3
-  js/functions.js                                     1.1.267b3 CS:f9f20c2a
+  classes/  (1 file changed)
+    class.system_edit.php                             1.0.31b   CS:f56ebb92
+  db_connect.php                                      1.0.2b    CS:305507fd
 
   Bug:
     where two postings (e.g. gallery album and article) have same name and date
