@@ -1,7 +1,9 @@
 <?php
-define('VERSION_PAYMENT_METHOD','1.0.10');
+define('VERSION_PAYMENT_METHOD','1.0.10b');
 /*
 Version History:
+  1.0.11b (2018-08-09)
+    1) Special release that adds CVV to beanstream for legacy 3.2.0.2364 build
   1.0.10 (2014-01-29)
     1) Payment_Method::draw_selector() changes to JS for loadTotalCost() to add extra newline
 

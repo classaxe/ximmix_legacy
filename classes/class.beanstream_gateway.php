@@ -1,8 +1,10 @@
 <?php
-define('VERSION_BEANSTREAM_GATEWAY','1.0.4');
+define('VERSION_BEANSTREAM_GATEWAY','1.0.4b');
 
 /*
 Version History:
+  1.0.4b (2018-08-09)
+    1) Special release that adds CVV to beanstream for legacy 3.2.0.2364 build
   1.0.4 (2014-01-06)
     1) Beanstream_Gateway::_setup_get_customer_name() now uses User class to
        load name of customer - contacts cannot place orders

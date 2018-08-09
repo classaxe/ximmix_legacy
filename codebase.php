@@ -1,5 +1,5 @@
 <?php
-define("CODEBASE_VERSION", "3.2.0.b");
+define("CODEBASE_VERSION", "3.2.0.d");
 define("DEBUG_FORM", 0);
 define("DEBUG_REPORT", 0);
 define("DEBUG_MEMORY", 0);
@@ -16,34 +16,73 @@ define(
 //define("DOCTYPE", '<!DOCTYPE html SYSTEM "%HOST%/xhtml1-strict-with-iframe.dtd">');
 /*
 --------------------------------------------------------------------------------
-3.2.0.c.2364c (2018-07-01)
+3.2.0.d.2364d (2018-08-09)
 Summary:
-  1) Special release with essential fixes for PHP 7
+  1) Special release with essential fixes for PHP 7 and CVV fix for beanstream
 
 Final Checksums:
-  Classes     CS:568192b9
+  Classes     CS:aafa9e87
   Database    CS:48ba81d8
-  Libraries   CS:65a013be
+  Libraries   CS:f3ab0268
   Reports     CS:e64d2f5c
 
 Code Changes:
-  codebase.php                                                                                   3.2.0.b   (2018-07-01)
+  codebase.php                                                                                   3.2.0.d   (2018-08-09)
     1) Updated version information
+  classes/class.beanstream_gateway.php                                                           1.0.4b    (2018-08-09)
+    1) Special release that adds CVV to beanstream for legacy 3.2.0.2364 build
+  classes/class.component_collection_viewer.php                                                  1.0.50    (2015-02-11)
+    1) Now serves 404 when visitor attempts to select an invalid podcast.
+       This should dramatically reduce network traffic by search bots following invalid search paths.
+       Examples:
+          http://www.makingjesusknown.com/sermons/series/1-peter/fiery-trials-be-prepared (valid)
+          http://www.makingjesusknown.com/sermons/series/1-peter/fiery-trials-be-preparedxxxxx (now 404)
+          http://www.makingjesusknown.com/sermons/series/1-peter/fiery-trials-be-prepared/xxx (now 404)
+    2) Previously selecting a selected podcast for a given author failed to highlight the selected podcast.
+       This now works correctly.
+       Example:
+          http://www.makingjesusknown.com/sermons/speaker/bruce-smith/freedom-gods-call-for-you
+  classes/class.page.php                                                                         1.0.118   (2015-01-01)
+    1) Now uses globals contant for option_separator tag in Page::prepare_html_head() JS code
+    2) Fixed print form functionality - broken for a while I suspect
+    3) Now PSR-2 Compliant - except for line-length warning on Community::FIELDS
+  classes/class.payment_method.php                                                               1.0.11b   (2018-08-09)
+    1) Special release that adds CVV to beanstream for legacy 3.2.0.2364 build
+  classes/class.report_form.php                                                                  1.0.60    (2015-01-06)
+    1) Report_Form::_do_update() now uses correct object to perform update and validates fields where possible
+    2) Now uses OPTION_SEPARATOR constant not option_separator in Report_Form::_prepare_field() for 'option_list'
+    3) Now PSR-2 Compliant
   classes/class.system_edit.php                                                                  1.0.31b   (2018-06-30)
     1) Removed a 'magic this' infraction
   db_connect.php                                                                                 1.0.3     (2018-06-30)
-    1) Removed references to mysql functions not supported in PHP 7
+    1) Remobed references to mysql functions not supported in PHP 7
+  img.php                                                                                        2.0.82    (2015-01-11)
+    1) Now has Unix-style line endings
+  js/ckeditor/plugins/more/plugin.js                                                             1.0.3     (2015-02-02)
+    1) Now with unix-style line endings
+  js/ckeditor/plugins/zonebreak/plugin.js                                                        1.0.2     (2015-02-02)
+    1) Now with unix-style line endings
+  js/functions.js                                                                                1.0.267   (2015-02-02)
+    1) Now with unix-style line endings
 
-2364.sql
-  1) Set version information
+2364d.sql
+  1) Change Beanstream Gateway URL from https://www.beanstream.com to https://web.na.bambora.com
+  2) Set version information
 
 Promote:
-  codebase.php                                        3.2.0.b
-  classes/  (1 file changed)
+  codebase.php                                        3.2.0.d
+  classes/  (6 files changed)
+    class.beanstream_gateway.php                      1.0.4b    CS:9827de9c
+    class.component_collection_viewer.php             1.0.50    CS:bc06b2d6
+    class.page.php                                    1.0.118   CS:2656006d
+    class.payment_method.php                          1.0.10b   CS:2a607e70
+    class.report_form.php                             1.0.60    CS:7f043c77
     class.system_edit.php                             1.0.31b   CS:f56ebb92
   db_connect.php                                      1.0.2b    CS:305507fd
-
-  Bug:
+  img.php                                             2.0.82    CS:435ec407
+  js/ckeditor/plugins/more/plugin.js                  1.0.3     CS:f8a47aed
+  js/ckeditor/plugins/zonebreak/plugin.js             1.0.2     CS:6fc05eb3
+  js/functions.js                                     1.1.267b3 CS:f9f20c2a
     where two postings (e.g. gallery album and article) have same name and date
     search results will be shown instead:
     http://www.armsofjesus.org/2009/03/14/kariobangi-youth-center
