@@ -68,6 +68,7 @@ class Beanstream_Gateway {
     $this->_build_request_add_taxes();
     $this->_build_request_add_method_surcharge();
     $this->_build_request_add_totals();
+    $this->_build_request_hash_request();
   }
 
   protected function _build_request_header(){
@@ -199,6 +200,13 @@ class Beanstream_Gateway {
       .(isset($tax[1]) ? "&ordTax2Price=".$tax[1] : "");
   }
 
+  protected function _build_request_hash_request(){
+    if (!$this->_gateway_record['settings']['xml:hash']) {
+      return;
+    }
+    $this->_request.= "&hashValue=". sha1($this->_request . $this->_gateway_record['settings']['xml:hash']);
+  }
+
   protected function _get_beanstream_country($country){
     return Country::get_iso3166($country);
   }
@@ -223,6 +231,8 @@ class Beanstream_Gateway {
 
   protected function _setup($order){
     $this->_Obj_Order =             $order;
+    $Obj_System =                   new System(SYS_ID);
+    $Obj_System->xmlfields_decode($order->_gateway_record['settings']);
     $this->_gateway_record =        $order->_gateway_record;
     $this->_order_record =          $order->get_record();
     $this->_order_items =           $order->get_order_items();
